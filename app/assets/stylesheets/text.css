@@ -1,0 +1,31 @@
+/* Type & image presets - optional, not needed */
+
+body {
+font-size: 14px;
+line-height: 24px;		/* Changing this will break the baseline grid. */
+-webkit-text-size-adjust: none;		/* Stops the iPhone scalling type up */
+}
+
+p, ul, ol, blockquote {
+margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+}
+
+li {
+margin-bottom: 6px;
+}
+
+h1 {
+font-size: 30px;
+line-height: 36px;		/* Changing this will break the baseline grid. */
+margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+}
+
+h2 {
+font-size: 20px;
+margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+}
+
+h3 {
+font-size: 16px;
+margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+}
