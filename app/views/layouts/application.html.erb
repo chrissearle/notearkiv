@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Notearkiv2</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Notearkiv" %></title>
   <%= stylesheet_link_tag "grid", :media => "all" %>
   <!--[if lte IE 7]>
   <%= stylesheet_link_tag "ie", :media => "all" %>
@@ -15,6 +15,15 @@
 </head>
 <body>
 <div class="container">
+
+  <div class="row titlerow">
+    <div class="fourteencol">
+      <h1><%= content_for?(:title) ? yield(:title) : "Notearkiv" %></h1>
+    </div>
+    <div class="twocol last">
+      <h2><a href="http://www.ochs.no">OCHS</a></h2>
+    </div>
+  </div>
 
   <%= yield %>
 
