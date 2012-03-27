@@ -1,0 +1,26 @@
+<h1>Composers</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @composers.each do |composer| %>
+      <tr>
+        <td><%= composer.id %></td>
+        <td><%= link_to composer.name, composer_path(composer) %></td>
+        <td>
+          <%= link_to 'Edit', edit_composer_path(composer), :class => 'btn btn-mini' %>
+          <% if composer.deletable? %>
+              <%= link_to 'Destroy', composer_path(composer), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_composer_path, :class => 'btn btn-primary' %>

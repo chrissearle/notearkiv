@@ -1,4 +1,6 @@
 Notearkiv::Application.routes.draw do
+  resources :composers
+
   resources :genres
 
   # The priority is based upon order of creation:

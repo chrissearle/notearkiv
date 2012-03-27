@@ -1,21 +1,23 @@
 <h1>Genres</h1>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
   </thead>
   <tbody>
-    <% @genres.each do |genre| %>
+  <% @genres.each do |genre| %>
       <tr>
         <td><%= link_to genre.name, genre_path(genre) %></td>
         <td>
           <%= link_to 'Edit', edit_genre_path(genre), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', genre_path(genre), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <% if genre.deletable? %>
+              <%= link_to 'Destroy', genre_path(genre), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <% end %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

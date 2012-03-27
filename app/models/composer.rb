@@ -1,4 +1,4 @@
-class Genre < ActiveRecord::Base
+class Composer < ActiveRecord::Base
 #  has_many :notes
 #  has_many :evensongs
 
@@ -11,5 +11,4 @@ class Genre < ActiveRecord::Base
 #    notes.size() == 0 && evensongs.size() == 0
     true
   end
-
 end
