@@ -200,3 +200,15 @@ Composer.create([
                     {id: 170, name: "Cornelius, Peter"},
                     {id: 171, name: "Victoria, Tomas Luis de (1548-1611)"}
                 ])
+
+Period.delete_all
+
+Period.create([
+                  {id: 1, name: "Barokk"},
+                  {id: 2, name: "Klassisisme"},
+                  {id: 3, name: "Nasjonalromantikk"},
+                  {id: 4, name: "Nyere"},
+                  {id: 5, name: "Renessanse"},
+                  {id: 6, name: "Romantikken"},
+                  {id: 7, name: "Trad."}
+              ])

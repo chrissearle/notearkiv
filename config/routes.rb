@@ -1,4 +1,6 @@
 Notearkiv::Application.routes.draw do
+  resources :periods
+
   resources :composers
 
   resources :genres

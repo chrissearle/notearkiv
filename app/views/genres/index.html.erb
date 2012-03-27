@@ -12,9 +12,6 @@
         <td><%= link_to genre.name, genre_path(genre) %></td>
         <td>
           <%= link_to 'Edit', edit_genre_path(genre), :class => 'btn btn-mini' %>
-          <% if genre.deletable? %>
-              <%= link_to 'Destroy', genre_path(genre), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-          <% end %>
         </td>
       </tr>
   <% end %>
