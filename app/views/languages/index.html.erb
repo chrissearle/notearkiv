@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to language.name, language_path(language) %></td>
         <td>
-          <%= link_to 'Edit', edit_language_path(language), :class => 'btn btn-mini' %>
+          <%= link_to t("list.button.edit"), edit_language_path(language), :class => 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>

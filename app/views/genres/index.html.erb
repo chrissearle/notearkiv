@@ -1,21 +1,24 @@
-<h1>Genres</h1>
+<h1><%= t('model.genre.list.title') %></h1>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Actions</th>
+    <th><%= t('model.genre.list.name.title') %></th>
+    <th><%= t('list.actions.title') %></th>
   </tr>
   </thead>
   <tbody>
   <% @genres.each do |genre| %>
       <tr>
-        <td><%= link_to genre.name, genre_path(genre) %></td>
+        <td><%= genre.name %></td>
         <td>
-          <%= link_to 'Edit', edit_genre_path(genre), :class => 'btn btn-mini' %>
+          <%= link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini' %>
+          <% if genre.deletable? %>
+              <%= link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+          <% end %>
         </td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_genre_path, :class => 'btn btn-primary' %>
+<%= link_to t('list.button.new'), new_genre_path, :class => 'btn btn-primary' %>

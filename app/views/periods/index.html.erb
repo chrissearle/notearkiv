@@ -1,21 +1,24 @@
-<h1>Periods</h1>
+<h1><%= t('model.period.list.title') %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Actions</th>
+      <th><%= t('model.period.list.name.title') %></th>
+      <th><%= t('list.actions.title') %></th>
     </tr>
   </thead>
   <tbody>
     <% @periods.each do |period| %>
       <tr>
-        <td><%= link_to period.name, period_path(period) %></td>
+        <td><%=  period.name %></td>
         <td>
-          <%= link_to 'Edit', edit_period_path(period), :class => 'btn btn-mini' %>
+          <%= link_to t('list.button.edit'), edit_period_path(period), :class => 'btn btn-mini' %>
+          <% if period.deletable? %>
+              <%= link_to t('list.button.delete'), period_path(period), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_period_path, :class => 'btn btn-primary' %>
+<%= link_to t('list.button.new'), new_period_path, :class => 'btn btn-primary' %>

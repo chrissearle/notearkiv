@@ -1,6 +1,6 @@
 <%= form_for @period, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Period</legend>
+    <legend><%= t('model.period.title') %></legend>
 
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
@@ -11,7 +11,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', periods_path, :class => 'btn' %>
+      <%= link_to t("form.button.cancel"), periods_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

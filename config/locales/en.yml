@@ -1,5 +1,87 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      create: "Create %{model}"
+      update: "Save Changes"
+      composer:
+        create: "Create composer"
+      genre:
+        create: "Create genre"
+      period:
+        create: "Create epoch"
+      user_session:
+        create: "Log In"
+    label:
+      user_session:
+        username: "User Name"
+        password: "Password"
+  user_session:
+    form:
+      legend: "Log in"
+    link:
+      forgotten_password: "Forgotten your password?"
+    flash:
+      login:
+        error: "Invalid username or password."
+      onetime:
+        warning: "One-time login failed."
+  flash:
+    authentication:
+      notice: "Sorry - you don't have access to that."
+  form:
+    button:
+      cancel: "Cancel"
+      edit: "Edit"
+      back: "Back"
+      delete: "Delete"
+  list:
+    button:
+      edit: "Edit"
+      new: "New"
+      delete: "Delete"
+    actions:
+      title: "Actions"
+    delete:
+      confirm: "Are you sure?"
+  model:
+    composer:
+      title: "Composer"
+      list:
+        title: "Composers"
+        name:
+          title: "Name"
+      create:
+        ok: "Composer was successfully created."
+      update:
+        ok: "Composer was successfully updated."
+      delete:
+        ok: "Composer deleted."
+    name:
+      title: "Name"
+    genre:
+      title: "Genre"
+      list:
+        title: "Genres"
+        name:
+          title: "Name"
+      create:
+        ok: "Genre was successfully created."
+      update:
+        ok: "Genre was successfully updated."
+      delete:
+        ok: "Genre deleted."
+    period:
+      create:
+        ok: "Epoch was successfully created."
+      update:
+        ok: "Epoch was successfully updated."
+      delete:
+        ok: "Epoch deleted."
+      title: "Epoch"
+      list:
+        title: "Epochs"
+        name:
+          title: "Name"
+    user:
+      update:
+        ok: "User updated."

@@ -1,21 +1,24 @@
-<h1>Composers</h1>
+<h1><%= t('model.composer.list.title') %></h1>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Actions</th>
+    <th><%= t('model.composer.list.name.title') %></th>
+    <th><%= t('list.actions.title') %></th>
   </tr>
   </thead>
   <tbody>
   <% @composers.each do |composer| %>
       <tr>
-        <td><%= link_to composer.name, composer_path(composer) %></td>
+        <td><%= composer.name %></td>
         <td>
-          <%= link_to 'Edit', edit_composer_path(composer), :class => 'btn btn-mini' %>
+          <%= link_to t('list.button.edit'), edit_composer_path(composer), :class => 'btn btn-mini' %>
+          <% if composer.deletable? %>
+              <%= link_to t('list.button.delete'), composer_path(composer), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+          <% end %>
         </td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_composer_path, :class => 'btn btn-primary' %>
+<%= link_to t('list.button.new'), new_composer_path, :class => 'btn btn-primary' %>

@@ -46,3 +46,6 @@ gem 'jquery-rails'
 gem 'thin'
 
 gem 'bourbon'
+
+gem 'authlogic'
+gem 'declarative_authorization'

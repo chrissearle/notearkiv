@@ -1,83 +1,42 @@
 class PeriodsController < ApplicationController
-  # GET /periods
-  # GET /periods.json
+  filter_access_to :all
+
   def index
     @periods = Period.ordered
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @periods }
-    end
   end
 
-  # GET /periods/1
-  # GET /periods/1.json
-  def show
-    @period = Period.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @period }
-    end
-  end
-
-  # GET /periods/new
-  # GET /periods/new.json
   def new
     @period = Period.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @period }
-    end
   end
 
-  # GET /periods/1/edit
   def edit
     @period = Period.find(params[:id])
   end
 
-  # POST /periods
-  # POST /periods.json
   def create
     @period = Period.new(params[:period])
 
-    respond_to do |format|
-      if @period.save
-        format.html { redirect_to @period, notice: 'Period was successfully created.' }
-        format.json { render json: @period, status: :created, location: @period }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
+    if @period.save
+      redirect_to periods_url, notice: t('model.period.create.ok')
+    else
+      render action: "new"
     end
   end
 
-  # PUT /periods/1
-  # PUT /periods/1.json
   def update
     @period = Period.find(params[:id])
 
-    respond_to do |format|
-      if @period.update_attributes(params[:period])
-        format.html { redirect_to @period, notice: 'Period was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
+    if @period.update_attributes(params[:period])
+      redirect_to periods_url, notice: t('model.period.update.ok')
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /periods/1
-  # DELETE /periods/1.json
   def destroy
     @period = Period.find(params[:id])
     @period.destroy
 
-    respond_to do |format|
-      format.html { redirect_to periods_url }
-      format.json { head :no_content }
-    end
+    redirect_to periods_url, notice: t('model.period.delete.ok')
   end
 end

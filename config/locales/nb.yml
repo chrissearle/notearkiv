@@ -1,0 +1,89 @@
+nb:
+  helpers:
+    submit:
+      create: "Ny %{model}"
+      update: "Lagre"
+      composer:
+        create: "Lag ny komponist"
+      genre:
+        create: "Lag ny genre"
+      period:
+        create: "Lag ny epoke"
+      user_session:
+        create: "Logg på"
+    cancel:
+
+    label:
+      user_session:
+        username: "Brukernavn"
+        password: "Passord"
+  user_session:
+    form:
+      legend: "Logg på"
+    link:
+      forgotten_password: "Glemt passord?"
+    flash:
+      login:
+        error: "Ugyldig brukernavn eller passord."
+      onetime:
+        warning: "Kunne ikke bruke denne engangs innlogging."
+  flash:
+    authentication:
+      notice: "Beklager - du har ikke tilgang til dette."
+  form:
+    button:
+      cancel: "Avbryt"
+      edit: "Endre"
+      back: "Tilbake"
+      delete:
+  list:
+    button:
+      edit: "Endre"
+      new: "Ny"
+      delete: "Slett"
+    actions:
+      title: "Valg"
+    delete:
+      confirm: "Er du sikker?"
+  model:
+    composer:
+      title: "Komponist"
+      list:
+        title: "Komponister"
+        name:
+          title: "Navn"
+      create:
+        ok: "Komponist laget."
+      update:
+        ok: "Komponist oppdatert."
+      delete:
+        ok: "Komponist slettet."
+    name:
+      title: "Navn"
+    genre:
+      title: "Genre"
+      list:
+        title: "Genres"
+        name:
+          title: "Navn"
+      create:
+        ok: "Genre laget."
+      update:
+        ok: "Genre oppdatert."
+      delete:
+        ok: "Genre slettet."
+    period:
+      create:
+        ok: "Epoke laget."
+      update:
+        ok: "Epoke oppdatert."
+      delete:
+        ok: "Epoke slettet."
+      title: "Epoke"
+      list:
+        title: "Epoker"
+        name:
+          title: "Navn"
+    user:
+      update:
+        ok: "Bruker oppdatert."

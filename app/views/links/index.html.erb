@@ -13,7 +13,7 @@
         <td><%= link_to link.title, link_path(link) %></td>
         <td><%= link_to link.title, link.url %></td>
         <td>
-          <%= link_to 'Edit', edit_link_path(link), :class => 'btn btn-mini' %>
+          <%= link_to t("list.button.edit"), edit_link_path(link), :class => 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>

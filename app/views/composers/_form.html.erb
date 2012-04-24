@@ -1,6 +1,6 @@
 <%= form_for @composer, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Composer</legend>
+    <legend><%= t('model.composer.title') %></legend>
 
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
@@ -11,7 +11,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', composers_path, :class => 'btn' %>
+      <%= link_to t('form.button.cancel'), composers_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

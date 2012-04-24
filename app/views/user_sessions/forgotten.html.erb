@@ -1,0 +1,21 @@
+<% title "Glemt passord" %>
+
+
+<h4>Hvis du har glemt passordet ditt - kan du få tilsendt en lenke hvor du kan resette passordet.</h4>
+
+<%= form_tag '/reset_password', :html => {:class => 'form-horizontal'}, :method => :post do %>
+    <fieldset>
+      <legend>Glemt Passord</legend>
+
+      <div class="control-group">
+        <%= label_tag :email, :class => 'control-label' %>
+        <div class="controls">
+          <%= text_field_tag :email, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= submit_tag nil, :class => 'btn btn-primary' %>
+      </div>
+    </fieldset>
+<% end %>

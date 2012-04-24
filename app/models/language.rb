@@ -12,5 +12,4 @@ class Language < ActiveRecord::Base
 
     true
   end
-
 end

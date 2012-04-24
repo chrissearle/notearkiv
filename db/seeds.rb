@@ -212,3 +212,33 @@ Period.create([
                   {id: 6, name: "Romantikken"},
                   {id: 7, name: "Trad."}
               ])
+
+UserRoleAssignment.delete_all
+User.delete_all
+Role.delete_all
+
+Role.create([
+                {:id => 1, :name => "admin"},
+                {:id => 2, :name => "normal"},
+                {:id => 3, :name => "siteadmin"},
+                {:id => 4, :name => "account"},
+                {:id => 5, :name => "import"}
+            ])
+
+User.create([
+                {:id => 1,
+                 :username => "chris",
+                 :email => "chris@chrissearle.org",
+                 :persistence_token => "8111dc883d5fa96545168a9bc70de9cdbbacbffb8590ddef937e916d2992f569b364bee0a46ab4881dea4507bbf739408669cc934b35e04d85a6ead143701c27",
+                 :crypted_password => "29efcc726202a3681f200d6a3ad1c35d072b922b1fa6bafdf190624b9d1e67b7d89a4379fe6a55bf2c7a12179c4dcc0b73f57c77f0c7be99cd6afc0e4402f89e",
+                 :password_salt => "5qcZ92XXSP6C5aEdkVtN",
+                 :name => "Chris Searle"
+                }
+            ])
+
+UserRoleAssignment.create([
+                              {:role_id => 1, :user_id => 1},
+                              {:role_id => 3, :user_id => 1},
+                              {:role_id => 4, :user_id => 1},
+                              {:role_id => 5, :user_id => 1}
+                          ])
