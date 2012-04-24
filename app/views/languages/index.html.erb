@@ -1,0 +1,21 @@
+<h1>Languages</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @languages.each do |language| %>
+      <tr>
+        <td><%= link_to language.name, language_path(language) %></td>
+        <td>
+          <%= link_to 'Edit', edit_language_path(language), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_language_path, :class => 'btn btn-primary' %>
