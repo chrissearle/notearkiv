@@ -1,0 +1,23 @@
+<h1>Links</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link_to link.title, link_path(link) %></td>
+        <td><%= link_to link.title, link.url %></td>
+        <td>
+          <%= link_to 'Edit', edit_link_path(link), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_link_path, :class => 'btn btn-primary' %>
