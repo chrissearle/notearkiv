@@ -1,4 +1,6 @@
 Notearkiv::Application.routes.draw do
+  resources :languages
+
   resources :links
 
   resources :periods

@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   # TODO - has to have @note or @evensong owner
-  
+
   # GET /links
   # GET /links.json
   def index
