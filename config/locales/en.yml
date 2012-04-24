@@ -11,13 +11,17 @@ en:
         create: "Create epoch"
       user_session:
         create: "Log In"
+        forgotten: "Send me the link"
     label:
       user_session:
         username: "User Name"
         password: "Password"
+        email: "Your registered e-mail address"
   user_session:
     form:
       legend: "Log in"
+      forgotten:
+        legend: "Forgotten your password?"
     link:
       forgotten_password: "Forgotten your password?"
     flash:
@@ -85,3 +89,8 @@ en:
     user:
       update:
         ok: "User updated."
+  user:
+    session:
+      form:
+        forgotten:
+          intro: "If you have forgotten your password - we can send a link where you can reset it."

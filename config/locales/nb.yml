@@ -11,15 +11,17 @@ nb:
         create: "Lag ny epoke"
       user_session:
         create: "Logg på"
-    cancel:
-
+        forgotten: "Send meg lenken"
     label:
       user_session:
         username: "Brukernavn"
         password: "Passord"
+        email: "Ditt registrerte e-postadresse"
   user_session:
     form:
       legend: "Logg på"
+      forgotten:
+        legend: "Glemt passord?"
     link:
       forgotten_password: "Glemt passord?"
     flash:
@@ -87,3 +89,8 @@ nb:
     user:
       update:
         ok: "Bruker oppdatert."
+  user:
+    session:
+      form:
+        forgotten:
+          intro: "Hvis du har glemt passordet ditt - kan du få tilsendt en lenke hvor du kan resette passordet."
