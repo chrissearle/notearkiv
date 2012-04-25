@@ -1,22 +1,18 @@
-<h1><%= @user.username %></h1>
+<h1><%= @user.display_name %></h1>
 
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
   <thead>
   <tr>
+    <th><%= t('account.list.username.title') %></th>
     <th><%= t('account.list.email.title') %></th>
     <th><%= t('account.list.last.title') %></th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td>E-post</td>
+    <td><%= @user.username %></td>
     <td><%= @user.email %></td>
-  </tr>
-  <tr>
-    <td>Sist pålogging</td>
-    <td>
-      <%= @user.current_login_at %>
-    </td>
+    <td><%= @user.current_login_at %></td>
   </tr>
   </tbody>
 </table>
