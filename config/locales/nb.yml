@@ -142,3 +142,7 @@ nb:
       admin: "Admin"
       account: "Konto"
     logout: "Logg av"
+  right:
+    column:
+      user:
+        header: "Innlogget bruker"

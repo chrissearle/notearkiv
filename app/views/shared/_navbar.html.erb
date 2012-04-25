@@ -1,0 +1,66 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">OCHS</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <% if current_user %>
+              <% #if permitted_to? :index, :notes     %>
+              <li><a href="#"><%= t('model.note.list.title') %></a></li>
+              <% #end     %>
+              <% #if permitted_to? :index, :evensongs     %>
+              <li><a href="#"><%= t('model.evensong.list.title') %></a></li>
+              <% #end     %>
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+                <a href="#"
+                   class="dropdown-toggle"
+                   data-toggle="dropdown">
+                  <%= t('menu.dropdown.admin') %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% if permitted_to? :index, :composers %>
+                      <li><%= link_to t('model.composer.list.title'), composers_path %></li>
+                  <% end %>
+                  <% if permitted_to? :index, :genres %>
+                      <li><%= link_to t('model.genre.list.title'), genres_path %></li>
+                  <% end %>
+                  <% if permitted_to? :index, :periods %>
+                      <li><%= link_to t('model.period.list.title'), periods_path %></li>
+                  <% end %>
+                  <% if permitted_to? :index, :languages %>
+                      <li><%= link_to t('model.language.list.title'), languages_path %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+                <a href="#"
+                   class="dropdown-toggle"
+                   data-toggle="dropdown">
+                  <%= t('menu.dropdown.account') %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% if permitted_to? :index, :accounts %>
+                      <li><%= link_to t('account.list.title'), accounts_path %></li>
+                  <% end %>
+                  <% if permitted_to? :index, :users %>
+                      <li><%= link_to 'Brukere', users_path %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <li><%= link_to t('menu.logout'), logout_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

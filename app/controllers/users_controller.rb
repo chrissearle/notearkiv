@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   before_filter :get_user, :only => [:edit, :show, :update]
 
+  layout "wide"
+
   def index
     @users = User.all
   end

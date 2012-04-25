@@ -142,3 +142,7 @@ en:
       admin: "Admin"
       account: "Account"
     logout: "Log out"
+  right:
+    column:
+      user:
+        header: "Current User"
