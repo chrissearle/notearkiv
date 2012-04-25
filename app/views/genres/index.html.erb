@@ -1,4 +1,7 @@
 <h1><%= t('model.genre.list.title') %></h1>
+
+<%= render :partial => 'actions' %>
+
 <table class="table table-striped table-condensed">
   <thead>
   <tr>
@@ -25,8 +28,4 @@
   </tbody>
 </table>
 
-<% if permitted_to? :new, :genres %>
-    <div class="well">
-      <%= link_to t('list.button.new'), new_genre_path, :class => 'btn btn-primary' %>
-    </div>
-<% end %>
+<%= render :partial => 'actions' %>
