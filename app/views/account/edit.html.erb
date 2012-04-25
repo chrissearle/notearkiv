@@ -1,0 +1,34 @@
+<%= form_for @user, :html => {:class => 'form-horizontal'}, :url => {:controller => "account", :action => 'update'} do |f| %>
+    <fieldset>
+      <legend><%= t('account.form.title') %></legend>
+
+      <div class="control-group">
+        <%= f.label :password, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.password_field :password, :class => 'text_field' %>
+          <p class="help-block"><%= t('account.form.password.help') %></p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :password_confirmation, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :email, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :email, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('form.button.cancel'), account_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>
+
+

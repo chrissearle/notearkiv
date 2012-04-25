@@ -13,6 +13,10 @@ en:
         create: "Log In"
         forgotten: "Send me the link"
     label:
+      user:
+        password: "Password"
+        password_confirmation: "Confirm password"
+        email: "E-mail address"
       user_session:
         username: "User Name"
         password: "Password"
@@ -94,3 +98,13 @@ en:
       form:
         forgotten:
           intro: "If you have forgotten your password - we can send a link where you can reset it."
+  account:
+    list:
+      email:
+        title: "E-mail"
+      last:
+        title: "Last login"
+    form:
+      title: "My Account"
+      password:
+        help: "Leave password fields blank to keep your existing password."

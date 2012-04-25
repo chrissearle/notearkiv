@@ -1,0 +1,27 @@
+<h1><%= @user.username %></h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= t('account.list.email.title') %></th>
+    <th><%= t('account.list.last.title') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>E-post</td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td>Sist pålogging</td>
+    <td>
+      <%= @user.current_login_at %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<% if permitted_to? :edit, @user, :context => :account %>
+    <%= link_to t('list.button.edit'), edit_account_path(@user), :class => 'btn btn-primary' %>
+<% end %>
+

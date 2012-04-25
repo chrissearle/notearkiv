@@ -13,6 +13,10 @@ nb:
         create: "Logg på"
         forgotten: "Send meg lenken"
     label:
+      user:
+        password: "Passord"
+        password_confirmation: "Bekreft passord"
+        email: "Epost adresse"
       user_session:
         username: "Brukernavn"
         password: "Passord"
@@ -94,3 +98,13 @@ nb:
       form:
         forgotten:
           intro: "Hvis du har glemt passordet ditt - kan du få tilsendt en lenke hvor du kan resette passordet."
+  account:
+    list:
+      email:
+        title: "Epost"
+      last:
+        title: "Sist pålogging"
+    form:
+      title: "Min konto"
+      password:
+        help: "La passord feltene være tom for å beholde eksisterende passord."
