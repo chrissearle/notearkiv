@@ -1,0 +1,28 @@
+Create a backup
+
+$ heroku pgbackups:capture --app notearkiv
+
+List backups
+
+$ heroku pgbackups --app notearkiv
+
+Get a URL for a backup
+
+$ heroku pgbackups:url ID --app notearkiv
+
+Remove a backup
+
+$ heroku pgbackups:destroy ID --app notearkiv
+
+Grab and download
+
+$ curl -o latest.dump `heroku pgbackups:url --app notearkiv`
+
+Load a downloaded backup
+
+$ pg_restore --verbose --clean --no-acl --no-owner -d notearkiv-dev latest.dump
+
+
+More
+
+https://devcenter.heroku.com/articles/pgbackups
