@@ -133,13 +133,15 @@ en:
       last:
         title: "Last login"
       title: "My account"
+      username:
+        title: "Login"
     form:
       title: "My Account"
       password:
         help: "Leave password fields blank to keep your existing password."
   menu:
     dropdown:
-      admin: "Admin"
+      admin: "Categories"
       account: "Account"
     logout: "Log out"
   right:

@@ -133,13 +133,15 @@ nb:
       last:
         title: "Sist pålogging"
       title: "Min konto"
+      username:
+        title: "Brukernavn"
     form:
       title: "Min konto"
       password:
         help: "La passord feltene være tom for å beholde eksisterende passord."
   menu:
     dropdown:
-      admin: "Admin"
+      admin: "Kategorier"
       account: "Konto"
     logout: "Logg av"
   right:
