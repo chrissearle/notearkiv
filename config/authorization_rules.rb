@@ -19,8 +19,8 @@ authorization do
     has_permission_on [:search], :to => [:search, :results]
   end
 
-  role :account do
-    has_permission_on [:account], :to => [:index, :edit, :update]
+  role :accounts do
+    has_permission_on [:accounts], :to => [:index, :edit, :update]
   end
 
   role :normal do

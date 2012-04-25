@@ -1,6 +1,6 @@
 # coding: UTF-8
 
-class AccountController < ApplicationController
+class AccountsController < ApplicationController
   filter_access_to :all
 
   before_filter :get_user, :only => [:index, :edit, :update]

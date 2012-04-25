@@ -7,12 +7,22 @@ en:
         create: "Create composer"
       genre:
         create: "Create genre"
+      language:
+        create: "Create language"
       period:
         create: "Create epoch"
       user_session:
         create: "Log In"
         forgotten: "Send me the link"
     label:
+      composer:
+        name: "Name"
+      genre:
+        name: "Name"
+      language:
+        name: "Name"
+      period:
+        name: "Name"
       user:
         password: "Password"
         password_confirmation: "Confirm password"
@@ -93,6 +103,24 @@ en:
     user:
       update:
         ok: "User updated."
+    note:
+      list:
+        title: "Music"
+    evensong:
+      list:
+        title: "Evensong"
+    language:
+      list:
+        title: "Languages"
+        name:
+          title: "Name"
+      create:
+        ok: "Language created."
+      update:
+        ok: "Language updated."
+      delete:
+        ok: "Language deleted."
+      title: "Language"
   user:
     session:
       form:
@@ -104,7 +132,13 @@ en:
         title: "E-mail"
       last:
         title: "Last login"
+      title: "My account"
     form:
       title: "My Account"
       password:
         help: "Leave password fields blank to keep your existing password."
+  menu:
+    dropdown:
+      admin: "Admin"
+      account: "Account"
+    logout: "Log out"

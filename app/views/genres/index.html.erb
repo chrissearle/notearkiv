@@ -11,9 +11,13 @@
       <tr>
         <td><%= genre.name %></td>
         <td>
-          <%= link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini' %>
-          <% if genre.deletable? %>
-              <%= link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+          <% if permitted_to? :edit, genre %>
+              <%= link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini' %>
+          <% end %>
+          <% if permitted_to? :destroy, genre %>
+              <% if genre.deletable? %>
+                  <%= link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+              <% end %>
           <% end %>
         </td>
       </tr>
@@ -21,4 +25,8 @@
   </tbody>
 </table>
 
-<%= link_to t('list.button.new'), new_genre_path, :class => 'btn btn-primary' %>
+<% if permitted_to? :new, :genres %>
+    <div class="well">
+      <%= link_to t('list.button.new'), new_genre_path, :class => 'btn btn-primary' %>
+    </div>
+<% end %>

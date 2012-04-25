@@ -7,12 +7,22 @@ nb:
         create: "Lag ny komponist"
       genre:
         create: "Lag ny genre"
+      language:
+        create: "Lag ny language"
       period:
         create: "Lag ny epoke"
       user_session:
         create: "Logg på"
         forgotten: "Send meg lenken"
     label:
+      composer:
+        name: "Navn"
+      genre:
+        name: "Navn"
+      language:
+        name: "Navn"
+      period:
+        name: "Navn"
       user:
         password: "Passord"
         password_confirmation: "Bekreft passord"
@@ -93,6 +103,24 @@ nb:
     user:
       update:
         ok: "Bruker oppdatert."
+    note:
+      list:
+        title: "Noter"
+    evensong:
+      list:
+        title: "Evensongnoter"
+    language:
+      list:
+        title: "Språk"
+        name:
+          title: "Navn"
+      create:
+        ok: "Språk laget."
+      update:
+        ok: "Språk oppdatert."
+      delete:
+        ok: "Språk slettet."
+      title: "Språk"
   user:
     session:
       form:
@@ -104,7 +132,13 @@ nb:
         title: "Epost"
       last:
         title: "Sist pålogging"
+      title: "Min konto"
     form:
       title: "Min konto"
       password:
         help: "La passord feltene være tom for å beholde eksisterende passord."
+  menu:
+    dropdown:
+      admin: "Admin"
+      account: "Konto"
+    logout: "Logg av"

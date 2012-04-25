@@ -1,21 +1,32 @@
-<h1>Languages</h1>
+<h1><%= t('model.language.list.title') %></h1>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th><%= t('model.language.list.name.title') %></th>
+    <th><%= t('list.actions.title') %></th>
+  </tr>
   </thead>
   <tbody>
-    <% @languages.each do |language| %>
+  <% @languages.each do |language| %>
       <tr>
-        <td><%= link_to language.name, language_path(language) %></td>
+        <td><%= language.name %></td>
         <td>
-          <%= link_to t("list.button.edit"), edit_language_path(language), :class => 'btn btn-mini' %>
+          <% if permitted_to? :edit, language %>
+              <%= link_to t('list.button.edit'), edit_language_path(language), :class => 'btn btn-mini' %>
+          <% end %>
+          <% if permitted_to? :destroy, language %>
+              <% if language.deletable? %>
+                  <%= link_to t('list.button.delete'), language_path(language), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
+              <% end %>
+          <% end %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_language_path, :class => 'btn btn-primary' %>
+<% if permitted_to? :new, :languages %>
+    <div class="well">
+      <%= link_to t('list.button.new'), new_language_path, :class => 'btn btn-primary' %>
+    </div>
+<% end %>
