@@ -26,7 +26,7 @@
 
       <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('form.button.cancel'), account_path, :class => 'btn' %>
+        <%= link_to t('form.button.cancel'), url_for( :controller => 'account', :action => 'index'), :class => 'btn' %>
       </div>
     </fieldset>
 <% end %>

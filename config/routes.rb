@@ -15,7 +15,7 @@ Notearkiv::Application.routes.draw do
     resources :periods
     resources :composers
     resources :genres
-    resources :accounts
+    resources :account
   end
 
   #TODO - reset when page available

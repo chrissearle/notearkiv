@@ -49,8 +49,8 @@
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <% if permitted_to? :index, :accounts %>
-                      <li><%= link_to t('account.list.title'), accounts_path %></li>
+                  <% if permitted_to? :index, :account %>
+                      <li><%= link_to t('account.list.title'), url_for( :controller => 'account', :action => 'index') %></li>
                   <% end %>
                   <% if permitted_to? :index, :users %>
                       <li><%= link_to 'Brukere', users_path %></li>

@@ -21,7 +21,7 @@
   </tbody>
 </table>
 
-<% if permitted_to? :edit, @user, :context => :accounts %>
+<% if permitted_to? :edit, @user, :context => :account %>
     <div class="well">
       <%= link_to t('list.button.edit'), edit_account_path(@user), :class => 'btn btn-primary' %>
     </div>
