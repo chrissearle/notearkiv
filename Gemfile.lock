@@ -44,6 +44,7 @@ GEM
     coffee-script-source (1.2.0)
     commonjs (0.2.5)
     daemons (1.1.8)
+    dalli (2.0.3)
     declarative_authorization (0.5.5)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -132,6 +133,7 @@ DEPENDENCIES
   authlogic
   bourbon
   coffee-rails (~> 3.2.1)
+  dalli
   declarative_authorization
   jquery-rails
   pg

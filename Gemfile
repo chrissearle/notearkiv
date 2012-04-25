@@ -44,3 +44,4 @@ gem 'bourbon'
 
 gem 'authlogic'
 gem 'declarative_authorization'
+gem 'dalli'
