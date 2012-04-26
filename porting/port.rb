@@ -14,8 +14,8 @@ require 'pg'
 @conn_new.prepare("add_user_role_assignment", "INSERT INTO user_role_assignments (id, user_id, role_id, created_at, updated_at)
      VALUES ($1, $2, $3, now(), now())")
 
-@conn_new.exec("TRUNCATE TABLE users")
-@conn_new.exec("TRUNCATE TABLE user_role_assignments")
+@conn_new.prepare("add_evensongs", "INSERT INTO evensongs (id, title, psalm, composer_id, genre_id, soloists, comment,
+     created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, now(), now())")
 
 def run_id_name(table)
   puts "Running for #{table}"
@@ -71,3 +71,22 @@ puts "Running for user_role_assignments"
                                                          {:value => row.values[2], :format => 0}])
   end
 end
+
+puts "Running for evensongs"
+
+@conn_new.exec("TRUNCATE TABLE evensongs")
+@conn_old.exec("SELECT id, title, psalm, composer_id, genre_id, soloists, comment FROM evensongs") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_evensongs", [{:value => row.values[0], :format => 0},
+                                              {:value => row.values[1], :format => 0},
+                                              {:value => row.values[2], :format => 0},
+                                              {:value => row.values[3], :format => 0},
+                                              {:value => row.values[4], :format => 0},
+                                              {:value => row.values[5], :format => 0},
+                                              {:value => row.values[6], :format => 0}])
+  end
+end
+
+puts "Running for links"
+
+@conn_new.exec("TRUNCATE TABLE links")

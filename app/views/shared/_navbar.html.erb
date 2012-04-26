@@ -14,9 +14,9 @@
               <% #if permitted_to? :index, :notes       %>
               <li><a href="#"><%= t('model.note.list.title') %></a></li>
               <% #end       %>
-              <% #if permitted_to? :index, :evensongs       %>
-              <li><a href="#"><%= t('model.evensong.list.title') %></a></li>
-              <% #end       %>
+              <% if permitted_to? :index, :evensongs %>
+              <li><%= link_to t('model.evensong.list.title'), evensongs_path %></li>
+              <% end %>
           <% end %>
         </ul>
         <% if current_user %>

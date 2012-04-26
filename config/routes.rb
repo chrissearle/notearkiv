@@ -16,6 +16,7 @@ Notearkiv::Application.routes.draw do
     resources :composers
     resources :genres
     resources :account
+    resources :evensongs
   end
 
   #TODO - reset when page available

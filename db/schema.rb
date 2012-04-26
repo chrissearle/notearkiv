@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424103444) do
+ActiveRecord::Schema.define(:version => 20120426141542) do
 
   create_table "composers", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "evensongs", :force => true do |t|
+    t.string   "title"
+    t.integer  "psalm"
+    t.integer  "composer_id"
+    t.integer  "genre_id"
+    t.string   "soloists"
+    t.text     "comment"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "evensongs", ["composer_id"], :name => "index_evensongs_on_composer_id"
+  add_index "evensongs", ["genre_id"], :name => "index_evensongs_on_genre_id"
 
   create_table "genres", :force => true do |t|
     t.string   "name"
@@ -34,9 +48,12 @@ ActiveRecord::Schema.define(:version => 20120424103444) do
   create_table "links", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "evensong_id"
   end
+
+  add_index "links", ["evensong_id"], :name => "index_links_on_evensong_id"
 
   create_table "periods", :force => true do |t|
     t.string   "name"

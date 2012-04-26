@@ -5,6 +5,8 @@ nb:
       update: "Lagre"
       composer:
         create: "Lag ny komponist"
+      evensong:
+        create: "Lag ny evensongnote"
       genre:
         create: "Lag ny genre"
       language:
@@ -17,6 +19,11 @@ nb:
     label:
       composer:
         name: "Navn"
+      evensong:
+        title: "Tittel"
+        psalm: "Salme"
+        composer: "Komponist"
+        genre: "Genre"
       genre:
         name: "Navn"
       language:
@@ -57,6 +64,7 @@ nb:
       edit: "Endre"
       new: "Ny"
       delete: "Slett"
+      show: "Vis"
     actions:
       title: "Valg"
     delete:
@@ -109,6 +117,22 @@ nb:
     evensong:
       list:
         title: "Evensongnoter"
+      create:
+        ok: "Evensongnote laget."
+      update:
+        ok: "Evensongnote oppdatert."
+      delete:
+        ok: "Evensongnote slettet."
+      title: "Evensong"
+      field:
+        title:
+          title: "Tittel"
+        psalm:
+          title: "Salme"
+        soloists:
+          title: "Soloister"
+        comment:
+          title: "Kommentar"
     language:
       list:
         title: "Språk"
@@ -121,6 +145,16 @@ nb:
       delete:
         ok: "Språk slettet."
       title: "Språk"
+    evesong:
+      list:
+        name:
+          title: "Tittel"
+        psalm:
+          title: "Salme"
+    link:
+      title: "Lenke"
+      list:
+        title: "Lenker"
   user:
     session:
       form:
@@ -152,3 +186,9 @@ nb:
         user:
           header: "Hei"
           body: "Du må nok logge på for å få tilgang til noe her. Om du ikke har et konto - ta kontakt med din administrator."
+  show:
+    button:
+      back: "Tilbake"
+      edit: "Rediger"
+    delete:
+      confirm: "Er du sikker?"

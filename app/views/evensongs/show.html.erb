@@ -1,0 +1,36 @@
+<h1><%= t('model.evensong.title') %></h1>
+
+<h2><%= t('model.evensong.field.title.title') %></h2>
+<p><%= @evensong.title %></p>
+
+<h2><%= t('model.evensong.field.psalm.title') %></h2>
+<p><%= @evensong.psalm %></p>
+
+<h2><%= t('model.composer.title') %></h2>
+<p><%= @evensong.composer_name %></p>
+
+<h2><%= t('model.genre.title') %></h2>
+<p><%= @evensong.genre_name %></p>
+
+<h2><%= t('model.evensong.field.soloists.title') %></h2>
+<p><%= @evensong.soloists %></p>
+
+<h2><%= t('model.evensong.field.comment.title') %></h2>
+<p><%= @evensong.comment %></p>
+
+<% if permitted_to?(:show, :links) %>
+    <% if @evensong.links %>
+        <h2><%= t('model.link.list.title') %></h2>
+        <ul>
+          <% @evensong.links.each do |link| %>
+              <li><%= link_to link.title, link.url, :class => 'link_out' %></li>
+          <% end %>
+        </ul>
+    <% end %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to t('show.button.back'), evensongs_path, :class => 'btn' %>
+  <%= link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn' %>
+  <%= link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger' %>
+</div>
