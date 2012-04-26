@@ -6,6 +6,7 @@
   <thead>
   <tr>
     <th><%= t('model.genre.list.name.title') %></th>
+    <th><%= t('model.evensong.list.title') %></th>
     <th><%= t('list.actions.title') %></th>
   </tr>
   </thead>
@@ -13,6 +14,7 @@
   <% @genres.each do |genre| %>
       <tr>
         <td><%= genre.name %></td>
+        <td><%= genre.evensongs.size if genre.evensongs.size > 0 %></td>
         <td>
           <% if permitted_to? :edit, genre %>
               <%= link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini' %>
