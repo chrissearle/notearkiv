@@ -20,7 +20,7 @@ Notearkiv::Application.routes.draw do
   end
 
   #TODO - reset when page available
-  match '/:locale' => 'composers#index'
-  root :to => 'composers#index'
+  match '/:locale' => 'evensongs#index'
+  root :to => 'evensongs#index'
 
 end
