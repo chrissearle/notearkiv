@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  psalm: 1
+  composer_id: 1
+  genre_id: 1
+  soloists: MyString
+  comment: MyText
+
+two:
+  title: MyString
+  psalm: 1
+  composer_id: 1
+  genre_id: 1
+  soloists: MyString
+  comment: MyText
