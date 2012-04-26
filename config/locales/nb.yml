@@ -148,3 +148,7 @@ nb:
     column:
       user:
         header: "Innlogget bruker"
+      anon:
+        user:
+          header: "Hei"
+          body: "Du må nok logge på for å få tilgang til noe her. Om du ikke har et konto - ta kontakt med din administrator."

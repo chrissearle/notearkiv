@@ -148,3 +148,7 @@ en:
     column:
       user:
         header: "Current User"
+      anon:
+        user:
+          header: "Welcome"
+          body: "You'll need to login to access this page. If you don't have an account then please contact your system admin."
