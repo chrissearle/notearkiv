@@ -2,7 +2,7 @@ class PeriodsController < ApplicationController
   filter_access_to :all
 
   def index
-    @periods = Period.ordered
+    @periods = Period.ordered.preloaded
   end
 
   def new

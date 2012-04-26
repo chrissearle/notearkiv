@@ -2,7 +2,7 @@ class ComposersController < ApplicationController
   filter_access_to :all
 
   def index
-    @composers = Composer.ordered
+    @composers = Composer.ordered.preloaded
   end
 
   def new

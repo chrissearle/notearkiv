@@ -6,6 +6,7 @@
   <thead>
   <tr>
     <th><%= t('model.period.list.name.title') %></th>
+    <th><%= t('model.note.list.title') %></th>
     <th><%= t('list.actions.title') %></th>
   </tr>
   </thead>
@@ -13,6 +14,7 @@
   <% @periods.each do |period| %>
       <tr>
         <td><%= period.name %></td>
+        <td><%= period.notes.size if period.notes.size > 0 %></td>
         <td>
           <% if permitted_to? :edit, period %>
               <%= link_to t('list.button.edit'), edit_period_path(period), :class => 'btn btn-mini' %>

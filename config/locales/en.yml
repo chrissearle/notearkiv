@@ -28,6 +28,19 @@ en:
         name: "Name"
       language:
         name: "Name"
+      note:
+        item: "ID"
+        title: "Title"
+        soloists: "Soloists"
+        voice: "Voices"
+        comment: "Comment"
+        composer: "Composer"
+        genre: "Genre"
+        period: "Epoch"
+        originals: "# originals"
+        copies: "# copies"
+        instrumental: "# instrumental"
+        languages: "Languages"
       period:
         name: "Name"
       user:
@@ -116,9 +129,42 @@ en:
     note:
       list:
         title: "Music"
+        item:
+          title: "ID"
+        name:
+          title: "Title"
+        instrument:
+          title: "Accomp."
+      create:
+        ok: "Note created."
+      update:
+        ok: "Note updated."
+      delete:
+        ok: "Note deleted."
+      title: "Note"
+      field:
+        item:
+          title: "ID"
+        soloists:
+          title: "Soloists"
+        comment:
+          title: "Comment"
+        counts:
+          title: "Counts"
+          original: "Original"
+          copy: "Copy"
+          instrumental: "Instrumental"
+        voice:
+          title: "Voices"
+        title:
+          title: "Title"
     evensong:
       list:
         title: "Evensong"
+        name:
+          title: "Title"
+        psalm:
+          title: "Psalm"
       create:
         ok: "Evensong created."
       update:
@@ -147,12 +193,6 @@ en:
       delete:
         ok: "Language deleted."
       title: "Language"
-    evesong:
-      list:
-        name:
-          title: "Title"
-        psalm:
-          title: "Psalm"
     link:
       title: "Link"
       list:

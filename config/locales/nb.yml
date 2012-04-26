@@ -22,12 +22,27 @@ nb:
       evensong:
         title: "Tittel"
         psalm: "Salme"
+        soloists: "Soloister"
+        comment: "Kommentar"
         composer: "Komponist"
         genre: "Genre"
       genre:
         name: "Navn"
       language:
         name: "Navn"
+      note:
+        item: "ID"
+        title: "Tittel"
+        soloists: "Soloister"
+        voice: "Stemmer"
+        comment: "Kommentar"
+        composer: "Komponist"
+        genre: "Genre"
+        period: "Epoke"
+        originals: "Antall original"
+        copies: "Antall kopier"
+        instrumental: "Antall instrumental"
+        languages: "Språk"
       period:
         name: "Navn"
       user:
@@ -116,9 +131,40 @@ nb:
     note:
       list:
         title: "Noter"
+        item:
+          title: "ID"
+        name:
+          title: "Tittel"
+        instrument:
+          title: "Akkomp."
+      create:
+        ok: "Note laget"
+      update:
+        ok: "Note oppdatert."
+      title: "Note"
+      field:
+        item:
+          title: "ID"
+        soloists:
+          title: "Soloister"
+        comment:
+          title: "Kommentar"
+        counts:
+          title: "Antall"
+          original: "Original"
+          copy: "Kopi"
+          instrumental: "Instrumental"
+        voice:
+          title: "Stemmer"
+        title:
+          title: "Tittel"
     evensong:
       list:
         title: "Evensongnoter"
+        name:
+          title: "Tittel"
+        psalm:
+          title: "Salme"
       create:
         ok: "Evensongnote laget."
       update:
@@ -147,12 +193,6 @@ nb:
       delete:
         ok: "Språk slettet."
       title: "Språk"
-    evesong:
-      list:
-        name:
-          title: "Tittel"
-        psalm:
-          title: "Salme"
     link:
       title: "Lenke"
       list:

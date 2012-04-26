@@ -1,0 +1,91 @@
+<%= form_for @note, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= t('model.note.title') %></legend>
+
+    <div class="control-group">
+      <%= f.label :item, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :item, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :soloists, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :soloists, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :originals, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :originals, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :copies, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :copies, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :instrumental, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :instrumental, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :comment, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :comment, :class => 'text_area', :rows => 7 %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :composer, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select(:composer_id, @composers, :id, :name) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :genre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :period, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select(:period_id, @periods, :id, :name) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :languages, :class => 'control-label' %>
+      <div class="controls">
+        <%= hidden_field_tag 'note[language_ids][]', nil %>
+        <% Language.ordered.preloaded.each do |language| %>
+            <%= check_box_tag 'note[language_ids][]', language.id, @note.language_ids.include?(language.id), :id => dom_id(language) %>
+            <%= label_tag dom_id(language), language.name %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('form.button.cancel'), notes_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

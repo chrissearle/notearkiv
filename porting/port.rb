@@ -14,8 +14,15 @@ require 'pg'
 @conn_new.prepare("add_user_role_assignment", "INSERT INTO user_role_assignments (id, user_id, role_id, created_at, updated_at)
      VALUES ($1, $2, $3, now(), now())")
 
+@conn_new.prepare("add_note_language_assignments", "INSERT INTO note_language_assignments (id, note_id, language_id, created_at, updated_at)
+     VALUES ($1, $2, $3, now(), now())")
+
 @conn_new.prepare("add_evensongs", "INSERT INTO evensongs (id, title, psalm, composer_id, genre_id, soloists, comment,
      created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, now(), now())")
+
+@conn_new.prepare("add_notes", "INSERT INTO notes (id, title, item, composer_id, genre_id, period_id, soloists, comment, instrument,
+     originals, copies, instrumental, voice,
+     created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, now(), now())")
 
 def run_id_name(table)
   puts "Running for #{table}"
@@ -87,6 +94,38 @@ puts "Running for evensongs"
   end
 end
 
+puts "Running for notes"
+
+@conn_new.exec("TRUNCATE TABLE notes")
+@conn_old.exec("SELECT id, title, item, composer_id, genre_id, period_id, soloists, comment, instrument, count_originals, count_copies, count_instrumental, voice FROM notes") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_notes", [{:value => row.values[0], :format => 0},
+                                          {:value => row.values[1], :format => 0},
+                                          {:value => row.values[2], :format => 0},
+                                          {:value => row.values[3], :format => 0},
+                                          {:value => row.values[4], :format => 0},
+                                          {:value => row.values[5], :format => 0},
+                                          {:value => row.values[6], :format => 0},
+                                          {:value => row.values[7], :format => 0},
+                                          {:value => row.values[8], :format => 0},
+                                          {:value => row.values[9], :format => 0},
+                                          {:value => row.values[10], :format => 0},
+                                          {:value => row.values[11], :format => 0},
+                                          {:value => row.values[12], :format => 0}])
+  end
+end
+
 puts "Running for links"
 
 @conn_new.exec("TRUNCATE TABLE links")
+
+puts "Running for note_language_assignments"
+
+@conn_new.exec("TRUNCATE TABLE note_language_assignments")
+@conn_old.exec("SELECT id, note_id, language_id FROM note_language_assignments") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_note_language_assignments", [{:value => row.values[0], :format => 0},
+                                                              {:value => row.values[1], :format => 0},
+                                                              {:value => row.values[2], :format => 0}])
+  end
+end

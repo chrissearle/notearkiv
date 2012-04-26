@@ -1,0 +1,67 @@
+<h1><%= t('model.note.title') %></h1>
+
+<h2><%= t('model.note.field.item.title') %></h2>
+<p><%= @note.item %></p>
+
+<h2><%= t('model.note.field.title.title') %></h2>
+<p><%= @note.title %></p>
+
+<h2><%= t('model.composer.title') %></h2>
+<p><%= @note.composer_name %></p>
+
+<h2><%= t('model.genre.title') %></h2>
+<p><%= @note.genre_name %></p>
+
+<h2><%= t('model.period.title') %></h2>
+<p><%= @note.period_name %></p>
+
+<h2><%= t('model.language.list.title') %></h2>
+<ul>
+  <% @note.languages.each do |lang| %>
+      <li><%= lang.name %></li>
+  <% end %>
+</ul>
+
+<h2><%= t('model.note.field.soloists.title') %></h2>
+<p><%= @note.soloists %></p>
+
+<h2><%= t('model.note.field.counts.title') %></h2>
+
+<h3><%= t('model.note.field.counts.original') %></h3>
+<p><%= @note.originals %></p>
+
+<h3><%= t('model.note.field.counts.copy') %></h3>
+<p><%= @note.copies %></p>
+
+<h3><%= t('model.note.field.counts.instrumental') %></h3>
+<p><%= @note.instrumental %></p>
+
+<h2><%= t('model.note.field.voice.title') %></h2>
+<p><%= @note.voice %></p>
+
+<h2><%= t('model.note.field.comment.title') %></h2>
+<p><%= @note.comment %></p>
+
+<% if permitted_to?(:show, :links) %>
+    <% if @note.links %>
+        <h2><%= t('model.link.list.title') %></h2>
+        <ul>
+          <% @note.links.each do |link| %>
+              <li><%= link_to link.title, link.url, :class => 'link_out' %></li>
+          <% end %>
+        </ul>
+    <% end %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to t('show.button.back'), notes_path, :class => 'btn' %>
+  <% if permitted_to?(:edit, @note) %>
+      <%= link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn' %>
+  <% end %>
+  <% if permitted_to?(:new, :links) %>
+      <%= link_to t('show.button.link'), new_link_path(:note => @note.id), :class => 'btn' %>
+  <% end %>
+  <% if permitted_to?(:destroy, @note) %>
+      <%= link_to t('show.button.delete'), note_path(@note), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger' %>
+  <% end %>
+</div>

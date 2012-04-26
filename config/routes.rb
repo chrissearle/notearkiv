@@ -17,10 +17,11 @@ Notearkiv::Application.routes.draw do
     resources :genres
     resources :account
     resources :evensongs
+    resources :notes
   end
 
   #TODO - reset when page available
-  match '/:locale' => 'evensongs#index'
-  root :to => 'evensongs#index'
+  match '/:locale' => 'notes#index'
+  root :to => 'notes#index'
 
 end

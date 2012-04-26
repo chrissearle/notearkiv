@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item: 1
+  title: MyString
+  originals: 1
+  copies: 1
+  instrumental: 1
+  voice: MyString
+  composer_id: 1
+  genre_id: 1
+  period_id: 1
+  instrument: MyString
+  soloists: MyString
+  comment: MyText
+
+two:
+  item: 1
+  title: MyString
+  originals: 1
+  copies: 1
+  instrumental: 1
+  voice: MyString
+  composer_id: 1
+  genre_id: 1
+  period_id: 1
+  instrument: MyString
+  soloists: MyString
+  comment: MyText

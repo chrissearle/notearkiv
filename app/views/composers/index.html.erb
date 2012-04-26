@@ -6,6 +6,7 @@
   <thead>
   <tr>
     <th><%= t('model.composer.list.name.title') %></th>
+    <th><%= t('model.note.list.title') %></th>
     <th><%= t('model.evensong.list.title') %></th>
     <th><%= t('list.actions.title') %></th>
   </tr>
@@ -14,6 +15,7 @@
   <% @composers.each do |composer| %>
       <tr>
         <td><%= composer.name %></td>
+        <td><%= composer.notes.size if composer.notes.size > 0 %></td>
         <td><%= composer.evensongs.size if composer.evensongs.size > 0 %></td>
         <td>
           <% if permitted_to? :edit, composer %>

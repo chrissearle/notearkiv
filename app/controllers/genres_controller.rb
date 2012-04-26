@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   filter_access_to :all
 
   def index
-    @genres = Genre.ordered
+    @genres = Genre.ordered.preloaded
   end
 
   def show

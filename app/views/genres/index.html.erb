@@ -6,6 +6,7 @@
   <thead>
   <tr>
     <th><%= t('model.genre.list.name.title') %></th>
+    <th><%= t('model.note.list.title') %></th>
     <th><%= t('model.evensong.list.title') %></th>
     <th><%= t('list.actions.title') %></th>
   </tr>
@@ -14,6 +15,7 @@
   <% @genres.each do |genre| %>
       <tr>
         <td><%= genre.name %></td>
+        <td><%= genre.notes.size if genre.notes.size > 0 %></td>
         <td><%= genre.evensongs.size if genre.evensongs.size > 0 %></td>
         <td>
           <% if permitted_to? :edit, genre %>

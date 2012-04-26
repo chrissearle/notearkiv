@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426141542) do
+ActiveRecord::Schema.define(:version => 20120426185937) do
 
   create_table "composers", :force => true do |t|
     t.string   "name"
@@ -51,9 +51,42 @@ ActiveRecord::Schema.define(:version => 20120426141542) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "evensong_id"
+    t.integer  "note_id"
   end
 
   add_index "links", ["evensong_id"], :name => "index_links_on_evensong_id"
+  add_index "links", ["note_id"], :name => "index_links_on_note_id"
+
+  create_table "note_language_assignments", :force => true do |t|
+    t.integer  "note_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "note_language_assignments", ["language_id"], :name => "index_note_language_assignments_on_language_id"
+  add_index "note_language_assignments", ["note_id"], :name => "index_note_language_assignments_on_note_id"
+
+  create_table "notes", :force => true do |t|
+    t.integer  "item"
+    t.string   "title"
+    t.integer  "originals"
+    t.integer  "copies"
+    t.integer  "instrumental"
+    t.string   "voice"
+    t.integer  "composer_id"
+    t.integer  "genre_id"
+    t.integer  "period_id"
+    t.string   "instrument"
+    t.string   "soloists"
+    t.text     "comment"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "notes", ["composer_id"], :name => "index_notes_on_composer_id"
+  add_index "notes", ["genre_id"], :name => "index_notes_on_genre_id"
+  add_index "notes", ["period_id"], :name => "index_notes_on_period_id"
 
   create_table "periods", :force => true do |t|
     t.string   "name"

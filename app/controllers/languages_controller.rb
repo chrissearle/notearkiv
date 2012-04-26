@@ -2,7 +2,7 @@ class LanguagesController < ApplicationController
   filter_access_to :all
 
   def index
-    @languages = Language.ordered
+    @languages = Language.ordered.preloaded
   end
 
   def show

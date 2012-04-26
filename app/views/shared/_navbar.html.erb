@@ -11,11 +11,11 @@
       <div class="nav-collapse">
         <ul class="nav">
           <% if current_user %>
-              <% #if permitted_to? :index, :notes       %>
-              <li><a href="#"><%= t('model.note.list.title') %></a></li>
-              <% #end       %>
+              <% if permitted_to? :index, :notes %>
+                  <li><%= link_to t('model.note.list.title'), notes_path %></li>
+              <% end %>
               <% if permitted_to? :index, :evensongs %>
-              <li><%= link_to t('model.evensong.list.title'), evensongs_path %></li>
+                  <li><%= link_to t('model.evensong.list.title'), evensongs_path %></li>
               <% end %>
           <% end %>
         </ul>
