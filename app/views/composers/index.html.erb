@@ -6,6 +6,7 @@
   <thead>
   <tr>
     <th><%= t('model.composer.list.name.title') %></th>
+    <th><%= t('model.evensong.list.title') %></th>
     <th><%= t('list.actions.title') %></th>
   </tr>
   </thead>
@@ -13,6 +14,7 @@
   <% @composers.each do |composer| %>
       <tr>
         <td><%= composer.name %></td>
+        <td><%= composer.evensongs.size if composer.evensongs.size > 0 %></td>
         <td>
           <% if permitted_to? :edit, composer %>
               <%= link_to t('list.button.edit'), edit_composer_path(composer), :class => 'btn btn-mini' %>
