@@ -25,12 +25,9 @@
             <% if permitted_to?(:show, :links) %>
                 <% if evensong.links %>
                     <% evensong.links.each do |link| %>
-                        <li><%= link_to link.title, link.url, :class => 'link_out' %></li>
+                        <li><%= link_to link.title, link.url %></li>
                     <% end %>
                 <% end %>
-            <% end %>
-            <% if permitted_to?(:new, :links) %>
-                <li><%= link_to 'Ny lenke', new_link_path(:evensong => evensong.id) %></li>
             <% end %>
           </ul>
         </td>

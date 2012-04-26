@@ -31,6 +31,13 @@
 
 <div class="form-actions">
   <%= link_to t('show.button.back'), evensongs_path, :class => 'btn' %>
-  <%= link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn' %>
-  <%= link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger' %>
+  <% if permitted_to?(:edit, @evensong) %>
+      <%= link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn' %>
+  <% end %>
+  <% if permitted_to?(:new, :links) %>
+      <%= link_to t('show.button.link'), new_link_path(:evensong => @evensong.id), :class => 'btn' %>
+  <% end %>
+  <% if permitted_to?(:destroy, @evensong) %>
+      <%= link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger' %>
+  <% end %>
 </div>

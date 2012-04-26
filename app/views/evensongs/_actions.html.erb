@@ -1,5 +1,7 @@
 <% if permitted_to? :new, :evensongs %>
     <div class="well">
       <%= link_to t('list.button.new'), new_evensong_path, :class => 'btn btn-primary' %>
+      <a href="#" class="btn btn-danger disabled"><i class="icon-upload"></i><%= t('list.button.upload') %></a>
+      <a href="#" class="btn disabled"><i class="icon-download"></i><%= t('list.button.download') %></a>
     </div>
 <% end %>

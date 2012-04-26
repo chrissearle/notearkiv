@@ -20,9 +20,7 @@
               <%= link_to t('list.button.edit'), edit_composer_path(composer), :class => 'btn btn-mini' %>
           <% end %>
           <% if permitted_to? :destroy, composer %>
-              <% if composer.deletable? %>
-                  <%= link_to t('list.button.delete'), composer_path(composer), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
-              <% end %>
+              <%= link_to t('list.button.delete'), composer_path(composer), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(composer) %>
           <% end %>
         </td>
       </tr>

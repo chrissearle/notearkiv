@@ -65,6 +65,8 @@ en:
       new: "New"
       delete: "Delete"
       show: "Show"
+      upload: "Upload"
+      download: "Download"
     actions:
       title: "Actions"
     delete:
@@ -190,5 +192,7 @@ en:
     button:
       back: "Back"
       edit: "Edit"
+      link: "New linnk"
+      delete: "Delete"
     delete:
       confirm: "Are you sure?"

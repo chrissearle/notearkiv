@@ -65,6 +65,8 @@ nb:
       new: "Ny"
       delete: "Slett"
       show: "Vis"
+      upload: "Last opp"
+      download: "Last ned"
     actions:
       title: "Valg"
     delete:
@@ -190,5 +192,7 @@ nb:
     button:
       back: "Tilbake"
       edit: "Rediger"
+      link: "Ny lenke"
+      delete: "Slett"
     delete:
       confirm: "Er du sikker?"

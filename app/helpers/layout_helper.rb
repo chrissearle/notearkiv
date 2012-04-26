@@ -32,4 +32,12 @@ module LayoutHelper
         type.to_s
     end
   end
+
+  def danger_button_class(object)
+    if (object.deletable?)
+      "btn btn-mini btn-danger"
+    else
+      "btn btn-mini btn-danger disabled"
+    end
+  end
 end

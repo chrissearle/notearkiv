@@ -18,9 +18,7 @@
               <%= link_to t('list.button.edit'), edit_language_path(language), :class => 'btn btn-mini' %>
           <% end %>
           <% if permitted_to? :destroy, language %>
-              <% if language.deletable? %>
-                  <%= link_to t('list.button.delete'), language_path(language), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
-              <% end %>
+                  <%= link_to t('list.button.delete'), language_path(language), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(language) %>
           <% end %>
         </td>
       </tr>

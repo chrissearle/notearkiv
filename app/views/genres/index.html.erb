@@ -20,9 +20,7 @@
               <%= link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini' %>
           <% end %>
           <% if permitted_to? :destroy, genre %>
-              <% if genre.deletable? %>
-                  <%= link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
-              <% end %>
+                  <%= link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(genre) %>
           <% end %>
         </td>
       </tr>
