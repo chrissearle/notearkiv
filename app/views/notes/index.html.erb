@@ -48,11 +48,9 @@
         <td>
           <% if permitted_to? :show, note %>
               <%= link_to t('list.button.show'), note_path(note), :class => 'btn btn-mini' %>
-          <% end %>
-          <% if permitted_to? :edit, note %>
+          <% end %><% if permitted_to? :edit, note %>
               <%= link_to t('list.button.edit'), edit_note_path(note), :class => 'btn btn-mini' %>
-          <% end %>
-          <% if permitted_to? :destroy, note %>
+          <% end %><% if permitted_to? :destroy, note %>
               <%= link_to t('list.button.delete'), note_path(note), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
           <% end %>
         </td>

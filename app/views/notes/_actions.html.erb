@@ -2,6 +2,6 @@
     <div class="well">
       <%= link_to t('list.button.new'), new_note_path, :class => 'btn btn-primary' %>
       <a href="#" class="btn btn-danger disabled"><i class="icon-upload"></i><%= t('list.button.upload') %></a>
-      <a href="#" class="btn disabled"><i class="icon-download"></i><%= t('list.button.download') %></a>
+      <%= link_to "<i class='icon-download'></i>".html_safe + t('list.button.download'), notes_path(:format => :xls), :class => 'btn' %>
     </div>
 <% end %>

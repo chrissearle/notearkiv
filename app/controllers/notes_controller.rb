@@ -15,8 +15,8 @@ class NotesController < ApplicationController
     @notes = Note.ordered.preloaded
 
     respond_to do |format|
-      format.html # index.html.erb
-                  #TODO      format.xls { index_excel }
+      format.html
+      format.xls { index_excel }
     end
   end
 
@@ -59,14 +59,14 @@ class NotesController < ApplicationController
 
   private
 
-#  def index_excel
-#    excel = Note.excel
+  def index_excel
+    excel = Note.excel
 
-#    send_file(excel.get_spreadsheet,
-#              :type => 'application/vnd.ms-excel',
-#              :disposition => 'attachment',
-#              :filename => excel.get_filename)
-#  end
+    send_file(excel.get_spreadsheet,
+              :type => 'application/vnd.ms-excel',
+              :disposition => 'attachment',
+              :filename => excel.get_filename)
+  end
 
   def get_note
     @note = Note.find(params[:id])

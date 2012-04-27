@@ -157,6 +157,22 @@ nb:
           title: "Stemmer"
         title:
           title: "Tittel"
+      excel:
+        sysid: "SysID"
+        id: "ID"
+        title: "Tittel"
+        composer: "Komponist"
+        genre: "Genre"
+        epoch: "Epoke"
+        language: "Språk"
+        instrument: "Akkomp."
+        originals: "Original"
+        copies: "Kopi"
+        instrumental: "Instr."
+        voices: "Stemmer"
+        soloists: "Soloister"
+        comment: "Kommentar"
+        doctitle: "Notearkiv"
     evensong:
       list:
         title: "Evensongnoter"
@@ -180,6 +196,15 @@ nb:
           title: "Soloister"
         comment:
           title: "Kommentar"
+      excel:
+        sysid: "SysID"
+        title: "Tittel"
+        composer: "Komponist"
+        genre: "Genre"
+        soloists: "Soloister"
+        comment: "Kommentar"
+        psalm: "Salme"
+        doctitle: "Evensongnoterarkiv"
       show:
         key: "Felt"
         val: "Verdi"

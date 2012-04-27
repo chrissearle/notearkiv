@@ -157,6 +157,22 @@ en:
           title: "Voices"
         title:
           title: "Title"
+      excel:
+        sysid: "SysID"
+        id: "ID"
+        title: "Title"
+        composer: "Composer"
+        genre: "Genre"
+        epoch: "Epoch"
+        language: "Language"
+        instrument: "Accomp."
+        originals: "Original"
+        copies: "Copy"
+        instrumental: "Instr."
+        voices: "Voices"
+        soloists: "Soloists"
+        comment: "Comment"
+        doctitle: "Notes"
     evensong:
       list:
         title: "Evensong"
@@ -180,6 +196,15 @@ en:
           title: "Soloists"
         comment:
           title: "Comment"
+      excel:
+        sysid: "SysID"
+        title: "Title"
+        composer: "Composer"
+        genre: "Genre"
+        soloists: "Soloists"
+        comment: "Comment"
+        psalm: "Psalm"
+        doctitle: "Evensongs"
       show:
         key: "Field"
         val: "Value"

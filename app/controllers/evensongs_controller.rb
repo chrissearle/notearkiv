@@ -16,15 +16,8 @@ class EvensongsController < ApplicationController
     @evensongs = Evensong.ordered.preloaded
 
     respond_to do |format|
-      format.html # index.html.erb
-                  #      format.xls do
-                  #        excel = Evensong.excel
-
-                  #        send_file(excel.get_spreadsheet,
-                  #                  :type => 'application/vnd.ms-excel',
-                  #                  :disposition => 'attachment',
-                  #                  :filename => excel.get_filename)
-                  #end
+      format.html
+      format.xls { index_excel }
     end
   end
 
@@ -63,6 +56,15 @@ class EvensongsController < ApplicationController
   end
 
   private
+
+  def index_excel
+    excel = Evensong.excel
+
+    send_file(excel.get_spreadsheet,
+              :type => 'application/vnd.ms-excel',
+              :disposition => 'attachment',
+              :filename => excel.get_filename)
+  end
 
   def get_evensong
     @evensong = Evensong.find(params[:id])
