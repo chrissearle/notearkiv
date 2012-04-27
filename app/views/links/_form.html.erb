@@ -1,6 +1,22 @@
+<% if @link.note %>
+    <h2><%= t('model.note.title') %>: <%= @link.note.title %></h2>
+<% end %>
+
+<% if @link.evensong %>
+    <h2><%= t('model.evensong.title')%>: <%= @link.evensong.title %></h2>
+<% end %>
+
 <%= form_for @link, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend>Link</legend>
+    <legend><%= t('model.link.title') %></legend>
+
+    <% if @link.note %>
+        <%= f.hidden_field :note_id, :value => @link.note.id %>
+    <% end %>
+
+    <% if @link.evensong %>
+        <%= f.hidden_field :evensong_id, :value => @link.evensong.id %>
+    <% end %>
 
     <div class="control-group">
       <%= f.label :title, :class => 'control-label' %>

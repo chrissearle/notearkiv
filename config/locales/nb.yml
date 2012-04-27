@@ -199,6 +199,12 @@ nb:
       title: "Lenke"
       list:
         title: "Lenker"
+      create:
+        ok: "Lenke laget."
+      update:
+        ok: "Lenke oppdatert."
+      delete:
+        ok: "Lenke slettet."
   user:
     session:
       form:

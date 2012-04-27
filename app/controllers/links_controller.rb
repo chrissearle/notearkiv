@@ -1,85 +1,60 @@
 class LinksController < ApplicationController
-  # TODO - has to have @note or @evensong owner
+  before_filter :get_link, :only => [:edit, :update, :destroy]
 
-  # GET /links
-  # GET /links.json
-  def index
-    @links = Link.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @links }
-    end
-  end
-
-  # GET /links/1
-  # GET /links/1.json
-  def show
-    @link = Link.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @link }
-    end
-  end
-
-  # GET /links/new
-  # GET /links/new.json
   def new
     @link = Link.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @link }
-    end
+    @link.note = Note.find(params[:note]) if params[:note]
+    @link.evensong = Evensong.find(params[:evensong]) if params[:evensong]
   end
 
-  # GET /links/1/edit
-  def edit
-    @link = Link.find(params[:id])
-  end
-
-  # POST /links
-  # POST /links.json
   def create
     @link = Link.new(params[:link])
 
-    respond_to do |format|
-      if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render json: @link, status: :created, location: @link }
+    if @link.save
+      if @link.note
+        redirect_to note_path(@link.note), notice: t('model.link.create.ok')
       else
-        format.html { render action: "new" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        redirect_to evensong_path(@link.evensong), notice: t('model.link.create.ok')
       end
+    else
+      render :action => 'new'
     end
   end
 
-  # PUT /links/1
-  # PUT /links/1.json
+  def edit
+  end
+
   def update
-    @link = Link.find(params[:id])
+    @link.title = params["link"]["title"]
+    @link.url = params["link"]["url"]
 
-    respond_to do |format|
-      if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
-        format.json { head :no_content }
+    if @link.save
+      if @link.note
+        redirect_to note_path(@link.note), notice: t('model.link.update.ok')
       else
-        format.html { render action: "edit" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        redirect_to evensong_path(@link.evensong), notice: t('model.link.update.ok')
       end
+    else
+      render :action => 'edit'
     end
   end
 
-  # DELETE /links/1
-  # DELETE /links/1.json
   def destroy
-    @link = Link.find(params[:id])
+    note = @link.note
+    evensong = @link.evensong
+
     @link.destroy
 
-    respond_to do |format|
-      format.html { redirect_to links_url }
-      format.json { head :no_content }
+    if note
+      redirect_to note_path(note), notice: t('model.link.delete.ok')
+    else
+      redirect_to evensong_path(evensong), notice: t('model.link.delete.ok')
     end
+  end
+
+  private
+
+  def get_link
+    @link = Link.find(params[:id])
   end
 end

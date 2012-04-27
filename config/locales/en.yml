@@ -199,6 +199,12 @@ en:
       title: "Link"
       list:
         title: "Links"
+      create:
+        ok: "Link created."
+      update:
+        ok: "Link updated."
+      delete:
+        ok: "Link deleted."
   user:
     session:
       form:
