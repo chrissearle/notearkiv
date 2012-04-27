@@ -73,7 +73,7 @@ class NotesController < ApplicationController
   end
 
   def get_voices
-#TODO fetch and set typeahead in the form view
+    @voices = Note.voices
   end
 
   def get_relation_collections

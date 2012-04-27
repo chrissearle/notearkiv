@@ -21,6 +21,10 @@ class Note < ActiveRecord::Base
   scope :ordered, :order => 'title ASC'
   scope :preloaded, :include => [:composer, :genre, :period, :languages, :links]
 
+  def self.voices
+    Note.select('distinct voice').map(&:voice).sort
+  end
+
   private
 
   def set_next_item

@@ -24,6 +24,13 @@
     </div>
 
     <div class="control-group">
+      <%= f.label :voice, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :voice, :class => 'text_field', :data => { :provide => "typeahead", :source => @voices } %>
+      </div>
+    </div>
+
+    <div class="control-group">
       <%= f.label :originals, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :originals, :class => 'text_field' %>
