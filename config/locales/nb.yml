@@ -150,10 +150,9 @@ nb:
         comment:
           title: "Kommentar"
         counts:
-          title: "Antall"
-          original: "Original"
-          copy: "Kopi"
-          instrumental: "Instrumental"
+          original: "Antall original"
+          copy: "Antall kopier"
+          instrumental: "Antall instrumental"
         voice:
           title: "Stemmer"
         title:
@@ -181,6 +180,9 @@ nb:
           title: "Soloister"
         comment:
           title: "Kommentar"
+      show:
+        key: "Felt"
+        val: "Verdi"
     language:
       list:
         title: "Språk"

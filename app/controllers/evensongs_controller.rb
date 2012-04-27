@@ -1,14 +1,16 @@
 # coding: UTF-8
 
 class EvensongsController < ApplicationController
-  layout "wide"
-  
+
   filter_access_to :all
 
   before_filter :get_evensong, :only => [:show, :edit, :update, :destroy]
   before_filter :get_relation_collections, :only => [:new, :edit]
 
+  layout :resolve_layout
+
   def index
+
     set_accept_header
 
     @evensongs = Evensong.ordered.preloaded
@@ -69,6 +71,15 @@ class EvensongsController < ApplicationController
   def get_relation_collections
     @composers = Composer.ordered
     @genres = Genre.ordered
+  end
+
+  def resolve_layout
+    case action_name
+      when "index"
+        "wide"
+      else
+        "application"
+    end
   end
 end
 

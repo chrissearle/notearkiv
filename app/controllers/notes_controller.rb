@@ -1,7 +1,7 @@
 # coding: UTF-8
 
 class NotesController < ApplicationController
-  layout "wide"
+  layout :resolve_layout
 
   filter_access_to :all
 
@@ -80,6 +80,15 @@ class NotesController < ApplicationController
     @composers = Composer.ordered.preloaded
     @genres = Genre.ordered.preloaded
     @periods = Period.ordered.preloaded
+  end
+
+  def resolve_layout
+    case action_name
+      when "index"
+        "wide"
+      else
+        "application"
+    end
   end
 end
 

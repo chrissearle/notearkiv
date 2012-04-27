@@ -150,10 +150,9 @@ en:
         comment:
           title: "Comment"
         counts:
-          title: "Counts"
-          original: "Original"
-          copy: "Copy"
-          instrumental: "Instrumental"
+          original: "# Original"
+          copy: "# Copies"
+          instrumental: "# Instrumental"
         voice:
           title: "Voices"
         title:
@@ -181,6 +180,9 @@ en:
           title: "Soloists"
         comment:
           title: "Comment"
+      show:
+        key: "Field"
+        val: "Value"
     language:
       list:
         title: "Languages"
