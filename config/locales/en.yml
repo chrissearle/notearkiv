@@ -271,3 +271,6 @@ en:
       confirm: "Are you sure?"
   footer:
     github: "Source code on github"
+  search:
+    title: "Search Results"
+    prefix: "Search for"

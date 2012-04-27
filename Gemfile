@@ -47,3 +47,5 @@ gem 'declarative_authorization'
 gem 'dalli'
 
 gem 'spreadsheet'
+
+gem 'pg_search'

@@ -1,4 +1,6 @@
 class Note < ActiveRecord::Base
+  include PgSearch
+
   before_destroy :remove_links
 
   belongs_to :composer
@@ -20,6 +22,14 @@ class Note < ActiveRecord::Base
 
   scope :ordered, :order => 'title ASC'
   scope :preloaded, :include => [:composer, :genre, :period, :languages, :links]
+
+  pg_search_scope :search,
+                  :against => [:title, :voice, :soloists],
+                  :associated_against => {:composer => :name,
+                                          :genre => :name,
+                                          :period => :name,
+                                          :languages => :name},
+                  ignoring: :accents
 
   def self.voices
     Note.select('distinct voice').map(&:voice).sort

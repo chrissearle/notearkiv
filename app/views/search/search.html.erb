@@ -1,0 +1,11 @@
+<h1><%= t('search.title') %></h1>
+
+<p><%= t('search.prefix') %>: <em><%= params[:search] %></em></p>
+
+<h2><%= t('model.note.list.title') %></h2>
+
+<%= render 'notes/table' %>
+
+<h2><%= t('model.evensong.list.title') %></h2>
+
+<%= render 'evensongs/table' %>

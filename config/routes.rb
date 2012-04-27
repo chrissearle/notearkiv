@@ -8,6 +8,8 @@ Notearkiv::Application.routes.draw do
     match 'forgotten_password' => 'user_sessions#forgotten', :as => :forgot
     match 'reset_password' => 'user_sessions#reset', :as => :reset
 
+    match 'search' => 'search#search', :as => :search
+    
     resources :user_sessions
     resources :users
     resources :languages

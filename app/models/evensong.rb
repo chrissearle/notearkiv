@@ -1,4 +1,6 @@
 class Evensong < ActiveRecord::Base
+  include PgSearch
+
   belongs_to :composer
   belongs_to :genre
 
@@ -13,6 +15,12 @@ class Evensong < ActiveRecord::Base
 
   scope :ordered, :order => 'title ASC'
   scope :preloaded, :include => [:composer, :genre, :links]
+
+  pg_search_scope :search,
+                  :against => [:title, :soloists],
+                  :associated_against => {:composer => :name,
+                                          :genre => :name},
+                  ignoring: :accents
 
   def self.excel
     NoteSheet.new([HeaderColumn.new(I18n.t('model.evensong.excel.sysid'), 8),

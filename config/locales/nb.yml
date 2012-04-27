@@ -271,3 +271,6 @@ nb:
       confirm: "Er du sikker?"
   footer:
     github: "Kildekoden på github"
+  search:
+    title: "Søkeresultater"
+    prefix: "Søk etter"

@@ -2,61 +2,6 @@
 
 <%= render :partial => 'actions' %>
 
-<table class="table table-striped table-condensed">
-  <thead>
-  <tr>
-    <th><%= t('model.note.list.item.title') %></th>
-    <th><%= t('model.note.list.name.title') %></th>
-    <th><%= t('model.composer.title') %></th>
-    <th><%= t('model.genre.title') %></th>
-    <th><%= t('model.period.title') %></th>
-    <th><%= t('model.language.list.title') %></th>
-    <th><%= t('model.note.list.instrument.title') %></th>
-    <th><%= t('model.link.list.title') %></th>
-    <th><%= t('list.actions.title') %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.item %></td>
-        <td><%= note.title %></td>
-        <td><%= note.composer_name %></td>
-        <td><%= note.genre_name %></td>
-        <td><%= note.period_name %></td>
-        <td>
-          <% if note.languages %>
-              <ul>
-                <% note.languages.each do |lang| %>
-                    <li><%= lang.name %></li>
-                <% end %>
-              </ul>
-          <% end %>
-        </td>
-        <td><%= note.instrument %></td>
-        <td>
-          <ul>
-            <% if permitted_to?(:show, :links) %>
-                <% if note.links %>
-                    <% note.links.each do |link| %>
-                        <li><%= link_to link.title, link.url %></li>
-                    <% end %>
-                <% end %>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <% if permitted_to? :show, note %>
-              <%= link_to t('list.button.show'), note_path(note), :class => 'btn btn-mini' %>
-          <% end %><% if permitted_to? :edit, note %>
-              <%= link_to t('list.button.edit'), edit_note_path(note), :class => 'btn btn-mini' %>
-          <% end %><% if permitted_to? :destroy, note %>
-              <%= link_to t('list.button.delete'), note_path(note), :method => 'delete', :confirm => t('list.delete.confirm'), :class => 'btn btn-mini btn-danger' %>
-          <% end %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render :partial => 'table' %>
 
 <%= render :partial => 'actions' %>
