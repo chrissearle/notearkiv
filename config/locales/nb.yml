@@ -253,6 +253,10 @@ nb:
       admin: "Kategorier"
       account: "Konto"
     logout: "Logg av"
+    language:
+      current: "Norsk"
+      norwegian: "Norsk"
+      english: "Engelsk"
   right:
     column:
       user:

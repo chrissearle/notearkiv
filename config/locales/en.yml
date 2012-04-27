@@ -253,6 +253,10 @@ en:
       admin: "Categories"
       account: "Account"
     logout: "Log out"
+    language:
+      current: "English"
+      norwegian: "Norwegian"
+      english: "English"
   right:
     column:
       user:
