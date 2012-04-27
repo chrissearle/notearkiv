@@ -28,8 +28,7 @@ class Note < ActiveRecord::Base
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
-                                          :languages => :name},
-                  ignoring: :accents
+                                          :languages => :name} #, ignoring: :accents
 
   def self.voices
     Note.select('distinct voice').map(&:voice).sort
