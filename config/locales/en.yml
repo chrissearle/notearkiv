@@ -269,3 +269,5 @@ en:
       delete: "Delete"
     delete:
       confirm: "Are you sure?"
+  footer:
+    github: "Source code on github"

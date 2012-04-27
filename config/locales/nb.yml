@@ -269,3 +269,5 @@ nb:
       delete: "Slett"
     delete:
       confirm: "Er du sikker?"
+  footer:
+    github: "Kildekoden på github"
