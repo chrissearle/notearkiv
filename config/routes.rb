@@ -20,7 +20,6 @@ Notearkiv::Application.routes.draw do
     resources :notes
   end
 
-  #TODO - reset when page available
   match '/:locale' => 'notes#index'
   root :to => 'notes#index'
 
