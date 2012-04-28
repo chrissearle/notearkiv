@@ -18,29 +18,33 @@
   </tr>
   <tr>
     <td><%= t('model.composer.title') %></td>
-    <td><%= @note.composer_name %></td>
+    <td><%= search_link @note.composer_name %></td>
   </tr>
   <tr>
     <td><%= t('model.genre.title') %></td>
-    <td><%= @note.genre_name %></td>
+    <td><%= search_link @note.genre_name %></td>
   </tr>
   <tr>
     <td><%= t('model.period.title') %></td>
-    <td><%= @note.period_name %></td>
+    <td><%= search_link @note.period_name %></td>
   </tr>
   <tr>
     <td><%= t('model.language.list.title') %></td>
     <td>
       <ul>
         <% @note.languages.each do |lang| %>
-            <li><%= lang.name %></li>
+            <li><%= search_link lang.name %></li>
         <% end %>
       </ul>
     </td>
   </tr>
   <tr>
     <td><%= t('model.note.field.soloists.title') %></td>
-    <td><%= @note.soloists %></td>
+    <td><%= search_link @note.soloists %></td>
+  </tr>
+  <tr>
+    <td><%= t('model.note.field.instrument.title') %></td>
+    <td><%= search_link @note.instrument %></td>
   </tr>
   <tr>
     <td><%= t('model.note.field.counts.original') %></td>
@@ -56,7 +60,7 @@
   </tr>
   <tr>
     <td><%= t('model.note.field.voice.title') %></td>
-    <td><%= @note.voice %></td>
+    <td><%= search_link @note.voice %></td>
   </tr>
   <tr>
     <td><%= t('model.note.field.comment.title') %></td>

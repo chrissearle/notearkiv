@@ -40,4 +40,12 @@ module LayoutHelper
       "btn btn-mini btn-danger disabled"
     end
   end
+
+  def search_link(value)
+    unless value
+      return ""
+    end
+
+    link_to value, search_path(:search => value)
+  end
 end

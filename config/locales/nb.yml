@@ -34,7 +34,7 @@ nb:
         item: "ID"
         title: "Tittel"
         soloists: "Soloister"
-        voice: "Stemmer"
+        voice: "Besetning"
         comment: "Kommentar"
         composer: "Komponist"
         genre: "Genre"
@@ -43,6 +43,7 @@ nb:
         copies: "Antall kopier"
         instrumental: "Antall instrumental"
         languages: "Språk"
+        instrument: "Akkomp."
       period:
         name: "Navn"
       user:
@@ -154,9 +155,11 @@ nb:
           copy: "Antall kopier"
           instrumental: "Antall instrumental"
         voice:
-          title: "Stemmer"
+          title: "Besetning"
         title:
           title: "Tittel"
+        instrument:
+          title: "Akkomp."
       excel:
         sysid: "SysID"
         id: "ID"
@@ -169,7 +172,7 @@ nb:
         originals: "Original"
         copies: "Kopi"
         instrumental: "Instr."
-        voices: "Stemmer"
+        voices: "Besetning"
         soloists: "Soloister"
         comment: "Kommentar"
         doctitle: "Notearkiv"

@@ -17,19 +17,19 @@
       <tr>
         <td><%= note.item %></td>
         <td><%= note.title %></td>
-        <td><%= note.composer_name %></td>
-        <td><%= note.genre_name %></td>
-        <td><%= note.period_name %></td>
+        <td><%= search_link note.composer_name %></td>
+        <td><%= search_link note.genre_name %></td>
+        <td><%= search_link note.period_name %></td>
         <td>
           <% if note.languages %>
               <ul>
                 <% note.languages.each do |lang| %>
-                    <li><%= lang.name %></li>
+                    <li><%= search_link lang.name %></li>
                 <% end %>
               </ul>
           <% end %>
         </td>
-        <td><%= note.instrument %></td>
+        <td><%= search_link note.instrument %></td>
         <td>
           <ul>
             <% if permitted_to?(:show, :links) %>

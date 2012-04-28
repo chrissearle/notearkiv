@@ -14,8 +14,8 @@
       <tr>
         <td><%= evensong.title %></td>
         <td><%= evensong.psalm %></td>
-        <td><%= evensong.composer_name %></td>
-        <td><%= evensong.genre_name %></td>
+        <td><%= search_link evensong.composer_name %></td>
+        <td><%= search_link evensong.genre_name %></td>
         <td>
           <ul>
             <% if permitted_to?(:show, :links) %>

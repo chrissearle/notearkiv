@@ -41,6 +41,7 @@ en:
         copies: "# copies"
         instrumental: "# instrumental"
         languages: "Languages"
+        instrument: "Accomp."
       period:
         name: "Name"
       user:
@@ -157,6 +158,8 @@ en:
           title: "Voices"
         title:
           title: "Title"
+        instrument:
+          title: "Accomp."
       excel:
         sysid: "SysID"
         id: "ID"

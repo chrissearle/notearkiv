@@ -19,17 +19,17 @@
   <tr>
 
     <td><%= t('model.composer.title') %></td>
-    <td><%= @evensong.composer_name %></td>
+    <td><%= search_link @evensong.composer_name %></td>
   </tr>
   <tr>
 
     <td><%= t('model.genre.title') %></td>
-    <td><%= @evensong.genre_name %></td>
+    <td><%= search_link @evensong.genre_name %></td>
   </tr>
   <tr>
 
     <td><%= t('model.evensong.field.soloists.title') %></td>
-    <td><%= @evensong.soloists %></td>
+    <td><%= search_link @evensong.soloists %></td>
   </tr>
   <tr>
     <td><%= t('model.evensong.field.comment.title') %></td>

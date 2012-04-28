@@ -24,7 +24,7 @@ class Note < ActiveRecord::Base
   scope :preloaded, :include => [:composer, :genre, :period, :languages, :links]
 
   pg_search_scope :search,
-                  :against => [:title, :voice, :soloists],
+                  :against => [:title, :voice, :soloists, :instrument],
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
