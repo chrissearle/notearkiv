@@ -31,7 +31,7 @@
   <tr>
     <td><%= t('model.language.list.title') %></td>
     <td>
-      <ul>
+      <ul class="unstyled">
         <% @note.languages.each do |lang| %>
             <li><%= search_link lang.name %></li>
         <% end %>
@@ -71,7 +71,7 @@
     <td>
       <% if permitted_to?(:show, :links) %>
           <% if @note.links %>
-              <ul>
+              <ul class="unstyled">
                 <% @note.links.each do |link| %>
                     <li>
                       <%= link_to link.title, link.url %>
@@ -93,7 +93,7 @@
 
 
 <div class="form-actions">
-  <%= link_to t('show.button.back'), notes_path, :class => 'btn' %>
+  <%= link_to t('model.note.list.title'), notes_path, :class => 'btn' %>
   <% if permitted_to?(:edit, @note) %>
       <%= link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn' %>
   <% end %>

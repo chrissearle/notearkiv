@@ -42,7 +42,7 @@
     <td>
       <% if permitted_to?(:show, :links) %>
           <% if @evensong.links %>
-              <ul>
+              <ul class="unstyled">
                 <% @evensong.links.each do |link| %>
                     <li>
                       <%= link_to link.title, link.url %>
@@ -63,7 +63,7 @@
 </table>
 
 <div class="form-actions">
-  <%= link_to t('show.button.back'), evensongs_path, :class => 'btn' %>
+  <%= link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn' %>
   <% if permitted_to?(:edit, @evensong) %>
       <%= link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn' %>
   <% end %>
