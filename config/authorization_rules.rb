@@ -16,6 +16,7 @@ authorization do
     has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voice]
     has_permission_on [:evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:links], :to => [:new, :create, :edit, :update, :destroy, :show]
+    has_permission_on [:uploads], :to => [:new, :create, :destroy, :show]
     has_permission_on [:archive], :to => [:download]
     has_permission_on [:search], :to => [:search]
   end
@@ -27,6 +28,7 @@ authorization do
   role :normal do
     has_permission_on [:notes, :evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show]
     has_permission_on [:links], :to => [:show]
+    has_permission_on [:uploads], :to => [:show]
     has_permission_on [:archive], :to => [:download]
     has_permission_on [:search], :to => [:search]
   end
