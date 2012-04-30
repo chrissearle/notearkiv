@@ -9,6 +9,7 @@ class DropboxController < ApplicationController
 
   DROPBOX_FILE_LIST_CACHE_KEY = "dropbox.file.list".freeze
   DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY = "dropbox.file.timestamp".freeze
+  DROPBOX_SESSION_CACHE_KEY = "dropbox.session".freeze
 
   def index
     if params[:refresh]
@@ -41,18 +42,18 @@ class DropboxController < ApplicationController
       dbsession = DropboxSession.new(ENV['DROPBOX_KEY'], ENV['DROPBOX_SECRET'])
 
       Rails.logger.debug("Storing new dropbox session in cache")
-      Rails.cache.write :dropbox_session, dbsession.serialize
+      Rails.cache.write DROPBOX_SESSION_CACHE_KEY, dbsession.serialize
 
       Rails.logger.debug("Sending to dropbox")
       redirect_to dbsession.get_authorize_url url_for(:action => 'authorize')
     else
       Rails.logger.debug("Retrieving dropbox session from cache to authorize")
-      dbsession = DropboxSession.deserialize(Rails.cache.read(:dropbox_session))
+      dbsession = DropboxSession.deserialize(Rails.cache.read(DROPBOX_SESSION_CACHE_KEY))
 
       dbsession.get_access_token
 
       Rails.logger.debug("Storing authorized dropbox session in cache")
-      Rails.cache.write :dropbox_session, dbsession.serialize
+      Rails.cache.write DROPBOX_SESSION_CACHE_KEY, dbsession.serialize
 
       redirect_to :action => 'index'
     end
@@ -61,7 +62,7 @@ class DropboxController < ApplicationController
   private
 
   def get_session
-    @dbsession = DropboxSession.deserialize(Rails.cache.read(:dropbox_session))
+    @dbsession = DropboxSession.deserialize(Rails.cache.read(DROPBOX_SESSION_CACHE_KEY))
   end
 
   def get_client
