@@ -16,6 +16,13 @@ class Upload < ActiveRecord::Base
 
   private
 
+  def remote_path
+    filename = [self.id, (self.note ? self.note.id : self.evensong.id)].join('_')
+    ext = '???'
+
+    "#{filename}.#{ext}"
+  end
+
   def remove_file
     DropboxWrapper.remove(self.path)
   end
