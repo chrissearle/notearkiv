@@ -7,7 +7,7 @@ class Upload < ActiveRecord::Base
   before_destroy :remove_file
 
   before_create :make_path
-  after_create :send
+  after_create :send_file
 
   def display_name
     self.title || self.path
@@ -26,7 +26,7 @@ class Upload < ActiveRecord::Base
     self.path = "#{filename}.#{ext}"
   end
 
-  def send
+  def send_file
     #TODO send
   end
 
