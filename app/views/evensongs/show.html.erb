@@ -66,11 +66,7 @@
           <ul class="unstyled">
             <% @evensong.uploads.each do |upload| %>
                 <li>
-                  <% if upload.media %>
-                      <%= link_to upload.display_name, upload.media %>
-                  <% else %>
-                      <%= upload.display_name %>
-                  <% end %>
+                  <%= media_link upload %>
                 </li>
             <% end %>
           </ul>
