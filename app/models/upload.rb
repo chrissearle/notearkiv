@@ -6,6 +6,9 @@ class Upload < ActiveRecord::Base
 
   before_destroy :remove_file
 
+  before_create :make_path
+  after_create :send
+
   def display_name
     self.title || self.path
   end
@@ -16,11 +19,15 @@ class Upload < ActiveRecord::Base
 
   private
 
-  def remote_path
+  def make_path
     filename = [self.id, (self.note ? self.note.id : self.evensong.id)].join('_')
-    ext = '???'
+    ext = '???' #TODO get ext
 
-    "#{filename}.#{ext}"
+    self.path = "#{filename}.#{ext}"
+  end
+
+  def send
+    #TODO send
   end
 
   def remove_file
