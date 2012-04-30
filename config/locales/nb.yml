@@ -233,6 +233,9 @@ nb:
         ok: "Lenke oppdatert."
       delete:
         ok: "Lenke slettet."
+    upload:
+      list:
+        title: "Filer"
   user:
     session:
       form:

@@ -233,6 +233,9 @@ en:
         ok: "Link updated."
       delete:
         ok: "Link deleted."
+    upload:
+      list:
+        title: "Files"
   user:
     session:
       form:

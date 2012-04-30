@@ -5,8 +5,10 @@ class Evensong < ActiveRecord::Base
   belongs_to :genre
 
   has_many :links
+  has_many :uploads
 
   before_destroy :remove_links
+  before_destroy :remove_uploads
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
@@ -47,6 +49,12 @@ class Evensong < ActiveRecord::Base
   def remove_links
     self.links.each do |link|
       link.destroy
+    end
+  end
+
+  def remove_uploads
+    self.uploads.each do |upload|
+      upload.destroy
     end
   end
 end

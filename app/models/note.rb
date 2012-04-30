@@ -2,6 +2,7 @@ class Note < ActiveRecord::Base
   include PgSearch
 
   before_destroy :remove_links
+  before_destroy :remove_uploads
 
   belongs_to :composer
   belongs_to :genre
@@ -11,6 +12,7 @@ class Note < ActiveRecord::Base
   has_many :languages, :through => :note_language_assignments
 
   has_many :links
+  has_many :uploads
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
@@ -81,4 +83,9 @@ class Note < ActiveRecord::Base
     end
   end
 
+  def remove_uploads
+    self.uploads.each do |upload|
+      upload.destroy
+    end
+  end
 end

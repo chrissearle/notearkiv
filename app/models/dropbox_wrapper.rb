@@ -1,12 +1,12 @@
-class Dropbox
+class DropboxWrapper
   DROPBOX_SESSION_CACHE_KEY = "dropbox.session".freeze
 
-  def self.get_auth_url
+  def self.get_auth_url(url)
     s = DropboxSession.new(ENV['DROPBOX_KEY'], ENV['DROPBOX_SECRET'])
 
     Rails.cache.write DROPBOX_SESSION_CACHE_KEY, s.serialize
 
-    return s.get_authorize_url url_for(:controller => 'dropbox', :action => 'authorize')
+    return s.get_authorize_url url
   end
 
   def self.authorize
@@ -67,6 +67,8 @@ class Dropbox
   def self.get_media(path)
     begin
       client = get_client
+
+      return nil unless client
 
       client.media(path)['url']
     rescue DropboxAuthError

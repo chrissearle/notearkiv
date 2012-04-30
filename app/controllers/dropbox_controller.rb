@@ -3,17 +3,16 @@
 class DropboxController < ApplicationController
   filter_access_to :all
 
-  before_filter :get_session, :except => [:authorize]
   before_filter :get_client, :except => [:authorize]
   before_filter :get_info, :except => [:authorize]
 
   DROPBOX_FILE_LIST_CACHE_KEY = "dropbox.file.list".freeze
   DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY = "dropbox.file.timestamp".freeze
-  DROPBOX_SESSION_CACHE_KEY = "dropbox.session".freeze
 
   def index
     if params[:refresh]
-      files = get_path('/')
+      files = DropboxWrapper.get_path('/')
+
       Rails.cache.write(DROPBOX_FILE_LIST_CACHE_KEY, files)
       Rails.cache.write(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY, DateTime.now)
 
@@ -37,45 +36,24 @@ class DropboxController < ApplicationController
   end
 
   def authorize
-    unless params[:oauth_token]
-      Rails.logger.debug("Creating new dropbox session")
-      dbsession = DropboxSession.new(ENV['DROPBOX_KEY'], ENV['DROPBOX_SECRET'])
-
-      Rails.logger.debug("Storing new dropbox session in cache")
-      Rails.cache.write DROPBOX_SESSION_CACHE_KEY, dbsession.serialize
-
-      Rails.logger.debug("Sending to dropbox")
-      redirect_to dbsession.get_authorize_url url_for(:action => 'authorize')
-    else
-      Rails.logger.debug("Retrieving dropbox session from cache to authorize")
-      dbsession = DropboxSession.deserialize(Rails.cache.read(DROPBOX_SESSION_CACHE_KEY))
-
-      dbsession.get_access_token
-
-      Rails.logger.debug("Storing authorized dropbox session in cache")
-      Rails.cache.write DROPBOX_SESSION_CACHE_KEY, dbsession.serialize
+    if params[:oauth_token]
+      DropboxWrapper.authorize
 
       redirect_to :action => 'index'
+    else
+      redirect_to DropboxWrapper.get_auth_url(url_for(:action => 'authorize'))
     end
   end
 
   private
 
-  def get_session
-    serialized_session = Rails.cache.read(DROPBOX_SESSION_CACHE_KEY)
-
-    if (serialized_session)
-      @dbsession = DropboxSession.deserialize(serialized_session)
-    end
-  end
-
   def get_client
-    unless @dbsession
-      return redirect_to authorize_dropbox_index_path
-    end
-
     begin
-      @dbclient = DropboxClient.new(@dbsession, :app_folder)
+      @dbclient = DropboxWrapper.get_client
+
+      unless @dbclient
+        return redirect_to authorize_dropbox_index_path
+      end
     rescue DropboxAuthError
       return redirect_to authorize_dropbox_index_path
     end
@@ -83,28 +61,5 @@ class DropboxController < ApplicationController
 
   def get_info
     @info = @dbclient.account_info
-  end
-
-  def get_path(folder)
-    files = []
-
-    Rails.logger.debug("Walking #{folder}")
-
-    metadata = @dbclient.metadata(folder)
-
-    unless metadata['contents']
-      metadata['media_link'] = @dbclient.media(metadata['path'])['url']
-      return [metadata]
-    end
-
-    metadata['contents'].each do |file|
-      if file['is_dir']
-        files = files | get_path(file['path'])
-      else
-        files << file
-      end
-    end
-
-    files
   end
 end

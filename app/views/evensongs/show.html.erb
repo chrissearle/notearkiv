@@ -59,6 +59,24 @@
       <% end %>
     </td>
   </tr>
+  <tr>
+    <td><%= t('model.upload.list.title') %></td>
+    <td>
+      <% if @evensong.uploads %>
+          <ul class="unstyled">
+            <% @evensong.uploads.each do |upload| %>
+                <li>
+                  <% if upload.media %>
+                      <%= link_to upload.display_name, upload.media %>
+                  <% else %>
+                      <%= upload.display_name %>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
+      <% end %>
+    </td>
+  </tr>
   </tbody>
 </table>
 
