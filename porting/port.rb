@@ -24,6 +24,9 @@ require 'pg'
      originals, copies, instrumental, voice,
      created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, now(), now())")
 
+@conn_new.prepare("add_note_file", "INSERT INTO uploads (path, note_id, created_at, updated_at) VALUES ($1, $2, now(), now())")
+@conn_new.prepare("add_evensong_file", "INSERT INTO uploads (path, evensong_id, created_at, updated_at) VALUES ($1, $2, now(), now())")
+
 def run_id_name(table)
   puts "Running for #{table}"
 
@@ -127,5 +130,37 @@ puts "Running for note_language_assignments"
     @conn_new.exec_prepared("add_note_language_assignments", [{:value => row.values[0], :format => 0},
                                                               {:value => row.values[1], :format => 0},
                                                               {:value => row.values[2], :format => 0}])
+  end
+end
+
+puts "Running for files"
+
+@conn_new.exec("TRUNCATE TABLE uploads")
+
+@conn_old.exec("SELECT id, doc_url FROM notes WHERE doc_url IS NOT NULL") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_note_file", [{:value => "/" + row.values[1], :format => 0},
+                                              {:value => row.values[0], :format => 0}])
+  end
+end
+
+@conn_old.exec("SELECT id, music_url FROM notes WHERE music_url IS NOT NULL") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_note_file", [{:value => "/" + row.values[1], :format => 0},
+                                              {:value => row.values[0], :format => 0}])
+  end
+end
+
+@conn_old.exec("SELECT id, doc_url FROM evensongs WHERE doc_url IS NOT NULL") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_evensong_file", [{:value => "/" + row.values[1], :format => 0},
+                                                  {:value => row.values[0], :format => 0}])
+  end
+end
+
+@conn_old.exec("SELECT id, music_url FROM evensongs WHERE music_url IS NOT NULL") do |result|
+  result.each do |row|
+    @conn_new.exec_prepared("add_evensong_file", [{:value => "/" + row.values[1], :format => 0},
+                                                  {:value => row.values[0], :format => 0}])
   end
 end
