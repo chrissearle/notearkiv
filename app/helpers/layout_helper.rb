@@ -49,26 +49,28 @@ module LayoutHelper
     link_to value, search_path(:search => value)
   end
 
+  def get_icon_for_path(path)
+    ext = path.gsub(/.*\./, '')
+
+    case ext
+      when "pdf" then
+        "icon-book"
+      when "zip" then
+        "icon-download-alt"
+      when "mp3" then
+        "icon-music"
+      when "m4a" then
+        "icon-music"
+      else
+        "icon-file"
+    end
+  end
+
   def media_link(upload)
     unless upload.media
       return upload.display_name
     end
 
-    css_class = "icon-file"
-
-    if upload.path.ends_with? "pdf"
-      css_class = "icon-book"
-    end
-    if upload.path.ends_with? "zip"
-      css_class = "icon-download-alt"
-    end
-    if upload.path.ends_with? "mp3"
-      css_class = "icon-music"
-    end
-    if upload.path.ends_with? "m4a"
-      css_class = "icon-music"
-    end
-
-    link_to "<i class='#{css_class}'></i>".html_safe + upload.display_name, upload.media
+    link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media
   end
 end
