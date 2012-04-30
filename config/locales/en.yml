@@ -236,6 +236,10 @@ en:
     upload:
       list:
         title: "Files"
+      create:
+        ok: "File uploaded."
+      delete:
+        ok: "File deleted."
   user:
     session:
       form:

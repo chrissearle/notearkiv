@@ -64,6 +64,18 @@ class DropboxWrapper
     files
   end
 
+  def self.remove(path)
+    begin
+      client = get_client
+
+      return unless client
+
+      client.file_delete(path)
+    rescue DropboxAuthError
+      return nil
+    end
+  end
+
   def self.get_media(path)
     begin
       client = get_client

@@ -236,6 +236,10 @@ nb:
     upload:
       list:
         title: "Filer"
+      create:
+        ok: "Fil lastet opp."
+      delete:
+        ok: "Fil slettet."
   user:
     session:
       form:

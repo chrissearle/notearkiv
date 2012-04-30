@@ -17,6 +17,6 @@ class Upload < ActiveRecord::Base
   private
 
   def remove_file
-    # TODO Remove from dropbox
+    DropboxWrapper.remove(self.path)
   end
 end
