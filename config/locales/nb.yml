@@ -289,9 +289,9 @@ nb:
     prefix: "Søk etter"
   dropbox:
     list:
-      title: "Dropbox"
+      title: "DropBox"
     authorize:
-      button: "Opprette dropbox kobling"
+      button: "Opprette DropBox kobling"
     field:
       name: "Felt"
       value: "Verdi"
@@ -316,7 +316,7 @@ nb:
       modified: "Sist oppdatert"
       media: "Direkte visningslenke (gyldig uten auth i 4t)"
     refresh:
-      button: "Oppfrisk listen over filer fra dropbox"
+      button: "Oppfrisk listen over filer fra DropBox"
   number: # Taken from
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'

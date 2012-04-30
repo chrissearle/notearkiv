@@ -289,9 +289,9 @@ en:
     prefix: "Search for"
   dropbox:
     list:
-      title: "Dropbox"
+      title: "DropBox"
     authorize:
-      button: "Establish dropbox connection"
+      button: "Establish DropBox connection"
     field:
       name: "Field"
       value: "Value"
@@ -316,4 +316,4 @@ en:
       modified: "Last modified"
       media: "Direct streaming link (valid without auth for 4 hours)"
     refresh:
-      button: "Refresh files list from dropbox"
+      button: "Refresh files list from DropBox"

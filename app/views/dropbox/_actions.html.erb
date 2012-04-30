@@ -1,6 +1,6 @@
 <% if permitted_to? :authorize, :dropbox %>
     <div class="well">
-      <%= link_to t('dropbox.authorize.button'), authorize_dropbox_index_path, :class => 'btn' %>
+      <%= link_to t('dropbox.authorize.button'), authorize_dropbox_index_path, :class => 'btn btn-danger' %>
       <%= link_to t('dropbox.refresh.button'), url_for(params.merge(:refresh => true)), :class => 'btn' %>
     </div>
 <% end %>
