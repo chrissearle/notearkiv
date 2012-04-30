@@ -64,7 +64,10 @@
                       <li><%= link_to t('account.list.title'), url_for(:controller => 'account', :action => 'index') %></li>
                   <% end %>
                   <% if permitted_to? :index, :users %>
-                      <li><%= link_to 'Brukere', users_path %></li>
+                      <li><%= link_to t('account.users.list.title'), users_path %></li>
+                  <% end %>
+                  <% if permitted_to? :index, :dropbox %>
+                      <li><%= link_to t('account.dropbox.list.title'), dropbox_index_path %></li>
                   <% end %>
                 </ul>
               </li>

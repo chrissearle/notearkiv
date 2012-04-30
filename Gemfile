@@ -48,3 +48,7 @@ gem 'dalli'
 gem 'spreadsheet'
 
 gem 'pg_search'
+
+gem 'dropbox-sdk'
+gem 'json'
+gem 'oauth'

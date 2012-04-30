@@ -251,6 +251,12 @@ nb:
       title: "Min konto"
       password:
         help: "La passord feltene være tom for å beholde eksisterende passord."
+    users:
+      list:
+        title: "Brukere"
+    dropbox:
+      list:
+        title: "DropBox"
   menu:
     dropdown:
       admin: "Kategorier"
@@ -281,3 +287,90 @@ nb:
   search:
     title: "Søkeresultater"
     prefix: "Søk etter"
+  dropbox:
+    list:
+      title: "Dropbox"
+    authorize:
+      button: "Opprette dropbox kobling"
+    field:
+      name: "Felt"
+      value: "Verdi"
+      referral: "Referral lenke"
+      uid: "UID"
+      country: "Land"
+      quota: "Quota"
+      quotashared: "Delte filer"
+      quotanormal: "Private filer"
+      quotaquota: "Maksimum"
+    account:
+      info:
+        title: "Informasjon om konto"
+    files:
+      list:
+        title: "Filer"
+      updated:
+        at: "Sist hentet"
+    file:
+      name: "Filnavn"
+      size: "Størrelse"
+      modified: "Sist oppdatert"
+      media: "Direkte visningslenke (gyldig uten auth i 4t)"
+    refresh:
+      button: "Oppfrisk listen over filer fra dropbox"
+  number: # Taken from
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: "."
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: ","
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 3
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "kr"
+        # These three are to override number.format and are optional
+        separator: "."
+        delimiter: ","
+        precision: 2
+
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"

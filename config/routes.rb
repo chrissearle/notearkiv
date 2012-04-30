@@ -9,7 +9,8 @@ Notearkiv::Application.routes.draw do
     match 'reset_password' => 'user_sessions#reset', :as => :reset
 
     match 'search' => 'search#search', :as => :search
-    
+
+
     resources :user_sessions
     resources :users
     resources :languages
@@ -20,6 +21,11 @@ Notearkiv::Application.routes.draw do
     resources :account
     resources :evensongs
     resources :notes
+    resources :dropbox do
+      collection do
+        get 'authorize'
+      end
+    end
   end
 
   match '/:locale' => 'notes#index'

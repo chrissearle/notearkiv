@@ -251,6 +251,12 @@ en:
       title: "My Account"
       password:
         help: "Leave password fields blank to keep your existing password."
+    users:
+      list:
+        title: "Users"
+    dropbox:
+      list:
+        title: "DropBox"
   menu:
     dropdown:
       admin: "Categories"
@@ -281,3 +287,33 @@ en:
   search:
     title: "Search Results"
     prefix: "Search for"
+  dropbox:
+    list:
+      title: "Dropbox"
+    authorize:
+      button: "Establish dropbox connection"
+    field:
+      name: "Field"
+      value: "Value"
+      referral: "Referral link"
+      uid: "UID"
+      country: "Country"
+      quota: "Quota"
+      quotashared: "Shared Files"
+      quotanormal: "Private Files"
+      quotaquota: "Max"
+    account:
+      info:
+        title: "Account Info"
+    files:
+      list:
+        title: "Files"
+      updated:
+        at: "Last refresh"
+    file:
+      name: "Filename"
+      size: "Size"
+      modified: "Last modified"
+      media: "Direct streaming link (valid without auth for 4 hours)"
+    refresh:
+      button: "Refresh files list from dropbox"
