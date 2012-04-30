@@ -62,10 +62,18 @@ class DropboxController < ApplicationController
   private
 
   def get_session
-    @dbsession = DropboxSession.deserialize(Rails.cache.read(DROPBOX_SESSION_CACHE_KEY))
+    serialized_session = Rails.cache.read(DROPBOX_SESSION_CACHE_KEY)
+
+    if (serialized_session)
+      @dbsession = DropboxSession.deserialize(serialized_session)
+    end
   end
 
   def get_client
+    unless @dbsession
+      return redirect_to authorize_dropbox_index_path
+    end
+
     begin
       @dbclient = DropboxClient.new(@dbsession, :app_folder)
     rescue DropboxAuthError
