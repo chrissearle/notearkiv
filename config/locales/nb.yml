@@ -322,7 +322,7 @@ nb:
       list:
         title: "Filer"
       updated:
-        at: "Sist hentet"
+        at: "Sist hentet: "
     file:
       name: "Filnavn"
       size: "Størrelse"

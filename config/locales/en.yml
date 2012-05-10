@@ -322,7 +322,7 @@ en:
       list:
         title: "Files"
       updated:
-        at: "Last refresh"
+        at: "Last refresh: "
     file:
       name: "Filename"
       size: "Size"
