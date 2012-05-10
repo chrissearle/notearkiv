@@ -64,6 +64,9 @@ en:
         error: "Invalid username or password."
       onetime:
         warning: "One-time login failed."
+    reset:
+      title: "Password reset sent."
+      button: "Log In"
   flash:
     authentication:
       notice: "Sorry - you don't have access to that."

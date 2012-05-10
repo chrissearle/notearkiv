@@ -73,4 +73,12 @@ module LayoutHelper
 
     link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media
   end
+
+  def link_with_icon(icon, text, white=false)
+    "<i class='#{white ? "#{icon} icon-white" : icon}'></i> #{text}".html_safe
+  end
+
+  def safe_size(items)
+    items.size if items.size > 0
+  end
 end

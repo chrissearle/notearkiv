@@ -1,0 +1,24 @@
+%h1= t('model.genre.list.title')
+
+= render :partial => 'actions'
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('model.genre.list.name.title')
+      %th= t('model.note.list.title')
+      %th= t('model.evensong.list.title')
+      %th= t('list.actions.title')
+  %tbody>
+    - @genres.each do |genre|
+      %tr>
+        %td= genre.name
+        %td= safe_size genre.notes
+        %td= safe_size genre.evensongs
+        %td
+          - if permitted_to? :edit, genre
+            = link_to t('list.button.edit'), edit_genre_path(genre), :class => 'btn btn-mini'
+          - if permitted_to? :destroy, genre
+            = link_to t('list.button.delete'), genre_path(genre), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(genre)
+
+= render :partial => 'actions'

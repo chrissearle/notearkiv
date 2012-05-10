@@ -1,0 +1,35 @@
+%table.table.table-striped.table-condensed.table-bordered
+  %thead
+    %tr
+      %th= t('model.note.list.item.title')
+      %th= t('model.note.list.name.title')
+      %th= t('model.composer.title')
+      %th= t('model.genre.title')
+      %th= t('model.period.title')
+      %th= t('model.language.list.title')
+      %th= t('model.note.list.instrument.title')
+      %th= t('model.link.list.title')
+  %tbody
+    - @notes.each do |note|
+      %tr
+        %td
+          - if permitted_to? :show, note
+            = link_to note.item, note_path(note)
+          - else
+            = note.item
+        %td= note.title
+        %td= search_link note.composer_name
+        %td= search_link note.genre_name
+        %td= search_link note.period_name
+        %td
+          - if note.languages
+            %ul.unstyled
+              - note.languages.each do |lang|
+                %li= search_link lang.name
+        %td= search_link note.instrument
+        %td
+          %ul.unstyled
+            - if permitted_to?(:show, :links)
+              - if note.links
+                - note.links.each do |link|
+                  %li= link_to link.title, link.url

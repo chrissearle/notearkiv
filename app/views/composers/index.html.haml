@@ -1,0 +1,24 @@
+%h1= t('model.composer.list.title')
+
+= render :partial => 'actions'
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('model.composer.list.name.title')
+      %th= t('model.note.list.title')
+      %th= t('model.evensong.list.title')
+      %th= t('list.actions.title')
+  %tbody
+    - @composers.each do |composer|
+      %tr
+        %td= composer.name
+        %td= safe_size composer.notes
+        %td= safe_size composer.evensongs
+        %td
+          - if permitted_to? :edit, composer
+            = link_to t('list.button.edit'), edit_composer_path(composer), :class => 'btn btn-mini'
+          - if permitted_to? :destroy, composer
+            = link_to t('list.button.delete'), composer_path(composer), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(composer)
+
+= render :partial => 'actions'

@@ -1,0 +1,3 @@
+- if permitted_to? :new, :composers
+  %div.well
+    = link_to t('list.button.new'), new_composer_path, :class => 'btn btn-primary'

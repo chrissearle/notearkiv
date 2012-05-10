@@ -1,0 +1,6 @@
+%h2= t('right.column.user.header')
+
+%address
+  %strong= current_user.display_name
+  %br
+  = link_to current_user.email, "mailto:#{current_user.email}"

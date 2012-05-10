@@ -1,0 +1,24 @@
+%h2= t('dropbox.files.list.title')
+
+- if @timestamp
+  %p
+    = t('dropbox.files.updated.at')
+    :
+    = @timestamp
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('dropbox.file.name')
+      %th= t('dropbox.file.size')
+      %th= t('dropbox.file.modified')
+      - if @files.size == 1
+        %th= t('dropbox.file.media')
+  %tbody
+    - @files.each do |file|
+      %tr
+        %td= link_to file['path'], url_for(params.merge(:path => file['path']))
+        %td= number_to_human_size file['bytes'].to_f
+        %td= file['modified']
+        - if @files.size == 1
+          %td= link_to file['path'], file['media_link']

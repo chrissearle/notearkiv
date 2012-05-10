@@ -1,0 +1,22 @@
+%h1= t('model.period.list.title')
+
+= render :partial => 'actions'
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('model.period.list.name.title')
+      %th= t('model.note.list.title')
+      %th= t('list.actions.title')
+  %tbody
+    - @periods.each do |period|
+      %tr
+        %td= period.name
+        %td= safe_size period.notes
+        %td
+          - if permitted_to? :edit, period
+            = link_to t('list.button.edit'), edit_period_path(period), :class => 'btn btn-mini'
+          - if permitted_to? :destroy, period
+            = link_to t('list.button.delete'), period_path(period), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(period)
+
+= render :partial => 'actions'

@@ -1,0 +1,58 @@
+%h1= t('model.evensong.title')
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('model.evensong.show.key')
+      %th= t('model.evensong.show.val')
+  %tbody
+    %tr
+      %td= t('model.evensong.field.title.title')
+      %td= @evensong.title
+    %tr
+      %td= t('model.evensong.field.psalm.title')
+      %td= @evensong.psalm
+    %tr
+      %td= t('model.composer.title')
+      %td= search_link @evensong.composer_name
+    %tr
+      %td= t('model.genre.title')
+      %td= search_link @evensong.genre_name
+    %tr
+      %td= t('model.evensong.field.soloists.title')
+      %td= search_link @evensong.soloists
+    %tr
+      %td= t('model.evensong.field.comment.title')
+      %td=  @evensong.comment
+    %tr
+      %td= t('model.link.list.title')
+      %td
+        - if permitted_to?(:show, :links)
+          - if @evensong.links
+            %ul.unstyled
+              - @evensong.links.each do |link|
+                %li
+                  = link_to link.title, link.url
+                  - if permitted_to?(:edit, link)
+                    = link_to t('show.button.edit'), edit_link_path(link), :class => 'btn btn-mini'
+                  - if permitted_to?(:destroy, link)
+                    = link_to t('show.button.delete'), link_path(link), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+    %tr
+      %td= t('model.upload.list.title')
+      %td
+        - if @evensong.uploads
+          %ul.unstyled
+            - @evensong.uploads.each do |upload|
+              %li
+                = media_link upload
+                - if permitted_to?(:destroy, upload)
+                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+
+%div.form-actions
+  = link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn'
+  - if permitted_to?(:edit, @evensong)
+    = link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn'
+  - if permitted_to?(:new, :links)
+    = link_to t('show.button.link'), new_link_path(:evensong => @evensong.id), :class => 'btn'
+  - if permitted_to?(:destroy, @evensong)
+    = link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger'

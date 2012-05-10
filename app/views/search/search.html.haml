@@ -1,0 +1,14 @@
+%h1= t('search.title')
+
+%p
+  = t('search.prefix')
+  :
+  %em= params[:search]
+
+%h2= t('model.note.list.title')
+
+= render 'notes/table'
+
+%h2= t('model.evensong.list.title')
+
+= render 'evensongs/table'

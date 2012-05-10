@@ -1,0 +1,58 @@
+%div.navbar.navbar-fixed-top
+  %div.navbar-inner
+    %div.container
+      %a.btn.btn-navbar{ "data-toggle" => "collapse", "data-target" => ".nav-collapse" }
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{ :href => "#" }
+        OCHS
+
+      %div.nav-collapse
+        %ul.nav
+          - if current_user
+            - if permitted_to? :index, :notes
+              %li= link_to t('model.note.list.title'), notes_path
+            - if permitted_to? :index, :evensongs
+              %li= link_to t('model.evensong.list.title'), evensongs_path
+        - if current_user
+          = form_tag(search_path, :method => 'get', :class => 'navbar-search pull-left') do
+            = text_field_tag "search", params[:search], :class => 'search-query', :placeholder => 'Search'
+        %ul.nav.pull-right
+          - if current_user
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+                = link_with_icon('icon-tags', t('menu.dropdown.admin'), true)
+                %b.caret
+              %ul.dropdown-menu
+                - if permitted_to? :index, :composers
+                  %li= link_to t('model.composer.list.title'), composers_path
+                - if permitted_to? :index, :genres
+                  %li= link_to t('model.genre.list.title'), genres_path
+                - if permitted_to? :index, :periods
+                  %li= link_to t('model.period.list.title'), periods_path
+                - if permitted_to? :index, :languages
+                  %li= link_to t('model.language.list.title'), languages_path
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+                = link_with_icon( 'icon-user', t('menu.dropdown.account'), true)
+                %b.caret
+              %ul.dropdown-menu
+                - if permitted_to? :index, :account
+                  %li= link_to t('account.list.title'), url_for(:controller => 'account', :action => 'index')
+                - if permitted_to? :index, :users
+                  %li= link_to t('account.users.list.title'), users_path
+                - if permitted_to? :index, :dropbox
+                  %li= link_to t('account.dropbox.list.title'), dropbox_index_path
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+                = link_with_icon( 'icon-user', t('menu.language.current'), true)
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to t('menu.language.norwegian'), url_for(params.merge(:locale => 'nb'))
+                %li= link_to t('menu.language.english'), url_for(params.merge(:locale => 'en'))
+            %li.divider-vertical
+            %li= link_to t('menu.logout'), logout_path

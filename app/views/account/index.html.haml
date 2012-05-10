@@ -1,0 +1,17 @@
+%h1= @user.display_name
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('account.list.username.title')
+      %th= t('account.list.email.title')
+      %th= t('account.list.last.title')
+  %tbody
+    %tr
+      %td= @user.username
+      %td= @user.email
+      %td= @user.current_login_at
+
+- if permitted_to? :edit, @user, :context => :account
+  %div.well
+    = link_to t('list.button.edit'), edit_account_path(@user), :class => 'btn btn-primary'

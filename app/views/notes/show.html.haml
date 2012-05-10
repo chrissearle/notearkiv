@@ -1,0 +1,82 @@
+%h1= t('model.note.title')
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('model.evensong.show.key')
+      %th= t('model.evensong.show.val')
+  %tbody
+    %tr
+      %td= t('model.note.field.item.title')
+      %td= @note.item
+    %tr
+      %td= t('model.note.field.title.title')
+      %td= @note.title
+    %tr
+      %td= t('model.composer.title')
+      %td= search_link @note.composer_name
+    %tr
+      %td= t('model.genre.title')
+      %td= search_link @note.genre_name
+    %tr
+      %td= t('model.period.title')
+      %td= search_link @note.period_name
+    %tr
+      %td= t('model.language.list.title')
+      %td
+        %ul.unstyled
+          - @note.languages.each do |lang|
+            %li= search_link lang.name
+    %tr
+      %td= t('model.note.field.soloists.title')
+      %td= search_link @note.soloists
+    %tr
+      %td= t('model.note.field.instrument.title')
+      %td= search_link @note.instrument
+    %tr
+      %td= t('model.note.field.counts.original')
+      %td= @note.originals
+    %tr
+      %td= t('model.note.field.counts.copy')
+      %td= @note.copies
+    %tr
+      %td= t('model.note.field.counts.instrumental')
+      %td= @note.instrumental
+    %tr
+      %td= t('model.note.field.voice.title')
+      %td= search_link @note.voice
+    %tr
+      %td= t('model.note.field.comment.title')
+      %td= @note.comment
+    %tr
+      %td= t('model.link.list.title')
+      %td
+        - if permitted_to?(:show, :links)
+          - if @note.links
+            %ul.unstyled
+              - @note.links.each do |link|
+                %li
+                  = link_to link.title, link.url
+                  - if permitted_to?(:edit, link)
+                    = link_to t('show.button.edit'), edit_link_path(link), :class => 'btn btn-mini'
+                  - if permitted_to?(:destroy, link)
+                    = link_to t('show.button.delete'), link_path(link), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+    %tr
+      %td= t('model.upload.list.title')
+      %td
+        - if @note.uploads
+          %ul.unstyled
+            - @note.uploads.each do |upload|
+              %li
+                = media_link upload
+                - if permitted_to?(:destroy, upload)
+                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+
+%div.form-actions
+  = link_to t('model.note.list.title'), notes_path, :class => 'btn'
+  - if permitted_to?(:edit, @note)
+    = link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn'
+  - if permitted_to?(:new, :links)
+    = link_to t('show.button.link'), new_link_path(:note => @note.id), :class => 'btn'
+  - if permitted_to?(:destroy, @note)
+    = link_to t('show.button.delete'), note_path(@note), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger'

@@ -1,0 +1,7 @@
+- if permitted_to? :new, :notes
+  %div.well
+    = link_to t('list.button.new'), new_note_path, :class => 'btn btn-primary'
+    %a.btn.btn-danger.disabled{ :href => "#" }
+      %i.icon-upload
+      = t('list.button.upload')
+    = link_to link_with_icon("icon-download", t('list.button.download')), notes_path(:format => :xls), :class => 'btn'

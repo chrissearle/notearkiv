@@ -66,6 +66,9 @@ nb:
         error: "Ugyldig brukernavn eller passord."
       onetime:
         warning: "Kunne ikke bruke denne engangs innlogging."
+    reset:
+      title: "Passord reset sendt."
+      button: "Logg på"
   flash:
     authentication:
       notice: "Beklager - du har ikke tilgang til dette."

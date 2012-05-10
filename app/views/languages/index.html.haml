@@ -1,0 +1,22 @@
+%h1= t('model.language.list.title')
+
+= render :partial => 'actions'
+
+%table.table.table-striped.table-condensed
+  %head
+    %tr
+      %th= t('model.language.list.name.title')
+      %th= t('model.note.list.title')
+      %th= t('list.actions.title')
+  %tbody
+    - @languages.each do |language|
+      %tr
+        %td= language.name
+        %td= safe_size language.notes
+        %td
+          - if permitted_to? :edit, language
+            = link_to t('list.button.edit'), edit_language_path(language), :class => 'btn btn-mini'
+          - if permitted_to? :destroy, language
+            = link_to t('list.button.delete'), language_path(language), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(language)
+
+= render :partial => 'actions'

@@ -1,0 +1,42 @@
+%h1
+  Brukere
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+        Username
+      %th
+        Name
+      %th
+        E-mail
+      %th
+        Updated
+      %th
+        Login Count
+      %th
+        Failed Login Count
+      %th
+        Last Request
+      %th
+        Current Login
+      %th
+        Current Login IP
+      %th
+        Roles
+  %tbody
+    - for user in @users
+      %tr
+        %td= link_to user.username, user_path(user)
+        %td= user.name
+        %td= user.email
+        %td= user.updated_at
+        %td= user.login_count
+        %td= user.failed_login_count
+        %td= user.last_request_at
+        %td= user.current_login_at
+        %td= user.current_login_ip
+        %td
+          %ul.unstyled
+            - user.roles.each do |role|
+              %li= role.name

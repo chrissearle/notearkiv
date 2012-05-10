@@ -1,0 +1,28 @@
+%h2= t('dropbox.account.info.title')
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= t('dropbox.field.name')
+      %th= t('dropbox.field.value')
+  %tbody
+    %tr
+      %td= t('dropbox.field.referral')
+      %td= @info['referral_link']
+    %tr
+      %td= t('dropbox.field.uid')
+      %td= @info['uid']
+    %tr
+      %td= t('dropbox.field.country')
+      %td= @info['country']
+    %tr
+      %td= t('dropbox.field.quota')
+      %td
+        %dl.dl-horizontal
+          %dt= t('dropbox.field.quotashared')
+          %dd= number_to_human_size @info['quota_info']['shared'].to_f
+          %dt= t('dropbox.field.quotanormal')
+          %dd= number_to_human_size @info['quota_info']['normal'].to_f
+          %dt= t('dropbox.field.quotaquota')
+          %dd= number_to_human_size @info['quota_info']['quota'].to_f
+

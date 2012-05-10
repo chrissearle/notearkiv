@@ -1,0 +1,25 @@
+%table.table.table-striped.table-condensed.table-bordered
+  %thead
+    %tr
+      %th= t('model.evensong.list.name.title')
+      %th= t('model.evensong.list.psalm.title')
+      %th= t('model.composer.title')
+      %th= t('model.genre.title')
+      %th= t('model.link.list.title')
+  %tbody
+    - @evensongs.each do |evensong|
+      %tr
+        %td
+          - if permitted_to? :show, evensong
+            = link_to evensong.title, evensong_path(evensong)
+          - else
+            = evensong.title
+        %td= evensong.psalm
+        %td= search_link evensong.composer_name
+        %td= search_link evensong.genre_name
+        %td
+          %ul.unstyled
+            - if permitted_to?(:show, :links)
+              - if evensong.links
+                - evensong.links.each do |link|
+                  %li= link_to link.title, link.url
