@@ -299,7 +299,7 @@ en:
     github: "Source code on github"
   search:
     title: "Search Results"
-    prefix: "Search for"
+    prefix: "Search for: "
   dropbox:
     list:
       title: "DropBox"

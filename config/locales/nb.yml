@@ -299,7 +299,7 @@ nb:
     github: "Kildekoden på github"
   search:
     title: "Søkeresultater"
-    prefix: "Søk etter"
+    prefix: "Søk etter: "
   dropbox:
     list:
       title: "DropBox"
