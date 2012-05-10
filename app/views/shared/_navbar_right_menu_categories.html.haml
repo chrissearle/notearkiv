@@ -1,0 +1,13 @@
+%li.dropdown
+  %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
+    = link_with_icon('icon-tags', t('menu.dropdown.admin'), true)
+    %b.caret
+  %ul.dropdown-menu
+    - if permitted_to? :index, :composers
+      %li= link_to t('model.composer.list.title'), composers_path
+    - if permitted_to? :index, :genres
+      %li= link_to t('model.genre.list.title'), genres_path
+    - if permitted_to? :index, :periods
+      %li= link_to t('model.period.list.title'), periods_path
+    - if permitted_to? :index, :languages
+      %li= link_to t('model.language.list.title'), languages_path

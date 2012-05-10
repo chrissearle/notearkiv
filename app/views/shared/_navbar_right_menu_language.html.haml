@@ -1,0 +1,7 @@
+%li.dropdown
+  %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
+    = link_with_icon( 'icon-user', t('menu.language.current'), true)
+    %b.caret
+  %ul.dropdown-menu
+    %li= link_to t('menu.language.norwegian'), url_for(params.merge(:locale => 'nb'))
+    %li= link_to t('menu.language.english'), url_for(params.merge(:locale => 'en'))
