@@ -1,0 +1,23 @@
+= form_for @user, :html => {:class => 'form-horizontal'}, :url => {:controller => "account", :action => 'update'} do |f|
+  %fieldset
+    %legend= t('account.form.title')
+
+    %div.control-group
+      = f.label :password, :class => 'control-label'
+      %div.controls
+        = f.password_field :password, :class => 'text_field'
+        %p.help-block= t('account.form.password.help')
+
+    %div.control-group
+      = f.label :password_confirmation, :class => 'control-label'
+      %div.controls
+        = f.password_field :password_confirmation, :class => 'text_field'
+
+    %div.control-group
+      = f.label :email, :class => 'control-label'
+      %div.controls
+        = f.text_field :email, :class => 'text_field'
+
+    %div.form-actions
+      = f.submit nil, :class => 'btn btn-primary'
+      = link_to t('form.button.cancel'), url_for( :controller => 'account', :action => 'index'), :class => 'btn'

@@ -1,0 +1,18 @@
+!!!
+%html
+  = render :partial => "shared/head"
+  %body
+    = render :partial => 'shared/navbar'
+
+    %div.container
+      %div.row
+        %div.span9
+          = render :partial => "shared/flash_messages", :locals => {:flash => flash}
+          = yield
+        %div.span3
+          - if current_user
+            = render :partial => 'shared/right_logged_in'
+          - else
+            = render :partial => 'shared/right_not_logged_in'
+
+      = render :partial => 'shared/footer'

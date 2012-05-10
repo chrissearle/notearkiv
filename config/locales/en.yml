@@ -52,6 +52,9 @@ en:
         username: "User Name"
         password: "Password"
         email: "Your registered e-mail address"
+  user:
+    form:
+      legend: "My Account"
   user_session:
     form:
       legend: "Log in"

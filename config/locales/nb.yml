@@ -54,6 +54,9 @@ nb:
         username: "Brukernavn"
         password: "Passord"
         email: "Ditt registrerte e-postadresse"
+  user:
+    form:
+      legend: "Min konto"
   user_session:
     form:
       legend: "Logg på"
