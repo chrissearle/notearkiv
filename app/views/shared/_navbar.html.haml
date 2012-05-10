@@ -1,7 +1,7 @@
 %div.navbar.navbar-fixed-top
   %div.navbar-inner
     %div.container
-      %a.btn.btn-navbar{ "data-toggle" => "collapse", "data-target" => ".nav-collapse" }
+      %a.btn.btn-navbar{ :'data-toggle' => "collapse", :'data-target' => ".nav-collapse" }
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
@@ -22,7 +22,7 @@
           - if current_user
             %li.divider-vertical
             %li.dropdown
-              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+              %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
                 = link_with_icon('icon-tags', t('menu.dropdown.admin'), true)
                 %b.caret
               %ul.dropdown-menu
@@ -36,7 +36,7 @@
                   %li= link_to t('model.language.list.title'), languages_path
             %li.divider-vertical
             %li.dropdown
-              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+              %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
                 = link_with_icon( 'icon-user', t('menu.dropdown.account'), true)
                 %b.caret
               %ul.dropdown-menu
@@ -48,7 +48,7 @@
                   %li= link_to t('account.dropbox.list.title'), dropbox_index_path
             %li.divider-vertical
             %li.dropdown
-              %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown" }
+              %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
                 = link_with_icon( 'icon-user', t('menu.language.current'), true)
                 %b.caret
               %ul.dropdown-menu

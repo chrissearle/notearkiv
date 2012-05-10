@@ -1,5 +1,5 @@
 - flash.each do |type, message|
-  %div.alert.fade.in{ "data-alert" => "alert", :class => "alert-#{bootstrap_type(type)}" }
-    %a.close{:href => "#", "data-dismiss" => "alert" } ×
+  %div.alert.fade.in{ :'data-alert' => "alert", :class => "alert-#{bootstrap_type(type)}" }
+    %a.close{ :href => "#", :'data-dismiss' => "alert" } ×
     %p
       = message
