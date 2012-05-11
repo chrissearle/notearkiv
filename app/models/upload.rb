@@ -14,7 +14,16 @@ class Upload < ActiveRecord::Base
   end
 
   def media
-    @media ||= DropboxWrapper.get_media(self.path)
+    begin
+      @media ||= DropboxWrapper.get_media(self.path)
+    rescue DropboxError => de
+      Rails.logger.warn "Dropbox error #{de.error}"
+      @media = nil
+    end
+  end
+
+  def self.search_path(path)
+    self.find_by_path(path)
   end
 
   private

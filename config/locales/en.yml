@@ -328,5 +328,9 @@ en:
       size: "Size"
       modified: "Last modified"
       media: "Direct streaming link (valid without auth for 4 hours)"
+      link: "Linked note"
     refresh:
       button: "Refresh files list from DropBox"
+  media:
+    file:
+      missing: "file missing"

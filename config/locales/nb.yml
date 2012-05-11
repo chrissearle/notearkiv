@@ -328,6 +328,7 @@ nb:
       size: "Størrelse"
       modified: "Sist oppdatert"
       media: "Direkte visningslenke (gyldig uten auth i 4t)"
+      link: "Lenket note"
     refresh:
       button: "Oppfrisk listen over filer fra DropBox"
   number: # Taken from
@@ -387,3 +388,6 @@ nb:
           mb: "MB"
           gb: "GB"
           tb: "TB"
+  media:
+    file:
+      missing: "fant ikke filen"

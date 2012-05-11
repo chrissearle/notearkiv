@@ -13,6 +13,7 @@
       %th= t('dropbox.file.modified')
       - if @files.size == 1
         %th= t('dropbox.file.media')
+      %th= t('dropbox.file.link')
   %tbody
     - @files.each do |file|
       %tr
@@ -21,3 +22,5 @@
         %td= file['modified']
         - if @files.size == 1
           %td= link_to file['path'], file['media_link']
+        %td= upload_back_link(file['path'])
+

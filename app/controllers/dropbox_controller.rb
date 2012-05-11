@@ -20,7 +20,7 @@ class DropboxController < ApplicationController
     end
 
     if params[:path]
-      @files = get_path(params[:path])
+      @files = DropboxWrapper.get_path(params[:path])
     else
       @files = Rails.cache.read(DROPBOX_FILE_LIST_CACHE_KEY)
       @timestamp = Rails.cache.read(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY)

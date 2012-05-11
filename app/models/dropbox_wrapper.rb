@@ -2,7 +2,7 @@ class DropboxWrapper
   DROPBOX_SESSION_CACHE_KEY = "dropbox.session".freeze
 
   def self.get_auth_url(url)
-    s = DropboxSession.new(ENV['DROPBOX_KEY'], ENV['DROPBOX_SECRET'])
+    s = DropboxSession.new(ENV['DROPBOX_CONSUMER_KEY'], ENV['DROPBOX_CONSUMER_SECRET'])
 
     Rails.cache.write DROPBOX_SESSION_CACHE_KEY, s.serialize
 

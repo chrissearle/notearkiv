@@ -68,7 +68,7 @@ module LayoutHelper
 
   def media_link(upload)
     unless upload.media
-      return upload.display_name
+      return "#{upload.display_name} - #{t('media.file.missing')}"
     end
 
     link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media
@@ -80,5 +80,17 @@ module LayoutHelper
 
   def safe_size(items)
     items.size if items.size > 0
+  end
+
+  def upload_back_link(path)
+    upload = Upload.search_path(path)
+
+    if upload
+      if upload.note
+        link_to "#{t('model.note.title')}: #{upload.note.title}", note_path(upload.note)
+      else
+        link_to "#{t('model.evensong.title')}: #{upload.evensong.title}", evensong_path(upload.evensong)
+      end
+    end
   end
 end
