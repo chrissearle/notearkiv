@@ -28,13 +28,8 @@
                 %li= search_link lang.name
         %td= search_link note.instrument
         %td
-          - if note.uploads
-            %ul.unstyled
-              - note.uploads.each do |upload|
-                %li
-                  = media_link upload
-                  - if permitted_to?(:destroy, upload)
-                    = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+          - if note.uploads && note.uploads.size > 0
+            %i.icon-hdd
 
 %div{:class => @notes.size > 0 ? 'hidden' : ''}
   = t('model.note.nonefound')

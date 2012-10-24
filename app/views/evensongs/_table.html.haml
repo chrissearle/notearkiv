@@ -18,13 +18,8 @@
         %td= search_link evensong.composer_name
         %td= search_link evensong.genre_name
         %td
-          - if evensong.uploads
-            %ul.unstyled
-              - evensong.uploads.each do |upload|
-                %li
-                  = media_link upload
-                  - if permitted_to?(:destroy, upload)
-                    = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+          - if evensong.uploads && evensong.uploads.size > 0
+            %i.icon-hdd
 
 %div{:class => @evensongs.size > 0 ? 'hidden' : ''}
   = t('model.evensong.nonefound')
