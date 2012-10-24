@@ -22,8 +22,6 @@ gem 'jquery-rails'
 
 gem 'thin'
 
-gem 'bourbon'
-
 gem 'simple_form'
 
 gem 'authlogic'
