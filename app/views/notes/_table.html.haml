@@ -8,7 +8,6 @@
       %th= t('model.period.title')
       %th= t('model.language.list.title')
       %th= t('model.note.list.instrument.title')
-      %th= t('model.link.list.title')
   %tbody
     - @notes.each do |note|
       %tr
@@ -27,12 +26,6 @@
               - note.languages.each do |lang|
                 %li= search_link lang.name
         %td= search_link note.instrument
-        %td
-          %ul.unstyled
-            - if permitted_to?(:show, :links)
-              - if note.links
-                - note.links.each do |link|
-                  %li= link_to link.title, link.url
 
 %div{:class => @notes.size > 0 ? 'hidden' : ''}
   = t('model.note.nonefound')
