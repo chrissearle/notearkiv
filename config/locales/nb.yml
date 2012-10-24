@@ -393,3 +393,4 @@ nb:
   media:
     file:
       missing: "fant ikke filen"
+  back: "Tilbake"

@@ -73,6 +73,7 @@
                   = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
 
 %div.form-actions
+  = link_to t('back'), :back, :class => 'btn'
   = link_to t('model.note.list.title'), notes_path, :class => 'btn'
   - if permitted_to?(:edit, @note)
     = link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn'
