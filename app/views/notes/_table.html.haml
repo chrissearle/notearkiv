@@ -12,12 +12,12 @@
   %tbody
     - @notes.each do |note|
       %tr
+        %td= note.item
         %td
           - if permitted_to? :show, note
-            = link_to note.item, note_path(note)
+            = link_to note.title, note_path(note)
           - else
-            = note.item
-        %td= note.title
+            = note.title
         %td= search_link note.composer_name
         %td= search_link note.genre_name
         %td= search_link note.period_name
