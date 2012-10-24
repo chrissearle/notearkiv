@@ -22,7 +22,7 @@ nb:
       evensong:
         title: "Tittel"
         psalm: "Salme"
-        soloists: "Soloister"
+        soloists: "Solister"
         comment: "Kommentar"
         composer: "Komponist"
         genre: "Genre"
@@ -33,7 +33,7 @@ nb:
       note:
         item: "ID"
         title: "Tittel"
-        soloists: "Soloister"
+        soloists: "Solister"
         voice: "Besetning"
         comment: "Kommentar"
         composer: "Komponist"
@@ -154,7 +154,7 @@ nb:
         item:
           title: "ID"
         soloists:
-          title: "Soloister"
+          title: "Solister"
         comment:
           title: "Kommentar"
         counts:
@@ -180,7 +180,7 @@ nb:
         copies: "Kopi"
         instrumental: "Instr."
         voices: "Besetning"
-        soloists: "Soloister"
+        soloists: "Solister"
         comment: "Kommentar"
         doctitle: "Notearkiv"
     evensong:
@@ -204,7 +204,7 @@ nb:
         psalm:
           title: "Salme"
         soloists:
-          title: "Soloister"
+          title: "Solister"
         comment:
           title: "Kommentar"
       excel:
@@ -212,7 +212,7 @@ nb:
         title: "Tittel"
         composer: "Komponist"
         genre: "Genre"
-        soloists: "Soloister"
+        soloists: "Solister"
         comment: "Kommentar"
         psalm: "Salme"
         doctitle: "Evensongnoterarkiv"

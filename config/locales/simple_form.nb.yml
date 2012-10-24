@@ -32,7 +32,7 @@ nb:
         name: 'Navn'
         title: 'Tittel'
         psalm: 'Salme'
-        soloists: 'Soloister'
+        soloists: 'Solister'
         comment: 'Kommentar'
         url: 'Lenke'
         item: 'ID'
@@ -42,5 +42,5 @@ nb:
         instrumental: 'Antall instrumental'
     hints:
       defaults:
-        url: 'Web lenke - med protocol - f.eks http://www.ochs.no' 
+        url: 'Web lenke - med protocol - f.eks http://www.ochs.no'
         password_confirmation: 'La passord feltene være tom for å beholde eksisterende passord.'
