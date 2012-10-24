@@ -8,7 +8,7 @@
     = t('model.evensong.title')
     %em= @link.evensong.title
 
-= form_for @link, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @link, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
     %legend= t('model.link.title')
 
@@ -18,16 +18,9 @@
     - if @link.evensong
       = f.hidden_field :evensong_id, :value => @link.evensong.id
 
-    %div.control-group
-      = f.label :title, :class => 'control-label'
-      %div.controls
-        = f.text_field :title, :class => 'text_field'
-
-    %div.control-group
-      = f.label :url, :class => 'control-label'
-      %div.controls
-        = f.text_field :url, :class => 'text_field'
+    = f.input :title
+    = f.input :url
 
     %div.form-actions
-      = f.submit nil, :class => 'btn btn-primary'
+      = f.button :submit, :class => 'btn-primary'
       = link_to t("form.button.cancel"), links_path, :class => 'btn'

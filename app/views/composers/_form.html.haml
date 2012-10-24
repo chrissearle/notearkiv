@@ -1,12 +1,9 @@
-= form_for @composer, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for(@composer, :html => {:class => 'form-horizontal' }) do |f|
   %fieldset
     %legend= t('model.composer.title')
 
-    %div.control-group
-      = f.label :name, :class => 'control-label'
-      %div.controls
-        = f.text_field :name, :class => 'text_field'
+    = f.input :name
 
     %div.form-actions
-      = f.submit nil, :class => 'btn btn-primary'
+      = f.button :submit, :class => 'btn-primary'
       = link_to t('form.button.cancel'), composers_path, :class => 'btn'

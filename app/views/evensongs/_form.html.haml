@@ -1,37 +1,14 @@
-= form_for @evensong, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @evensong, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
     %legend= t('model.evensong.title')
 
-    %div.control-group
-      = f.label :title, :class => 'control-label'
-      %div.controls
-        = f.text_field :title, :class => 'text_field'
-
-    %div.control-group
-      = f.label :psalm, :class => 'control-label'
-      %div.controls
-        = f.text_field :psalm, :class => 'text_field'
-
-    %div.control-group
-      = f.label :soloists, :class => 'control-label'
-      %div.controls
-        = f.text_field :soloists, :class => 'text_field'
-
-    %div.control-group
-      = f.label :comment, :class => 'control-label'
-      %div.controls
-        = f.text_area :comment, :class => 'text_area', :rows => 7
-
-    %div.control-group
-      = f.label :composer, :class => 'control-label'
-      %div.controls
-        = f.collection_select(:composer_id, @composers, :id, :name)
-
-    %div.control-group
-      = f.label :genre, :class => 'control-label'
-      %div.controls
-        = f.collection_select(:genre_id, @genres, :id, :name)
+    = f.input :title
+    = f.input :psalm
+    = f.input :soloists
+    = f.input :comment, :input_html => { :rows => 7 }
+    = f.association :composer
+    = f.association :genre
 
     %div.form-actions
-      = f.submit nil, :class => 'btn btn-primary'
+      = f.button :submit, :class => 'btn-primary'
       = link_to t('form.button.cancel'), :back, :class => 'btn'

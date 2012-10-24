@@ -23,4 +23,24 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-
+    labels:
+      defaults:
+        username: 'Username'
+        password: 'Password'
+        password_confirmation: 'Confirm password'
+        email: 'Email'
+        name: 'Name'
+        title: 'Title'
+        psalm: 'Psalm'
+        soloists: 'Soloists'
+        comment: 'Comment'
+        url: 'Link'
+        item: 'ID'
+        voice: 'Voice'
+        originals: '# originals'
+        copies: '# copies'
+        instrumental: '# instrumental'
+    hints:
+      defaults:
+        url: 'Web link - with protocol - e.g http://www.ochs.no' 
+        password_confirmation: 'Leave both password fields blank to keep existing password.'

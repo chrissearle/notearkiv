@@ -1,0 +1,46 @@
+nb:
+  simple_form:
+    "yes": 'Ja'
+    "no": 'Nei'
+    required:
+      text: 'påkrevd'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Vennligst sjekk feilene:"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    labels:
+      defaults:
+        username: 'Brukernavn'
+        password: 'Passord'
+        password_confirmation: 'Bekreft passord'
+        email: 'E-post'
+        name: 'Navn'
+        title: 'Tittel'
+        psalm: 'Salme'
+        soloists: 'Soloister'
+        comment: 'Kommentar'
+        url: 'Lenke'
+        item: 'ID'
+        voice: 'Stemme'
+        originals: 'Antall original'
+        copies: 'Antall kopier'
+        instrumental: 'Antall instrumental'
+    hints:
+      defaults:
+        url: 'Web lenke - med protocol - f.eks http://www.ochs.no' 
+        password_confirmation: 'La passord feltene være tom for å beholde eksisterende passord.'

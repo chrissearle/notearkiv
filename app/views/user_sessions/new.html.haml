@@ -1,19 +1,12 @@
-= form_for @user_session, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @user_session, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
     %legend= t("user_session.form.legend")
 
-    %div.control-group
-      = f.label :username, :class => 'control-label'
-      %div.controls
-        = f.text_field :username, :class => 'text_field'
-
-    %div.control-group
-      = f.label :password, :class => 'control-label'
-      %div.controls
-        = f.password_field :password, :class => 'text_field'
+    = f.input :username
+    = f.input :password
 
     %div.form-actions
-      = f.submit nil, :class => 'btn btn-primary'
+      = f.button :submit, :class => 'btn-primary'
 
 %br
 
