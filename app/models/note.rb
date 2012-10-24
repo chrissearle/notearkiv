@@ -27,10 +27,12 @@ class Note < ActiveRecord::Base
 
   pg_search_scope :search,
                   :against => [:title, :voice, :soloists, :instrument, :comment],
+                  :using => { :tsearch => {:prefix => true} },
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
-                                          :languages => :name} #, ignoring: :accents
+                                          :languages => :name},
+                  :ignoring => :accents
 
   def self.voices
     Note.select('distinct voice').map(&:voice).sort

@@ -20,8 +20,10 @@ class Evensong < ActiveRecord::Base
 
   pg_search_scope :search,
                   :against => [:title, :soloists, :comment],
+                  :using => { :tsearch => {:prefix => true} },
                   :associated_against => {:composer => :name,
-                                          :genre => :name} #, ignoring: :accents
+                                          :genre => :name},
+                  :ignoring => :accents
 
   def self.excel
     NoteSheet.new([HeaderColumn.new(I18n.t('model.evensong.excel.sysid'), 8),
