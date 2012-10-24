@@ -19,7 +19,7 @@ class Evensong < ActiveRecord::Base
   scope :preloaded, :include => [:composer, :genre, :links]
 
   pg_search_scope :search,
-                  :against => [:title, :soloists],
+                  :against => [:title, :soloists, :comment],
                   :associated_against => {:composer => :name,
                                           :genre => :name} #, ignoring: :accents
 
