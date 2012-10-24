@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.8'
 
 gem 'pg'
 
@@ -24,6 +24,8 @@ gem 'thin'
 
 gem 'bourbon'
 
+gem 'simple_form'
+
 gem 'authlogic'
 gem 'declarative_authorization'
 gem 'dalli'
@@ -37,3 +39,5 @@ gem 'json'
 gem 'oauth'
 
 gem 'haml'
+
+gem 'foreman', :require => false
