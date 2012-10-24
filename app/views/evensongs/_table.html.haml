@@ -1,4 +1,4 @@
-%table.table.table-striped.table-condensed.table-bordered.sortable.evensong
+%table{:class => "table table-striped table-condensed table-bordered evensong #{@evensongs.size > 0 ? 'sortable' : 'hidden'}"}
   %thead
     %tr
       %th= t('model.evensong.list.name.title')
@@ -23,3 +23,7 @@
               - if evensong.links
                 - evensong.links.each do |link|
                   %li= link_to link.title, link.url
+
+%div{:class => @evensongs.size > 0 ? 'hidden' : ''}
+  = t('model.evensong.nonefound')
+  

@@ -1,4 +1,4 @@
-%table.table.table-striped.table-condensed.table-bordered.sortable.note
+%table{:class => "table table-striped table-condensed table-bordered note #{@notes.size > 0 ? 'sortable' : 'hidden'}"}
   %thead
     %tr
       %th= t('model.note.list.item.title')
@@ -33,3 +33,6 @@
               - if note.links
                 - note.links.each do |link|
                   %li= link_to link.title, link.url
+
+%div{:class => @notes.size > 0 ? 'hidden' : ''}
+  = t('model.note.nonefound')

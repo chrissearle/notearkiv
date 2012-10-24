@@ -134,6 +134,7 @@ en:
       update:
         ok: "User updated."
     note:
+      nonefound: "None found"
       list:
         title: "Music"
         item:
@@ -183,6 +184,7 @@ en:
         comment: "Comment"
         doctitle: "Notes"
     evensong:
+      nonefound: "None found"
       list:
         title: "Evensong"
         name:

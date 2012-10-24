@@ -136,6 +136,7 @@ nb:
       update:
         ok: "Bruker oppdatert."
     note:
+      nonefound: "Ingen noter funnet"
       list:
         title: "Noter"
         item:
@@ -183,6 +184,7 @@ nb:
         comment: "Kommentar"
         doctitle: "Notearkiv"
     evensong:
+      nonefound: "Ingen evensongnoter funnet"
       list:
         title: "Evensongnoter"
         name:
