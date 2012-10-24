@@ -243,7 +243,7 @@ en:
         ok: "Link deleted."
     upload:
       list:
-        title: "Files"
+        title: "Attachments"
       create:
         ok: "File uploaded."
       delete:
