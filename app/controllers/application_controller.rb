@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def permission_denied
     if current_user
-      flash[:notice] = t('flash.authentication.notice')
+      flash[:alert] = t('flash.authentication.notice')
     end
 
     redirect_to login_path
