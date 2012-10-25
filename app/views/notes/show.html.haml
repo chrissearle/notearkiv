@@ -70,7 +70,7 @@
               %li
                 = media_link upload
                 - if permitted_to?(:destroy, upload)
-                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.title'), :content => t('delete.refresh.warning'), :trigger => 'hover' }
 
 %div.form-actions
   = link_to t('back'), :back, :class => 'btn'

@@ -463,6 +463,15 @@ nb:
     linked: "Filen koblet"
   link:
     button:
-      upload: "Vedlegg"
+      upload: "Legg ved denne filen"
     file:
       title: "Vedlegg"
+      delete:
+        title: "Slett vedlegg"
+        all: "Slett"
+  delete:
+    refresh:
+      warning: "<p>Sletter denne filen fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
+    all:
+      refresh:
+        warning: "<p>Dette vil i tillegg slette lenket vedlegg fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"

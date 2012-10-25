@@ -1,6 +1,4 @@
 class DropboxWrapper
-  DROPBOX_SESSION_CACHE_KEY = "dropbox.session".freeze
-
   def self.get_auth_url(url)
     s = DropboxSession.new(ENV['DROPBOX_CONSUMER_KEY'], ENV['DROPBOX_CONSUMER_SECRET'])
 
@@ -37,6 +35,23 @@ class DropboxWrapper
     end
   end
 
+  def self.refresh
+    files = get_path('/')
+
+    Rails.cache.write(DROPBOX_FILE_LIST_CACHE_KEY, files)
+    Rails.cache.write(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY, DateTime.now)
+
+    files
+  end
+
+  def self.get_files
+    Rails.cache.read(DROPBOX_FILE_LIST_CACHE_KEY)
+  end
+
+  def self.get_timestamp
+    Rails.cache.read(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY)
+  end
+
   def self.get_path(folder)
     self.get_path_with_client(folder, get_client)
   end
@@ -71,6 +86,8 @@ class DropboxWrapper
       return unless client
 
       client.file_delete(path)
+
+      refresh
     rescue DropboxAuthError
       return nil
     rescue DropboxError

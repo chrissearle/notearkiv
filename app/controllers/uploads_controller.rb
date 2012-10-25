@@ -30,12 +30,7 @@ class UploadsController < ApplicationController
         redirect_to evensong_path(@upload.evensong), notice: t('upload.linked')
       end
     else
-      files = DropboxWrapper.get_path('/')
-
-      Rails.cache.write(DROPBOX_FILE_LIST_CACHE_KEY, files)
-      Rails.cache.write(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY, DateTime.now)
-
-      @files = Rails.cache.read(DROPBOX_FILE_LIST_CACHE_KEY)
+      @files = DropboxWrapper.refresh
     end
   end
 

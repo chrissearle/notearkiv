@@ -408,3 +408,12 @@ en:
       upload: "Link this file"
     file:
       title: "Attach a file"
+      delete:
+        title: "Delete attachment"
+        all: "Delete"
+  delete:
+    refresh:
+      warning: "<p>Deletes this file from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
+    all:
+      refresh:
+        warning: "<p>This will delete any attachments from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"

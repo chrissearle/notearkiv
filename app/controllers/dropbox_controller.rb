@@ -8,10 +8,7 @@ class DropboxController < ApplicationController
 
   def index
     if params[:refresh]
-      files = DropboxWrapper.get_path('/')
-
-      Rails.cache.write(DROPBOX_FILE_LIST_CACHE_KEY, files)
-      Rails.cache.write(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY, DateTime.now)
+      DropboxWrapper.refresh
 
       return redirect_to dropbox_index_path
     end
@@ -19,8 +16,8 @@ class DropboxController < ApplicationController
     if params[:path]
       @files = DropboxWrapper.get_path(params[:path])
     else
-      @files = Rails.cache.read(DROPBOX_FILE_LIST_CACHE_KEY)
-      @timestamp = Rails.cache.read(DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY)
+      @files = DropboxWrapper.get_files
+      @timestamp = DropboxWrapper.get_timestamp
 
       unless @files
         @files = []
