@@ -20,6 +20,7 @@
         %td
           - if evensong.uploads && evensong.uploads.size > 0
             %i.icon-hdd
+            = evensong.uploads.size
 
 %div{:class => @evensongs.size > 0 ? 'hidden' : ''}
   = t('model.evensong.nonefound')

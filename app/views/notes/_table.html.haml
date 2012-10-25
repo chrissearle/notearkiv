@@ -30,6 +30,7 @@
         %td
           - if note.uploads && note.uploads.size > 0
             %i.icon-hdd
+            = note.uploads.size
 
 %div{:class => @notes.size > 0 ? 'hidden' : ''}
   = t('model.note.nonefound')
