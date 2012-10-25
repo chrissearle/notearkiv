@@ -2,6 +2,8 @@ class UploadsController < ApplicationController
   before_filter :get_upload, :only => [:destroy, :refresh]
   before_filter :get_related_object, :only => [:new, :link]
 
+  filter_access_to :all
+
   def new
   end
 

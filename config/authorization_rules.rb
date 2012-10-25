@@ -12,7 +12,7 @@ authorization do
     has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voice]
     has_permission_on [:evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:links], :to => [:new, :create, :edit, :update, :destroy, :show]
-    has_permission_on [:uploads], :to => [:new, :create, :destroy, :show, :link]
+    has_permission_on [:uploads], :to => [:new, :create, :destroy, :show, :link, :refresh]
     has_permission_on [:archive], :to => [:download]
     has_permission_on [:search], :to => [:search, :typeahead]
   end
