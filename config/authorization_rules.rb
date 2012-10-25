@@ -8,10 +8,6 @@ authorization do
     has_permission_on [:dropbox], :to => [:index, :authorize]
   end
 
-  role :import do
-    has_permission_on [:notes_upload, :evensongs_upload], :to => [:upload, :import]
-  end
-
   role :admin do
     has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voice]
     has_permission_on [:evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show, :new, :create, :edit, :update, :destroy]

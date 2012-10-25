@@ -19,9 +19,6 @@ class NotesController < ApplicationController
     end
   end
 
-  def import
-  end
-
   def show
   end
 
