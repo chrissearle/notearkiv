@@ -35,7 +35,19 @@ class Upload < ActiveRecord::Base
     @send_file = false
 
     if path.nil?
-      self.path = "/#{@uploadfile.original_filename}"
+      prefix = []
+
+      if self.note
+        prefix << self.note.title.parameterize
+        prefix << note.id
+      end
+
+      if self.evensong
+        prefix << self.evensong.title.parameterize
+        prefix << evensong.id
+      end
+
+      self.path = "/#{prefix.join('_')}_#{@uploadfile.original_filename.downcase.gsub(/ /, "_")}"
 
       @send_file = true
     end
