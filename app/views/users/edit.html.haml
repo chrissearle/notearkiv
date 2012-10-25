@@ -1,11 +1,1 @@
-= simple_form_for @user, :html => {:class => 'form-horizontal'} do |f|
-  %fieldset
-    %legend= t('user.form.legend')
-
-    = f.input :name
-    = f.input :email
-
-    = f.association :roles, as: :check_boxes
-    
-    %div.form-actions
-      = f.button :submit, :class => 'btn-primary'
+= render :partial => 'form', :locals => { :user => @user, :full => false }

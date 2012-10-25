@@ -1,6 +1,10 @@
 %h1
   Brukere
 
+- if permitted_to? :new, :users
+  %div.well
+    = link_to t('list.button.new'), new_user_path, :class => 'btn btn-primary'
+
 %table.table.table-striped.table-condensed
   %thead
     %tr

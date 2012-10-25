@@ -2,7 +2,7 @@
 
 authorization do
   role :siteadmin do
-    has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update]
+    has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:stats], :to => [:index]
     has_permission_on [:session_caches], :to => [:authorize]
     has_permission_on [:dropbox], :to => [:index, :authorize]

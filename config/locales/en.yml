@@ -133,6 +133,10 @@ en:
     user:
       update:
         ok: "User updated."
+      create:
+        ok: "User created."
+      delete:
+        ok: "User deleted."
     note:
       nonefound: "None found"
       list:

@@ -135,6 +135,10 @@ nb:
     user:
       update:
         ok: "Bruker oppdatert."
+      create:
+        ok: "Bruker opprettet."
+      delete:
+        ok: "Bruker slettet."
     note:
       nonefound: "Ingen noter funnet"
       list:
