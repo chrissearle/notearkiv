@@ -258,6 +258,9 @@ en:
       form:
         forgotten:
           intro: "If you have forgotten your password - we can send a link where you can reset it."
+  upload:
+    form:
+      title: "Attachment"
   account:
     list:
       email:
