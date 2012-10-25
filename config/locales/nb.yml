@@ -399,3 +399,48 @@ nb:
     file:
       missing: "fant ikke filen"
   back: "Tilbake"
+  activerecord:
+    errors:
+      models:
+        note:
+          attributes:
+            title:
+              blank: "Tittel er påkrevd"
+            originals:
+              blank: "Antall original er påkrevd"
+        evensong:
+          attributes:
+            title:
+              blank: "Tittel er påkrevd"
+            composer:
+              blank: "Komponist er påkrevd"
+            genre:
+              blank: "Genre er påkrevd"
+        composer:
+          attributes:
+            name:
+              blank: "Navn er påkrevd"
+        genre:
+          attributes:
+            name:
+              blank: "Navn er påkrevd"
+        period:
+          attributes:
+            name:
+              blank: "Navn er påkrevd"
+        language:
+          attributes:
+            name:
+              blank: "Navn er påkrevd"
+        user:
+          attributes:
+            username:
+              too_short: "Brukernavn var for kort - minimum 3 bokstaver"
+            password:
+              too_short: "Passord var for kort - minimum 4 bokstaver"
+            password_confirmation:
+              too_short: "Passord var for kort - minimum 4 bokstaver"
+            email:
+              invalid: "Ugyldig e-postadresse"
+            roles:
+              blank: "Brukere må ha minst en rolle. Velg 'normal' hvis de ikke skal ha noe spesielt."

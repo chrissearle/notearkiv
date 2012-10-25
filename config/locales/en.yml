@@ -342,3 +342,48 @@ en:
     file:
       missing: "file missing"
   back: "Back"
+  activerecord:
+    errors:
+      models:
+        note:
+          attributes:
+            title:
+              blank: "Title cannot be empty"
+            originals:
+              blank: "# originals cannot be empty"
+        evensong:
+          attributes:
+            title:
+              blank: "Title cannot be empty"
+            composer:
+              blank: "A composer is required"
+            genre:
+              blank: "A genre is required"
+        composer:
+          attributes:
+            name:
+              blank: "Name cannot be empty"
+        genre:
+          attributes:
+            name:
+              blank: "Name cannot be empty"
+        period:
+          attributes:
+            name:
+              blank: "Name cannot be empty"
+        language:
+          attributes:
+            name:
+              blank: "Name cannot be empty"
+        user:
+          attributes:
+            username:
+              too_short: "Username was too short - minimum 3 characters"
+            password:
+              too_short: "Password was too short - minimum 4 characters"
+            password_confirmation:
+              too_short: "Password was too short - minimum 4 characters"
+            email:
+              invalid: "Invalid e-mail address"
+            roles:
+              blank: "Users need at least one role. Choose 'normal' if no special access is required."

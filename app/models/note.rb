@@ -20,7 +20,7 @@ class Note < ActiveRecord::Base
 
   before_validation(:on => :create) { set_next_item }
 
-  validates_presence_of :item, :title, :count_originals
+  validates_presence_of :item, :title, :originals
 
   scope :ordered, :order => 'title ASC'
   scope :preloaded, :include => [:composer, :genre, :period, :languages, :links]
