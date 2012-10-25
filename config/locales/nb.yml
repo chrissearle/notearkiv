@@ -247,12 +247,16 @@ nb:
       delete:
         ok: "Lenke slettet."
     upload:
+      link:
+        note: "Koble fil til note: <em>%{title}</em>"
+        evensong: "Koble fil til evensongnote: <em>%{title}</em>"
       list:
         title: "Vedlegg"
       create:
         ok: "Fil lastet opp."
       delete:
         ok: "Fil slettet."
+      available: "Tilgjengelige filer"
   user:
     session:
       form:
@@ -300,6 +304,8 @@ nb:
       edit: "Rediger"
       link: "Ny lenke"
       delete: "Slett"
+      upload: "Last opp fil"
+      attach: "Vedlegg"
     delete:
       confirm: "Er du sikker?"
   footer:
@@ -447,3 +453,16 @@ nb:
               invalid: "Ugyldig e-postadresse"
             roles:
               blank: "Brukere må ha minst en rolle. Velg 'normal' hvis de ikke skal ha noe spesielt."
+  refresh:
+    button:
+      upload: "Oppfrisk tilgjengelige filer"
+    warning: "<p>Legg ved en fil som allerede er lastet opp til DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
+  upload:
+    files:
+      updated: "Tilgjengelige filer oppdatert."
+    linked: "Filen koblet"
+  link:
+    button:
+      upload: "Vedlegg"
+    file:
+      title: "Vedlegg"

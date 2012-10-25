@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
 
   before_filter { |c| Authorization.current_user = c.current_user }
 
+  DROPBOX_FILE_LIST_CACHE_KEY = "dropbox.file.list".freeze
+  DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY = "dropbox.file.timestamp".freeze
+
   protected
 
   def permission_denied

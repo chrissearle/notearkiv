@@ -29,14 +29,22 @@ class Upload < ActiveRecord::Base
   private
 
   def make_path
-    filename = [self.id, (self.note ? self.note.id : self.evensong.id)].join('_')
-    ext = '???' #TODO get ext
+    @send_file = false
 
-    self.path = "#{filename}.#{ext}"
+    if path.nil?
+      filename = [self.id, (self.note ? self.note.id : self.evensong.id)].join('_')
+      ext = '???' #TODO get ext
+
+      self.path = "#{filename}.#{ext}"
+
+      @send_file = true
+    end
   end
 
   def send_file
-    #TODO send
+    if @send_file
+      #TODO send
+    end
   end
 
   def remove_file

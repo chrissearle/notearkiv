@@ -6,9 +6,6 @@ class DropboxController < ApplicationController
   before_filter :get_client, :except => [:authorize]
   before_filter :get_info, :except => [:authorize]
 
-  DROPBOX_FILE_LIST_CACHE_KEY = "dropbox.file.list".freeze
-  DROPBOX_FILE_LIST_TIMESTAMP_CACHE_KEY = "dropbox.file.timestamp".freeze
-
   def index
     if params[:refresh]
       files = DropboxWrapper.get_path('/')

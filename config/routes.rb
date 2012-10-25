@@ -22,7 +22,11 @@ Notearkiv::Application.routes.draw do
     resources :account
     resources :evensongs
     resources :notes
-    resources :uploads
+    resources :uploads do
+      member do
+        get 'link'
+      end
+    end
     resources :dropbox do
       collection do
         get 'authorize'

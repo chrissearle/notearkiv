@@ -73,6 +73,8 @@ class DropboxWrapper
       client.file_delete(path)
     rescue DropboxAuthError
       return nil
+    rescue DropboxError
+      return nil
     end
   end
 

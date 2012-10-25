@@ -79,5 +79,9 @@
     = link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn'
   - if permitted_to?(:new, :links)
     = link_to t('show.button.link'), new_link_path(:note => @note.id), :class => 'btn'
+  - if permitted_to?(:new, :uploads)
+    = link_to t('show.button.upload'), new_upload_path(:note => @note.id), :class => 'btn'
+  - if permitted_to?(:link, :uploads)
+    = link_to t('show.button.attach'), link_upload_path(:note => @note.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
   - if permitted_to?(:destroy, @note)
     = link_to t('show.button.delete'), note_path(@note), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger'
