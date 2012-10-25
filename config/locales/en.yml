@@ -16,6 +16,8 @@ en:
       user_session:
         create: "Log In"
         forgotten: "Send me the link"
+      upload:
+        create: "Upload attachment"
     label:
       composer:
         name: "Name"
@@ -247,17 +249,31 @@ en:
       delete:
         ok: "Link deleted."
     upload:
+      link:
+        note: "Attach file to note: <em>%{title}</em>"
+        evensong: "Attach file to evensong: <em>%{title}</em>"
       list:
         title: "Attachments"
       create:
         ok: "File uploaded."
       delete:
         ok: "File deleted."
+      available: "Available files"
+      upload:
+        note: "Upload attachement to note: <em>%{title}</em>"
+        evensong: "Upload attachement to evensong: <em>%{title}</em>"
   user:
     session:
       form:
         forgotten:
           intro: "If you have forgotten your password - we can send a link where you can reset it."
+  upload:
+    form:
+      title: "Attachment"
+      legend: "Upload attachment"
+    files:
+      updated: "Available files updated."
+    linked: "File linked"
   account:
     list:
       email:
@@ -300,6 +316,8 @@ en:
       edit: "Edit"
       link: "New linnk"
       delete: "Delete"
+      upload: "Upload file"
+      attach: "Attach file"
     delete:
       confirm: "Are you sure?"
   footer:
@@ -387,3 +405,21 @@ en:
               invalid: "Invalid e-mail address"
             roles:
               blank: "Users need at least one role. Choose 'normal' if no special access is required."
+  refresh:
+    button:
+      upload: "Refresh available files"
+    warning: "<p>Attach a file that is already uploaded to DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
+  link:
+    button:
+      upload: "Link this file"
+    file:
+      title: "Attach a file"
+      delete:
+        title: "Delete attachment"
+        all: "Delete"
+  delete:
+    refresh:
+      warning: "<p>Deletes this file from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
+    all:
+      refresh:
+        warning: "<p>This will delete any attachments from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"

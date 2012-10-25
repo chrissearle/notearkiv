@@ -40,6 +40,7 @@ en:
         originals: '# originals'
         copies: '# copies'
         instrumental: '# instrumental'
+        uploadfile: 'File'
     hints:
       defaults:
         url: 'Web link - with protocol - e.g http://www.ochs.no' 

@@ -82,8 +82,12 @@ module LayoutHelper
     items.size if items.size > 0
   end
 
+  def upload_back_item(path)
+    Upload.search_path(path)
+  end
+
   def upload_back_link(path)
-    upload = Upload.search_path(path)
+    upload = upload_back_item(path)
 
     if upload
       if upload.note
