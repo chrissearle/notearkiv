@@ -1,8 +1,23 @@
-= simple_form_for @upload, :html => {:class => 'form-horizontal'} do |f|
+%h2
+  - unless @upload.note.nil?
+    = t('model.upload.upload.note', :title => @upload.note.title).html_safe
+  - unless @upload.evensong.nil?
+    = t('model.upload.upload.evensong', :title => @upload.evensong.title).html_safe
+
+= simple_form_for @upload, :html => {:class => 'form-horizontal', :multipart => true} do |f|
   %fieldset
     %legend= t('upload.form.legend')
 
+    - if @upload.note
+      = f.hidden_field :note_id, :value => @upload.note.id
+
+    - if @upload.evensong
+      = f.hidden_field :evensong_id, :value => @upload.evensong.id
+
     = f.input :title
+    = f.input :uploadfile, as: :file
 
     %div.form-actions
       = f.button :submit, :class => 'btn-primary'
+      = link_to t('form.button.cancel'), :back, :class => 'btn'
+

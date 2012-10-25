@@ -106,4 +106,16 @@ class DropboxWrapper
       return nil
     end
   end
+
+  def self.upload(file, filename)
+    begin
+      client = get_client
+
+      return nil unless client
+
+      client.put_file(filename, file.read)
+    rescue DropboxAuthError
+      return nil
+    end
+  end
 end

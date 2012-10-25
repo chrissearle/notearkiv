@@ -16,6 +16,8 @@ nb:
       user_session:
         create: "Logg på"
         forgotten: "Send meg lenken"
+      upload:
+        create: "Last opp vedlegg"
     label:
       composer:
         name: "Navn"
@@ -257,6 +259,9 @@ nb:
       delete:
         ok: "Fil slettet."
       available: "Tilgjengelige filer"
+      upload:
+        note: "Last opp vedlegg til note: <em>%{title}</em>"
+        evensong: "Last opp vedlegg til evensongnote: <em>%{title}</em>"
   user:
     session:
       form:
@@ -461,6 +466,8 @@ nb:
     files:
       updated: "Tilgjengelige filer oppdatert."
     linked: "Filen koblet"
+    form:
+      legend: "Last opp vedlegg"
   link:
     button:
       upload: "Legg ved denne filen"

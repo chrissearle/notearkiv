@@ -6,8 +6,11 @@ class Upload < ActiveRecord::Base
 
   before_destroy :remove_file
 
-  before_create :make_path
+  before_validation :make_path
+
   after_create :send_file
+
+  attr_accessor :uploadfile
 
   def display_name
     self.title || self.path
@@ -32,10 +35,7 @@ class Upload < ActiveRecord::Base
     @send_file = false
 
     if path.nil?
-      filename = [self.id, (self.note ? self.note.id : self.evensong.id)].join('_')
-      ext = '???' #TODO get ext
-
-      self.path = "#{filename}.#{ext}"
+      self.path = "/#{@uploadfile.original_filename}"
 
       @send_file = true
     end
@@ -43,7 +43,7 @@ class Upload < ActiveRecord::Base
 
   def send_file
     if @send_file
-      #TODO send
+      DropboxWrapper.upload(@uploadfile.tempfile, self.path)
     end
   end
 

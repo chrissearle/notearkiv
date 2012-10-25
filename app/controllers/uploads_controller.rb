@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :get_upload, :only => [:destroy]
+  before_filter :get_upload, :only => [:destroy, :refresh]
   before_filter :get_related_object, :only => [:new, :link]
 
   def new
@@ -9,13 +9,19 @@ class UploadsController < ApplicationController
     @upload = Upload.new(params[:upload])
 
     if @upload.save
-      if @upload.note
-        redirect_to note_path(@upload.note), notice: t('model.upload.create.ok')
-      else
-        redirect_to evensong_path(@upload.evensong), notice: t('model.upload.create.ok')
-      end
+      redirect_to refresh_upload_path(@upload)
     else
       render :action => 'new'
+    end
+  end
+
+  def refresh
+    DropboxWrapper.refresh
+
+    if @upload.note
+      redirect_to note_path(@upload.note), notice: t('model.upload.create.ok')
+    else
+      redirect_to evensong_path(@upload.evensong), notice: t('model.upload.create.ok')
     end
   end
 

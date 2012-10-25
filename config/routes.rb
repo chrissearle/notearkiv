@@ -25,6 +25,7 @@ Notearkiv::Application.routes.draw do
     resources :uploads do
       member do
         get 'link'
+        get 'refresh'
       end
     end
     resources :dropbox do

@@ -16,6 +16,8 @@ en:
       user_session:
         create: "Log In"
         forgotten: "Send me the link"
+      upload:
+        create: "Upload attachment"
     label:
       composer:
         name: "Name"
@@ -257,6 +259,9 @@ en:
       delete:
         ok: "File deleted."
       available: "Available files"
+      upload:
+        note: "Upload attachement to note: <em>%{title}</em>"
+        evensong: "Upload attachement to evensong: <em>%{title}</em>"
   user:
     session:
       form:
@@ -265,6 +270,7 @@ en:
   upload:
     form:
       title: "Attachment"
+      legend: "Upload attachment"
     files:
       updated: "Available files updated."
     linked: "File linked"
