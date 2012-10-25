@@ -16,6 +16,8 @@ nb:
       user_session:
         create: "Logg på"
         forgotten: "Send meg lenken"
+      upload:
+        create: "Last opp vedlegg"
     label:
       composer:
         name: "Navn"
@@ -247,12 +249,19 @@ nb:
       delete:
         ok: "Lenke slettet."
     upload:
+      link:
+        note: "Koble fil til note: <em>%{title}</em>"
+        evensong: "Koble fil til evensongnote: <em>%{title}</em>"
       list:
         title: "Vedlegg"
       create:
         ok: "Fil lastet opp."
       delete:
         ok: "Fil slettet."
+      available: "Tilgjengelige filer"
+      upload:
+        note: "Last opp vedlegg til note: <em>%{title}</em>"
+        evensong: "Last opp vedlegg til evensongnote: <em>%{title}</em>"
   user:
     session:
       form:
@@ -300,6 +309,8 @@ nb:
       edit: "Rediger"
       link: "Ny lenke"
       delete: "Slett"
+      upload: "Last opp fil"
+      attach: "Vedlegg"
     delete:
       confirm: "Er du sikker?"
   footer:
@@ -322,6 +333,9 @@ nb:
       quotashared: "Delte filer"
       quotanormal: "Private filer"
       quotaquota: "Maksimum"
+    upload:
+      form:
+        title: "Vedlegg"
     account:
       info:
         title: "Informasjon om konto"
@@ -444,3 +458,27 @@ nb:
               invalid: "Ugyldig e-postadresse"
             roles:
               blank: "Brukere må ha minst en rolle. Velg 'normal' hvis de ikke skal ha noe spesielt."
+  refresh:
+    button:
+      upload: "Oppfrisk tilgjengelige filer"
+    warning: "<p>Legg ved en fil som allerede er lastet opp til DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
+  upload:
+    files:
+      updated: "Tilgjengelige filer oppdatert."
+    linked: "Filen koblet"
+    form:
+      legend: "Last opp vedlegg"
+  link:
+    button:
+      upload: "Legg ved denne filen"
+    file:
+      title: "Vedlegg"
+      delete:
+        title: "Slett vedlegg"
+        all: "Slett"
+  delete:
+    refresh:
+      warning: "<p>Sletter denne filen fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
+    all:
+      refresh:
+        warning: "<p>Dette vil i tillegg slette lenket vedlegg fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"

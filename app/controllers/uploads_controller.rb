@@ -1,23 +1,44 @@
 class UploadsController < ApplicationController
-  before_filter :get_upload, :only => [:destroy]
+  before_filter :get_upload, :only => [:destroy, :refresh]
+  before_filter :get_related_object, :only => [:new, :link]
+
+  filter_access_to :all
 
   def new
-    @upload = upload.new
-    @upload.note = Note.find(params[:note]) if params[:note]
-    @upload.evensong = Evensong.find(params[:evensong]) if params[:evensong]
   end
 
   def create
-    @upload = upload.new(params[:upload])
+    @upload = Upload.new(params[:upload])
 
     if @upload.save
-      if @upload.note
-        redirect_to note_path(@upload.note), notice: t('model.upload.create.ok')
-      else
-        redirect_to evensong_path(@upload.evensong), notice: t('model.upload.create.ok')
-      end
+      redirect_to refresh_upload_path(@upload)
     else
       render :action => 'new'
+    end
+  end
+
+  def refresh
+    DropboxWrapper.refresh
+
+    if @upload.note
+      redirect_to note_path(@upload.note), notice: t('model.upload.create.ok')
+    else
+      redirect_to evensong_path(@upload.evensong), notice: t('model.upload.create.ok')
+    end
+  end
+
+  def link
+    if params[:path]
+      @upload.path = params[:path]
+      @upload.save
+
+      if !@upload.note.nil?
+        redirect_to note_path(@upload.note), notice: t('upload.linked')
+      elsif !@upload.evensong.nil?
+        redirect_to evensong_path(@upload.evensong), notice: t('upload.linked')
+      end
+    else
+      @files = DropboxWrapper.refresh
     end
   end
 
@@ -37,6 +58,12 @@ class UploadsController < ApplicationController
   private
 
   def get_upload
-    @upload = upload.find(params[:id])
+    @upload = Upload.find(params[:id])
+  end
+
+  def get_related_object
+    @upload = Upload.new
+    @upload.note = Note.find(params[:note]) if params[:note]
+    @upload.evensong = Evensong.find(params[:evensong]) if params[:evensong]
   end
 end

@@ -46,7 +46,7 @@
               %li
                 = media_link upload
                 - if permitted_to?(:destroy, upload)
-                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.title'), :content => t('delete.refresh.warning'), :trigger => 'hover' }
 
 %div.form-actions
   = link_to t('back'), :back, :class => 'btn'
@@ -55,5 +55,9 @@
     = link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn'
   - if permitted_to?(:new, :links)
     = link_to t('show.button.link'), new_link_path(:evensong => @evensong.id), :class => 'btn'
+  - if permitted_to?(:new, :uploads)
+    = link_to t('show.button.upload'), new_upload_path(:evensong => @evensong.id), :class => 'btn'
+  - if permitted_to?(:link, :uploads)
+    = link_to t('show.button.attach'), link_upload_path(:evensong => @evensong.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
   - if permitted_to?(:destroy, @evensong)
-    = link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger'
+    = link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }
