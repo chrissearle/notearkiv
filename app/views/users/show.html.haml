@@ -65,5 +65,5 @@
     = link_to 'Endre', edit_user_path(@user), :class => 'btn'
   - if permitted_to? :index, :users
     = link_to 'Back to users', users_path, :class => 'btn'
-  - if permitted_to?(:destroy, @user)
+  - if permitted_to?(:destroy, @user) && current_user.username != @user.username
     = link_to t('show.button.delete'), user_path(@user), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger'

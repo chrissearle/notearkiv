@@ -42,9 +42,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    if @user.username == current_user.username
+      redirect_to user_url(@user), alert: t('model.user.delete.self')
+    else
+      @user.destroy
 
-    redirect_to users_url, notice: t('model.user.delete.ok')
+      redirect_to users_url, notice: t('model.user.delete.ok')
+    end
   end
 
   private

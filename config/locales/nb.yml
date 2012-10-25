@@ -139,6 +139,7 @@ nb:
         ok: "Bruker opprettet."
       delete:
         ok: "Bruker slettet."
+        self: "Du kan ikke slette ditt eget bruker."
     note:
       nonefound: "Ingen noter funnet"
       list:

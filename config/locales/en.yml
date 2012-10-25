@@ -137,6 +137,7 @@ en:
         ok: "User created."
       delete:
         ok: "User deleted."
+        self: "You can't delete yourself."
     note:
       nonefound: "None found"
       list:
