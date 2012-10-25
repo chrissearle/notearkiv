@@ -7,7 +7,6 @@ class NotesController < ApplicationController
 
   before_filter :get_note, :only => [:show, :edit, :update, :destroy]
   before_filter :get_voices, :only => [:new, :edit]
-  before_filter :get_relation_collections, :only => [:new, :edit]
 
   def index
     set_accept_header
@@ -74,12 +73,6 @@ class NotesController < ApplicationController
 
   def get_voices
     @voices = Note.voices
-  end
-
-  def get_relation_collections
-    @composers = Composer.ordered.preloaded
-    @genres = Genre.ordered.preloaded
-    @periods = Period.ordered.preloaded
   end
 
   def resolve_layout
