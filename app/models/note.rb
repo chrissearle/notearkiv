@@ -27,12 +27,26 @@ class Note < ActiveRecord::Base
 
   pg_search_scope :search,
                   :against => [:title, :voice, :soloists, :instrument, :comment],
+                  :associated_against => {:composer => :name,
+                                          :genre => :name,
+                                          :period => :name,
+                                          :languages => :name},
+                  :ignoring => :accents
+
+  pg_search_scope :searchahead,
+                  :against => [:title, :voice, :soloists, :instrument, :comment],
                   :using => { :tsearch => {:prefix => true} },
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
                                           :languages => :name},
                   :ignoring => :accents
+
+  def typeahead(prefix)
+    [title, voice, soloists, instrument, comment, composer.try(:name), genre.try(:name), period.try(:name), languages.try(:collect) { |l| l.name }].flatten.map do |name|
+      name and name.downcase.split((/\W+/))
+    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.downcase}.uniq
+  end
 
   def self.voices
     Note.select('distinct voice').map(&:voice).sort

@@ -10,6 +10,7 @@ Notearkiv::Application.routes.draw do
 
     match 'search' => 'search#search', :as => :search
 
+    match 'typeahead' => 'search#typeahead', :as => :searchahead
 
     resources :user_sessions
     resources :users

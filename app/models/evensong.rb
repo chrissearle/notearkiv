@@ -18,12 +18,24 @@ class Evensong < ActiveRecord::Base
   scope :ordered, :order => 'title ASC'
   scope :preloaded, :include => [:composer, :genre, :links]
 
-  pg_search_scope :search,
+  pg_search_scope :searchahead,
                   :against => [:title, :soloists, :comment],
                   :using => { :tsearch => {:prefix => true} },
                   :associated_against => {:composer => :name,
                                           :genre => :name},
                   :ignoring => :accents
+
+  pg_search_scope :search,
+                  :against => [:title, :soloists, :comment],
+                  :associated_against => {:composer => :name,
+                                          :genre => :name},
+                  :ignoring => :accents
+
+  def typeahead(prefix)
+    [title, soloists , comment, composer.try(:name), genre.try(:name)].map do |name|
+      name and name.downcase.split((/\W+/))
+    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.downcase}.uniq
+  end
 
   def self.excel
     NoteSheet.new([HeaderColumn.new(I18n.t('model.evensong.excel.sysid'), 8),
