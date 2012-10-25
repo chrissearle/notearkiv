@@ -322,6 +322,9 @@ nb:
       quotashared: "Delte filer"
       quotanormal: "Private filer"
       quotaquota: "Maksimum"
+    upload:
+      form:
+        title: "Vedlegg"
     account:
       info:
         title: "Informasjon om konto"

@@ -2,13 +2,13 @@ class UploadsController < ApplicationController
   before_filter :get_upload, :only => [:destroy]
 
   def new
-    @upload = upload.new
+    @upload = Upload.new
     @upload.note = Note.find(params[:note]) if params[:note]
     @upload.evensong = Evensong.find(params[:evensong]) if params[:evensong]
   end
 
   def create
-    @upload = upload.new(params[:upload])
+    @upload = Upload.new(params[:upload])
 
     if @upload.save
       if @upload.note
@@ -37,6 +37,6 @@ class UploadsController < ApplicationController
   private
 
   def get_upload
-    @upload = upload.find(params[:id])
+    @upload = Upload.find(params[:id])
   end
 end
