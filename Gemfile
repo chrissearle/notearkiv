@@ -41,3 +41,5 @@ gem 'haml'
 gem 'newrelic_rpm'
 
 gem 'foreman', :require => false
+
+gem 'quiet_assets', :group => :development
