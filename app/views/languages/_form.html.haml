@@ -1,9 +1,0 @@
-= simple_form_for @language, :html => { :class => 'form-horizontal' } do |f|
-  %fieldset
-    %legend= t('model.language.title')
-
-    = f.input :name
-
-    %div.form-actions
-      = f.button :submit, :class => 'btn-primary'
-      = link_to t("form.button.cancel"), languages_path, :class => 'btn'

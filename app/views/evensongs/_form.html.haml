@@ -1,6 +1,6 @@
-= simple_form_for @evensong, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for evensong, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
-    %legend= t('model.evensong.title')
+    %legend= legend
 
     = f.input :title
     = f.input :psalm

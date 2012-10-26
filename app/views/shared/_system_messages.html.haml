@@ -1,0 +1,8 @@
+- if messages.size > 0
+  %div.row
+    %div.span12
+    - messages.each do |message|
+      %div.alert.fade.in{ :'data-alert' => "alert", :class => "alert-#{bootstrap_type(message.msgtype)}" }
+        %a.close{ :href => "#", :'data-dismiss' => "alert" } ×
+        %p
+          = kd message.content

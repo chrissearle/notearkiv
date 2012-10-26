@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
   before_filter :get_link, :only => [:edit, :update, :destroy]
 
+  filter_access_to :all
+
   def new
     @link = Link.new
     @link.note = Note.find(params[:note]) if params[:note]

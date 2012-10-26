@@ -1,6 +1,5 @@
 %head
-  %title
-    Arkiv for noter &amp; evensongnoter
+  %title= h(yield(:title) || "OCHS")
   /[if lt IE 9]
     %script{ :src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript" }
   = stylesheet_link_tag "application", :media => "all"

@@ -41,7 +41,17 @@ nb:
         copies: 'Antall kopier'
         instrumental: 'Antall instrumental'
         uploadfile: 'Fil'
+        content: 'Innhold'
+        startdt_text: 'Start Dato/Klokkeslett'
+        enddt_text: 'Slutt Dato/Klokkeslett'
+        active_flag: 'Aktiv?'
+        msgtype: 'Meldingstype'
     hints:
       defaults:
         url: 'Web lenke - med protocol - f.eks http://www.ochs.no'
         password_confirmation: 'La passord feltene være tom for å beholde eksisterende passord.'
+        content: 'Bruk Markdown syntaks - se <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>'
+        startdt_text: 'Opsjonelt - vis meldingen bare etter en dato/klokkeslett'
+        enddt_text: 'Opsjonelt - vis meldingen bare før en dato/klokkeslett'
+      message:
+        title: 'Intern tittel - brukes kun i admin grensesnitt'

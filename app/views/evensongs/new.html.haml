@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- t('model.evensong.list.title')
+= render :partial => 'form', :locals => { :evensong => @evensong, :legend => t('model.evensong.title')}

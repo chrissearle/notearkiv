@@ -41,7 +41,17 @@ en:
         copies: '# copies'
         instrumental: '# instrumental'
         uploadfile: 'File'
+        content: 'Content'
+        startdt_text: 'Start Date/Time'
+        enddt_text: 'End Date/Time'
+        active_flag: 'Active?'
+        msgtype: 'Message Type'
     hints:
       defaults:
         url: 'Web link - with protocol - e.g http://www.ochs.no' 
         password_confirmation: 'Leave both password fields blank to keep existing password.'
+        content: 'Use markdown format - see <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>'
+        startdt_text: 'Optional - show message only after a given date and time'
+        enddt_text: 'Optional - show message only before a given date and time'
+      message:
+        title: 'Internal title - only used in admin pages'

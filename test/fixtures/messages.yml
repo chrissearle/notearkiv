@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyString
+  startdt: 2012-10-26 12:48:48
+  enddt: 2012-10-26 12:48:48
+  active_flag: false
+  msgtype: MyString
+
+two:
+  title: MyString
+  content: MyString
+  startdt: 2012-10-26 12:48:48
+  enddt: 2012-10-26 12:48:48
+  active_flag: false
+  msgtype: MyString

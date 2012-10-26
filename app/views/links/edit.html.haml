@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title @link.title
+= render :partial => 'form', :locals => { :link => @link }
