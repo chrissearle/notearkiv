@@ -1,0 +1,30 @@
+%h2
+  - unless @upload.note.nil?
+    = t('model.upload.link.note', :title => @upload.note.title).html_safe
+  - unless @upload.evensong.nil?
+    = t('model.upload.link.evensong', :title => @upload.evensong.title).html_safe
+
+%h3= t('model.upload.available')
+
+%table.table.table-striped.table-condensed.table-bordered
+  %thead
+    %tr
+      %th= t('dropbox.file.name')
+      %th= t('dropbox.file.size')
+      %th= t('dropbox.file.modified')
+      - if @files.size == 1
+        %th= t('dropbox.file.media')
+      %th
+        &nbsp;
+  %tbody
+    - @files.each do |file|
+      - if upload_back_item(file['path']).nil?
+        %tr
+          %td= file['path']
+          %td= number_to_human_size file['bytes'].to_f
+          %td= file['modified']
+          %td= link_to t('link.button.upload'), url_for(params.merge(:path => file['path'])), :class => 'btn btn-mini'
+
+
+%well
+  = link_to t('back'), :back, :class => 'btn'

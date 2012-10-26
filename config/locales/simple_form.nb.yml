@@ -40,6 +40,7 @@ nb:
         originals: 'Antall original'
         copies: 'Antall kopier'
         instrumental: 'Antall instrumental'
+        uploadfile: 'Fil'
     hints:
       defaults:
         url: 'Web lenke - med protocol - f.eks http://www.ochs.no'

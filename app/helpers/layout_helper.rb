@@ -50,28 +50,31 @@ module LayoutHelper
   end
 
   def get_icon_for_path(path)
-    ext = path.gsub(/.*\./, '')
+    ext = path.gsub(/.*\./, '').downcase.to_sym
 
-    case ext
-      when "pdf" then
-        "icon-book"
-      when "zip" then
-        "icon-download-alt"
-      when "mp3" then
-        "icon-music"
-      when "m4a" then
-        "icon-music"
-      else
-        "icon-file"
-    end
+    ext = :default unless DROPBOX_FILE_ICONS.has_key? ext
+
+    DROPBOX_FILE_ICONS[ext]
   end
 
-  def media_link(upload)
-    unless upload.media
-      return "#{upload.display_name} - #{t('media.file.missing')}"
+  def media_link(upload, refresh_cache=false)
+    unless refresh_cache
+      unless upload.media
+        return "#{upload.display_name} - #{t('media.file.missing')}"
+      end
     end
 
-    link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media
+    link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media(refresh_cache)
+  end
+
+  def short_media_link(upload, source)
+    media = upload.media
+
+    if media.nil?
+      link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe, source, :rel => 'popover', :data => { :trigger => 'hover', :title => upload.display_name, :content => t('upload.not.available')}
+    else
+      link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe, upload.media, :rel => 'tooltip', :title => upload.display_name
+    end
   end
 
   def link_with_icon(icon, text, white=false)
@@ -82,8 +85,12 @@ module LayoutHelper
     items.size if items.size > 0
   end
 
+  def upload_back_item(path)
+    Upload.search_path(path)
+  end
+
   def upload_back_link(path)
-    upload = Upload.search_path(path)
+    upload = upload_back_item(path)
 
     if upload
       if upload.note

@@ -28,9 +28,8 @@
                 %li= search_link lang.name
         %td= search_link note.instrument
         %td
-          - if note.uploads && note.uploads.size > 0
-            %i.icon-hdd
-            = note.uploads.size
+          - note.uploads.each do |u|
+            = short_media_link u, note_path(note)
 
 %div{:class => @notes.size > 0 ? 'hidden' : ''}
   = t('model.note.nonefound')

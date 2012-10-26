@@ -5,7 +5,6 @@ class EvensongsController < ApplicationController
   filter_access_to :all
 
   before_filter :get_evensong, :only => [:show, :edit, :update, :destroy]
-  before_filter :get_relation_collections, :only => [:new, :edit]
 
   layout :resolve_layout
 
@@ -68,11 +67,6 @@ class EvensongsController < ApplicationController
 
   def get_evensong
     @evensong = Evensong.find(params[:id])
-  end
-
-  def get_relation_collections
-    @composers = Composer.ordered
-    @genres = Genre.ordered
   end
 
   def resolve_layout
