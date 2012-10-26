@@ -6,6 +6,7 @@ authorization do
     has_permission_on [:stats], :to => [:index]
     has_permission_on [:session_caches], :to => [:authorize]
     has_permission_on [:dropbox], :to => [:index, :authorize]
+    has_permission_on [:messages], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
   role :admin do

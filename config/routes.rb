@@ -22,6 +22,7 @@ Notearkiv::Application.routes.draw do
     resources :account
     resources :evensongs
     resources :notes
+    resources :messages
     resources :uploads do
       member do
         get 'link'

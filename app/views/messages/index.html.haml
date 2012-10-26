@@ -1,0 +1,31 @@
+- title  t('model.message.list.title')
+%h1= t('model.message.list.title')
+
+= render :partial => 'actions'
+
+%table.table.table-striped.table-condensed.table-bordered
+  %thead
+    %tr
+      %th= t('model.message.list.name.title')
+      %th= t('model.message.list.content')
+      %th= t('model.message.list.start')
+      %th= t('model.message.list.end')
+      %th= t('model.message.list.status')
+      %th= t('list.actions.title')
+  %tbody
+    - @messages.each do |m|
+      %tr
+        %td= m.title
+        %td= kd m.content
+        %td= m.startdt_text
+        %td= m.enddt_text
+        %td
+          = active_line(m.active_flag)
+          = msgtype_line(m.msgtype)
+        %td
+          - if permitted_to? :edit, m
+            = link_to t('list.button.edit'), edit_message_path(m), :class => 'btn btn-mini'
+          - if permitted_to? :destroy, m
+            = link_to t('list.button.delete'), message_path(m), :method => 'delete', :confirm => t('list.delete.confirm'), :class => danger_button_class(m)
+
+= render :partial => 'actions'

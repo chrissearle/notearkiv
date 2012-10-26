@@ -40,6 +40,8 @@ gem 'haml'
 
 gem 'newrelic_rpm'
 
+gem 'kramdown'
+
 gem 'foreman', :require => false
 
 gem 'quiet_assets', :group => :development
