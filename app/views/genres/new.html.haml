@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title t('model.genre.list.title')
+= render :partial => 'shared/name_form', :locals => { :item => @genre, :legend => t('model.genre.list.title') }

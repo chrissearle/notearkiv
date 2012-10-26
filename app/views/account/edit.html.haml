@@ -1,3 +1,4 @@
+- title @user.display_name
 = simple_form_for @user, :html => {:class => 'form-horizontal'}, :url => {:controller => "account", :action => 'update'} do |f|
   %fieldset
     %legend= t('account.form.title')

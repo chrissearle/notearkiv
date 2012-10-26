@@ -10,7 +10,7 @@ nb:
       genre:
         create: "Lag ny genre"
       language:
-        create: "Lag ny language"
+        create: "Lag ny språk"
       period:
         create: "Lag ny epoke"
       user_session:
@@ -59,6 +59,8 @@ nb:
   user:
     form:
       legend: "Min konto"
+    list:
+      title: "Brukere"
   user_session:
     form:
       legend: "Logg på"

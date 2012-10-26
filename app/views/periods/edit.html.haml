@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title @period.name
+= render :partial => 'shared/name_form', :locals => { :item => @period, :legend => @period.name }

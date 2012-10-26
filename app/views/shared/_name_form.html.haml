@@ -1,0 +1,9 @@
+= simple_form_for item, :html => { :class => 'form-horizontal' } do |f|
+  %fieldset
+    %legend= legend
+
+    = f.input :name
+
+    %div.form-actions
+      = f.button :submit, :class => 'btn-primary'
+      = link_to t("form.button.cancel"), :back, :class => 'btn'

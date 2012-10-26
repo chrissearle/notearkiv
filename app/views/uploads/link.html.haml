@@ -1,8 +1,5 @@
-%h2
-  - unless @upload.note.nil?
-    = t('model.upload.link.note', :title => @upload.note.title).html_safe
-  - unless @upload.evensong.nil?
-    = t('model.upload.link.evensong', :title => @upload.evensong.title).html_safe
+- title upload_title('model.upload.link', @upload)
+%h2= upload_title('model.upload.link', @upload)
 
 %h3= t('model.upload.available')
 

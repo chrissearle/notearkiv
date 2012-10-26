@@ -57,6 +57,8 @@ en:
   user:
     form:
       legend: "My Account"
+    list:
+      title: "Users"
   user_session:
     form:
       legend: "Log in"

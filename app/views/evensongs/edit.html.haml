@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title @evensong.title
+= render :partial => 'form', :locals => { :evensong => @evensong, :legend => @evensong.title }
