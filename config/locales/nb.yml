@@ -410,6 +410,14 @@ nb:
           attributes:
             name:
               blank: "Navn er påkrevd"
+        message:
+          attributes:
+            title:
+              blank: "Tittel er påkrevd"
+            content:
+              blank: "Innhold er påkrevd"
+            msgtype:
+              blank: "Meldingstype er påkrevd"
         user:
           attributes:
             username:

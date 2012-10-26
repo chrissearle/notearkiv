@@ -416,6 +416,14 @@ en:
           attributes:
             name:
               blank: "Name cannot be empty"
+        message:
+          attributes:
+            title:
+              blank: "Title cannot be empty"
+            content:
+              blank: "Content cannot be empty"
+            msgtype:
+              blank: "Message type cannot be empty"
         user:
           attributes:
             username:
