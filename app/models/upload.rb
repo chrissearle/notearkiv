@@ -16,12 +16,11 @@ class Upload < ActiveRecord::Base
     self.title || self.path
   end
 
-  def media
+  def media(refresh_cache=false)
     begin
-      @media ||= DropboxWrapper.get_media(self.path)
+      DropboxWrapper.get_media(self.path, refresh_cache)
     rescue DropboxError => de
       Rails.logger.warn "Dropbox error #{de.error}"
-      @media = nil
     end
   end
 

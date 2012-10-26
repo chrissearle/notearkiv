@@ -68,7 +68,7 @@
           %ul.unstyled
             - @note.uploads.each do |upload|
               %li
-                = media_link upload
+                = media_link upload ,true
                 - if permitted_to?(:destroy, upload)
                   = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.title'), :content => t('delete.refresh.warning'), :trigger => 'hover' }
 

@@ -468,6 +468,8 @@ nb:
     linked: "Filen koblet"
     form:
       legend: "Last opp vedlegg"
+    not:
+      available: "Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg."
   link:
     button:
       upload: "Legg ved denne filen"

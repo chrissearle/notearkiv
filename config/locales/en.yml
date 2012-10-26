@@ -274,6 +274,8 @@ en:
     files:
       updated: "Available files updated."
     linked: "File linked"
+    not:
+      available: "Direct link not yet available. Click to open view page which will fetch the link for you."
   account:
     list:
       email:
