@@ -595,6 +595,10 @@ nb:
         strip_insignificant_zeros: true
       storage_units:
         format: ! '%n %u'
+        units:
+          mb: "MB"
+          gb: "GB"
+          kb: "KB"
     percentage:
       format:
         delimiter: ''
