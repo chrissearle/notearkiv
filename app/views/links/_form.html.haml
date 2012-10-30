@@ -1,14 +1,6 @@
-- if @link.note
-  %h2
-    = t('model.note.title')
-    %em= @link.note.title
+%h2= link_title(link)
 
-- if @link.evensong
-  %h2
-    = t('model.evensong.title')
-    %em= @link.evensong.title
-
-= simple_form_for @link, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for link, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
     %legend= t('model.link.title')
 
@@ -23,4 +15,4 @@
 
     %div.form-actions
       = f.button :submit, :class => 'btn-primary'
-      = link_to t("form.button.cancel"), links_path, :class => 'btn'
+      = link_to t("form.button.cancel"), :back, :class => 'btn'

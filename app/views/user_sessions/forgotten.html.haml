@@ -1,8 +1,9 @@
+- title t('user_session.form.forgotten.legend')
 = form_tag '/reset_password', :html => {:class => 'form-horizontal'}, :method => :post do
   %fieldset
     %legend= t('user_session.form.forgotten.legend')
 
-    %p=  t('user.session.form.forgotten.intro')
+    %p=  t('user_session.form.forgotten.intro')
 
     %div.control-group
       = label_tag :email, t('helpers.label.user_session.email'), :class => 'control-label'

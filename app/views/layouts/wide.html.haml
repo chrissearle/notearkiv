@@ -5,6 +5,7 @@
     = render :partial => 'shared/navbar'
 
     %div.container
+      = render :partial => "shared/system_messages", :locals => {:messages => Message.find_currently_active}
       %div.row
         %div.span12
           = render :partial => "shared/flash_messages", :locals => {:flash => flash}

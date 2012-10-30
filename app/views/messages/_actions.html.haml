@@ -1,0 +1,3 @@
+- if permitted_to? :new, :messages
+  %div.well
+    = link_to t('list.button.new'), new_message_path, :class => 'btn btn-primary'

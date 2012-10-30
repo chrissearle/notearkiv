@@ -1,8 +1,5 @@
-%h2
-  - unless @upload.note.nil?
-    = t('model.upload.upload.note', :title => @upload.note.title).html_safe
-  - unless @upload.evensong.nil?
-    = t('model.upload.upload.evensong', :title => @upload.evensong.title).html_safe
+- title upload_title('model.upload.upload', @upload)
+%h2= upload_title('model.upload.upload', @upload)
 
 = simple_form_for @upload, :html => {:class => 'form-horizontal', :multipart => true} do |f|
   %fieldset

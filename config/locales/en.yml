@@ -13,6 +13,8 @@ en:
         create: "Create language"
       period:
         create: "Create epoch"
+      message:
+        create: "Create message"
       user_session:
         create: "Log In"
         forgotten: "Send me the link"
@@ -57,6 +59,8 @@ en:
   user:
     form:
       legend: "My Account"
+    list:
+      title: "Users"
   user_session:
     form:
       legend: "Log in"
@@ -262,6 +266,23 @@ en:
       upload:
         note: "Upload attachement to note: <em>%{title}</em>"
         evensong: "Upload attachement to evensong: <em>%{title}</em>"
+    message:
+      list:
+        status: "Status"
+        name:
+          title: "Title"
+        title: "Messages"
+        content: "Body"
+        start: "Start"
+        end: "End"
+        active: "Active?"
+        type: "Type"
+      create:
+        ok: "Message created."
+      update:
+        ok: "Message updated."
+      delete:
+        ok: "Message deleted."
   user:
     session:
       form:
@@ -274,6 +295,8 @@ en:
     files:
       updated: "Available files updated."
     linked: "File linked"
+    not:
+      available: "Direct link not yet available. Click to open view page which will fetch the link for you."
   account:
     list:
       email:

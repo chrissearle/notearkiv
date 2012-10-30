@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title t('model.note.title')
+= render :partial => 'form', :locals => { :note => @note, :legend => t('model.note.title') }

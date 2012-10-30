@@ -95,13 +95,22 @@ class DropboxWrapper
     end
   end
 
-  def self.get_media(path)
+  def self.get_media(path, refresh_cache=false)
+    Rails.logger.debug("Fetch media for #{path} with refresh_cache=#{refresh_cache}")
     begin
-      client = get_client
+      link = Rails.cache.read(DROPBOX_FILE_MEDIA_PREFIX_CACHE_KEY + path)
 
-      return nil unless client
+      if link.nil? and refresh_cache
+        client = get_client
 
-      client.media(path)['url']
+        return nil unless client
+
+        link = client.media(path)['url']
+
+        Rails.cache.write(DROPBOX_FILE_MEDIA_PREFIX_CACHE_KEY + path, link, :expires_in => 3.hours + 30.minutes)
+      end
+
+      link
     rescue DropboxAuthError
       return nil
     end

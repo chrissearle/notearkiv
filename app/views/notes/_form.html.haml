@@ -1,6 +1,6 @@
-= simple_form_for @note, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for note, :html => { :class => 'form-horizontal' } do |f|
   %fieldset
-    %legend= t('model.note.title')
+    %legend= legend
 
     = f.input :item
     = f.input :title

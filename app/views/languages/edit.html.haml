@@ -1,1 +1,2 @@
-= render :partial => 'form'
+- title @language.name
+= render :partial => 'shared/name_form', :locals => { :item => @language, :legend => @language.name }
