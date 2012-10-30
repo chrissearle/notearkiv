@@ -6,6 +6,8 @@ class DropboxController < ApplicationController
   before_filter :get_client, :except => [:authorize]
   before_filter :get_info, :except => [:authorize]
 
+  layout :resolve_layout
+
   def index
     if params[:refresh]
       DropboxWrapper.refresh
@@ -55,5 +57,14 @@ class DropboxController < ApplicationController
 
   def get_info
     @info = @dbclient.account_info
+  end
+
+  def resolve_layout
+    case action_name
+      when "index"
+        "wide"
+      else
+        "application"
+    end
   end
 end
