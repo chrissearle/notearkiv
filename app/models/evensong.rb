@@ -16,7 +16,7 @@ class Evensong < ActiveRecord::Base
   validates_presence_of :title, :composer, :genre
 
   scope :ordered, :order => 'title ASC'
-  scope :preloaded, :include => [:composer, :genre, :links]
+  scope :preloaded, :include => [:composer, :genre, :links, :uploads]
 
   pg_search_scope :searchahead,
                   :against => [:title, :soloists, :comment],

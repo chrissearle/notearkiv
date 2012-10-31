@@ -4,8 +4,8 @@ class SearchController < ApplicationController
   filter_access_to :all
 
   def search
-    @notes = Note.search params[:search]
-    @evensongs = Evensong.search params[:search]
+    @notes = Note.search(params[:search]).preloaded
+    @evensongs = Evensong.search(params[:search]).preloaded
   end
 
   def typeahead
