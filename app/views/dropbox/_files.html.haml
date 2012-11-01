@@ -46,5 +46,8 @@
                 = link_to t('dropbox.button.relink'), link_uploads_path(:note => upload.note.id, :upload => upload.id), :class => 'btn btn-mini', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
               - if !upload.evensong.nil?
                 = link_to t('dropbox.button.relink'), link_uploads_path(:evensong => upload.evensong.id, :upload => upload.id), :class => 'btn btn-mini', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+            - if permitted_to?(:destroy, upload)
+              = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.title'), :content => t('delete.refresh.warning'), :trigger => 'hover' }
+
 
 
