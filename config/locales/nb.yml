@@ -376,6 +376,8 @@ nb:
       link: "Lenket note"
     refresh:
       button: "Oppfrisk listen over filer fra DropBox"
+    button:
+      relink: "Endre lenken"
   media:
     file:
       missing: "fant ikke filen"
@@ -446,6 +448,10 @@ nb:
     not:
       available: "Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg."
     updated: "Vedlegg oppdatert."
+    title: "Tittel"
+    path: "Sti"
+    link:
+      object: "Lenket til"
   link:
     button:
       upload: "Legg ved denne filen"
@@ -616,3 +622,8 @@ nb:
       long: ! '%A, %e. %B %Y, %H:%M'
       short: ! '%e. %B, %H:%M'
     pm: ''
+  uploads:
+    with:
+      broken:
+        dropbox:
+          link: "Vedlegg som ikke finnes på DropBox"

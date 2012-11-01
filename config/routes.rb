@@ -24,8 +24,10 @@ Notearkiv::Application.routes.draw do
     resources :notes
     resources :messages
     resources :uploads do
-      member do
+      collection do
         get 'link'
+      end
+      member do
         get 'refresh'
       end
     end

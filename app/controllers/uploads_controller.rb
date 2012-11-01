@@ -79,7 +79,11 @@ class UploadsController < ApplicationController
   end
 
   def get_related_object
-    @upload = Upload.new
+    if params[:upload]
+      @upload = Upload.find(params[:upload])
+    else
+      @upload = Upload.new
+    end
     @upload.note = Note.find(params[:note]) if params[:note]
     @upload.evensong = Evensong.find(params[:evensong]) if params[:evensong]
   end

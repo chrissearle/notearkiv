@@ -25,6 +25,8 @@ class DropboxController < ApplicationController
         @files = []
       end
     end
+
+    @uploads = Upload.select{ |upload| @files.find{ |file| file['path'] == upload.path } == nil }
   end
 
   def show
