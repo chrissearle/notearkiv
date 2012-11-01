@@ -266,6 +266,9 @@ en:
       upload:
         note: "Upload attachement to note: <em>%{title}</em>"
         evensong: "Upload attachement to evensong: <em>%{title}</em>"
+      edit:
+        note: "Edit attachment for note: <em>%{title}</em>"
+        evensong: "Edit attachment for evensong: <em>%{title}</em>"
     message:
       list:
         status: "Status"
@@ -297,6 +300,11 @@ en:
     linked: "File linked"
     not:
       available: "Direct link not yet available. Click to open view page which will fetch the link for you."
+    updated: "Upload updated."
+    title: "Title"
+    path: "Path"
+    link:
+      object: "Linked to"
   account:
     list:
       email:
@@ -379,6 +387,8 @@ en:
       link: "Linked note"
     refresh:
       button: "Refresh files list from DropBox"
+    button:
+      relink: "Fix link"
   media:
     file:
       missing: "file missing"
@@ -416,6 +426,14 @@ en:
           attributes:
             name:
               blank: "Name cannot be empty"
+        message:
+          attributes:
+            title:
+              blank: "Title cannot be empty"
+            content:
+              blank: "Content cannot be empty"
+            msgtype:
+              blank: "Message type cannot be empty"
         user:
           attributes:
             username:
@@ -446,3 +464,8 @@ en:
     all:
       refresh:
         warning: "<p>This will delete any attachments from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
+  uploads:
+    with:
+      broken:
+        dropbox:
+          link: "Uploads not found on DropBox"

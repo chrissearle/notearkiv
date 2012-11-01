@@ -266,6 +266,9 @@ nb:
       upload:
         note: "Last opp vedlegg til note: <em>%{title}</em>"
         evensong: "Last opp vedlegg til evensongnote: <em>%{title}</em>"
+      edit:
+        note: "Rediger vedlegg for note: <em>%{title}</em>"
+        evensong: "Rediger vedlegg for evensong: <em>%{title}</em>"
     message:
       list:
         status: "Status"
@@ -373,6 +376,8 @@ nb:
       link: "Lenket note"
     refresh:
       button: "Oppfrisk listen over filer fra DropBox"
+    button:
+      relink: "Endre lenken"
   media:
     file:
       missing: "fant ikke filen"
@@ -410,6 +415,14 @@ nb:
           attributes:
             name:
               blank: "Navn er påkrevd"
+        message:
+          attributes:
+            title:
+              blank: "Tittel er påkrevd"
+            content:
+              blank: "Innhold er påkrevd"
+            msgtype:
+              blank: "Meldingstype er påkrevd"
         user:
           attributes:
             username:
@@ -434,6 +447,11 @@ nb:
       legend: "Last opp vedlegg"
     not:
       available: "Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg."
+    updated: "Vedlegg oppdatert."
+    title: "Tittel"
+    path: "Sti"
+    link:
+      object: "Lenket til"
   link:
     button:
       upload: "Legg ved denne filen"
@@ -587,6 +605,10 @@ nb:
         strip_insignificant_zeros: true
       storage_units:
         format: ! '%n %u'
+        units:
+          mb: "MB"
+          gb: "GB"
+          kb: "KB"
     percentage:
       format:
         delimiter: ''
@@ -600,3 +622,8 @@ nb:
       long: ! '%A, %e. %B %Y, %H:%M'
       short: ! '%e. %B, %H:%M'
     pm: ''
+  uploads:
+    with:
+      broken:
+        dropbox:
+          link: "Vedlegg som ikke finnes på DropBox"

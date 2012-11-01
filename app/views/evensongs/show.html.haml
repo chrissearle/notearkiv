@@ -59,6 +59,6 @@
   - if permitted_to?(:new, :uploads)
     = link_to t('show.button.upload'), new_upload_path(:evensong => @evensong.id), :class => 'btn'
   - if permitted_to?(:link, :uploads)
-    = link_to t('show.button.attach'), link_upload_path(:evensong => @evensong.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+    = link_to t('show.button.attach'), link_uploads_path(:evensong => @evensong.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
   - if permitted_to?(:destroy, @evensong)
     = link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }

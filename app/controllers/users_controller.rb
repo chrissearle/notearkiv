@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   layout "wide"
 
   def index
-    @users = User.all
+    @users = User.preloaded
   end
 
   def new

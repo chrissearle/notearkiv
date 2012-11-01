@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :user_role_assignments
   has_many :roles, :through => :user_role_assignments
 
+  scope :preloaded, :include => [:roles]
+
   validates_presence_of :roles
 
   def role_symbols

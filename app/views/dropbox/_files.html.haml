@@ -24,3 +24,27 @@
           %td= link_to file['path'], file['media_link']
         %td= upload_back_link(file['path'])
 
+- if @uploads.size > 0
+  %h3= t('uploads.with.broken.dropbox.link')
+
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= t('upload.title')
+        %th= t('upload.path')
+        %th= t('upload.link.object')
+        %th= t('list.actions.title')
+    %tbody
+      - @uploads.each do |upload|
+        %tr
+          %td= upload.title
+          %td= upload.path
+          %td= upload_back_link(upload.path)
+          %td
+            - if permitted_to?(:link, :uploads)
+              - if !upload.note.nil?
+                = link_to t('dropbox.button.relink'), link_uploads_path(:note => upload.note.id, :upload => upload.id), :class => 'btn btn-mini', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+              - if !upload.evensong.nil?
+                = link_to t('dropbox.button.relink'), link_uploads_path(:evensong => upload.evensong.id, :upload => upload.id), :class => 'btn btn-mini', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+
+
