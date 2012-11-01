@@ -266,6 +266,9 @@ nb:
       upload:
         note: "Last opp vedlegg til note: <em>%{title}</em>"
         evensong: "Last opp vedlegg til evensongnote: <em>%{title}</em>"
+      edit:
+        note: "Rediger vedlegg for note: <em>%{title}</em>"
+        evensong: "Rediger vedlegg for evensong: <em>%{title}</em>"
     message:
       list:
         status: "Status"
@@ -442,6 +445,7 @@ nb:
       legend: "Last opp vedlegg"
     not:
       available: "Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg."
+    updated: "Vedlegg oppdatert."
   link:
     button:
       upload: "Legg ved denne filen"

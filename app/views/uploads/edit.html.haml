@@ -1,0 +1,15 @@
+- title upload_title('model.upload.edit', @upload)
+%h2= upload_title('model.upload.edit', @upload)
+
+= simple_form_for @upload, :html => {:class => 'form-horizontal', :multipart => true} do |f|
+  %fieldset
+    %legend= t('upload.form.legend')
+
+    = f.input :title
+
+    = f.input :path, :readonly => true
+
+    %div.form-actions
+      = f.button :submit, :class => 'btn-primary'
+      = link_to t('form.button.cancel'), :back, :class => 'btn'
+

@@ -266,6 +266,9 @@ en:
       upload:
         note: "Upload attachement to note: <em>%{title}</em>"
         evensong: "Upload attachement to evensong: <em>%{title}</em>"
+      edit:
+        note: "Edit attachment for note: <em>%{title}</em>"
+        evensong: "Edit attachment for evensong: <em>%{title}</em>"
     message:
       list:
         status: "Status"
@@ -297,6 +300,7 @@ en:
     linked: "File linked"
     not:
       available: "Direct link not yet available. Click to open view page which will fetch the link for you."
+    updated: "Upload updated."
   account:
     list:
       email:
