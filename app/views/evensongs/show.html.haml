@@ -30,26 +30,12 @@
       %td
         - if permitted_to?(:show, :links)
           - if @evensong.links
-            %ul.unstyled
-              - @evensong.links.each do |link|
-                %li
-                  = link_to link.title, link.url
-                  - if permitted_to?(:edit, link)
-                    = link_to t('show.button.edit'), edit_link_path(link), :class => 'btn btn-mini'
-                  - if permitted_to?(:destroy, link)
-                    = link_to t('show.button.delete'), link_path(link), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger'
+            = render :partial => 'shared/show_links_list', :locals => { :links => @evensong.links }
     %tr
       %td= t('model.upload.list.title')
       %td
         - if @evensong.uploads
-          %ul.unstyled
-            - @evensong.uploads.each do |upload|
-              %li
-                = media_link upload ,true
-                - if permitted_to?(:edit, upload)
-                  = link_to t('show.button.edit'), edit_upload_path(upload), :class => 'btn btn-mini'
-                - if permitted_to?(:destroy, upload)
-                  = link_to t('show.button.delete'), upload_path(upload), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-mini btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.title'), :content => t('delete.refresh.warning'), :trigger => 'hover' }
+          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @evensong.uploads }
 
 %div.form-actions
   = link_to t('back'), :back, :class => 'btn'
