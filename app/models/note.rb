@@ -1,5 +1,6 @@
 class Note < ActiveRecord::Base
   include PgSearch
+  include AbstractNote
 
   before_destroy :remove_links
   before_destroy :remove_uploads
@@ -42,10 +43,8 @@ class Note < ActiveRecord::Base
                                           :languages => :name},
                   :ignoring => :accents
 
-  def typeahead(prefix)
-    [title, voice, soloists, instrument, comment, composer.try(:name), genre.try(:name), period.try(:name), languages.try(:collect) { |l| l.name }].flatten.map do |name|
-      name and name.parameterize.split((/\W+/))
-    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.parameterize}.uniq
+  def get_typeahead
+    [title, voice, soloists, instrument, comment, composer_name, genre_name, period_name, languages.try(:collect) { |l| l.name }].flatten
   end
 
   def self.voices
@@ -91,17 +90,5 @@ class Note < ActiveRecord::Base
 
   def set_next_item
     self.item = Note.maximum(:item) + 1
-  end
-
-  def remove_links
-    self.links.each do |link|
-      link.destroy
-    end
-  end
-
-  def remove_uploads
-    self.uploads.each do |upload|
-      upload.destroy
-    end
   end
 end

@@ -9,7 +9,6 @@ class EvensongsController < ApplicationController
   layout :resolve_layout
 
   def index
-
     set_accept_header
 
     @evensongs = Evensong.ordered.preloaded

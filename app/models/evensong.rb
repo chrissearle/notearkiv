@@ -1,5 +1,6 @@
 class Evensong < ActiveRecord::Base
   include PgSearch
+  include AbstractNote
 
   belongs_to :composer
   belongs_to :genre
@@ -31,10 +32,8 @@ class Evensong < ActiveRecord::Base
                                           :genre => :name},
                   :ignoring => :accents
 
-  def typeahead(prefix)
-    [title, soloists , comment, composer.try(:name), genre.try(:name)].map do |name|
-      name and name.parameterize.split((/\W+/))
-    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.parameterize}.uniq
+  def get_typeahead
+    [title, soloists , comment, composer_name, genre_name]
   end
 
   def self.excel
@@ -56,19 +55,5 @@ class Evensong < ActiveRecord::Base
                     row.push item.genre ? item.genre.name : ""
                     row.push item.comment
                   })
-  end
-
-  private
-
-  def remove_links
-    self.links.each do |link|
-      link.destroy
-    end
-  end
-
-  def remove_uploads
-    self.uploads.each do |upload|
-      upload.destroy
-    end
   end
 end
