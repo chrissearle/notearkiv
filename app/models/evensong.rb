@@ -33,8 +33,8 @@ class Evensong < ActiveRecord::Base
 
   def typeahead(prefix)
     [title, soloists , comment, composer.try(:name), genre.try(:name)].map do |name|
-      name and name.downcase.split((/\W+/))
-    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.downcase}.uniq
+      name and name.parameterize.split((/\W+/))
+    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.parameterize}.uniq
   end
 
   def self.excel

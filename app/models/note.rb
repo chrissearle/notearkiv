@@ -44,8 +44,8 @@ class Note < ActiveRecord::Base
 
   def typeahead(prefix)
     [title, voice, soloists, instrument, comment, composer.try(:name), genre.try(:name), period.try(:name), languages.try(:collect) { |l| l.name }].flatten.map do |name|
-      name and name.downcase.split((/\W+/))
-    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.downcase}.uniq
+      name and name.parameterize.split((/\W+/))
+    end.flatten.select {|candidate| candidate and candidate.start_with? prefix.parameterize}.uniq
   end
 
   def self.voices
