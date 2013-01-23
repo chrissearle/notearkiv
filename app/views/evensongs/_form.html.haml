@@ -6,8 +6,8 @@
     = f.input :psalm
     = f.input :soloists
     = f.input :comment, :input_html => { :rows => 7 }
-    = f.association :composer
-    = f.association :genre
+    = f.association :composer, :collection => Composer.ordered
+    = f.association :genre, :collection => Genre.ordered
 
     %div.form-actions
       = f.button :submit, :class => 'btn-primary'
