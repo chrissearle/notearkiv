@@ -6,10 +6,15 @@ class ApplicationController < ActionController::Base
   helper :all
 
   before_filter :set_locale
+  before_filter :init_lastsort
 
   before_filter { |c| Authorization.current_user = c.current_user }
 
   protected
+
+  def init_lastsort
+    session[:lastsort] = {} unless session.has_key? :lastsort
+  end
 
   def permission_denied
     if current_user

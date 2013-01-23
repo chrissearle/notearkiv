@@ -1,13 +1,21 @@
-%table{:class => "table table-striped table-condensed table-bordered note #{notes.size > 0 ? 'sortable' : 'hidden'}"}
+%table{:class => "table table-striped table-condensed table-bordered note #{notes.size > 0 ? 'sortable' : 'hidden'}",
+  :data => { :sorted => sorted_notes_url }}
   %thead
     %tr
-      %th= t('model.note.list.item.title')
-      %th= t('model.note.list.name.title')
-      %th= t('model.composer.title')
-      %th= t('model.genre.title')
-      %th= t('model.period.title')
-      %th= t('model.language.list.title')
-      %th= t('model.note.list.instrument.title')
+      %th{:data => { :col => 'item' } }
+        = t('model.note.list.item.title')
+      %th{:data => { :col => 'title' } }
+        = t('model.note.list.name.title')
+      %th{:data => { :col => 'composer' } }
+        = t('model.composer.title')
+      %th{:data => { :col => 'genre' } }
+        = t('model.genre.title')
+      %th{:data => { :col => 'period' } }
+        = t('model.period.title')
+      %th{:data => { :col => 'language' } }
+        = t('model.language.list.title')
+      %th{:data => { :col => 'instrument' } }
+        = t('model.note.list.instrument.title')
       %th= t('model.upload.list.title')
   %tbody
     - notes.each do |note|

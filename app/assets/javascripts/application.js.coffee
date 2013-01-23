@@ -15,6 +15,26 @@
 #= require bootstrap
 #= require_tree .
 
+sorted = (table) ->
+  sorting = [];
+  $(table).find(".header").each ->
+    if ($(this).hasClass("headerSortDown"))
+      sorting.push {
+        column: $(this).data('col'),
+        direction: 'ASC'
+      }
+    if ($(this).hasClass("headerSortUp"))
+      sorting.push {
+        column: $(this).data('col'),
+        direction: 'DESC'
+      }
+  if sorting.length > 0
+    $.ajax({
+      type: "POST",
+      url: $(table).data('sorted'),
+      data: { 'sorting': sorting }
+    })
+
 jQuery ->
   $("table.sortable.evensong").tablesorter({
     sortList: [[0,0]],
@@ -23,8 +43,16 @@ jQuery ->
 
   $("table.sortable.note").tablesorter({
     sortList: [[1,0]],
-    headers: {7: {sorter: false}}
+    headers: {7: {sorter: false}, 5: {sorter: false}}
   })
+
+  $("table.sortable.note").bind("sortEnd", ->
+    sorted(this)
+    )
+
+  $("table.sortable.evensong").bind("sortEnd", ->
+    sorted(this)
+    )
 
   $('#mainsearch').typeahead(
     minLength: 3,

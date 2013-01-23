@@ -20,8 +20,16 @@ Notearkiv::Application.routes.draw do
     resources :composers
     resources :genres
     resources :account
-    resources :evensongs
-    resources :notes
+    resources :evensongs do
+      collection do
+        post 'sorted'
+      end
+    end
+    resources :notes do
+      collection do
+        post 'sorted'
+      end
+    end
     resources :messages
     resources :uploads do
       collection do

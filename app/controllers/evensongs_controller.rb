@@ -28,11 +28,46 @@ class EvensongsController < ApplicationController
 
     search_evensongs = []
 
-    if session.has_key? :lastsearch
-      search_evensongs = Evensong.search(session[:lastsearch]).ordered.preloaded
+    joins = []
+
+    if session[:lastsort].has_key? :evensong
+      order_clause = session[:lastsort][:evensong].map do |sort|
+        col = sort['column']
+
+        if col == 'composer'
+          col = "composers.name"
+          joins << :composer
+        end
+
+        if col == 'genre'
+          col = "genres.name"
+          joins << :genre
+        end
+
+        "LOWER(#{col}) #{sort['direction']}"
+      end.join ","
+
+      unless order_clause.include?("title")
+        order_clause += ",LOWER(title) ASC"
+      end
     else
-      search_evensongs = Evensong.ordered.preloaded
+      order_clause = "LOWER(title) ASC"
     end
+
+    query = Evensong.order(order_clause)
+
+    if joins.size > 0
+      joins.each do |joined|
+        query = query.joins(joined)
+      end
+    end
+
+    if session.has_key? :lastsearch
+      search_evensongs = query.search(session[:lastsearch]).preloaded
+    else
+      search_evensongs = query.preloaded
+    end
+
 
     if search_evensongs.size > 0
       current_index = search_evensongs.index(@evensong)
@@ -78,6 +113,12 @@ class EvensongsController < ApplicationController
     @evensong.destroy
 
     redirect_to evensongs_url, notice: t('model.evensong.delete.ok')
+  end
+
+  def sorted
+    session[:lastsort][:evensong] = params[:sorting].values
+
+    render :json => 'ok'
   end
 
   private

@@ -28,10 +28,49 @@ class NotesController < ApplicationController
 
     search_notes = []
 
-    if session.has_key? :lastsearch
-      search_notes = Note.search(session[:lastsearch]).ordered.preloaded
+    joins = []
+
+    if session[:lastsort].has_key? :note
+      order_clause = session[:lastsort][:note].map do |sort|
+        col = sort['column']
+
+        if col == 'composer'
+          col = "composers.name"
+          joins << :composer
+        end
+
+        if col == 'genre'
+          col = "genres.name"
+          joins << :genre
+        end
+
+        if col == 'period'
+          col = "periods.name"
+          joins << :period
+        end
+
+        "LOWER(#{col}) #{sort['direction']}"
+      end.join ","
+
+      unless order_clause.include?("title")
+        order_clause += ",LOWER(title) ASC"
+      end
     else
-      search_notes = Note.ordered.preloaded
+      order_clause = "LOWER(title) ASC"
+    end
+
+    query = Note.order(order_clause)
+
+    if joins.size > 0
+      joins.each do |joined|
+        query = query.joins(joined)
+      end
+    end
+
+    if session.has_key? :lastsearch
+      search_notes = query.search(session[:lastsearch]).preloaded
+    else
+      search_notes = query.preloaded
     end
 
     if search_notes.size > 0
@@ -78,6 +117,12 @@ class NotesController < ApplicationController
     @note.destroy
 
     redirect_to notes_url, notice: t('model.note.delete.ok')
+  end
+
+  def sorted
+    session[:lastsort][:note] = params[:sorting].values
+
+    render :json => 'ok'
   end
 
   private
