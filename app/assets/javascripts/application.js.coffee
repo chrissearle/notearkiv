@@ -16,8 +16,16 @@
 #= require_tree .
 
 jQuery ->
-  $("table.sortable.evensong").tablesorter({sortList: [[0,0]]})
-  $("table.sortable.note").tablesorter({sortList: [[1,0]]})
+  $("table.sortable.evensong").tablesorter({
+    sortList: [[0,0]],
+    headers: {4: {sorter: false}}
+  })
+
+  $("table.sortable.note").tablesorter({
+    sortList: [[1,0]],
+    headers: {7: {sorter: false}}
+  })
+
   $('#mainsearch').typeahead(
     minLength: 3,
     source: (query, typeahead) ->
