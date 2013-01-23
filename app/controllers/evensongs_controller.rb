@@ -92,7 +92,7 @@ class EvensongsController < ApplicationController
     @evensong = Evensong.new(params[:evensong])
 
     if @evensong.save
-      redirect_to evensongs_url, notice: t('model.evensong.create.ok')
+      redirect_to evensong_url(@evensong), notice: t('model.evensong.create.ok')
     else
       render :action => "new"
     end
@@ -103,7 +103,7 @@ class EvensongsController < ApplicationController
 
   def update
     if @evensong.update_attributes(params[:evensong])
-      redirect_to evensongs_url, notice: t('model.evensong.update.ok')
+      redirect_to evensong_url(@evensong), notice: t('model.evensong.update.ok')
     else
       render :action => "edit"
     end

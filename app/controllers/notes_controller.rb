@@ -96,7 +96,7 @@ class NotesController < ApplicationController
     @note = Note.new(params[:note])
 
     if @note.save
-      redirect_to notes_url, notice: t('model.note.create.ok')
+      redirect_to note_url(@note), notice: t('model.note.create.ok')
     else
       render :action => "new"
     end
@@ -107,7 +107,7 @@ class NotesController < ApplicationController
 
   def update
     if @note.update_attributes(params[:note])
-      redirect_to notes_url, notice: t('model.note.update.ok')
+      redirect_to note_url(@note), notice: t('model.note.update.ok')
     else
       render :action => "edit"
     end
