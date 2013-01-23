@@ -7,8 +7,8 @@
 
 %h2= t('model.note.list.title')
 
-= render 'notes/table'
+= render :partial => 'notes/table', :locals => { :notes => @search[:notes] }
 
 %h2= t('model.evensong.list.title')
 
-= render 'evensongs/table'
+= render :partial => 'evensongs/table', :locals => { :evensongs => @search[:evensongs] }

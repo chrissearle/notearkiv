@@ -4,17 +4,17 @@ class SearchController < ApplicationController
   filter_access_to :all
 
   def search
-    @notes = Note.search(params[:search]).preloaded
-    @evensongs = Evensong.search(params[:search]).preloaded
+    search_param = params[:search]
+
+    @search = Search.search(search_param)
   end
 
   def typeahead
-    @notes = Note.searchahead params[:search]
-    @evensongs = Evensong.searchahead params[:search]
+    search = Search.search(params[:search])
 
     candidates = []
-    candidates << @notes.map{|n| n.typeahead(params[:search])} unless @notes.nil?
-    candidates << @evensongs.map{|n| n.typeahead(params[:search])} unless @evensongs.nil?
+    candidates << search[:notes].map{|n| n.typeahead(params[:search])} unless search[:notes].nil?
+    candidates << search[:evensongs].map{|n| n.typeahead(params[:search])} unless search[:evensongs].nil?
 
     render :json => candidates.flatten.uniq
   end

@@ -1,4 +1,4 @@
-%table{:class => "table table-striped table-condensed table-bordered note #{@notes.size > 0 ? 'sortable' : 'hidden'}"}
+%table{:class => "table table-striped table-condensed table-bordered note #{notes.size > 0 ? 'sortable' : 'hidden'}"}
   %thead
     %tr
       %th= t('model.note.list.item.title')
@@ -10,7 +10,7 @@
       %th= t('model.note.list.instrument.title')
       %th= t('model.upload.list.title')
   %tbody
-    - @notes.each do |note|
+    - notes.each do |note|
       %tr
         %td= note.item
         %td
@@ -31,5 +31,5 @@
           - note.uploads.each do |u|
             = short_media_link u, note_path(note)
 
-%div{:class => @notes.size > 0 ? 'hidden' : ''}
+%div{:class => notes.size > 0 ? 'hidden' : ''}
   = t('model.note.nonefound')

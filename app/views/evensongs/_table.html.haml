@@ -1,4 +1,4 @@
-%table{:class => "table table-striped table-condensed table-bordered evensong #{@evensongs.size > 0 ? 'sortable' : 'hidden'}"}
+%table{:class => "table table-striped table-condensed table-bordered evensong #{evensongs.size > 0 ? 'sortable' : 'hidden'}"}
   %thead
     %tr
       %th= t('model.evensong.list.name.title')
@@ -7,7 +7,7 @@
       %th= t('model.genre.title')
       %th= t('model.upload.list.title')
   %tbody
-    - @evensongs.each do |evensong|
+    - evensongs.each do |evensong|
       %tr
         %td
           - if permitted_to? :show, evensong
@@ -21,6 +21,6 @@
           - evensong.uploads.each do |u|
             = short_media_link u, evensong_path(evensong)
 
-%div{:class => @evensongs.size > 0 ? 'hidden' : ''}
+%div{:class => evensongs.size > 0 ? 'hidden' : ''}
   = t('model.evensong.nonefound')
   
