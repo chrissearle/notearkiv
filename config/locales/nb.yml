@@ -335,6 +335,10 @@ nb:
       delete: "Slett"
       upload: "Last opp fil"
       attach: "Vedlegg"
+      first: "<<"
+      previous: "<"
+      next: ">"
+      last: ">>"
     delete:
       confirm: "Er du sikker?"
   footer:

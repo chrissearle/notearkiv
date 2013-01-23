@@ -6,6 +6,8 @@ class SearchController < ApplicationController
   def search
     search_param = params[:search]
 
+    session[:lastsearch] = search_param
+
     @search = Search.search(search_param)
   end
 

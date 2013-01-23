@@ -1,5 +1,5 @@
-- title @note.title
-%h1= @note.title
+- title @show[:note].title
+%h1= @show[:note].title
 
 %table.table.table-striped.table-condensed
   %thead
@@ -9,68 +9,79 @@
   %tbody
     %tr
       %td= t('model.note.field.item.title')
-      %td= @note.item
+      %td= @show[:note].item
     %tr
       %td= t('model.note.field.title.title')
-      %td= @note.title
+      %td= @show[:note].title
     %tr
       %td= t('model.composer.title')
-      %td= search_link @note.composer_name
+      %td= search_link @show[:note].composer_name
     %tr
       %td= t('model.genre.title')
-      %td= search_link @note.genre_name
+      %td= search_link @show[:note].genre_name
     %tr
       %td= t('model.period.title')
-      %td= search_link @note.period_name
+      %td= search_link @show[:note].period_name
     %tr
       %td= t('model.language.list.title')
       %td
         %ul.unstyled
-          - @note.languages.each do |lang|
+          - @show[:note].languages.each do |lang|
             %li= search_link lang.name
     %tr
       %td= t('model.note.field.soloists.title')
-      %td= search_link @note.soloists
+      %td= search_link @show[:note].soloists
     %tr
       %td= t('model.note.field.instrument.title')
-      %td= search_link @note.instrument
+      %td= search_link @show[:note].instrument
     %tr
       %td= t('model.note.field.counts.original')
-      %td= @note.originals
+      %td= @show[:note].originals
     %tr
       %td= t('model.note.field.counts.copy')
-      %td= @note.copies
+      %td= @show[:note].copies
     %tr
       %td= t('model.note.field.counts.instrumental')
-      %td= @note.instrumental
+      %td= @show[:note].instrumental
     %tr
       %td= t('model.note.field.voice.title')
-      %td= search_link @note.voice
+      %td= search_link @show[:note].voice
     %tr
       %td= t('model.note.field.comment.title')
-      %td= @note.comment
+      %td= @show[:note].comment
     %tr
       %td= t('model.link.list.title')
       %td
         - if permitted_to?(:show, :links)
-          - if @note.links
-            = render :partial => 'shared/show_links_list', :locals => { :links => @note.links }
+          - if @show[:note].links
+            = render :partial => 'shared/show_links_list', :locals => { :links => @show[:note].links }
     %tr
       %td= t('model.upload.list.title')
       %td
-        - if @note.uploads
-          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @note.uploads }
+        - if @show[:note].uploads
+          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @show[:note].uploads }
 
 %div.form-actions
   = link_to t('back'), :back, :class => 'btn'
-  = link_to t('model.note.list.title'), notes_path, :class => 'btn'
-  - if permitted_to?(:edit, @note)
-    = link_to t('show.button.edit'), edit_note_path(@note), :class => 'btn'
+  - if @show[:first]
+    = link_to t('show.button.first'), note_path(@show[:first]), :class => 'btn'
+  - if @show[:previous]
+    = link_to t('show.button.previous'), note_path(@show[:previous]), :class => 'btn'
+  - if @show[:next]
+    = link_to t('show.button.next'), note_path(@show[:next]), :class => 'btn'
+  - if @show[:last]
+    = link_to t('show.button.last'), note_path(@show[:last]), :class => 'btn'
+  - if session.has_key? :lastsearch
+    = link_to t('model.note.list.title'), search_path(:search => session[:lastsearch]), :class => 'btn'
+  - else
+    = link_to t('model.note.list.title'), notes_path, :class => 'btn'
+  - if permitted_to?(:edit, @show[:note])
+    = link_to t('show.button.edit'), edit_note_path(@show[:note]), :class => 'btn'
   - if permitted_to?(:new, :links)
-    = link_to t('show.button.link'), new_link_path(:note => @note.id), :class => 'btn'
+    = link_to t('show.button.link'), new_link_path(:note => @show[:note].id), :class => 'btn'
   - if permitted_to?(:new, :uploads)
-    = link_to t('show.button.upload'), new_upload_path(:note => @note.id), :class => 'btn'
+    = link_to t('show.button.upload'), new_upload_path(:note => @show[:note].id), :class => 'btn'
   - if permitted_to?(:link, :uploads)
-    = link_to t('show.button.attach'), link_uploads_path(:note => @note.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
-  - if permitted_to?(:destroy, @note)
-    = link_to t('show.button.delete'), note_path(@note), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }
+    = link_to t('show.button.attach'), link_uploads_path(:note => @show[:note].id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+  - if permitted_to?(:destroy, @show[:note])
+    = link_to t('show.button.delete'), note_path(@show[:note]), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }

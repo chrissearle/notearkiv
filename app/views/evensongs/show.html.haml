@@ -1,5 +1,5 @@
-- title @evensong.title
-%h1= @evensong.title
+- title @show[:evensong].title
+%h1= @show[:evensong].title
 
 %table.table.table-striped.table-condensed
   %thead
@@ -9,44 +9,55 @@
   %tbody
     %tr
       %td= t('model.evensong.field.title.title')
-      %td= @evensong.title
+      %td= @show[:evensong].title
     %tr
       %td= t('model.evensong.field.psalm.title')
-      %td= @evensong.psalm
+      %td= @show[:evensong].psalm
     %tr
       %td= t('model.composer.title')
-      %td= search_link @evensong.composer_name
+      %td= search_link @show[:evensong].composer_name
     %tr
       %td= t('model.genre.title')
-      %td= search_link @evensong.genre_name
+      %td= search_link @show[:evensong].genre_name
     %tr
       %td= t('model.evensong.field.soloists.title')
-      %td= search_link @evensong.soloists
+      %td= search_link @show[:evensong].soloists
     %tr
       %td= t('model.evensong.field.comment.title')
-      %td=  @evensong.comment
+      %td=  @show[:evensong].comment
     %tr
       %td= t('model.link.list.title')
       %td
         - if permitted_to?(:show, :links)
-          - if @evensong.links
-            = render :partial => 'shared/show_links_list', :locals => { :links => @evensong.links }
+          - if @show[:evensong].links
+            = render :partial => 'shared/show_links_list', :locals => { :links => @show[:evensong].links }
     %tr
       %td= t('model.upload.list.title')
       %td
-        - if @evensong.uploads
-          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @evensong.uploads }
+        - if @show[:evensong].uploads
+          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @show[:evensong].uploads }
 
 %div.form-actions
   = link_to t('back'), :back, :class => 'btn'
-  = link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn'
-  - if permitted_to?(:edit, @evensong)
-    = link_to t('show.button.edit'), edit_evensong_path(@evensong), :class => 'btn'
+  - if @show[:first]
+    = link_to t('show.button.first'), evensong_path(@show[:first]), :class => 'btn'
+  - if @show[:previous]
+    = link_to t('show.button.previous'), evensong_path(@show[:previous]), :class => 'btn'
+  - if @show[:next]
+    = link_to t('show.button.next'), evensong_path(@show[:next]), :class => 'btn'
+  - if @show[:last]
+    = link_to t('show.button.last'), evensong_path(@show[:last]), :class => 'btn'
+  - if session.has_key? :lastsearch
+    = link_to t('model.evensong.list.title'), search_path(:search => session[:lastsearch]), :class => 'btn'
+  - else
+    = link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn'
+  - if permitted_to?(:edit, @show[:evensong])
+    = link_to t('show.button.edit'), edit_evensong_path(@show[:evensong]), :class => 'btn'
   - if permitted_to?(:new, :links)
-    = link_to t('show.button.link'), new_link_path(:evensong => @evensong.id), :class => 'btn'
+    = link_to t('show.button.link'), new_link_path(:evensong => @show[:evensong].id), :class => 'btn'
   - if permitted_to?(:new, :uploads)
-    = link_to t('show.button.upload'), new_upload_path(:evensong => @evensong.id), :class => 'btn'
+    = link_to t('show.button.upload'), new_upload_path(:evensong => @show[:evensong].id), :class => 'btn'
   - if permitted_to?(:link, :uploads)
-    = link_to t('show.button.attach'), link_uploads_path(:evensong => @evensong.id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
-  - if permitted_to?(:destroy, @evensong)
-    = link_to t('show.button.delete'), evensong_path(@evensong), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }
+    = link_to t('show.button.attach'), link_uploads_path(:evensong => @show[:evensong].id), :class => 'btn', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+  - if permitted_to?(:destroy, @show[:evensong])
+    = link_to t('show.button.delete'), evensong_path(@show[:evensong]), :method => 'delete', :confirm => t('show.delete.confirm'), :class => 'btn btn-danger', :rel => 'popover', :data => { :title => t('link.file.delete.all'), :content => t('delete.all.refresh.warning'), :trigger => 'hover' }

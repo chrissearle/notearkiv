@@ -349,6 +349,10 @@ en:
       delete: "Delete"
       upload: "Upload file"
       attach: "Attach file"
+      first: "<<"
+      previous: "<"
+      next: ">"
+      last: ">>"
     delete:
       confirm: "Are you sure?"
   footer:

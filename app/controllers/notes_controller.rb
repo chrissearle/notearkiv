@@ -11,6 +11,8 @@ class NotesController < ApplicationController
   def index
     set_accept_header
 
+    session.delete :lastsearch
+
     @notes = Note.ordered.preloaded
 
     respond_to do |format|
@@ -20,6 +22,31 @@ class NotesController < ApplicationController
   end
 
   def show
+    @show = {
+        :note => @note
+    }
+
+    search_notes = []
+
+    if session.has_key? :lastsearch
+      search_notes = Note.search(session[:lastsearch]).ordered.preloaded
+    else
+      search_notes = Note.ordered.preloaded
+    end
+
+    if search_notes.size > 0
+      current_index = search_notes.index(@note)
+
+      if current_index > 0
+        @show[:first] = search_notes.first
+        @show[:previous]= search_notes.at(current_index - 1)
+      end
+
+      if current_index < (search_notes.size - 1)
+        @show[:last] = search_notes.last
+        @show[:next] = search_notes.at(current_index + 1)
+      end
+    end
   end
 
   def new
