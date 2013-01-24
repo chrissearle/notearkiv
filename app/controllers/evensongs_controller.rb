@@ -48,7 +48,7 @@ class EvensongsController < ApplicationController
       end.join ","
 
       unless order_clause.include?("title")
-        order_clause += ",LOWER(title) ASC"
+        order_clause += ",LOWER(evensongs.title) ASC"
       end
     else
       order_clause = "LOWER(title) ASC"

@@ -43,7 +43,7 @@ jQuery ->
 
   $("table.sortable.note").tablesorter({
     sortList: [[1,0]],
-    headers: {7: {sorter: false}, 5: {sorter: false}}
+    headers: {7: {sorter: false}}
   })
 
   $("table.sortable.note").bind("sortEnd", ->

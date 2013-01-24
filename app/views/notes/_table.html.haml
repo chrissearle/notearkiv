@@ -29,11 +29,7 @@
         %td= search_link note.composer_name
         %td= search_link note.genre_name
         %td= search_link note.period_name
-        %td
-          - if note.languages
-            %ul.unstyled
-              - note.languages.each do |lang|
-                %li= search_link lang.name
+        %td= search_link note.language_name
         %td= search_link note.instrument
         %td
           - note.uploads.each do |u|

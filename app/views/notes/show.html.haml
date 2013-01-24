@@ -24,10 +24,7 @@
       %td= search_link @show[:note].period_name
     %tr
       %td= t('model.language.list.title')
-      %td
-        %ul.unstyled
-          - @show[:note].languages.each do |lang|
-            %li= search_link lang.name
+      %td= search_link @show[:note].language_name
     %tr
       %td= t('model.note.field.soloists.title')
       %td= search_link @show[:note].soloists

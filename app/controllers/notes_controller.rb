@@ -49,11 +49,16 @@ class NotesController < ApplicationController
           joins << :period
         end
 
+        if col == 'language'
+          col = "languages.name"
+          joins << :language
+        end
+
         "LOWER(#{col}) #{sort['direction']}"
       end.join ","
 
       unless order_clause.include?("title")
-        order_clause += ",LOWER(title) ASC"
+        order_clause += ",LOWER(notes.title) ASC"
       end
     else
       order_clause = "LOWER(title) ASC"

@@ -10,29 +10,27 @@ class Note < ActiveRecord::Base
   belongs_to :period
   belongs_to :language
 
-  has_many :note_language_assignments
-  has_many :languages, :through => :note_language_assignments
-
   has_many :links
   has_many :uploads
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
   delegate :name, :to => :period, :prefix => true, :allow_nil => true
+  delegate :name, :to => :language, :prefix => true, :allow_nil => true
 
   before_validation(:on => :create) { set_next_item }
 
   validates_presence_of :item, :title, :originals
 
   scope :ordered, :order => 'title ASC'
-  scope :preloaded, :include => [:composer, :genre, :period, :languages, :links, :uploads]
+  scope :preloaded, :include => [:composer, :genre, :period, :language, :links, :uploads]
 
   pg_search_scope :search,
                   :against => [:title, :voice, :soloists, :instrument, :comment],
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
-                                          :languages => :name},
+                                          :language => :name},
                   :ignoring => :accents
 
   pg_search_scope :searchahead,
@@ -41,11 +39,11 @@ class Note < ActiveRecord::Base
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
-                                          :languages => :name},
+                                          :language => :name},
                   :ignoring => :accents
 
   def get_typeahead
-    [title, voice, soloists, instrument, comment, composer_name, genre_name, period_name, languages.try(:collect) { |l| l.name }].flatten
+    [title, voice, soloists, instrument, comment, composer_name, genre_name, period_name, language_name].flatten
   end
 
   def self.voices
@@ -76,7 +74,7 @@ class Note < ActiveRecord::Base
                     row.push item.composer ? item.composer.name : ""
                     row.push item.genre ? item.genre.name : ""
                     row.push item.period ? item.period.name : ""
-                    row.push item.languages.map { |lang| lang.name }.join(", ")
+                    row.push item.language ? item.language.name : ""
                     row.push item.instrument
                     row.push item.originals
                     row.push item.copies
