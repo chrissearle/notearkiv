@@ -45,5 +45,6 @@ group :development do
 	gem 'quiet_assets'
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'meta_request'
 end
 
