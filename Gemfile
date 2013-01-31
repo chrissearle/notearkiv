@@ -41,4 +41,8 @@ gem 'kramdown'
 
 gem 'foreman', :require => false
 
-gem 'quiet_assets', :group => :development
+group :development do
+	gem 'quiet_assets'
+	gem 'better_errors'
+end
+
