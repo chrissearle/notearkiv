@@ -23,6 +23,8 @@ gem 'simple_form'
 
 gem 'authlogic'
 gem 'declarative_authorization'
+
+gem 'memcachier'
 gem 'dalli'
 
 gem 'spreadsheet'
