@@ -44,7 +44,11 @@ class EvensongsController < ApplicationController
           joins << :genre
         end
 
-        "LOWER(#{col}) #{sort['direction']}"
+        if col == 'psalm'
+          "#{col} #{sort['direction']}"
+        else
+          "LOWER(#{col}) #{sort['direction']}"
+        end
       end.join ","
 
       unless order_clause.include?("title")
