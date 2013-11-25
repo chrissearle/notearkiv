@@ -37,7 +37,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.0.2.1)
+    bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
     callsite (0.0.11)
@@ -160,7 +160,7 @@ DEPENDENCIES
   authlogic
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bootstrap-sass (= 2.2.2.0)
   coffee-rails (~> 3.2.1)
   dalli
   declarative_authorization

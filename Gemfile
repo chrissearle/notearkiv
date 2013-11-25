@@ -15,7 +15,7 @@ group :assets do
   gem 'font-awesome-sass-rails'
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.2.2.0'
 
 gem 'jquery-rails'
 
