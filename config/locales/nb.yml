@@ -7,9 +7,14 @@ nb:
       confirm: "Er du sikker?"
   menu:
     language:
-      current: "Språk"
       norwegian: "Norsk"
       english: "Engelsk"
+      title: "Språk"
+    genre:
+      title: "Genres"
+    dropdown:
+      categories: "Kategorier"
+      language: "Språk"
   button:
     add: "Ny"
   table:
@@ -17,3 +22,12 @@ nb:
       name: "Navn"
       notes: "Noter"
       evensongs: "Evensongnoter"
+  page:
+    genres:
+      title: "Genres"
+    languages:
+      title: "Språk"
+    genre:
+      title: "Genre"
+    language:
+      title: "Språk"

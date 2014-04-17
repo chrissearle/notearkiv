@@ -7,9 +7,14 @@ en:
       confirm: "Are you sure?"
   menu:
     language:
-      current: "Language"
       norwegian: "Norwegian"
       english: "English"
+      title: "Languages"
+    genre:
+      title: "Genres"
+    dropdown:
+      categories: "Categories"
+      language: "Language"
   button:
     add: "Add"
   table:
@@ -17,3 +22,12 @@ en:
       name: "Name"
       notes: "Notes"
       evensongs: "Evensongs"
+  page:
+    genres:
+      title: "Genres"
+    languages:
+      title: "Languages"
+    genre:
+      title: "Genre"
+    language:
+      title: "Language"

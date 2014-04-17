@@ -1,4 +1,4 @@
-%h1= "#{item.class.name.capitalize}"
+%h1= title
 
 = form_for(item) do |f|
   - if item.errors.any?
@@ -13,7 +13,5 @@
     = f.label :name
     = f.text_field :name, :class => 'form-control'
 
-  = f.submit :class => 'btn btn-default'
-
-
-= link_to t('link.back'), polymorphic_url(item.class)
+  = f.submit :class => 'btn btn-primary'
+  = link_to t('link.back'), polymorphic_url(item.class), :class => 'btn btn-default'
