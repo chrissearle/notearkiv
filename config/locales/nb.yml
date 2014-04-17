@@ -1,0 +1,19 @@
+nb:
+  link:
+    back: "Tilbake"
+    edit: "Rediger"
+    delete: "Slett"
+    destroy:
+      confirm: "Er du sikker?"
+  menu:
+    language:
+      current: "Språk"
+      norwegian: "Norsk"
+      english: "Engelsk"
+  button:
+    add: "Ny"
+  table:
+    title:
+      name: "Navn"
+      notes: "Noter"
+      evensongs: "Evensongnoter"

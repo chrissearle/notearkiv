@@ -1,0 +1,19 @@
+%h1= "#{item.class.name.capitalize}"
+
+= form_for(item) do |f|
+  - if item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(item.errors.count, 'error')} prohibited this from being saved:"
+
+      %ul
+        - item.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+
+  = f.submit :class => 'btn btn-default'
+
+
+= link_to t('link.back'), polymorphic_url(item.class)

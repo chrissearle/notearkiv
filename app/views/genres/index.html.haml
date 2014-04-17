@@ -1,0 +1,24 @@
+%h1 Genres
+
+= render 'actions'
+
+%table.table.table-bordered.table-condensed.table-striped
+  %thead
+    %tr
+      %th= t('table.title.name')
+      %th= t('table.title.notes')
+      %th= t('table.title.evensongs')
+      %th{ :colspan => 2 }
+  %tbody
+    - @genres.each do |item|
+      %tr
+        %td= item.name
+        %td= item.notes.count
+        %td= item.evensongs.count
+        %td
+          = link_to t('link.edit'), edit_genre_path(item), :class => 'btn btn-default btn-xs'
+        %td
+          - if item.deletable?
+            = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'
+
+= render 'actions'

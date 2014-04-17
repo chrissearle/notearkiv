@@ -1,0 +1,19 @@
+en:
+  link:
+    back: "Back"
+    edit: "Edit"
+    delete: "Delete"
+    destroy:
+      confirm: "Are you sure?"
+  menu:
+    language:
+      current: "Language"
+      norwegian: "Norwegian"
+      english: "English"
+  button:
+    add: "Add"
+  table:
+    title:
+      name: "Name"
+      notes: "Notes"
+      evensongs: "Evensongs"
