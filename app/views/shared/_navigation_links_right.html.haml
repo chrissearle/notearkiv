@@ -1,16 +1,24 @@
 %ul.nav.navbar-nav.navbar-right
-  %li.dropdown
-    %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
-      = link_with_icon('tags', t('menu.dropdown.categories'), true)
-      %b.caret
-    %ul.dropdown-menu
-      %li= link_to t('menu.genre.title'), genres_path
-      %li= link_to t('menu.period.title'), periods_path
-      %li= link_to t('menu.language.title'), languages_path
-  %li.dropdown
-    %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
-      = link_with_icon( 'user', t('menu.dropdown.language'), true)
-      %b.caret
-    %ul.dropdown-menu
-      %li= link_to t('menu.language.norwegian'), url_for(params.merge(:locale => 'nb'))
-      %li= link_to t('menu.language.english'), url_for(params.merge(:locale => 'en'))
+  - if current_user
+    %li.dropdown
+      %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
+        = link_with_icon('tags', t('menu.dropdown.categories'), true)
+        %b.caret
+      %ul.dropdown-menu
+        - if permitted_to? :index, :genres
+          %li= link_to t('menu.genre.title'), genres_path
+        - if permitted_to? :index, :periods
+          %li= link_to t('menu.period.title'), periods_path
+        - if permitted_to? :index, :languages
+          %li= link_to t('menu.language.title'), languages_path
+    %li.divider-vertical
+    %li.dropdown
+      %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
+        = link_with_icon( 'user', t('menu.dropdown.language'), true)
+        %b.caret
+      %ul.dropdown-menu
+        %li= link_to t('menu.language.norwegian'), url_for(params.merge(:locale => 'nb'))
+        %li= link_to t('menu.language.english'), url_for(params.merge(:locale => 'en'))
+    %li= link_to t('menu.logout'), destroy_user_session_path, :method => :delete
+  - else
+    %li= link_to t('menu.login'), new_user_session_path

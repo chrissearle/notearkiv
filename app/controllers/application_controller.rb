@@ -4,8 +4,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :set_locale
+  before_filter :set_current_user
+
+  protected
+
+  def permission_denied
+    if current_user
+      flash[:alert] = t('flash.authentication.notice')
+    end
+
+    redirect_to new_user_session_url
+  end
 
   private
+
+  def set_current_user
+    Authorization.current_user = current_user
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

@@ -1,0 +1,15 @@
+.container
+  .row
+    .col-md-6
+      %h2= t('page.signin.title')
+
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.label :username
+          = f.text_field :username, autofocus: true, :class => 'form-control'
+
+          = f.label :password
+          = f.password_field :password, autocomplete: 'off', :class => 'form-control'
+
+        = f.submit t('button.login'), :class => 'btn btn-primary'
+        = render 'devise/shared/links'

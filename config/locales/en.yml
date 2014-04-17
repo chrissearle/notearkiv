@@ -17,8 +17,12 @@ en:
       language: "Language"
     period:
       title: "Epochs"
+    logout: "Logout"
+    login: "Log In"
   button:
     add: "Add"
+    login: "Log In"
+    password: "Send password reset instructions"
   table:
     title:
       name: "Name"
@@ -37,3 +41,17 @@ en:
       title: "Epoch"
     periods:
       title: "Epochs"
+    signin:
+      title: "Sign In"
+    password:
+      new:
+        title: "Forgotten your password?"
+  flash:
+    error:
+      not_logged_in: "You must first log in or sign up before accessing this page."
+    authentication:
+      notice: "Sorry - you don't have access to that."
+  devise:
+    link:
+      forgotten: "Forgot your password?"
+      signin: "Sign in"

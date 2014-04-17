@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
+    bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -53,6 +54,13 @@ GEM
     coffee-script-source (1.7.0)
     colored (1.2)
     debug_inspector (0.0.2)
+    declarative_authorization (0.5.7)
+    devise (3.2.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     dotenv (0.10.0)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -82,6 +90,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.3)
     multi_json (1.9.2)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     quiet_assets (1.0.2)
@@ -165,6 +174,8 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.4.0)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -175,6 +186,8 @@ DEPENDENCIES
   bootstrap-sass
   bullet
   coffee-rails (~> 4.0.0)
+  declarative_authorization
+  devise
   foreman
   haml
   jbuilder (~> 2.0)

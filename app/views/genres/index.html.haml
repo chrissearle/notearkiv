@@ -8,7 +8,7 @@
       %th= t('table.title.name')
       %th= t('table.title.notes')
       %th= t('table.title.evensongs')
-      %th{ :colspan => 2 }
+      %th
   %tbody
     - @genres.each do |item|
       %tr
@@ -16,9 +16,10 @@
         %td= item.notes.count
         %td= item.evensongs.count
         %td
-          = link_to t('link.edit'), edit_genre_path(item), :class => 'btn btn-default btn-xs'
-        %td
-          - if item.deletable?
-            = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'
+          - if permitted_to? :edit, item
+            = link_to t('link.edit'), edit_genre_path(item), :class => 'btn btn-default btn-xs'
+          - if permitted_to? :destroy, item
+            - if item.deletable?
+              = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'
 
 = render 'actions'

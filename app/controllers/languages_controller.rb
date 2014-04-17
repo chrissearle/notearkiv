@@ -1,4 +1,6 @@
 class LanguagesController < ApplicationController
+  filter_access_to :all
+
   before_action :set_language, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,4 +1,6 @@
 class PeriodsController < ApplicationController
+  filter_access_to :all
+
   before_action :set_period, only: [:show, :edit, :update, :destroy]
 
   def index

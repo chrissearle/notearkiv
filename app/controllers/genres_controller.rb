@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  filter_access_to :all
+
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -44,6 +44,8 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'rails_layout'
 gem 'kramdown'
+gem 'devise'
+gem 'declarative_authorization'
 
 gem 'foreman', :require => false
 
