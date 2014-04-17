@@ -1,9 +1,24 @@
 en:
+  activerecord:
+    attributes:
+      composer:
+        name: Nam
+      genre:
+        name: Name
+      user:
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Confirm Password
+        username: Username
+        roles: 
+    models:
+      composer: Composer
+      genre: Genre
   button:
     add: Add
     login: Log In
     password: Send password reset instructions
-    update: Update
   devise:
     link:
       forgotten: Forgot your password?
@@ -13,6 +28,25 @@ en:
       notice: Sorry - you don't have access to that.
     error:
       not_logged_in: You must first log in or sign up before accessing this page.
+  helpers:
+    label:
+      composer:
+        name: Composer
+      genre:
+        name: Name
+      user:
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Confirm Password
+        username: Username
+        roles: 
+    submit:
+      composer:
+        create: Ny komponist
+      genre:
+        create: Save
+        update: Save
   link:
     back: Back
     delete: Delete
@@ -25,7 +59,6 @@ en:
     dropdown:
       categories: Categories
       language: Language
-      account: Account
     genre:
       title: Genres
     language:
@@ -36,8 +69,6 @@ en:
     logout: Logout
     period:
       title: Epochs
-    account:
-      title: My Account
   page:
     composer:
       title: Composer
@@ -65,36 +96,3 @@ en:
       evensongs: Evensongs
       name: Name
       notes: Notes
-  activerecord:
-    attributes:
-      composer:
-        name: Composer
-      user:
-        password: 
-        username: 
-        email: 
-        name: 
-        password_confirmation: 
-      genre:
-        name: 
-    models:
-      composer: Composer
-      genre: 
-  helpers:
-    label:
-      composer:
-        name: Composer
-      user:
-        password: 
-        username: 
-        email: 
-        name: 
-        password_confirmation: 
-      genre:
-        name: 
-    submit:
-      composer:
-        create: Ny komponist
-      genre:
-        update: 
-        create: 

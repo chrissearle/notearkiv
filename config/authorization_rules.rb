@@ -1,5 +1,6 @@
 authorization do
   role :siteadmin do
+    has_permission_on [:admin_users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:stats], :to => [:index]
     has_permission_on [:session_caches], :to => [:authorize]

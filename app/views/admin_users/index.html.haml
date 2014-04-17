@@ -1,0 +1,41 @@
+- title t('page.users.title')
+
+= render 'actions'
+
+%table.table.table-bordered.table-condensed.table-striped
+  %thead
+    %tr
+      %th= t('table.title.username')
+      %th= t('table.title.name')
+      %th= t('table.title.email')
+      %th= t('table.title.sign_in_count')
+      %th= t('table.title.current_sign_in_at')
+      %th= t('table.title.last_sign_in_at')
+      %th= t('table.title.current_sign_in_ip')
+      %th= t('table.title.last_sign_in_ip')
+      %th= t('table.title.roles')
+      %th
+  %tbody
+    - @users.each do |item|
+      %tr
+        %td= link_to item.username, admin_user_path(item)
+        %td= item.name
+        %td= item.email
+        %td= item.sign_in_count
+        %td= item.current_sign_in_at
+        %td= item.last_sign_in_at
+        %td= item.current_sign_in_ip
+        %td= item.last_sign_in_ip
+        %td
+          %ul.list-unstyled
+            - item.roles.each do |role|
+              %li= role.name
+        %td
+          - if permitted_to? :edit, item
+            = link_to t('button.edit'), edit_admin_user_path(item), :class => 'btn btn-default btn-xs'
+          - if permitted_to? :destroy, item
+            = link_to t('link.delete'), admin_user_path(item), method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'
+
+
+= render 'actions'
+

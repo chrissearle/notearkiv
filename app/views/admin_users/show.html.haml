@@ -1,0 +1,46 @@
+- title @user.display_name
+
+%table.table.table-bordered.table-condensed.table-striped
+  %thead
+    %tr
+      %th= t('table.title.username')
+      %td= @user.username
+    %tr
+      %th= t('table.title.name')
+      %td= @user.name
+    %tr
+      %th= t('table.title.email')
+      %td= @user.email
+    %tr
+      %th= t('table.title.sign_in_count')
+      %td= @user.sign_in_count
+    %tr
+      %th= t('table.title.current_sign_in_at')
+      %td= @user.current_sign_in_at
+    %tr
+      %th= t('table.title.last_sign_in_at')
+      %td= @user.last_sign_in_at
+    %tr
+      %th= t('table.title.current_sign_in_ip')
+      %td= @user.current_sign_in_ip
+    %tr
+      %th= t('table.title.last_sign_in_ip')
+      %td= @user.last_sign_in_ip
+    %tr
+      %th= t('table.title.reset_password_token')
+      %td= @user.reset_password_token
+    %tr
+      %th= t('table.title.reset_password_sent_at')
+      %td= @user.reset_password_sent_at
+    %tr
+      %th= t('table.title.roles')
+      %td
+        %ul.list-unstyled
+          - @user.roles.each do |role|
+            %li= role.name
+
+.well
+  - if permitted_to? :edit, @user
+    = link_to t('button.edit'), edit_admin_user_path(@user), :class => 'btn btn-primary'
+  - if permitted_to? :index, :admin_users
+    = link_to t('button.back'), admin_users_path, :class => 'btn btn-default'

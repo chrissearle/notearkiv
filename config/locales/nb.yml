@@ -1,9 +1,24 @@
 nb:
+  activerecord:
+    attributes:
+      composer:
+        name: Navn
+      genre:
+        name: Navn
+      user:
+        email: Epost
+        name: Navn
+        password: Passord
+        password_confirmation: Bekreft passord
+        username: Brukernavn
+        roles: Roles
+    models:
+      composer: Composer
+      genre: Genre
   button:
     add: Ny
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
-    update: Lagre
   devise:
     link:
       forgotten: Glemt passord?
@@ -13,6 +28,25 @@ nb:
       notice: Beklager - du har prøvd å gjøre noe ditt bruker ikke har tilgang til. Hvis du trenger tilgang - ta kontakt med administrator for å få det tildelt ditt bruker.
     error:
       not_logged_in: Du må logge på for å få tilgang til denne siden.
+  helpers:
+    label:
+      composer:
+        name: Komponist
+      genre:
+        name: Navn
+      user:
+        email: Epost
+        name: Navn
+        password: Passord
+        password_confirmation: Bekreft passord
+        username: Brukernavn
+        roles: 
+    submit:
+      composer:
+        create: Create Composer
+      genre:
+        create: Create Genre
+        update: Update Genre
   link:
     back: Tilbake
     delete: Slett
@@ -62,36 +96,3 @@ nb:
       evensongs: Evensongnoter
       name: Navn
       notes: Noter
-  activerecord:
-    attributes:
-      composer:
-        name: Name
-      user:
-        password: Password
-        username: Username
-        email: Email
-        name: Name
-        password_confirmation: Password confirmation
-      genre:
-        name: Name
-    models:
-      composer: Composer
-      genre: Genre
-  helpers:
-    label:
-      composer:
-        name: Komponist
-      user:
-        password: 
-        username: 
-        email: 
-        name: 
-        password_confirmation: 
-      genre:
-        name: 
-    submit:
-      composer:
-        create: Create Composer
-      genre:
-        update: Update Genre
-        create: Create Genre

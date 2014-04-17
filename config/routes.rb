@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :periods
     resources :composers
     resources :account
+    resources :admin_users
+
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
