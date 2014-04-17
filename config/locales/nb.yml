@@ -10,10 +10,10 @@ nb:
         name: Navn
         password: Passord
         password_confirmation: Bekreft passord
+        roles: Roller
         username: Brukernavn
-        roles: Roles
     models:
-      composer: Composer
+      composer: Komponist
       genre: Genre
   button:
     add: Ny
@@ -39,14 +39,14 @@ nb:
         name: Navn
         password: Passord
         password_confirmation: Bekreft passord
+        roles: Roller
         username: Brukernavn
-        roles: 
     submit:
       composer:
-        create: Create Composer
+        create: Ny komponist
       genre:
-        create: Create Genre
-        update: Update Genre
+        create: Ny genre
+        update: Lagre
   link:
     back: Tilbake
     delete: Slett

@@ -2,7 +2,7 @@ en:
   activerecord:
     attributes:
       composer:
-        name: Nam
+        name: Name
       genre:
         name: Name
       user:
@@ -10,8 +10,8 @@ en:
         name: Name
         password: Password
         password_confirmation: Confirm Password
+        roles: Roles
         username: Username
-        roles: 
     models:
       composer: Composer
       genre: Genre
@@ -39,14 +39,14 @@ en:
         name: Name
         password: Password
         password_confirmation: Confirm Password
+        roles: Roles
         username: Username
-        roles: 
     submit:
       composer:
-        create: Ny komponist
+        create: Create Composer
       genre:
-        create: Save
-        update: Save
+        create: Create Genre
+        update: Update Genre
   link:
     back: Back
     delete: Delete
