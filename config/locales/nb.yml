@@ -1,57 +1,63 @@
 nb:
-  link:
-    back: "Tilbake"
-    edit: "Rediger"
-    delete: "Slett"
-    destroy:
-      confirm: "Er du sikker?"
-  menu:
-    language:
-      norwegian: "Norsk"
-      english: "Engelsk"
-      title: "Språk"
-    genre:
-      title: "Genres"
-    dropdown:
-      categories: "Kategorier"
-      language: "Språk"
-    period:
-      title: "Epoker"
-    logout: "Logg av"
-    login: "Logg på"
   button:
-    add: "Ny"
-    login: "Logg på"
-    password: "Send informasjon om hvordan man bytter passord"
-  table:
-    title:
-      name: "Navn"
-      notes: "Noter"
-      evensongs: "Evensongnoter"
-  page:
-    genres:
-      title: "Genres"
-    languages:
-      title: "Språk"
-    genre:
-      title: "Genre"
-    language:
-      title: "Språk"
-    period:
-      title: "Epoke"
-    periods:
-      title: "Epoker"
-    signin:
-      title: "Innlogging"
-    password:
-      new:
-        title: "Glemt passord?"
-  flash:
-    error:
-      not_logged_in: "Du må logge på for å få tilgang til denne siden."
-    authentication:
-      notice: "Beklager - du har prøvd å gjøre noe ditt bruker ikke har tilgang til. Hvis du trenger tilgang - ta kontakt med administrator for å få det tildelt ditt bruker."
+    add: Ny
+    login: Logg på
+    password: Send informasjon om hvordan man bytter passord
   devise:
     link:
-      forgotten: "Glemt passord?"
-      signin: "Logg på"
+      forgotten: Glemt passord?
+      signin: Logg på
+  flash:
+    authentication:
+      notice: Beklager - du har prøvd å gjøre noe ditt bruker ikke har tilgang til. Hvis du trenger tilgang - ta kontakt med administrator for å få det tildelt ditt bruker.
+    error:
+      not_logged_in: Du må logge på for å få tilgang til denne siden.
+  link:
+    back: Tilbake
+    delete: Slett
+    destroy:
+      confirm: Er du sikker?
+    edit: Rediger
+  menu:
+    composer:
+      title: Komponister
+    dropdown:
+      categories: Kategorier
+      language: Språk
+    genre:
+      title: Genres
+    language:
+      english: Engelsk
+      norwegian: Norsk
+      title: Språk
+    login: Logg på
+    logout: Logg av
+    period:
+      title: Epoker
+  page:
+    composer:
+      title: Komponist
+    composers:
+      title: Komponister
+    genre:
+      title: Genre
+    genres:
+      title: Genres
+    language:
+      title: Språk
+    languages:
+      title: Språk
+    password:
+      new:
+        title: Glemt passord?
+    period:
+      title: Epoke
+    periods:
+      title: Epoker
+    signin:
+      title: Innlogging
+  table:
+    title:
+      evensongs: Evensongnoter
+      name: Navn
+      notes: Noter

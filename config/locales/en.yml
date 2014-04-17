@@ -1,57 +1,63 @@
 en:
-  link:
-    back: "Back"
-    edit: "Edit"
-    delete: "Delete"
-    destroy:
-      confirm: "Are you sure?"
-  menu:
-    language:
-      norwegian: "Norwegian"
-      english: "English"
-      title: "Languages"
-    genre:
-      title: "Genres"
-    dropdown:
-      categories: "Categories"
-      language: "Language"
-    period:
-      title: "Epochs"
-    logout: "Logout"
-    login: "Log In"
   button:
-    add: "Add"
-    login: "Log In"
-    password: "Send password reset instructions"
-  table:
-    title:
-      name: "Name"
-      notes: "Notes"
-      evensongs: "Evensongs"
-  page:
-    genres:
-      title: "Genres"
-    languages:
-      title: "Languages"
-    genre:
-      title: "Genre"
-    language:
-      title: "Language"
-    period:
-      title: "Epoch"
-    periods:
-      title: "Epochs"
-    signin:
-      title: "Sign In"
-    password:
-      new:
-        title: "Forgotten your password?"
-  flash:
-    error:
-      not_logged_in: "You must first log in or sign up before accessing this page."
-    authentication:
-      notice: "Sorry - you don't have access to that."
+    add: Add
+    login: Log In
+    password: Send password reset instructions
   devise:
     link:
-      forgotten: "Forgot your password?"
-      signin: "Sign in"
+      forgotten: Forgot your password?
+      signin: Sign in
+  flash:
+    authentication:
+      notice: Sorry - you don't have access to that.
+    error:
+      not_logged_in: You must first log in or sign up before accessing this page.
+  link:
+    back: Back
+    delete: Delete
+    destroy:
+      confirm: Are you sure?
+    edit: Edit
+  menu:
+    composer:
+      title: Composers
+    dropdown:
+      categories: Categories
+      language: Language
+    genre:
+      title: Genres
+    language:
+      english: English
+      norwegian: Norwegian
+      title: Languages
+    login: Log In
+    logout: Logout
+    period:
+      title: Epochs
+  page:
+    composer:
+      title: Composer
+    composers:
+      title: Composers
+    genre:
+      title: Genre
+    genres:
+      title: Genres
+    language:
+      title: Language
+    languages:
+      title: Languages
+    password:
+      new:
+        title: Forgotten your password?
+    period:
+      title: Epoch
+    periods:
+      title: Epochs
+    signin:
+      title: Sign In
+  table:
+    title:
+      evensongs: Evensongs
+      name: Name
+      notes: Notes

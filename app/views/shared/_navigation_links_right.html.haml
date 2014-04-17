@@ -5,6 +5,8 @@
         = link_with_icon('tags', t('menu.dropdown.categories'), true)
         %b.caret
       %ul.dropdown-menu
+        - if permitted_to? :index, :composers
+          %li= link_to t('menu.composer.title'), composers_path
         - if permitted_to? :index, :genres
           %li= link_to t('menu.genre.title'), genres_path
         - if permitted_to? :index, :periods

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :genres
     resources :languages
     resources :periods
+    resources :composers
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

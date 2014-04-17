@@ -49,6 +49,7 @@ gem 'declarative_authorization'
 
 gem 'foreman', :require => false
 
+gem 'localeapp'
 
 group :development do
   gem 'quiet_assets'
