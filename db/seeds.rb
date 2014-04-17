@@ -19,3 +19,7 @@ end
 %w(Dansk Engelsk Finsk Fransk Gresk Islandsk Italiensk Latin Norsk Svensk Tysk Russisk).each do |lang|
   Language.where(:name => lang).first_or_create
 end
+
+%w(Barokk Klassisisme Nasjonalromantikk Nyere Renessanse Romantikken Trad.).each do |period|
+  Period.where(:name => period).first_or_create
+end

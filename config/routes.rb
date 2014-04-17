@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "/:locale" do
     resources :genres
     resources :languages
+    resources :periods
 
 
   # The priority is based upon order of creation: first created -> highest priority.

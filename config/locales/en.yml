@@ -15,6 +15,8 @@ en:
     dropdown:
       categories: "Categories"
       language: "Language"
+    period:
+      title: "Epochs"
   button:
     add: "Add"
   table:
@@ -31,3 +33,7 @@ en:
       title: "Genre"
     language:
       title: "Language"
+    period:
+      title: "Epoch"
+    periods:
+      title: "Epochs"

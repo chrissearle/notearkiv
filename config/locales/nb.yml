@@ -15,6 +15,8 @@ nb:
     dropdown:
       categories: "Kategorier"
       language: "Språk"
+    period:
+      title: "Epoker"
   button:
     add: "Ny"
   table:
@@ -31,3 +33,7 @@ nb:
       title: "Genre"
     language:
       title: "Språk"
+    period:
+      title: "Epoke"
+    periods:
+      title: "Epoker"
