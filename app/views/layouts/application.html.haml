@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+    %title= (content_for?(:title) ? yield(:title) : 'OCHS')
+    %meta{ :name => 'description', :content => (content_for?(:description) ? yield(:description) : 'OCHS Notearkiv') }
+    = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track' => true)
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      = render 'layouts/navigation'
+    %main{ :role => "main" }
+      - if content_for?(:heading)
+        %h1= yield(:heading)
+      = render 'layouts/messages'
+      = yield

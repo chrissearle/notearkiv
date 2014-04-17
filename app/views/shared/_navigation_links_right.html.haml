@@ -15,6 +15,20 @@
           %li= link_to t('menu.language.title'), languages_path
     %li.divider-vertical
     %li.dropdown
+      %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
+        = link_with_icon( 'user', t('menu.dropdown.account'), true)
+        %b.caret
+      %ul.dropdown-menu
+        - if permitted_to? :index, :account
+          %li= link_to t('menu.account.title'), url_for(:controller => 'account', :action => 'index')
+        -# if permitted_to? :index, :messages
+          -# %li= link_to t('menu.message.title'), messages_path
+        -# if permitted_to? :index, :users
+          -# %li= link_to t('menu.users.title'), users_path
+        -# if permitted_to? :index, :dropbox
+          -# %li= link_to t('menu.dropbox.title'), dropbox_index_path
+    %li.divider-vertical
+    %li.dropdown
       %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
         = link_with_icon( 'user', t('menu.dropdown.language'), true)
         %b.caret

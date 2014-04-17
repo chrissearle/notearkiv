@@ -1,5 +1,3 @@
-require 'digest/sha1'
-
 class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :trackable, :timeoutable
@@ -18,33 +16,7 @@ class User < ActiveRecord::Base
     end
   end
 
-#  def one_time_code
-#    self.onetime = Digest::SHA1.hexdigest("onetime #{Time.now} #{current_login_ip}")
-
-#    self.save
-
-#   self.onetime
-# end
-
-# def send_reset_password
-#   code = one_time_code
-
-#  ResetPassword.reset_password(self, code).deliver
-#end
-
-#def clear_one_time_code
-#   self.onetime = nil
-
-#    self.save
-# end
-
-#def display_name
-# name.blank? ? username : name
-#end
-
-#def update_from_user_params(user)
-#  self.email = user['email']
-#  self.password = user['password']
-#  self.password_confirmation = user['password_confirmation']
-#end
+  def display_name
+    name.blank? ? username : name
+  end
 end

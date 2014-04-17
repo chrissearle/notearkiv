@@ -3,6 +3,7 @@ nb:
     add: Ny
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
+    update: Lagre
   devise:
     link:
       forgotten: Glemt passord?
@@ -61,3 +62,36 @@ nb:
       evensongs: Evensongnoter
       name: Navn
       notes: Noter
+  activerecord:
+    attributes:
+      composer:
+        name: Name
+      user:
+        password: Password
+        username: Username
+        email: Email
+        name: Name
+        password_confirmation: Password confirmation
+      genre:
+        name: Name
+    models:
+      composer: Composer
+      genre: Genre
+  helpers:
+    label:
+      composer:
+        name: Komponist
+      user:
+        password: 
+        username: 
+        email: 
+        name: 
+        password_confirmation: 
+      genre:
+        name: 
+    submit:
+      composer:
+        create: Create Composer
+      genre:
+        update: Update Genre
+        create: Create Genre

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :languages
     resources :periods
     resources :composers
+    resources :account
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

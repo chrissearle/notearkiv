@@ -3,6 +3,7 @@ en:
     add: Add
     login: Log In
     password: Send password reset instructions
+    update: Update
   devise:
     link:
       forgotten: Forgot your password?
@@ -24,6 +25,7 @@ en:
     dropdown:
       categories: Categories
       language: Language
+      account: Account
     genre:
       title: Genres
     language:
@@ -34,6 +36,8 @@ en:
     logout: Logout
     period:
       title: Epochs
+    account:
+      title: My Account
   page:
     composer:
       title: Composer
@@ -61,3 +65,36 @@ en:
       evensongs: Evensongs
       name: Name
       notes: Notes
+  activerecord:
+    attributes:
+      composer:
+        name: Composer
+      user:
+        password: 
+        username: 
+        email: 
+        name: 
+        password_confirmation: 
+      genre:
+        name: 
+    models:
+      composer: Composer
+      genre: 
+  helpers:
+    label:
+      composer:
+        name: Composer
+      user:
+        password: 
+        username: 
+        email: 
+        name: 
+        password_confirmation: 
+      genre:
+        name: 
+    submit:
+      composer:
+        create: Ny komponist
+      genre:
+        update: 
+        create: 
