@@ -2,6 +2,6 @@
   .container
     .row
       - messages.each do |message|
-        .alert.alert-dismissable{ :class => "alert-#{bootstrap_type(message.msgtype)}" }
+        .alert.alert-dismissable{ :class => "alert-#{bootstrap_type(message.msgtype.to_sym)}" }
           %button.close{ :type => 'button', :'data-dismiss' => 'alert', :'aria-hidden' => 'true' } &times;
           %p= markdown message.content
