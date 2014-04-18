@@ -12,6 +12,13 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      message:
+        active_flag: 
+        content: 
+        enddt_text: 
+        msgtype: 
+        startdt_text: 
+        title: 
     models:
       composer: Composer
       genre: Genre
@@ -22,7 +29,7 @@ en:
     edit: Edit
     login: Log in
     password: Send password reset instructions
-    update: Update
+    update: Save
   devise:
     link:
       forgotten: Forgot your password?
@@ -45,6 +52,13 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      message:
+        active_flag: 
+        content: 
+        enddt_text: 
+        msgtype: 
+        startdt_text: 
+        title: 
     submit:
       composer:
         create: Create Composer
@@ -108,6 +122,10 @@ en:
       title: User
     users:
       title: Users
+    message:
+      title: Message
+    messages:
+      title: Messages
   table:
     title:
       current_sign_in_at: Current sign in at
@@ -124,3 +142,11 @@ en:
       roles: Roles
       sign_in_count: Sign in count
       username: Username
+      content: Content
+      start: Start
+      end: End
+      status: Status
+  msgtype:
+    info: info
+    warning: warning
+    error: error

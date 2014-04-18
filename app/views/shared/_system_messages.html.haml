@@ -1,0 +1,7 @@
+- if messages.size > 0
+  .container
+    .row
+      - messages.each do |message|
+        .alert.alert-dismissable{ :class => "alert-#{bootstrap_type(message.msgtype)}" }
+          %button.close{ :type => 'button', :'data-dismiss' => 'alert', :'aria-hidden' => 'true' } &times;
+          %p= markdown message.content

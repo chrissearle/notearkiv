@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :composers
     resources :account
     resources :admin_users
+    resources :messages
 
     devise_for :users
 

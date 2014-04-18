@@ -12,6 +12,13 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      message:
+        active_flag: Active flag
+        content: Content
+        enddt_text: Enddt text
+        msgtype: Msgtype
+        startdt_text: Startdt text
+        title: Title
     models:
       composer: Komponist
       genre: Genre
@@ -22,7 +29,7 @@ nb:
     edit: Rediger
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
-    update: Oppdater
+    update: Lagre
   devise:
     link:
       forgotten: Glemt passord?
@@ -45,6 +52,13 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      message:
+        active_flag: 
+        content: 
+        enddt_text: 
+        msgtype: 
+        startdt_text: 
+        title: 
     submit:
       composer:
         create: Ny komponist
@@ -108,6 +122,10 @@ nb:
       title: Bruker
     users:
       title: Brukere
+    message:
+      title: Melding
+    messages:
+      title: Meldinger
   table:
     title:
       current_sign_in_at: Nåværende innlogging kl

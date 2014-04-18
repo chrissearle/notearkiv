@@ -1,0 +1,39 @@
+.container
+  .row
+    .col-md-6
+      %h2= t('page.message.title')
+
+      = form_for @message do |f|
+        .form-group
+          = f.label :title
+          = f.text_field :title, :class => 'form-control'
+
+        .form-group
+          = f.label :content
+          = f.text_area :content, :class => 'form-control'
+
+        .form-group
+          = f.label :startdt_text
+          = f.text_field :startdt_text, :class => 'form-control'
+
+        .form-group
+          = f.label :enddt_text
+          = f.password_field :enddt_text, :class => 'form-control'
+
+        .form-group
+          = f.label :active_flag
+          = f.check_box :active_flag, :class => 'form-control'
+
+        .form-group
+          = f.label :msgtype
+          = f.radio_button :msgtype, 'info'
+          = t('msgtype.info')
+          = f.radio_button :msgtype, 'warning'
+          = t('msgtype.warning')
+          = f.radio_button :msgtype, 'error'
+          = t('msgtype.error')
+
+        = f.submit t('button.update'), :class => 'btn btn-primary'
+        = link_to t('button.cancel'), url_for( :controller => 'admin_users', :action => 'index'), :class => 'btn'
+
+
