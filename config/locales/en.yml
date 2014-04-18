@@ -17,8 +17,12 @@ en:
       genre: Genre
   button:
     add: Add
-    login: Log In
+    back: Back
+    cancel: Cancel
+    edit: Edit
+    login: Log in
     password: Send password reset instructions
+    update: Update
   devise:
     link:
       forgotten: Forgot your password?
@@ -54,9 +58,14 @@ en:
       confirm: Are you sure?
     edit: Edit
   menu:
+    account:
+      title: Account
     composer:
       title: Composers
+    dropbox:
+      title: DropBox
     dropdown:
+      account: Account
       categories: Categories
       language: Language
     genre:
@@ -67,8 +76,12 @@ en:
       title: Languages
     login: Log In
     logout: Logout
+    message:
+      title: Messages
     period:
       title: Epochs
+    users:
+      title: Users
   page:
     composer:
       title: Composer
@@ -91,8 +104,23 @@ en:
       title: Epochs
     signin:
       title: Sign In
+    user:
+      title: User
+    users:
+      title: Users
   table:
     title:
+      current_sign_in_at: Current sign in at
+      current_sign_in_ip: Current sign in IP
+      email: Email
       evensongs: Evensongs
+      last_login: Last login
+      last_sign_in_at: Last sign in at
+      last_sign_in_ip: Last sign in IP
       name: Name
       notes: Notes
+      reset_password_sent_at: Reset password sent at
+      reset_password_token: Reset password token
+      roles: Roles
+      sign_in_count: Sign in count
+      username: Username
