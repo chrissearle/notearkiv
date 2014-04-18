@@ -5,13 +5,6 @@ nb:
         name: Navn
       genre:
         name: Navn
-      user:
-        email: Epost
-        name: Navn
-        password: Passord
-        password_confirmation: Bekreft passord
-        roles: Roller
-        username: Brukernavn
       message:
         active_flag: Active flag
         content: Content
@@ -19,6 +12,13 @@ nb:
         msgtype: Msgtype
         startdt_text: Startdt text
         title: Title
+      user:
+        email: Epost
+        name: Navn
+        password: Passord
+        password_confirmation: Bekreft passord
+        roles: Roller
+        username: Brukernavn
     models:
       composer: Komponist
       genre: Genre
@@ -45,6 +45,13 @@ nb:
         name: Komponist
       genre:
         name: Navn
+      message:
+        active_flag: I bruk?
+        content: Innhold
+        enddt_text: Slutt dato/kl
+        msgtype: Meldingstype
+        startdt_text: Start dato/kl
+        title: Tittel
       user:
         email: Epost
         name: Navn
@@ -52,13 +59,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      message:
-        active_flag: 
-        content: 
-        enddt_text: 
-        msgtype: 
-        startdt_text: 
-        title: 
     submit:
       composer:
         create: Ny komponist
@@ -96,6 +96,10 @@ nb:
       title: Epoker
     users:
       title: Brukere
+  msgtype:
+    error: feil
+    info: info
+    warning: varsel
   page:
     composer:
       title: Komponist
@@ -109,6 +113,10 @@ nb:
       title: Språk
     languages:
       title: Språk
+    message:
+      title: Melding
+    messages:
+      title: Meldinger
     password:
       new:
         title: Glemt passord?
@@ -122,15 +130,13 @@ nb:
       title: Bruker
     users:
       title: Brukere
-    message:
-      title: Melding
-    messages:
-      title: Meldinger
   table:
     title:
+      content: Innhold
       current_sign_in_at: Nåværende innlogging kl
       current_sign_in_ip: Nåværende innlogging IP
       email: E-post
+      end: Slutt
       evensongs: Evensongnoter
       last_login: Sist innlogging
       last_sign_in_at: Sist innlogging kl
@@ -141,4 +147,6 @@ nb:
       reset_password_token: Passordreset token
       roles: Roller
       sign_in_count: Antall innlogginger
+      start: Start
+      status: Status
       username: Brukernavn

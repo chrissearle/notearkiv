@@ -5,6 +5,13 @@ en:
         name: Name
       genre:
         name: Name
+      message:
+        active_flag: Active?
+        content: Content
+        enddt_text: End date/time
+        msgtype: Message type
+        startdt_text: Start date/time
+        title: Title
       user:
         email: Email
         name: Name
@@ -12,13 +19,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      message:
-        active_flag: 
-        content: 
-        enddt_text: 
-        msgtype: 
-        startdt_text: 
-        title: 
     models:
       composer: Composer
       genre: Genre
@@ -45,6 +45,13 @@ en:
         name: Composer
       genre:
         name: Name
+      message:
+        active_flag: Active?
+        content: Content
+        enddt_text: End date/time
+        msgtype: Message type
+        startdt_text: Start date/time
+        title: Title
       user:
         email: Email
         name: Name
@@ -52,13 +59,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      message:
-        active_flag: 
-        content: 
-        enddt_text: 
-        msgtype: 
-        startdt_text: 
-        title: 
     submit:
       composer:
         create: Create Composer
@@ -96,6 +96,10 @@ en:
       title: Epochs
     users:
       title: Users
+  msgtype:
+    error: error
+    info: info
+    warning: warning
   page:
     composer:
       title: Composer
@@ -109,6 +113,10 @@ en:
       title: Language
     languages:
       title: Languages
+    message:
+      title: Message
+    messages:
+      title: Messages
     password:
       new:
         title: Forgotten your password?
@@ -122,15 +130,13 @@ en:
       title: User
     users:
       title: Users
-    message:
-      title: Message
-    messages:
-      title: Messages
   table:
     title:
+      content: Content
       current_sign_in_at: Current sign in at
       current_sign_in_ip: Current sign in IP
       email: Email
+      end: End
       evensongs: Evensongs
       last_login: Last login
       last_sign_in_at: Last sign in at
@@ -141,12 +147,6 @@ en:
       reset_password_token: Reset password token
       roles: Roles
       sign_in_count: Sign in count
-      username: Username
-      content: Content
       start: Start
-      end: End
       status: Status
-  msgtype:
-    info: info
-    warning: warning
-    error: error
+      username: Username
