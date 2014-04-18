@@ -17,8 +17,12 @@ nb:
       genre: Genre
   button:
     add: Ny
+    back: Tilbake
+    cancel: Avbryt
+    edit: Rediger
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
+    update: Oppdater
   devise:
     link:
       forgotten: Glemt passord?
@@ -54,9 +58,14 @@ nb:
       confirm: Er du sikker?
     edit: Rediger
   menu:
+    account:
+      title: Konto
     composer:
       title: Komponister
+    dropbox:
+      title: DropBox
     dropdown:
+      account: Konto
       categories: Kategorier
       language: Språk
     genre:
@@ -67,8 +76,12 @@ nb:
       title: Språk
     login: Logg på
     logout: Logg av
+    message:
+      title: Meldinger
     period:
       title: Epoker
+    users:
+      title: Brukere
   page:
     composer:
       title: Komponist
@@ -91,8 +104,23 @@ nb:
       title: Epoker
     signin:
       title: Innlogging
+    user:
+      title: Bruker
+    users:
+      title: Brukere
   table:
     title:
+      current_sign_in_at: Nåværende innlogging kl
+      current_sign_in_ip: Nåværende innlogging IP
+      email: E-post
       evensongs: Evensongnoter
+      last_login: Sist innlogging
+      last_sign_in_at: Sist innlogging kl
+      last_sign_in_ip: Sist innlogging IP
       name: Navn
       notes: Noter
+      reset_password_sent_at: Passord reset sendt
+      reset_password_token: Passordreset token
+      roles: Roller
+      sign_in_count: Antall innlogginger
+      username: Brukernavn
