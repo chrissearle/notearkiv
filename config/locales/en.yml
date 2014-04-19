@@ -96,6 +96,8 @@ en:
       title: Epochs
     users:
       title: Users
+    evensongs:
+      title: "Evensongs"
   msgtype:
     error: error
     info: info
@@ -130,6 +132,8 @@ en:
       title: User
     users:
       title: Users
+    evensongs:
+      title: Evensongs
   table:
     title:
       content: Content
@@ -150,3 +154,8 @@ en:
       start: Start
       status: Status
       username: Username
+      title: Title
+      psalm: Psalm
+      composer: Composer
+      genre: Genre
+      upload: Uploads

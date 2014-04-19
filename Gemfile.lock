@@ -100,6 +100,10 @@ GEM
     multi_json (1.9.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    pg_search (0.7.3)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     polyglot (0.3.4)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -207,6 +211,7 @@ DEPENDENCIES
   localeapp
   meta_request
   pg
+  pg_search
   quiet_assets
   rails (= 4.1.0)
   rails_12factor

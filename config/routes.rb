@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     resources :admin_users
     resources :messages
 
+    resources :evensongs
+#    resources :evensongs do
+#      collection do
+#        post 'sorted'
+#      end
+#    end
+
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

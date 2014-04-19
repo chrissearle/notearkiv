@@ -46,12 +46,12 @@ nb:
       genre:
         name: Navn
       message:
-        active_flag: I bruk?
-        content: Innhold
-        enddt_text: Slutt dato/kl
-        msgtype: Meldingstype
-        startdt_text: Start dato/kl
-        title: Tittel
+        active_flag: 
+        content: 
+        enddt_text: 
+        msgtype: 
+        startdt_text: 
+        title: 
       user:
         email: Epost
         name: Navn
@@ -96,6 +96,8 @@ nb:
       title: Epoker
     users:
       title: Brukere
+    evensongs:
+      title: "Evensongnoter"
   msgtype:
     error: feil
     info: info
@@ -130,6 +132,8 @@ nb:
       title: Bruker
     users:
       title: Brukere
+    evensongs:
+      title: Evensongnoter
   table:
     title:
       content: Innhold
@@ -150,3 +154,8 @@ nb:
       start: Start
       status: Status
       username: Brukernavn
+      title: Tittel
+      psalm: Salme
+      composer: Komponist
+      genre: Genre
+      upload: Vedlegg

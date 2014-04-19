@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_url
   end
 
+  def set_accept_header
+    # We only care about browsers. IE7 & 8 set some stupid ACCEPT header. Force fix.
+    accept = request.env['HTTP_ACCEPT']
+
+    request.env['HTTP_ACCEPT'] = "application/xml,application/xhtml+xml,text/html;q=0.9,#{accept}"
+  end
+
   private
 
   def set_current_user

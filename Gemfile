@@ -46,6 +46,7 @@ gem 'rails_layout'
 gem 'kramdown'
 gem 'devise'
 gem 'declarative_authorization'
+gem 'pg_search'
 
 gem 'foreman', :require => false
 

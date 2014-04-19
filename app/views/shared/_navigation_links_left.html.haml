@@ -1,0 +1,6 @@
+%ul.nav.navbar-nav
+  - if current_user
+    -# if permitted_to? :index, :notes
+      -# %li= link_to t('model.note.list.title'), notes_path
+    - if permitted_to? :index, :evensongs
+      %li= link_to t('menu.evensongs.title'), evensongs_path
