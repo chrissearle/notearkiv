@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 #      end
     end
 
+    resources :dropbox do
+      collection do
+        get 'authorize'
+      end
+    end
+
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

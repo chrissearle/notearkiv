@@ -47,6 +47,7 @@ gem 'kramdown'
 gem 'devise'
 gem 'declarative_authorization'
 gem 'pg_search'
+gem 'dropbox-sdk'
 
 gem 'foreman', :require => false
 

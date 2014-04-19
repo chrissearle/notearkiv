@@ -115,6 +115,9 @@ en:
     destroy:
       confirm: Are you sure?
     edit: Edit
+    dropbox:
+      authorize: Authorize
+      refresh: Refresh
   menu:
     account:
       title: Account
@@ -186,6 +189,9 @@ en:
       title: Note
     notes:
       title: Notes
+    dropbox:
+      title: DropBox
+      account: Account
   table:
     title:
       content: Content
@@ -214,3 +220,12 @@ en:
       period: Epoch
       language: Language
       instrument: Instrument
+      value: Value
+    dropbox:
+      referral: Referral Link
+      uid: UID
+      country: Country
+      quota: Quota
+      quotashared: Shared
+      quotanormal: Normal
+      quotaquota: Quota

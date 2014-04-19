@@ -25,8 +25,8 @@
           %li= link_to t('menu.message.title'), messages_path
         - if permitted_to? :index, :admin_users
           %li= link_to t('menu.users.title'), admin_users_path
-        -# if permitted_to? :index, :dropbox
-          -# %li= link_to t('menu.dropbox.title'), dropbox_index_path
+        - if permitted_to? :index, :dropbox
+          %li= link_to t('menu.dropbox.title'), dropbox_index_path
     %li.divider-vertical
     %li.dropdown
       %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }

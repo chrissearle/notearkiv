@@ -186,6 +186,8 @@ nb:
       title: Note
     notes:
       title: Noter
+    dropbox:
+      title: DropBox
   table:
     title:
       content: Innhold
