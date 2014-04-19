@@ -3,6 +3,13 @@ en:
     attributes:
       composer:
         name: Name
+      evensong:
+        comment: Comment
+        composer: Composer
+        genre: Genre
+        psalm: Psalm
+        soloists: Soloists
+        title: Title
       genre:
         name: Name
       message:
@@ -12,6 +19,20 @@ en:
         msgtype: Message type
         startdt_text: Start date/time
         title: Title
+      note:
+        comment: Comment
+        composer: Composer
+        copies: Copie
+        genre: Genre
+        instrument: Instrument
+        instrumental: Instrumental
+        item: ID
+        language: Language
+        originals: Originals
+        period: Epoch
+        soloists: Soloists
+        title: Title
+        voice: Voices
       user:
         email: Email
         name: Name
@@ -19,27 +40,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      evensong:
-        comment: 
-        composer: 
-        genre: 
-        psalm: 
-        soloists: 
-        title: 
-      note:
-        comment: 
-        composer: 
-        copies: 
-        genre: 
-        instrument: 
-        instrumental: 
-        item: 
-        language: 
-        originals: 
-        period: 
-        soloists: 
-        title: 
-        voice: 
     models:
       composer: Composer
       genre: Genre
@@ -64,6 +64,13 @@ en:
     label:
       composer:
         name: Composer
+      evensong:
+        comment: Comment
+        composer: Composer
+        genre: Genre
+        psalm: Psalm
+        soloists: Soloists
+        title: Title
       genre:
         name: Name
       message:
@@ -73,6 +80,20 @@ en:
         msgtype: Message type
         startdt_text: Start date/time
         title: Title
+      note:
+        comment: Comment
+        composer: Composer
+        copies: Copies
+        genre: Genre
+        instrument: Instrument
+        instrumental: Instrumental
+        item: ID
+        language: Language
+        originals: Originals
+        period: Epoch
+        soloists: Soloists
+        title: Title
+        voice: Voices
       user:
         email: Email
         name: Name
@@ -80,35 +101,14 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      evensong:
-        comment: 
-        composer: 
-        genre: 
-        psalm: 
-        soloists: 
-        title: 
-      note:
-        comment: 
-        composer: 
-        copies: 
-        genre: 
-        instrument: 
-        instrumental: 
-        item: 
-        language: 
-        originals: 
-        period: 
-        soloists: 
-        title: 
-        voice: 
+    select:
+      prompt: Please select ...
     submit:
       composer:
         create: Create Composer
       genre:
         create: Create Genre
         update: Update Genre
-    select:
-      prompt: 
   link:
     back: Back
     delete: Delete
@@ -180,6 +180,8 @@ en:
       title: Users
     evensongs:
       title: Evensongs
+    evensong:
+      title: Evensong
     note:
       title: Note
     notes:

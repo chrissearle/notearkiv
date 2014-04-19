@@ -3,15 +3,36 @@ nb:
     attributes:
       composer:
         name: Navn
+      evensong:
+        comment: Kommentar
+        composer: Komponist
+        genre: Genre
+        psalm: Salme
+        soloists: Soloister
+        title: Tittel
       genre:
         name: Navn
       message:
-        active_flag: Active flag
-        content: Content
-        enddt_text: Enddt text
-        msgtype: Msgtype
-        startdt_text: Startdt text
-        title: Title
+        active_flag: I bruk?
+        content: Innhold
+        enddt_text: Slutt dato/kl
+        msgtype: Meldingstype
+        startdt_text: Start dato/kl
+        title: Tittel
+      note:
+        comment: Kommentar
+        composer: Komponist
+        copies: Kopier
+        genre: Genre
+        instrument: Instrument
+        instrumental: Instrumental
+        item: ID
+        language: Språk
+        originals: Originaler
+        period: Epoke
+        soloists: Soloister
+        title: Tittel
+        voice: Stemmer
       user:
         email: Epost
         name: Navn
@@ -19,27 +40,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      evensong:
-        comment: 
-        composer: 
-        genre: 
-        psalm: 
-        soloists: 
-        title: 
-      note:
-        comment: Comment
-        composer: Composer
-        copies: Copies
-        genre: Genre
-        instrument: Instrument
-        instrumental: Instrumental
-        item: Item
-        language: Language
-        originals: Originals
-        period: Period
-        soloists: Soloists
-        title: Title
-        voice: Voice
     models:
       composer: Komponist
       genre: Genre
@@ -64,15 +64,36 @@ nb:
     label:
       composer:
         name: Komponist
+      evensong:
+        comment: Kommentar
+        composer: Komponist
+        genre: Genre
+        psalm: Salme
+        soloists: Soloister
+        title: Tittel
       genre:
         name: Navn
       message:
-        active_flag: 
-        content: 
-        enddt_text: 
-        msgtype: 
-        startdt_text: 
-        title: 
+        active_flag: I bruk?
+        content: Innhold
+        enddt_text: Slutt dato/k
+        msgtype: Meldingstype
+        startdt_text: Start dato/kl
+        title: Tittel
+      note:
+        comment: Kommentar
+        composer: Komponist
+        copies: Kopier
+        genre: Genre
+        instrument: Instrument
+        instrumental: Instrumental
+        item: ID
+        language: Språk
+        originals: Originaler
+        period: Epoke
+        soloists: Soloister
+        title: Tittel
+        voice: Stemmer
       user:
         email: Epost
         name: Navn
@@ -80,35 +101,14 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      evensong:
-        comment: 
-        composer: 
-        genre: 
-        psalm: 
-        soloists: 
-        title: 
-      note:
-        comment: 
-        composer: 
-        copies: 
-        genre: 
-        instrument: 
-        instrumental: 
-        item: 
-        language: 
-        originals: 
-        period: 
-        soloists: 
-        title: 
-        voice: 
+    select:
+      prompt: Velg ...
     submit:
       composer:
         create: Ny komponist
       genre:
         create: Ny genre
         update: Lagre
-    select:
-      prompt: Please select
   link:
     back: Tilbake
     delete: Slett
@@ -180,6 +180,8 @@ nb:
       title: Brukere
     evensongs:
       title: Evensongnoter
+    evensong:
+      title: Evensongnote
     note:
       title: Note
     notes:
