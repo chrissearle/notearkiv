@@ -19,6 +19,27 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      evensong:
+        comment: 
+        composer: 
+        genre: 
+        psalm: 
+        soloists: 
+        title: 
+      note:
+        comment: Comment
+        composer: Composer
+        copies: Copies
+        genre: Genre
+        instrument: Instrument
+        instrumental: Instrumental
+        item: Item
+        language: Language
+        originals: Originals
+        period: Period
+        soloists: Soloists
+        title: Title
+        voice: Voice
     models:
       composer: Komponist
       genre: Genre
@@ -59,12 +80,35 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      evensong:
+        comment: 
+        composer: 
+        genre: 
+        psalm: 
+        soloists: 
+        title: 
+      note:
+        comment: 
+        composer: 
+        copies: 
+        genre: 
+        instrument: 
+        instrumental: 
+        item: 
+        language: 
+        originals: 
+        period: 
+        soloists: 
+        title: 
+        voice: 
     submit:
       composer:
         create: Ny komponist
       genre:
         create: Ny genre
         update: Lagre
+    select:
+      prompt: Please select
   link:
     back: Tilbake
     delete: Slett
@@ -97,9 +141,9 @@ nb:
     users:
       title: Brukere
     evensongs:
-      title: "Evensongnoter"
+      title: Evensongnoter
     notes:
-      title: "Noter"
+      title: Noter
   msgtype:
     error: feil
     info: info
@@ -137,9 +181,9 @@ nb:
     evensongs:
       title: Evensongnoter
     note:
-      title: "Note"
+      title: Note
     notes:
-      title: "Noter"
+      title: Noter
   table:
     title:
       content: Innhold
@@ -165,6 +209,6 @@ nb:
       composer: Komponist
       genre: Genre
       upload: Vedlegg
-      period: "Epoke"
-      language: "Språk"
-      instrument: "Instrument"
+      period: Epoke
+      language: Språk
+      instrument: Instrument

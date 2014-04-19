@@ -18,7 +18,7 @@
 
         .form-group
           = f.label :voice
-          = f.text_field :voice, :class => 'form-control'
+          = f.text_field :voice, :data => { :'typeahead-link' => voices_notes_url( :format => :json ) }, :class => 'form-control'
 
         .form-group
           = f.label :instrument

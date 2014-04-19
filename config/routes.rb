@@ -15,12 +15,14 @@ Rails.application.routes.draw do
 #      end
 #    end
 
-    resources :notes
-#    resources :evensongs do
+    resources :notes do
+      collection do
+        get 'voices'
+      end
 #      collection do
 #        post 'sorted'
 #      end
-#    end
+    end
 
     devise_for :users
 
@@ -80,7 +82,7 @@ Rails.application.routes.draw do
   #   end
   end
 
-  get '/:locale' => 'genres#index'
-  root :to => 'genres#index'
+  get '/:locale' => 'notes#index'
+  root :to => 'notes#index'
 
 end

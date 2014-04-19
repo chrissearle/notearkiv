@@ -2,7 +2,6 @@ class NotesController < ApplicationController
   filter_access_to :all
 
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :set_voice, only: [:new, :edit]
 
   def index
     set_accept_header
@@ -139,6 +138,10 @@ class NotesController < ApplicationController
   end
 =end
 
+  def voices
+    render :json => Note.voices.select {|v| v.upcase.start_with? params[:search]}
+  end
+
   private
 
 =begin
@@ -154,10 +157,6 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
-  end
-
-  def set_voice
-    @voices = Note.voices
   end
 
   def note_params

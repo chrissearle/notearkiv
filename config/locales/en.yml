@@ -19,6 +19,27 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      evensong:
+        comment: 
+        composer: 
+        genre: 
+        psalm: 
+        soloists: 
+        title: 
+      note:
+        comment: 
+        composer: 
+        copies: 
+        genre: 
+        instrument: 
+        instrumental: 
+        item: 
+        language: 
+        originals: 
+        period: 
+        soloists: 
+        title: 
+        voice: 
     models:
       composer: Composer
       genre: Genre
@@ -59,12 +80,35 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      evensong:
+        comment: 
+        composer: 
+        genre: 
+        psalm: 
+        soloists: 
+        title: 
+      note:
+        comment: 
+        composer: 
+        copies: 
+        genre: 
+        instrument: 
+        instrumental: 
+        item: 
+        language: 
+        originals: 
+        period: 
+        soloists: 
+        title: 
+        voice: 
     submit:
       composer:
         create: Create Composer
       genre:
         create: Create Genre
         update: Update Genre
+    select:
+      prompt: 
   link:
     back: Back
     delete: Delete
@@ -97,9 +141,9 @@ en:
     users:
       title: Users
     evensongs:
-      title: "Evensongs"
+      title: Evensongs
     notes:
-      title: "Notes"
+      title: Notes
   msgtype:
     error: error
     info: info
@@ -137,9 +181,9 @@ en:
     evensongs:
       title: Evensongs
     note:
-      title: "Note"
+      title: Note
     notes:
-      title: "Notes"
+      title: Notes
   table:
     title:
       content: Content
@@ -165,6 +209,6 @@ en:
       composer: Composer
       genre: Genre
       upload: Uploads
-      period: "Epoch"
-      language: "Language"
-      instrument: "Instrument"
+      period: Epoch
+      language: Language
+      instrument: Instrument

@@ -9,7 +9,7 @@ authorization do
   end
 
   role :admin do
-    has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voice, :sorted]
+    has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voices, :sorted]
     has_permission_on [:evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :sorted]
     has_permission_on [:links], :to => [:new, :create, :edit, :update, :destroy, :show]
     has_permission_on [:uploads], :to => [:new, :create, :destroy, :show, :link, :refresh, :edit, :update]
