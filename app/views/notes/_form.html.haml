@@ -1,0 +1,60 @@
+.container
+  .row
+    .col-md-6
+      %h2= title
+
+      = form_for item do |f|
+        .form-group
+          = f.label :item
+          = f.text_field :item, :class => 'form-control'
+
+        .form-group
+          = f.label :title
+          = f.text_field :title, :class => 'form-control'
+
+        .form-group
+          = f.label :soloists
+          = f.text_field :soloists, :class => 'form-control'
+
+        .form-group
+          = f.label :voice
+          = f.text_field :voice, :class => 'form-control'
+
+        .form-group
+          = f.label :instrument
+          = f.text_field :instrument, :class => 'form-control'
+
+        .form-group
+          = f.label :originals
+          = f.text_field :originals, :class => 'form-control'
+
+        .form-group
+          = f.label :copies
+          = f.text_field :copies, :class => 'form-control'
+
+        .form-group
+          = f.label :instrumental
+          = f.text_field :instrumental, :class => 'form-control'
+
+        .form-group
+          = f.label :comment
+          = f.text_area :comment, :class => 'form-control'
+
+        .form-group
+          = f.label :composer
+          = f.collection_select :composer_id, Composer.ordered, :id, :name, :prompt => true, :class => 'form-control'
+
+        .form-group
+          = f.label :genre
+          = f.collection_select :genre_id, Genre.ordered, :id, :name, :prompt => true, :class => 'form-control'
+
+        .form-group
+          = f.label :period
+          = f.collection_select :period_id, Period.ordered, :id, :name, :prompt => true, :class => 'form-control'
+
+        .form-group
+          = f.label :language
+          = f.collection_select :language_id, Language.ordered, :id, :name, :prompt => true, :class => 'form-control'
+
+        = f.submit t('button.update'), :class => 'btn btn-primary'
+        = link_to t('button.cancel'), notes_path, :class => 'btn'

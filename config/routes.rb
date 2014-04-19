@@ -15,6 +15,13 @@ Rails.application.routes.draw do
 #      end
 #    end
 
+    resources :notes
+#    resources :evensongs do
+#      collection do
+#        post 'sorted'
+#      end
+#    end
+
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -40,3 +40,18 @@ end
 
 new.exec('UPDATE genres SET evensongs_count=(SELECT count(*) FROM evensongs WHERE genre_id=genres.id)')
 new.exec('UPDATE composers SET evensongs_count=(SELECT count(*) FROM evensongs WHERE composer_id=composers.id)')
+
+new.exec('TRUNCATE notes')
+
+new.prepare('create_notes', 'INSERT INTO notes (id, item, title, originals, copies, instrumental, voice, composer_id, genre_id, period_id, language_id, instrument, soloists, comment, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, now(), now())')
+
+old.exec('SELECT id, item, title, originals, copies, instrumental, voice, composer_id, genre_id, period_id, language_id, instrument, soloists, comment FROM notes') do |result|
+  result.each do |row|
+    new.exec_prepared('create_notes', [row['id'], row['item'], row['title'], row['originals'], row['copies'], row['instrumental'], row['voice'], row['composer_id'], row['genre_id'], row['period_id'], row['language_id'], row['insturment'], row['soloists'], row['comment']])
+  end
+end
+
+new.exec('UPDATE genres SET notes_count=(SELECT count(*) FROM notes WHERE genre_id=genres.id)')
+new.exec('UPDATE composers SET notes_count=(SELECT count(*) FROM notes WHERE composer_id=composers.id)')
+new.exec('UPDATE periods SET notes_count=(SELECT count(*) FROM notes WHERE period_id=periods.id)')
+new.exec('UPDATE languages SET notes_count=(SELECT count(*) FROM notes WHERE language_id=languages.id)')

@@ -98,6 +98,8 @@ nb:
       title: Brukere
     evensongs:
       title: "Evensongnoter"
+    notes:
+      title: "Noter"
   msgtype:
     error: feil
     info: info
@@ -134,6 +136,10 @@ nb:
       title: Brukere
     evensongs:
       title: Evensongnoter
+    note:
+      title: "Note"
+    notes:
+      title: "Noter"
   table:
     title:
       content: Innhold
@@ -159,3 +165,6 @@ nb:
       composer: Komponist
       genre: Genre
       upload: Vedlegg
+      period: "Epoke"
+      language: "Språk"
+      instrument: "Instrument"
