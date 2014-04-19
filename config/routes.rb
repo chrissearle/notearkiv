@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :account
     resources :admin_users
     resources :messages
+    resources :links
 
     resources :evensongs
 #    resources :evensongs do

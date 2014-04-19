@@ -5,7 +5,7 @@ class Evensong < ActiveRecord::Base
   belongs_to :genre, counter_cache: true
   belongs_to :composer, counter_cache: true
 
-#  has_many :links
+  has_many :links
 #  has_many :uploads
 
   before_destroy :remove_links
@@ -17,7 +17,7 @@ class Evensong < ActiveRecord::Base
   validates_presence_of :title, :composer, :genre
 
   scope :ordered, -> { order(:title) }
-  scope :preloaded, -> { includes :composer, :genre }
+  scope :preloaded, -> { includes :composer, :genre, :links }
 #  scope :preloaded, -> { includes :composer, :genre, :links, :uploads }
 
   pg_search_scope :searchahead,

@@ -10,7 +10,7 @@ class Note < ActiveRecord::Base
   before_destroy :remove_links
   before_destroy :remove_uploads
 
-  #has_many :links
+  has_many :links
   #has_many :uploads
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
@@ -23,7 +23,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :item, :title, :originals
 
   scope :ordered, -> { order(:title) }
-  scope :preloaded, -> { includes :composer, :genre, :period, :language }
+  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links }
   #  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links, :uploads }
 
   pg_search_scope :search,
