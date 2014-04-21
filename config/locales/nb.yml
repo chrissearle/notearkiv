@@ -73,6 +73,9 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      link:
+        title: Title
+        url: Url
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -116,6 +119,7 @@ nb:
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
     update: Lagre
+    link: Ny lenke
   date:
     abbr_day_names:
     - søn
@@ -294,6 +298,9 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      link:
+        title: 
+        url: 
     select:
       prompt: Vennligst velg
     submit:
@@ -486,6 +493,7 @@ nb:
       upload: Vedlegg
       username: Brukernavn
       value: 
+      item: ID
   time:
     am: 
     formats:

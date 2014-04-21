@@ -81,6 +81,9 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      link:
+        title: 
+        url: 
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -132,6 +135,7 @@ en:
     login: Log in
     password: Send password reset instructions
     update: Save
+    link: Add Link
   date:
     abbr_day_names:
     - Sun
@@ -318,6 +322,9 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      link:
+        title: 
+        url: 
     select:
       prompt: Please select
     submit:
@@ -502,6 +509,11 @@ en:
       upload: Uploads
       username: Username
       value: Value
+      item: ID
+      key: Key
+      soloists: Soloists
+      comment: Comment
+      links: Links
   time:
     am: am
     formats:

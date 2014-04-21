@@ -14,7 +14,11 @@
   %tbody
     - @evensongs.each do |item|
       %tr
-        %td= item.title
+        %td
+          - if permitted_to? :show, item
+            = link_to item.title, evensong_path(item)
+          - else
+            = item.title
         %td= item.psalm
         %td= item.composer_name
         %td= item.genre_name

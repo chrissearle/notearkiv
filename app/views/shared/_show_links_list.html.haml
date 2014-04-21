@@ -1,0 +1,8 @@
+%ul.list-unstyled
+  - links.each do |link|
+    %li
+      = link_to link.title, link.url
+      - if permitted_to?(:edit, link)
+        = link_to t('link.edit'), edit_link_path(link), :class => 'btn btn-default btn-xs'
+      - if permitted_to?(:destroy, link)
+        = link_to t('link.delete'), link, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'

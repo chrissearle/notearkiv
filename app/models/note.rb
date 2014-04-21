@@ -23,7 +23,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :item, :title, :originals
 
   scope :ordered, -> { order(:title) }
-  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links }
+  scope :preloaded, -> { includes :composer, :genre, :period, :language }
   #  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links, :uploads }
 
   pg_search_scope :search,

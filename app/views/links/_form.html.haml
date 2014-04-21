@@ -18,5 +18,6 @@
           = f.label :url
           = f.text_field :url, :class => 'form-control'
 
-        = f.submit t('button.update'), :class => 'btn btn-primary'
-        = link_to t('button.cancel'), url_for( :controller => 'admin_users', :action => 'index'), :class => 'btn'
+        .well
+          = f.submit t('button.update'), :class => 'btn btn-primary'
+          = link_to t('button.cancel'), url_for( :controller => 'admin_users', :action => 'index'), :class => 'btn btn-default'

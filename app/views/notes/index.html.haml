@@ -5,6 +5,7 @@
 %table.table.table-bordered.table-condensed.table-striped
   %thead
     %tr
+      %th= t('table.title.item')
       %th= t('table.title.title')
       %th= t('table.title.composer')
       %th= t('table.title.genre')
@@ -16,7 +17,12 @@
   %tbody
     - @notes.each do |item|
       %tr
-        %td= item.title
+        %td= item.item
+        %td
+          - if permitted_to? :show, item
+            = link_to item.title, note_path(item)
+          - else
+            = item.title
         %td= item.composer_name
         %td= item.genre_name
         %td= item.period_name
