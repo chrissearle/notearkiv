@@ -22,5 +22,6 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: 'off', :class => 'form-control'
 
-        = f.submit t('button.update'), :class => 'btn btn-primary'
-        = link_to t('button.cancel'), url_for( :controller => 'account', :action => 'index'), :class => 'btn'
+        .well
+          = f.submit t('button.update'), :class => 'btn btn-primary'
+          = link_to t('button.cancel'), url_for( :controller => 'account', :action => 'index'), :class => 'btn btn-default'

@@ -56,5 +56,6 @@
           = f.label :language
           = f.collection_select :language_id, Language.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
-        = f.submit t('button.update'), :class => 'btn btn-primary'
-        = link_to t('button.cancel'), notes_path, :class => 'btn'
+        .well
+          = f.submit t('button.update'), :class => 'btn btn-primary'
+          = link_to t('button.cancel'), notes_path, :class => 'btn btn-default'
