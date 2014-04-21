@@ -45,6 +45,9 @@ nb:
         title: Tittel
       genre:
         name: Navn
+      link:
+        title: Title
+        url: Url
       message:
         active_flag: I bruk?
         content: Innhold
@@ -73,9 +76,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      link:
-        title: Title
-        url: Url
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -116,10 +116,10 @@ nb:
     back: Tilbake
     cancel: Avbryt
     edit: Rediger
+    link: Ny lenke
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
     update: Lagre
-    link: Ny lenke
   date:
     abbr_day_names:
     - søn
@@ -270,6 +270,9 @@ nb:
         title: Tittel
       genre:
         name: Navn
+      link:
+        title: Tittel
+        url: URL
       message:
         active_flag: I bruk?
         content: Innhold
@@ -298,9 +301,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      link:
-        title: 
-        url: 
     select:
       prompt: Vennligst velg
     submit:
@@ -318,8 +318,8 @@ nb:
     destroy:
       confirm: Er du sikker?
     dropbox:
-      authorize: 
-      refresh: 
+      authorize: Godkjenn
+      refresh: Oppfrisk
     edit: Rediger
   menu:
     account:
@@ -416,7 +416,7 @@ nb:
     composers:
       title: Komponister
     dropbox:
-      account: 
+      account: Konto
       title: DropBox
     evensong:
       title: Evensongnote
@@ -458,14 +458,15 @@ nb:
       words_connector: ", "
   table:
     dropbox:
-      country: 
-      quota: 
-      quotanormal: 
-      quotaquota: 
-      quotashared: 
-      referral: 
-      uid: 
+      country: Land
+      quota: Quota
+      quotanormal: Vanlig
+      quotaquota: Quota
+      quotashared: Delt
+      referral: Referral Lenke
+      uid: UID
     title:
+      comment: Kommentar
       composer: Komponist
       content: Innhold
       current_sign_in_at: Nåværende innlogging kl
@@ -475,10 +476,13 @@ nb:
       evensongs: Evensongnoter
       genre: Genre
       instrument: Instrument
+      item: ID
+      key: Nøkkel
       language: Språk
       last_login: Sist innlogging
       last_sign_in_at: Sist innlogging kl
       last_sign_in_ip: Sist innlogging IP
+      links: Lenker
       name: Navn
       notes: Noter
       period: Epoke
@@ -487,13 +491,13 @@ nb:
       reset_password_token: Passordreset token
       roles: Roller
       sign_in_count: Antall innlogginger
+      soloists: Soloister
       start: Start
       status: Status
       title: Tittel
       upload: Vedlegg
       username: Brukernavn
-      value: 
-      item: ID
+      value: Verdi
   time:
     am: 
     formats:

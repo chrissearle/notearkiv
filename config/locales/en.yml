@@ -53,6 +53,9 @@ en:
         title: Title
       genre:
         name: Name
+      link:
+        title: Title
+        url: URL
       message:
         active_flag: Active?
         content: Content
@@ -81,9 +84,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      link:
-        title: 
-        url: 
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -132,10 +132,10 @@ en:
     back: Back
     cancel: Cancel
     edit: Edit
+    link: Add Link
     login: Log in
     password: Send password reset instructions
     update: Save
-    link: Add Link
   date:
     abbr_day_names:
     - Sun
@@ -294,6 +294,9 @@ en:
         title: Title
       genre:
         name: Name
+      link:
+        title: Title
+        url: URL
       message:
         active_flag: Active?
         content: Content
@@ -322,9 +325,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      link:
-        title: 
-        url: 
     select:
       prompt: Please select
     submit:
@@ -482,6 +482,7 @@ en:
       referral: Referral Link
       uid: UID
     title:
+      comment: Comment
       composer: Composer
       content: Content
       current_sign_in_at: Current sign in at
@@ -491,10 +492,13 @@ en:
       evensongs: Evensongs
       genre: Genre
       instrument: Instrument
+      item: ID
+      key: Key
       language: Language
       last_login: Last login
       last_sign_in_at: Last sign in at
       last_sign_in_ip: Last sign in IP
+      links: Links
       name: Name
       notes: Notes
       period: Epoch
@@ -503,17 +507,13 @@ en:
       reset_password_token: Reset password token
       roles: Roles
       sign_in_count: Sign in count
+      soloists: Soloists
       start: Start
       status: Status
       title: Title
       upload: Uploads
       username: Username
       value: Value
-      item: ID
-      key: Key
-      soloists: Soloists
-      comment: Comment
-      links: Links
   time:
     am: am
     formats:
