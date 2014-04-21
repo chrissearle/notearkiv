@@ -49,6 +49,9 @@ gem 'devise'
 gem 'declarative_authorization'
 gem 'pg_search'
 gem 'dropbox-sdk'
+gem 'spreadsheet'
+gem 'dalli'
+gem 'memcachier'
 
 gem 'foreman', :require => false
 

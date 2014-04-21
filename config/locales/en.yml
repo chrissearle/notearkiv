@@ -341,10 +341,12 @@ en:
     delete: Delete
     destroy:
       confirm: Are you sure?
+    download: Download
     dropbox:
       authorize: Authorize
       refresh: Refresh
     edit: Edit
+    new: New
   menu:
     account:
       title: Account
@@ -485,6 +487,7 @@ en:
       comment: Comment
       composer: Composer
       content: Content
+      copies: Copies
       current_sign_in_at: Current sign in at
       current_sign_in_ip: Current sign in IP
       email: Email
@@ -492,6 +495,7 @@ en:
       evensongs: Evensongs
       genre: Genre
       instrument: Instrument
+      instrumental: Instrumental
       item: ID
       key: Key
       language: Language
@@ -501,6 +505,7 @@ en:
       links: Links
       name: Name
       notes: Notes
+      originals: Originals
       period: Epoch
       psalm: Psalm
       reset_password_sent_at: Reset password sent at
@@ -510,10 +515,12 @@ en:
       soloists: Soloists
       start: Start
       status: Status
+      sysid: SysID
       title: Title
       upload: Uploads
       username: Username
       value: Value
+      voices: Voices
   time:
     am: am
     formats:

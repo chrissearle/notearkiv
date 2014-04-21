@@ -317,10 +317,12 @@ nb:
     delete: Slett
     destroy:
       confirm: Er du sikker?
+    download: Last ned
     dropbox:
       authorize: Godkjenn
       refresh: Oppfrisk
     edit: Rediger
+    new: Ny
   menu:
     account:
       title: Konto
@@ -469,6 +471,7 @@ nb:
       comment: Kommentar
       composer: Komponist
       content: Innhold
+      copies: Kopier
       current_sign_in_at: Nåværende innlogging kl
       current_sign_in_ip: Nåværende innlogging IP
       email: E-post
@@ -476,6 +479,7 @@ nb:
       evensongs: Evensongnoter
       genre: Genre
       instrument: Instrument
+      instrumental: Instrumental
       item: ID
       key: Nøkkel
       language: Språk
@@ -485,6 +489,7 @@ nb:
       links: Lenker
       name: Navn
       notes: Noter
+      originals: Originaler
       period: Epoke
       psalm: Salme
       reset_password_sent_at: Passord reset sendt
@@ -494,10 +499,12 @@ nb:
       soloists: Soloister
       start: Start
       status: Status
+      sysid: SysID
       title: Tittel
       upload: Vedlegg
       username: Brukernavn
       value: Verdi
+      voices: Stemmer
   time:
     am: 
     formats:

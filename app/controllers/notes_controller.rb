@@ -12,7 +12,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       format.html
-#      format.xls { index_excel }
+      format.xls { index_excel }
     end
   end
 
@@ -139,21 +139,21 @@ class NotesController < ApplicationController
 =end
 
   def voices
-    render :json => Note.voices.select {|v| v.upcase.start_with? params[:search]}
+    render :json => Note.voices.select { |v| v.upcase.start_with? params[:search] }
   end
 
   private
 
-=begin
-  def index_excel
-    excel = Note.excel
+  begin
+    def index_excel
+      excel = Note.excel
 
-    send_file(excel.get_spreadsheet,
-              :type => 'application/vnd.ms-excel',
-              :disposition => 'attachment',
-              :filename => excel.get_filename)
+      send_file(excel.get_spreadsheet,
+                :type => 'application/vnd.ms-excel',
+                :disposition => 'attachment',
+                :filename => excel.get_filename)
+    end
   end
-=end
 
   def set_note
     @note = Note.find(params[:id])

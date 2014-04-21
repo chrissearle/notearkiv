@@ -22,7 +22,7 @@ class Evensong < ActiveRecord::Base
 
   pg_search_scope :searchahead,
                   :against => [:title, :soloists, :comment],
-                  :using => { :tsearch => {:prefix => true} },
+                  :using => {:tsearch => {:prefix => true}},
                   :associated_against => {:composer => :name,
                                           :genre => :name},
                   :ignoring => :accents
@@ -37,26 +37,26 @@ class Evensong < ActiveRecord::Base
     [title, soloists, comment, composer_name, genre_name]
   end
 
-=begin
-  def self.excel
-    NoteSheet.new([HeaderColumn.new(I18n.t('model.evensong.excel.sysid'), 8),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.title'), 50),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.psalm'), 8),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.soloists'), 35),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.composer'), 50),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.genre'), 35),
-                   HeaderColumn.new(I18n.t('model.evensong.excel.comment'), 50)],
-                  Evensong.ordered.preloaded,
-                  I18n.t('model.evensong.excel.doctitle'),
-                  lambda { |row, item|
-                    row.push item.id
-                    row.push item.title
-                    row.push item.psalm
-                    row.push item.soloists
-                    row.push item.composer ? item.composer.name : ""
-                    row.push item.genre ? item.genre.name : ""
-                    row.push item.comment
-                  })
+  begin
+    def self.excel
+      NoteSheet.new([HeaderColumn.new(I18n.t('table.title.sysid'), 8),
+                     HeaderColumn.new(I18n.t('table.title.title'), 50),
+                     HeaderColumn.new(I18n.t('table.title.psalm'), 8),
+                     HeaderColumn.new(I18n.t('table.title.soloists'), 35),
+                     HeaderColumn.new(I18n.t('table.title.composer'), 50),
+                     HeaderColumn.new(I18n.t('table.title.genre'), 35),
+                     HeaderColumn.new(I18n.t('table.title.comment'), 50)],
+                    Evensong.ordered.preloaded,
+                    I18n.t('page.evensongs.title'),
+                    lambda { |row, item|
+                      row.push item.id
+                      row.push item.title
+                      row.push item.psalm
+                      row.push item.soloists
+                      row.push item.composer_name
+                      row.push item.genre_name
+                      row.push item.comment
+                    })
+    end
   end
-=end
 end

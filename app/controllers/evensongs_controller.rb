@@ -12,7 +12,7 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       format.html
-#      format.xls { index_excel }
+      format.xls { index_excel }
     end
   end
 
@@ -135,16 +135,16 @@ class EvensongsController < ApplicationController
 
   private
 
-=begin
-  def index_excel
-    excel = Evensong.excel
+  begin
+    def index_excel
+      excel = Evensong.excel
 
-    send_file(excel.get_spreadsheet,
-              :type => 'application/vnd.ms-excel',
-              :disposition => 'attachment',
-              :filename => excel.get_filename)
+      send_file(excel.get_spreadsheet,
+                :type => 'application/vnd.ms-excel',
+                :disposition => 'attachment',
+                :filename => excel.get_filename)
+    end
   end
-=end
 
   def set_evensong
     @evensong = Evensong.find(params[:id])

@@ -1,5 +1,5 @@
-%div.well
+.well
   - if permitted_to? :new, :evensongs
-    = link_to t('button.new'), new_evensong_path, :class => 'btn btn-primary'
-  -# if permitted_to? :download, :evensongs
-    -# = link_to link_with_icon('download', t('button.download')), evensongs_path(:format => :xls), :class => 'btn btn-default'
+    = link_to t('link.new'), new_evensong_path, :class => 'btn btn-primary'
+  - if permitted_to? :index, :evensongs
+    = link_to link_with_icon('download', t('link.download')), evensongs_path(:format => :xls), :class => 'btn btn-default'

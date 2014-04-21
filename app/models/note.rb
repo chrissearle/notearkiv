@@ -36,7 +36,7 @@ class Note < ActiveRecord::Base
 
   pg_search_scope :searchahead,
                   :against => [:title, :voice, :soloists, :instrument, :comment],
-                  :using => { :tsearch => {:prefix => true} },
+                  :using => {:tsearch => {:prefix => true}},
                   :associated_against => {:composer => :name,
                                           :genre => :name,
                                           :period => :name,
@@ -51,42 +51,42 @@ class Note < ActiveRecord::Base
     Note.select('distinct voice').map(&:voice).sort
   end
 
-=begin
-  def self.excel
-    NoteSheet.new([HeaderColumn.new(I18n.t('model.note.excel.sysid'), 8),
-                   HeaderColumn.new(I18n.t('model.note.excel.id'), 8),
-                   HeaderColumn.new(I18n.t('model.note.excel.title'), 50),
-                   HeaderColumn.new(I18n.t('model.note.excel.composer'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.genre'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.epoch'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.language'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.instrument'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.originals'), 8),
-                   HeaderColumn.new(I18n.t('model.note.excel.copies'), 8),
-                   HeaderColumn.new(I18n.t('model.note.excel.instrumental'), 8),
-                   HeaderColumn.new(I18n.t('model.note.excel.voices'), 15),
-                   HeaderColumn.new(I18n.t('model.note.excel.soloists'), 35),
-                   HeaderColumn.new(I18n.t('model.note.excel.comment'), 50)],
-                  Note.ordered.preloaded,
-                  I18n.t('model.note.excel.doctitle'),
-                  lambda { |row, item|
-                    row.push item.id
-                    row.push item.item
-                    row.push item.title
-                    row.push item.composer ? item.composer.name : ""
-                    row.push item.genre ? item.genre.name : ""
-                    row.push item.period ? item.period.name : ""
-                    row.push item.language ? item.language.name : ""
-                    row.push item.instrument
-                    row.push item.originals
-                    row.push item.copies
-                    row.push item.instrumental
-                    row.push item.voice
-                    row.push item.soloists
-                    row.push item.comment
-                  })
+  begin
+    def self.excel
+      NoteSheet.new([HeaderColumn.new(I18n.t('table.title.sysid'), 8),
+                     HeaderColumn.new(I18n.t('table.title.item'), 8),
+                     HeaderColumn.new(I18n.t('table.title.title'), 50),
+                     HeaderColumn.new(I18n.t('table.title.composer'), 35),
+                     HeaderColumn.new(I18n.t('table.title.genre'), 35),
+                     HeaderColumn.new(I18n.t('table.title.period'), 35),
+                     HeaderColumn.new(I18n.t('table.title.language'), 35),
+                     HeaderColumn.new(I18n.t('table.title.instrument'), 35),
+                     HeaderColumn.new(I18n.t('table.title.originals'), 8),
+                     HeaderColumn.new(I18n.t('table.title.copies'), 8),
+                     HeaderColumn.new(I18n.t('table.title.instrumental'), 8),
+                     HeaderColumn.new(I18n.t('table.title.voices'), 15),
+                     HeaderColumn.new(I18n.t('table.title.soloists'), 35),
+                     HeaderColumn.new(I18n.t('table.title.comment'), 50)],
+                    Note.ordered.preloaded,
+                    I18n.t('page.notes.title'),
+                    lambda { |row, item|
+                      row.push item.id
+                      row.push item.item
+                      row.push item.title
+                      row.push item.composer_name
+                      row.push item.genre_name
+                      row.push item.period_name
+                      row.push item.language_name
+                      row.push item.instrument
+                      row.push item.originals
+                      row.push item.copies
+                      row.push item.instrumental
+                      row.push item.voice
+                      row.push item.soloists
+                      row.push item.comment
+                    })
+    end
   end
-=end
 
   private
 
