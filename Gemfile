@@ -52,6 +52,7 @@ gem 'dropbox-sdk'
 gem 'spreadsheet'
 gem 'dalli'
 gem 'memcachier'
+gem 'newrelic_rpm'
 
 gem 'foreman', :require => false
 
