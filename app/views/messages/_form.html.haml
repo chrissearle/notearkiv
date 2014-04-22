@@ -3,7 +3,7 @@
     .col-md-6
       %h2= t('page.message.title')
 
-      = form_for @message do |f|
+      = form_for item do |f|
         .form-group
           = f.label :title
           = f.text_field :title, :class => 'form-control'

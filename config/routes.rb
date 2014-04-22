@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :account
     resources :admin_users
     resources :messages
-    resources :links
+    resources :links, :except => [:show, :index]
 
     resources :evensongs
 #    resources :evensongs do

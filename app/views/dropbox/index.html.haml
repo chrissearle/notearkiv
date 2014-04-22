@@ -1,9 +1,9 @@
 - title t('page.dropbox.title')
 
-= render :partial => 'actions'
+= render 'actions'
 
-= render :partial => 'account'
+= render 'account', :account => @info
 
-= render :partial => 'files'
+= render 'files'
 
-= render :partial => 'actions'
+= render 'actions'

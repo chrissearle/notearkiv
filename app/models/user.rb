@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   scope :ordered, -> { order(:name) }
   scope :preloaded, -> { includes :roles }
 
-#  validates_presence_of :roles
+  validates_presence_of :roles
 
   def role_symbols
     roles.map do |role|

@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def permission_denied
+
+    logger.info 'permission_denied used'
+
     if current_user
       flash[:alert] = t('flash.authentication.notice')
     end
