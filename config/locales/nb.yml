@@ -512,3 +512,6 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
+
+  footer:
+    github: "Kildekoden på github"
