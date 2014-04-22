@@ -15,5 +15,5 @@
       %td= @user.current_sign_in_at
 
 - if permitted_to? :edit, @user, :context => :account
-  %div.well
+  .well
     = link_to t('link.edit'), edit_account_path(@user), :class => 'btn btn-primary'

@@ -9,11 +9,11 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
+      = render 'shared/navigation'
     %main{ :role => "main" }
-      = render :partial => 'shared/system_messages', :locals => {:messages => Message.system_messages}
-      = render :partial => 'shared/system_messages', :locals => {:messages => Message.find_currently_active}
+      = render 'shared/system_messages', :messages => Message.system_messages
+      = render 'shared/system_messages', :messages => Message.find_currently_active
+      = render 'shared/flash_messages'
       - if content_for?(:heading)
         %h1= yield(:heading)
-      = render 'layouts/messages'
       = yield
