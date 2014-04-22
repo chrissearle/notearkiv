@@ -32,4 +32,27 @@ class Message < ActiveRecord::Base
   def self.find_currently_active
     self.active.started.ended
   end
+
+  def self.system_messages
+    data = []
+    Dir.foreach(Rails.root.join('messages')) do |filename|
+      if filename.end_with? '.md'
+        msg = Message.new
+        msg.content = File.read(Rails.root.join('messages', filename))
+
+        if filename.end_with? '.info.md'
+          msg.msgtype = 'info'
+        elsif filename.end_with? '.warning.md'
+          msg.msgtype = 'warning'
+        elsif filename.end_with? '.error.md'
+          msg.msgtype = 'error'
+        else
+          msg.msgtype = 'error'
+        end
+
+        data << msg
+      end
+    end
+    data
+  end
 end
