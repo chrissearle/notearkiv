@@ -1,6 +1,7 @@
 class Note < ActiveRecord::Base
   include PgSearch
   include AbstractNote
+  include Searchable
 
   belongs_to :genre, counter_cache: true
   belongs_to :language, counter_cache: true
@@ -9,6 +10,8 @@ class Note < ActiveRecord::Base
 
   before_destroy :remove_links
   before_destroy :remove_uploads
+
+  index_name 'notearkiv'
 
   has_many :links
   #has_many :uploads
@@ -49,6 +52,10 @@ class Note < ActiveRecord::Base
 
   def self.voices
     Note.select('distinct voice').map(&:voice).sort
+  end
+
+  def as_indexed_json(options={})
+    as_json(methods: [:genre_name, :language_name, :period_name, :composer_name], only: [:comment, :item, :soloists, :title, :voice, :id])
   end
 
   begin

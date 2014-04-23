@@ -65,14 +65,30 @@ GEM
     dotenv (0.10.0)
     dropbox-sdk (1.6.3)
       json
+    elasticsearch (1.0.1)
+      elasticsearch-api (= 1.0.1)
+      elasticsearch-transport (= 1.0.1)
+    elasticsearch-api (1.0.1)
+      multi_json
+    elasticsearch-model (0.1.1)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.1)
+    elasticsearch-transport (1.0.1)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.0.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     gli (2.9.0)
     haml (4.0.5)
       tilt
+    hashie (2.1.1)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.6)
@@ -102,6 +118,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.3)
     multi_json (1.9.2)
+    multipart-post (2.0.0)
     newrelic_rpm (3.7.3.204)
     orm_adapter (0.5.0)
     pg (0.17.1)
@@ -213,6 +230,8 @@ DEPENDENCIES
   declarative_authorization
   devise
   dropbox-sdk
+  elasticsearch-model
+  elasticsearch-rails
   foreman
   haml
   jbuilder (~> 2.0)

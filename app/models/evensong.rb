@@ -1,9 +1,12 @@
 class Evensong < ActiveRecord::Base
   include PgSearch
   include AbstractNote
+  include Searchable
 
   belongs_to :genre, counter_cache: true
   belongs_to :composer, counter_cache: true
+
+  index_name 'notearkiv'
 
   has_many :links
 #  has_many :uploads
@@ -35,6 +38,10 @@ class Evensong < ActiveRecord::Base
 
   def get_typeahead
     [title, soloists, comment, composer_name, genre_name]
+  end
+
+  def as_indexed_json(options={})
+    as_json(methods: [:genre_name, :composer_name], only: [:title, :psalm, :soloists, :comment, :id])
   end
 
   begin

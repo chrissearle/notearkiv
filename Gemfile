@@ -54,6 +54,8 @@ gem 'dalli'
 gem 'memcachier'
 gem 'newrelic_rpm'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 gem 'foreman', :require => false
 
