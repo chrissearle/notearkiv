@@ -1,5 +1,4 @@
 class Note < ActiveRecord::Base
-  include PgSearch
   include AbstractNote
   include Searchable
 
@@ -28,23 +27,6 @@ class Note < ActiveRecord::Base
   scope :ordered, -> { order(:title) }
   scope :preloaded, -> { includes :composer, :genre, :period, :language }
   #  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links, :uploads }
-
-  pg_search_scope :search,
-                  :against => [:title, :voice, :soloists, :instrument, :comment],
-                  :associated_against => {:composer => :name,
-                                          :genre => :name,
-                                          :period => :name,
-                                          :language => :name},
-                  :ignoring => :accents
-
-  pg_search_scope :searchahead,
-                  :against => [:title, :voice, :soloists, :instrument, :comment],
-                  :using => {:tsearch => {:prefix => true}},
-                  :associated_against => {:composer => :name,
-                                          :genre => :name,
-                                          :period => :name,
-                                          :language => :name},
-                  :ignoring => :accents
 
   def get_typeahead
     [title, voice, soloists, instrument, comment, composer_name, genre_name, period_name, language_name].flatten

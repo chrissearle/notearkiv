@@ -31,6 +31,10 @@ Rails.application.routes.draw do
       end
     end
 
+    match 'search' => 'search#search', :as => :search, via: [:get, :post]
+
+    match 'typeahead' => 'search#typeahead', :as => :searchahead, via: [:get]
+
     devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

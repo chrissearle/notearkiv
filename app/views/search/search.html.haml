@@ -1,0 +1,11 @@
+- title t('page.search.title')
+
+%p
+  = t('search.prefix')
+  %em= params[:search]
+
+%h2= t('page.title.notes')
+= render 'notes/table', :notes => @search[:notes]
+
+%h2= t('page.title.evensongs  ')
+= render 'evensongs/table', :evensongs => @search[:evensongs]

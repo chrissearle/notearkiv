@@ -330,6 +330,7 @@ en:
     submit:
       composer:
         create: Create Composer
+        update: 
       create: Create %{model}
       genre:
         create: Create Genre
@@ -347,6 +348,7 @@ en:
       refresh: Refresh
     edit: Edit
     new: New
+    search: "Search"
   menu:
     account:
       title: Account
@@ -469,6 +471,8 @@ en:
       title: User
     users:
       title: Users
+    search:
+      title: Search
   support:
     array:
       last_word_connector: ", and "
@@ -529,4 +533,6 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   footer:
-    github: "Source code on github"
+    github: Source code on github
+  search:
+    prefix: 'Current search:'

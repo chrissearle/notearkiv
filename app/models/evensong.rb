@@ -1,5 +1,4 @@
 class Evensong < ActiveRecord::Base
-  include PgSearch
   include AbstractNote
   include Searchable
 
@@ -22,19 +21,6 @@ class Evensong < ActiveRecord::Base
   scope :ordered, -> { order(:title) }
   scope :preloaded, -> { includes :composer, :genre }
 #  scope :preloaded, -> { includes :composer, :genre, :links, :uploads }
-
-  pg_search_scope :searchahead,
-                  :against => [:title, :soloists, :comment],
-                  :using => {:tsearch => {:prefix => true}},
-                  :associated_against => {:composer => :name,
-                                          :genre => :name},
-                  :ignoring => :accents
-
-  pg_search_scope :search,
-                  :against => [:title, :soloists, :comment],
-                  :associated_against => {:composer => :name,
-                                          :genre => :name},
-                  :ignoring => :accents
 
   def get_typeahead
     [title, soloists, comment, composer_name, genre_name]

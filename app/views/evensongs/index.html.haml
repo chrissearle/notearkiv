@@ -2,31 +2,6 @@
 
 = render 'actions'
 
-%table.table.table-bordered.table-condensed.table-striped
-  %thead
-    %tr
-      %th= t('table.title.title')
-      %th= t('table.title.psalm')
-      %th= t('table.title.composer')
-      %th= t('table.title.genre')
-      %th= t('table.title.upload')
-      %th
-  %tbody
-    - @evensongs.each do |item|
-      %tr
-        %td
-          - if permitted_to? :show, item
-            = link_to item.title, evensong_path(item)
-          - else
-            = item.title
-        %td= item.psalm
-        %td= item.composer_name
-        %td= item.genre_name
-        %td
-        %td
-          - if permitted_to? :edit, item
-            = link_to t('link.edit'), edit_evensong_path(item), :class => 'btn btn-default btn-xs'
-          - if permitted_to? :destroy, item
-            = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'
+= render 'table', :evensongs => @evensongs
 
 = render 'actions'

@@ -306,6 +306,7 @@ nb:
     submit:
       composer:
         create: Ny komponist
+        update: Update Komponist
       create: Lag %{model}
       genre:
         create: Ny genre
@@ -323,6 +324,7 @@ nb:
       refresh: Oppfrisk
     edit: Rediger
     new: Ny
+    search: "Søk"
   menu:
     account:
       title: Konto
@@ -453,6 +455,8 @@ nb:
       title: Bruker
     users:
       title: Brukere
+    search:
+      title: Søk
   support:
     array:
       last_word_connector: " og "
@@ -512,6 +516,7 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
-
   footer:
-    github: "Kildekoden på github"
+    github: Kildekoden på github
+  search:
+    prefix: 'Nåværende søk:'

@@ -3,6 +3,15 @@ module ApplicationHelper
     "<span class='glyphicon glyphicon-#{icon} #{'white' if white}'></span> #{text}".html_safe
   end
 
+  def search_link(value)
+    if value.blank?
+      return ''
+    end
+
+    link_to link_with_icon('search', value), search_path(:search => value)
+  end
+
+
   def title(page_title, show_title = true)
     title = strip_tags(page_title.to_s)
 
