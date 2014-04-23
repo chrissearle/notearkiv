@@ -281,6 +281,8 @@ en:
       notice: Sorry - you don't have access to that.
     error:
       not_logged_in: You must first log in or sign up before accessing this page.
+  footer:
+    github: Source code on github
   helpers:
     label:
       composer:
@@ -465,14 +467,16 @@ en:
       title: Epoch
     periods:
       title: Epochs
+    search:
+      title: Search
     signin:
       title: Sign In
     user:
       title: User
     users:
       title: Users
-    search:
-      title: Search
+  search:
+    prefix: 'Current search:'
   support:
     array:
       last_word_connector: ", and "
@@ -532,7 +536,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  footer:
-    github: Source code on github
-  search:
-    prefix: 'Current search:'

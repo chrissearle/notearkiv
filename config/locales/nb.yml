@@ -257,6 +257,8 @@ nb:
       notice: Beklager - du har prøvd å gjøre noe ditt bruker ikke har tilgang til. Hvis du trenger tilgang - ta kontakt med administrator for å få det tildelt ditt bruker.
     error:
       not_logged_in: Du må logge på for å få tilgang til denne siden.
+  footer:
+    github: Kildekoden på github
   helpers:
     label:
       composer:
@@ -449,14 +451,16 @@ nb:
       title: Epoke
     periods:
       title: Epoker
+    search:
+      title: Søk
     signin:
       title: Innlogging
     user:
       title: Bruker
     users:
       title: Brukere
-    search:
-      title: Søk
+  search:
+    prefix: 'Nåværende søk:'
   support:
     array:
       last_word_connector: " og "
@@ -516,7 +520,3 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
-  footer:
-    github: Kildekoden på github
-  search:
-    prefix: 'Nåværende søk:'
