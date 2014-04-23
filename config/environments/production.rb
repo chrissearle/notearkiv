@@ -89,6 +89,4 @@ Rails.application.configure do
        :socket_timeout => 1.5,
        :socket_failure_delay => 0.2
       }
-
-  ENV['ELASTICSEARCH_URL'] = ENV['SEARCHBOX_URL']
 end
