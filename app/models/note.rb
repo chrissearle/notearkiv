@@ -77,6 +77,30 @@ class Note < ActiveRecord::Base
     end
   end
 
+  def self.search_all(terms)
+
+    queries = []
+
+    terms.strip.split(/\s+/).each do |term|
+      queries << {'prefix' => {'title' => term}}
+      queries << {'prefix' => {'comment' => term}}
+      queries << {'prefix' => {'voice' => term}}
+      queries << {'prefix' => {'soloists' => term}}
+      queries << {'prefix' => {'period_name' => term}}
+      queries << {'prefix' => {'language_name' => term}}
+      queries << {'prefix' => {'genre_name' => term}}
+      queries << {'prefix' => {'composer_name' => term}}
+    end
+
+    self.search query: {
+        'dis_max' => {
+            'tie_breaker' => 0.7,
+            'boost' => 1.2,
+            'queries' => queries
+        }
+    }
+  end
+
   private
 
   def set_next_item

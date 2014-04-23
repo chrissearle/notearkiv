@@ -7,8 +7,8 @@ class SearchController < ApplicationController
     session[:lastsearch] = search_param
 
     @search = {
-        :notes     => Note.search(search_param).records.to_a,
-        :evensongs => Evensong.search(search_param).records.to_a
+        :notes     => Note.search_all(search_param.downcase).records.to_a,
+        :evensongs => Evensong.search_all(search_param.downcase).records.to_a
     }
   end
 

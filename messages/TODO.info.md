@@ -2,10 +2,11 @@
 
 ### Search
 
-Search is now running using elasticsearch (a proper search engine). However - I've not had time to look at matching - so:
+Search is now running using elasticsearch (a proper search engine). Notes:
 
-* Match is whole word - not prefix
-* Match is based on token - e.g. search for Stanford, Charles Villiers (1852-1924) will match Stanford, Charles Villiers (1852-1924) but also Stanford, Charles and Villiers
+* Match is prefix per word unless a word is numeric - then it will exact match for psalm only in addition
+* Search links (e.g. composer) will use only the first word - so e.g. clicking on Britten, Benjamin (1913-1976) will query for just "Britten".
+* Match is an OR search. However - hits with more than one match should come higher in the results list
 
 ### Other
 

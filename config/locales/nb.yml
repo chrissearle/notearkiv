@@ -324,7 +324,7 @@ nb:
       refresh: Oppfrisk
     edit: Rediger
     new: Ny
-    search: "Søk"
+    search: Søk
   menu:
     account:
       title: Konto

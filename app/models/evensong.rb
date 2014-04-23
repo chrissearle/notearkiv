@@ -30,6 +30,29 @@ class Evensong < ActiveRecord::Base
     as_json(methods: [:genre_name, :composer_name], only: [:title, :psalm, :soloists, :comment, :id])
   end
 
+  def self.search_all(terms)
+
+    queries = []
+
+    terms.strip.split(/\s+/).each do |term|
+      queries << {'prefix' => {'title' => term}}
+      queries << {'prefix' => {'comment' => term}}
+      queries << {'prefix' => {'genre_name' => term}}
+      queries << {'prefix' => {'composer_name' => term}}
+      unless term.to_i == 0
+        queries << {'match' => {'psalm' => term}}
+      end
+    end
+
+    self.search query: {
+        'dis_max' => {
+            'tie_breaker' => 0.7,
+            'boost' => 1.2,
+            'queries' => queries
+        }
+    }
+  end
+
   begin
     def self.excel
       NoteSheet.new([HeaderColumn.new(I18n.t('table.title.sysid'), 8),
