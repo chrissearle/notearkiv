@@ -6,7 +6,7 @@
       = form_for item do |f|
         .form-group
           = f.label :item
-          = f.text_field :item, :class => 'form-control'
+          = f.text_field :item, :class => 'form-control', :placeholder => t('placeholder.note.item')
 
         .form-group
           = f.label :title

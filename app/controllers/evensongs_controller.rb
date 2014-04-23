@@ -6,7 +6,7 @@ class EvensongsController < ApplicationController
   def index
     set_accept_header
 
-#    session.delete :lastsearch
+    session.delete :lastsearch
 
     @evensongs = Evensong.ordered.preloaded
 
@@ -151,6 +151,6 @@ class EvensongsController < ApplicationController
   end
 
   def evensong_params
-    params.require(:evensong).permit(:name)
+    params.require(:evensong).permit(:title, :psalm, :soloists, :comment, :composer_id, :genre_id)
   end
 end

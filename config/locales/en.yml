@@ -127,6 +127,8 @@ en:
     models:
       composer: Composer
       genre: Genre
+      evensong: 
+      note: 
   button:
     add: Add
     back: Back
@@ -536,3 +538,6 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  placeholder:
+    note:
+      item: Leave blank to use the next ID available

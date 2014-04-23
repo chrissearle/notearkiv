@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   def index
     set_accept_header
 
-#    session.delete :lastsearch
+    session.delete :lastsearch
 
     @notes = Note.ordered.preloaded
 
@@ -160,6 +160,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:name)
+    params.require(:note).permit(:item, :title, :soloists, :voice, :instrument, :originals, :copies, :instrumental, :comment, :composer_id, :genre_id, :period_id, :language_id)
   end
 end

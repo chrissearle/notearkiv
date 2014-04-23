@@ -111,6 +111,8 @@ nb:
     models:
       composer: Komponist
       genre: Genre
+      evensong: Evensong
+      note: Note
   button:
     add: Ny
     back: Tilbake
@@ -520,3 +522,6 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
+  placeholder:
+    note:
+      item: La stå tom for å bruke neste tilgjengelige ID
