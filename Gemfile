@@ -67,4 +67,6 @@ group :development do
   gem 'meta_request'
   gem 'bullet'
   gem 'rails_best_practices'
+
+  gem 'ruby-debug-ide', '>= 0.4.23.beta1'
 end
