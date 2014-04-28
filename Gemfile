@@ -68,5 +68,5 @@ group :development do
   gem 'bullet'
   gem 'rails_best_practices'
 
-  gem 'ruby-debug-ide', '>= 0.4.23.beta1'
+  gem 'ruby-debug-ide', '>= 0.4.23.beta1', :require => false
 end
