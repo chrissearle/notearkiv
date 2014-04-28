@@ -8,7 +8,7 @@ module ApplicationHelper
       return ''
     end
 
-    link_to link_with_icon('search', value), search_path(:search => value.to_s.gsub(/[^\wåøæÅØÆ ]/, '').split.first)
+    link_to link_with_icon('search', value), search_path(:search => value.to_s.gsub(/[^\p{Word}\s]/, '').split.trim.first)
   end
 
 
