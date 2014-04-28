@@ -10,8 +10,6 @@ class Note < ActiveRecord::Base
   before_destroy :remove_links
   before_destroy :remove_uploads
 
-  index_name 'notearkiv'
-
   has_many :links
   #has_many :uploads
 
@@ -40,10 +38,10 @@ class Note < ActiveRecord::Base
     as_json(
         only: [:comment, :item, :soloists, :title, :voice, :id],
         include: {
-            genre: { only: :name },
-            language: { only: :name },
-            period: { only: :name },
-            composer: { only: :name },
+            genre: {only: :name},
+            language: {only: :name},
+            period: {only: :name},
+            composer: {only: :name},
         }
     )
   end
@@ -98,15 +96,23 @@ class Note < ActiveRecord::Base
       queries << {'prefix' => {'language.name' => term}}
       queries << {'prefix' => {'genre.name' => term}}
       queries << {'prefix' => {'composer.name' => term}}
+      unless term.to_i == 0
+        queries << {'match' => {'item' => term}}
+      end
     end
 
-    self.search query: {
-        'dis_max' => {
-            'tie_breaker' => 0.7,
-            'boost' => 1.2,
-            'queries' => queries
-        }
+    query = {
+        query: {
+            'dis_max' => {
+                'tie_breaker' => 0.7,
+                'boost' => 1.2,
+                'queries' => queries
+            }
+        },
+        size: Note.count
     }
+
+    self.search(query)
   end
 
   private

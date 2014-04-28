@@ -5,8 +5,6 @@ class Evensong < ActiveRecord::Base
   belongs_to :genre, counter_cache: true
   belongs_to :composer, counter_cache: true
 
-  index_name 'notearkiv'
-
   has_many :links
 #  has_many :uploads
 
@@ -30,8 +28,8 @@ class Evensong < ActiveRecord::Base
     as_json(
         only: [:title, :psalm, :soloists, :comment, :id],
         include: {
-            genre: { only: :name },
-            composer: { only: :name },
+            genre: {only: :name},
+            composer: {only: :name},
         }
     )
   end
@@ -50,13 +48,21 @@ class Evensong < ActiveRecord::Base
       end
     end
 
-    self.search query: {
-        'dis_max' => {
-            'tie_breaker' => 0.7,
-            'boost' => 1.2,
-            'queries' => queries
-        }
+
+    query = {
+        query: {
+            'dis_max' => {
+                'tie_breaker' => 0.7,
+                'boost' => 1.2,
+                'queries' => queries
+            }
+        },
+        size: Evensong.count
     }
+
+    self.search(query)
+
+
   end
 
   begin
