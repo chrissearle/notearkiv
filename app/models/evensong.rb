@@ -27,7 +27,13 @@ class Evensong < ActiveRecord::Base
   end
 
   def as_indexed_json(options={})
-    as_json(methods: [:genre_name, :composer_name], only: [:title, :psalm, :soloists, :comment, :id])
+    as_json(
+        only: [:title, :psalm, :soloists, :comment, :id],
+        include: {
+            genre: { only: :name },
+            composer: { only: :name },
+        }
+    )
   end
 
   def self.search_all(terms)
@@ -37,8 +43,8 @@ class Evensong < ActiveRecord::Base
     terms.strip.split(/\s+/).each do |term|
       queries << {'prefix' => {'title' => term}}
       queries << {'prefix' => {'comment' => term}}
-      queries << {'prefix' => {'genre_name' => term}}
-      queries << {'prefix' => {'composer_name' => term}}
+      queries << {'prefix' => {'genre.name' => term}}
+      queries << {'prefix' => {'composer.name' => term}}
       unless term.to_i == 0
         queries << {'match' => {'psalm' => term}}
       end

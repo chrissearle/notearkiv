@@ -37,7 +37,15 @@ class Note < ActiveRecord::Base
   end
 
   def as_indexed_json(options={})
-    as_json(methods: [:genre_name, :language_name, :period_name, :composer_name], only: [:comment, :item, :soloists, :title, :voice, :id])
+    as_json(
+        only: [:comment, :item, :soloists, :title, :voice, :id],
+        include: {
+            genre: { only: :name },
+            language: { only: :name },
+            period: { only: :name },
+            composer: { only: :name },
+        }
+    )
   end
 
   begin
@@ -86,10 +94,10 @@ class Note < ActiveRecord::Base
       queries << {'prefix' => {'comment' => term}}
       queries << {'prefix' => {'voice' => term}}
       queries << {'prefix' => {'soloists' => term}}
-      queries << {'prefix' => {'period_name' => term}}
-      queries << {'prefix' => {'language_name' => term}}
-      queries << {'prefix' => {'genre_name' => term}}
-      queries << {'prefix' => {'composer_name' => term}}
+      queries << {'prefix' => {'period.name' => term}}
+      queries << {'prefix' => {'language.name' => term}}
+      queries << {'prefix' => {'genre.name' => term}}
+      queries << {'prefix' => {'composer.name' => term}}
     end
 
     self.search query: {

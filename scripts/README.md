@@ -13,3 +13,13 @@ To run reset script
 To generate a list of all localized strings
 
     git grep '\Wt(.*)' | sed -e "s/.*t('//" | sed -e "s/'.*//" | sort -u
+
+Index deletion
+
+    client = Elasticsearch::Client.new host: 'localhost:9200'
+    client.indices.delete index: 'notearkiv'
+
+Index population
+
+    Note.preloaded.import
+    Evensong.preloaded.import
