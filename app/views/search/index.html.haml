@@ -3,15 +3,15 @@
 .well
   .btn-group
     - if params[:search]
-      = clear_button params[:search], ''
+      = clear_button params[:search], typedsearch_path(request.GET.reject{|k,v| k == 'search'})
     - if params[:composer]
-      = clear_button params[:composer], ''
+      = clear_button params[:composer], typedsearch_path(request.GET.reject{|k,v| k == 'composer'})
     - if params[:genre]
-      = clear_button params[:genre], ''
+      = clear_button params[:genre], typedsearch_path(request.GET.reject{|k,v| k == 'genre'})
     - if params[:period]
-      = clear_button params[:period], ''
+      = clear_button params[:period], typedsearch_path(request.GET.reject{|k,v| k == 'period'})
     - if params[:language]
-      = clear_button params[:language], ''
+      = clear_button params[:language], typedsearch_path(request.GET.reject{|k,v| k == 'language'})
 
 - unless @search[:notes].blank?
   .panel.panel-default
