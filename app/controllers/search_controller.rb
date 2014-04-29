@@ -16,6 +16,7 @@ class SearchController < ApplicationController
           match_all: {}
       }
     else
+      # We might want to move this to prefix search - see the commented search_all methods in note and evensong
       query_part = {
           multi_match: {
               fields: %w(title^10 comment soloists voice psalm item),
@@ -73,8 +74,6 @@ class SearchController < ApplicationController
         :evensongs => Evensong.search_all(search_param.downcase).records.to_a
     }
   end
-
-  private
 
   def build_aggregations
     {

@@ -2,11 +2,11 @@
 
 ### Search
 
-Search is now running using elasticsearch (a proper search engine). Notes:
+Search is now running using elasticsearch (a proper search engine).
 
-* Match is prefix per word unless a word is numeric - then it will exact match for psalm only in addition
-* Search links (e.g. composer) will use only the first word - so e.g. clicking on Britten, Benjamin (1913-1976) will query for just "Britten".
-* Match is an OR search. However - hits with more than one match should come higher in the results list
+Note that prefix search is currently not in use.
+
+Note to Chris - why does typeahead need both a search and a db lookup? We want to get rid of all of that - move this to ES too.
 
 ### Other
 
