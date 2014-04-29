@@ -1,40 +1,15 @@
-- title t('page.search.title')
+- if has_search?
+  - title t('page.search.title'), false
+- else
+  - title t("page.#{params[:type]}s.title"), false
 
-.well
-  .btn-group
-    - if params[:search]
-      = clear_button params[:search], typedsearch_path(request.GET.reject{|k,v| k == 'search'})
-    - if params[:composer]
-      = clear_button params[:composer], typedsearch_path(request.GET.reject{|k,v| k == 'composer'})
-    - if params[:genre]
-      = clear_button params[:genre], typedsearch_path(request.GET.reject{|k,v| k == 'genre'})
-    - if params[:period]
-      = clear_button params[:period], typedsearch_path(request.GET.reject{|k,v| k == 'period'})
-    - if params[:language]
-      = clear_button params[:language], typedsearch_path(request.GET.reject{|k,v| k == 'language'})
 
-- unless @search[:notes].blank?
-  .panel.panel-default
-    .panel-body
-      .row
-        .col-md-9
-          .page-header
-            %h2
-              = t('page.notes.title')
-              %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'note'))
-          = render 'notes/table', :notes => Note.preloaded.where(id: @search[:notes].records.ids)
-        .col-md-3
-          = render 'shared/facet', :aggregations => @search[:notes].response['aggregations']
+- if has_search?
+  .well
+    .btn-group
+      - [:search, :composer, :genre, :period, :language].each do |search_param|
+        = clear_search_button search_param
 
-- unless @search[:evensongs].blank?
-  .panel.panel-default
-    .panel-body
-      .row
-        .col-md-9
-          .page-header
-            %h2
-              = t('page.evensongs.title')
-              %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'evensong'))
-          = render 'evensongs/table', :evensongs => Evensong.preloaded.where(id: @search[:evensongs].records.ids)
-        .col-md-3
-          = render 'shared/facet', :aggregations => @search[:evensongs].response['aggregations']
+= render 'search', :result => @search[:notes], :filtered => !@search[:evensongs].blank?, :title => t('page.notes.title'), :type => 'note', :scoped => Note.preloaded, :table => 'notes/table'
+= render 'search', :result => @search[:evensongs], :filtered => !@search[:notes].blank?, :title => t('page.evensongs.title'), :type => 'evensong', :scoped => Evensong.preloaded, :table => 'evensongs/table'
+

@@ -9,9 +9,8 @@
       %th= t('table.title.language')
       %th= t('table.title.instrument')
       %th= t('table.title.upload')
-      %th
   %tbody
-    - notes.each do |item|
+    - rows.each do |item|
       %tr
         %td= item.item
         %td
@@ -25,8 +24,3 @@
         %td= typed_search_link 'language', item.language_name
         %td= item.instrument
         %td
-        %td
-          - if permitted_to? :edit, item
-            = link_to t('link.edit'), edit_note_path(item), :class => 'btn btn-default btn-xs'
-          - if permitted_to? :destroy, item
-            = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'

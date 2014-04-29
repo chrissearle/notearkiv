@@ -11,7 +11,7 @@ class EvensongsController < ApplicationController
     @evensongs = Evensong.ordered.preloaded
 
     respond_to do |format|
-      format.html
+      format.html { redirect_to typedsearch_url( :type => 'evensong' ) }
       format.xls { index_excel }
     end
   end

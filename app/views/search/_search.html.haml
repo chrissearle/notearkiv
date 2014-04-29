@@ -1,0 +1,15 @@
+- unless result.blank?
+  .panel.panel-default
+    .panel-body
+      .page-header
+        %h2
+          = title
+          - if params[:type] != type && filtered
+            %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => type))
+      - unless (params[:type] != type && filtered) || has_search?
+        = render "#{type}s/actions"
+      .row
+        .col-md-9
+          = render table, :rows => scoped.where(id: result.records.ids)
+        .col-md-3
+          = render 'shared/facet', :aggregations => result.response['aggregations']

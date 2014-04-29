@@ -1,10 +1,20 @@
 module ApplicationHelper
   def link_with_icon(icon, text, white=false)
-    "<span class='glyphicon glyphicon-#{icon} #{'white' if white}'></span> #{text}".html_safe
+    "<span class='glyphicon glyphicon-#{icon} #{'white' if white}'></span>&nbsp;#{text}".html_safe
   end
 
   def clear_button(title, link)
     "<a href='#{link}' class='btn btn-default'>#{title} <span class='glyphicon glyphicon-remove-circle'></span></a>".html_safe
+  end
+
+  def clear_search_button(field)
+    unless params[field].blank?
+      clear_button params[field], typedsearch_path(request.GET.reject { |k, v| k == field.to_s })
+    end
+  end
+
+  def has_search?
+    params.include?(:search) || params.include?(:composer) ||  params.include?(:genre) ||  params.include?(:period) ||  params.include?(:language)
   end
 
   def typed_search_link(key, value, type='all')

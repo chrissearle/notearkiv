@@ -60,7 +60,7 @@ nb:
         composer: Komponist
         copies: Kopier
         genre: Genre
-        instrument: Instrument
+        instrument: Akkomp.
         instrumental: Instrumental
         item: ID
         language: Språk
@@ -289,7 +289,7 @@ nb:
         composer: Komponist
         copies: Kopier
         genre: Genre
-        instrument: Instrument
+        instrument: Akkomp.
         instrumental: Instrumental
         item: ID
         language: Språk
@@ -489,7 +489,7 @@ nb:
       end: Slutt
       evensongs: Evensongnoter
       genre: Genre
-      instrument: Instrument
+      instrument: Akkomp.
       instrumental: Instrumental
       item: ID
       key: Nøkkel

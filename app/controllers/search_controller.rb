@@ -53,10 +53,6 @@ class SearchController < ApplicationController
     end
   end
 
-  def search
-    session[:lastsearch] = params[:search]
-  end
-
   def typeahead
     candidates = []
     candidates << @search[:notes].map { |n| n.typeahead(params[:search]) } unless @search[:notes].nil?

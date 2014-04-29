@@ -6,9 +6,8 @@
       %th= t('table.title.composer')
       %th= t('table.title.genre')
       %th= t('table.title.upload')
-      %th
   %tbody
-    - evensongs.each do |item|
+    - rows.each do |item|
       %tr
         %td
           - if permitted_to? :show, item
@@ -19,8 +18,3 @@
         %td= typed_search_link 'composer', item.composer_name
         %td= typed_search_link 'genre', item.genre_name
         %td
-        %td
-          - if permitted_to? :edit, item
-            = link_to t('link.edit'), edit_evensong_path(item), :class => 'btn btn-default btn-xs'
-          - if permitted_to? :destroy, item
-            = link_to t('link.delete'), item, method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-xs btn-danger'

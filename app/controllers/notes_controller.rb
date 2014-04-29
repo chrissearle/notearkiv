@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     @notes = Note.ordered.preloaded
 
     respond_to do |format|
-      format.html
+      format.html { redirect_to typedsearch_url( :type => 'note' ) }
       format.xls { index_excel }
     end
   end
