@@ -121,7 +121,7 @@ class SearchController < ApplicationController
   end
 
   def build_term(term)
-    params[term] ||= []
+    params[term]
 
     unless params[term].blank?
       {

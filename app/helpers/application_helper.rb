@@ -3,6 +3,10 @@ module ApplicationHelper
     "<span class='glyphicon glyphicon-#{icon} #{'white' if white}'></span> #{text}".html_safe
   end
 
+  def clear_button(title, link)
+    "<a href='#{link}' class='btn btn-default'>#{title} <span class='glyphicon glyphicon-remove-circle'></span></a>".html_safe
+  end
+
   def typed_search_link(key, value, type='all')
     if value.blank?
       return ''

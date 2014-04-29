@@ -1,5 +1,18 @@
 - title t('page.search.title')
 
+.well
+  .btn-group
+    - if params[:search]
+      = clear_button params[:search], ''
+    - if params[:composer]
+      = clear_button params[:composer], ''
+    - if params[:genre]
+      = clear_button params[:genre], ''
+    - if params[:period]
+      = clear_button params[:period], ''
+    - if params[:language]
+      = clear_button params[:language], ''
+
 - unless @search[:notes].blank?
   .panel.panel-default
     .panel-body
@@ -9,7 +22,7 @@
             %h2
               = t('page.notes.title')
               %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'note'))
-          = render 'notes/table', :notes => @search[:notes].records
+          = render 'notes/table', :notes => Note.preloaded.where(id: @search[:notes].records.ids)
         .col-md-3
           = render 'shared/facet', :aggregations => @search[:notes].response['aggregations']
 
@@ -22,6 +35,6 @@
             %h2
               = t('page.evensongs.title')
               %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'evensong'))
-          = render 'evensongs/table', :evensongs => @search[:evensongs].records
+          = render 'evensongs/table', :evensongs => Evensong.preloaded.where(id: @search[:evensongs].records.ids)
         .col-md-3
           = render 'shared/facet', :aggregations => @search[:evensongs].response['aggregations']
