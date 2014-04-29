@@ -19,7 +19,8 @@ class SearchController < ApplicationController
       # We might want to move this to prefix search - see the commented search_all methods in note and evensong
       query_part = {
           multi_match: {
-              fields: %w(title^10 comment soloists voice psalm item),
+              # and we might want to try to add composer.name, genre.name, period.name and language.name as queryable too if we do add prefix. But it doesn't work just by adding them here.
+              fields: %w(title^10 comment soloists voice psalm item instrument),
               query: params[:search]
           }
       }
@@ -51,6 +52,16 @@ class SearchController < ApplicationController
     if type.include? 'evensong'
       @search[:evensongs] = Evensong.search(query)
     end
+
+    unless Rails.env.production?
+      File.open('last-query.yml', 'w') do |file|
+        file.write query.to_yaml
+      end
+
+      File.open('last-query.json', 'w') do |file|
+        file.write query.to_json
+      end
+    end
   end
 
   def typeahead
@@ -77,6 +88,7 @@ class SearchController < ApplicationController
         genre: build_aggregation('genre'),
         period: build_aggregation('period'),
         language: build_aggregation('language')
+        #        instrument: build_aggregation('instrument', false)
     }
   end
 
@@ -97,23 +109,35 @@ class SearchController < ApplicationController
         {
             and: terms
         }
-        end
+      end
     end
   end
 
-  def build_aggregation(name)
-    {
-        nested: {
-            path: name
-        },
-        aggregations: {
-            counts: {
-                terms: {
-                    field: "#{name}.name.raw"
-                }
+  def build_aggregation(name, nested=true)
+    field = "#{name}.raw"
+
+    if nested
+      field = "#{name}.name.raw"
+    end
+
+    aggregation = {
+        counts: {
+            terms: {
+                field: field
             }
         }
     }
+
+    if (nested)
+      aggregation = {
+          nested: {
+              path: name
+          },
+          aggregations: aggregation
+      }
+    end
+
+    aggregation
   end
 
   def build_term(term)

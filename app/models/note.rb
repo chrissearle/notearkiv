@@ -36,7 +36,7 @@ class Note < ActiveRecord::Base
 
   def as_indexed_json(options={})
     as_json(
-        only: [:comment, :item, :soloists, :title, :voice, :id],
+        only: [:comment, :item, :soloists, :title, :voice, :id, :instrument],
         include: {
             genre: {only: :name},
             language: {only: :name},

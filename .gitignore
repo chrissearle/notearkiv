@@ -15,3 +15,5 @@
 /log/*.log
 /log/*.yml
 /tmp
+
+last-query*

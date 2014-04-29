@@ -15,6 +15,11 @@ module Searchable
         indexes :item, analyzer: 'keyword', type: 'string'
         indexes :voice, analyzer: 'keyword'
 
+        indexes :instrument, type: 'multi_field' do
+          indexes :instrument, analyzer: 'standard'
+          indexes :raw, index: :not_analyzed
+        end
+
         indexes :genre, type: 'nested' do
           indexes :name, type: 'multi_field' do
             indexes :name

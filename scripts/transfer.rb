@@ -47,7 +47,7 @@ new.prepare('create_notes', 'INSERT INTO notes (id, item, title, originals, copi
 
 old.exec('SELECT id, item, title, originals, copies, instrumental, voice, composer_id, genre_id, period_id, language_id, instrument, soloists, comment FROM notes') do |result|
   result.each do |row|
-    new.exec_prepared('create_notes', [row['id'], row['item'], row['title'], row['originals'], row['copies'], row['instrumental'], row['voice'], row['composer_id'], row['genre_id'], row['period_id'], row['language_id'], row['insturment'], row['soloists'], row['comment']])
+    new.exec_prepared('create_notes', [row['id'], row['item'], row['title'], row['originals'], row['copies'], row['instrumental'], row['voice'], row['composer_id'], row['genre_id'], row['period_id'], row['language_id'], row['instrument'], row['soloists'], row['comment']])
   end
 end
 
