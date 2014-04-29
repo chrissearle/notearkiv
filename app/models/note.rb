@@ -83,42 +83,6 @@ class Note < ActiveRecord::Base
     end
   end
 
-  def self.search_all(terms)
-
-    queries = []
-
-    terms.strip.split(/\s+/).each do |term|
-      queries << {'prefix' => {'title' => term}}
-      queries << {'prefix' => {'comment' => term}}
-      queries << {'prefix' => {'voice' => term}}
-      queries << {'prefix' => {'soloists' => term}}
-      queries << {'prefix' => {'period.name' => term}}
-      queries << {'prefix' => {'language.name' => term}}
-      queries << {'prefix' => {'genre.name' => term}}
-      queries << {'prefix' => {'composer.name' => term}}
-      unless term.to_i == 0
-        queries << {'match' => {'item' => term}}
-      end
-    end
-
-    query = {
-        query: {
-            'dis_max' => {
-                'tie_breaker' => 0.7,
-                'boost' => 1.2,
-                'queries' => queries
-            }
-        },
-        size: Note.count
-    }
-
-    self.search(query)
-  end
-
-  def self.clear_index
-    Note.__elasticsearch__.client.indices.delete index: 'notearkiv'
-  end
-
   private
 
   def set_next_item

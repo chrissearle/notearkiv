@@ -1,8 +1,6 @@
 class SearchController < ApplicationController
   filter_access_to :all
 
-  before_action :set_search, only: [:search, :typeahead]
-
   def index
     type = params[:type]
 
@@ -10,7 +8,48 @@ class SearchController < ApplicationController
       type = %w(note evensong)
     end
 
+    set_search(type)
+  end
 
+  def typeahead
+    set_search(%w(note evensong))
+
+    candidates = []
+    candidates << Note.preloaded.where(id: @search[:notes].records.ids).map { |n| n.typeahead(params[:search]) } unless @search[:notes].nil?
+    candidates << Evensong.preloaded.where(id: @search[:evensongs].records.ids).map { |n| n.typeahead(params[:search]) } unless @search[:evensongs].nil?
+
+    render :json => candidates.flatten.uniq
+  end
+
+  private
+
+
+  def set_search(type)
+    query = build_query
+
+    @search = {}
+
+    if type.include? 'note'
+      @search[:notes] = Note.search(query)
+    end
+
+    if type.include? 'evensong'
+      @search[:evensongs] = Evensong.search(query)
+    end
+
+    unless Rails.env.production?
+      File.open('last-query.yml', 'w') do |file|
+        file.write query.to_yaml
+      end
+
+      File.open('last-query.json', 'w') do |file|
+        file.write query.to_json
+      end
+    end
+  end
+
+
+  def build_query
     if params[:search].blank?
       query_part = {
           match_all: {}
@@ -54,48 +93,10 @@ class SearchController < ApplicationController
       }
     end
 
-    query = {
+    {
         query: query_part,
         size: 1000,
         aggregations: build_aggregations
-    }
-
-    @search = {}
-
-    if type.include? 'note'
-      @search[:notes] = Note.search(query)
-    end
-
-    if type.include? 'evensong'
-      @search[:evensongs] = Evensong.search(query)
-    end
-
-    unless Rails.env.production?
-      File.open('last-query.yml', 'w') do |file|
-        file.write query.to_yaml
-      end
-
-      File.open('last-query.json', 'w') do |file|
-        file.write query.to_json
-      end
-    end
-  end
-
-  def typeahead
-    candidates = []
-    candidates << @search[:notes].map { |n| n.typeahead(params[:search]) } unless @search[:notes].nil?
-    candidates << @search[:evensongs].map { |n| n.typeahead(params[:search]) } unless @search[:evensongs].nil?
-
-    render :json => candidates.flatten.uniq
-  end
-
-  private
-
-  def set_search
-    search_param = params[:search]
-    @search = {
-        :notes => Note.search_all(search_param.downcase).records.to_a,
-        :evensongs => Evensong.search_all(search_param.downcase).records.to_a
     }
   end
 

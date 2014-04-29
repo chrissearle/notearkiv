@@ -34,37 +34,6 @@ class Evensong < ActiveRecord::Base
     )
   end
 
-  def self.search_all(terms)
-
-    queries = []
-
-    terms.strip.split(/\s+/).each do |term|
-      queries << {'prefix' => {'title' => term}}
-      queries << {'prefix' => {'comment' => term}}
-      queries << {'prefix' => {'genre.name' => term}}
-      queries << {'prefix' => {'composer.name' => term}}
-      unless term.to_i == 0
-        queries << {'match' => {'psalm' => term}}
-      end
-    end
-
-
-    query = {
-        query: {
-            'dis_max' => {
-                'tie_breaker' => 0.7,
-                'boost' => 1.2,
-                'queries' => queries
-            }
-        },
-        size: Evensong.count
-    }
-
-    self.search(query)
-
-
-  end
-
   begin
     def self.excel
       NoteSheet.new([HeaderColumn.new(I18n.t('table.title.sysid'), 8),
