@@ -19,8 +19,8 @@ nb:
         not_a_number: er ikke et tall
         not_an_integer: er ikke et heltall
         odd: må være oddetall
-        other_than: 
-        present: 
+        other_than: må være annet enn %{count}
+        present: må være tom
         record_invalid: 'Det oppstod feil: %{errors}'
         restrict_dependent_destroy: 
         taken: er allerede i bruk
@@ -95,8 +95,8 @@ nb:
         not_a_number: er ikke et tall
         not_an_integer: er ikke et heltall
         odd: må være oddetall
-        other_than: 
-        present: 
+        other_than: må være annet enn %{count}
+        present: må være tom
         record_invalid: 'Det oppstod feil: %{errors}'
         restrict_dependent_destroy: 
         taken: er allerede i bruk
@@ -110,8 +110,8 @@ nb:
           other: Kunne ikke lagre %{model} på grunn av %{count} feil.
     models:
       composer: Komponist
-      genre: Genre
       evensong: Evensong
+      genre: Genre
       note: Note
   button:
     add: Ny
@@ -241,8 +241,8 @@ nb:
       not_a_number: er ikke et tall
       not_an_integer: er ikke et heltall
       odd: må være oddetall
-      other_than: 
-      present: 
+      other_than: må være annet enn %{count}
+      present: må være tom
       record_invalid: 'Det oppstod feil: %{errors}'
       restrict_dependent_destroy: 
       taken: er allerede i bruk
@@ -327,9 +327,9 @@ nb:
       authorize: Godkjenn
       refresh: Oppfrisk
     edit: Rediger
+    filter: filtrer
     new: Ny
     search: Søk
-    filter: "filtrer"
   menu:
     account:
       title: Konto
@@ -462,6 +462,9 @@ nb:
       title: Bruker
     users:
       title: Brukere
+  placeholder:
+    note:
+      item: La stå tom for å bruke neste tilgjengelige ID
   search:
     prefix: 'Nåværende søk:'
   support:
@@ -523,6 +526,3 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
-  placeholder:
-    note:
-      item: La stå tom for å bruke neste tilgjengelige ID

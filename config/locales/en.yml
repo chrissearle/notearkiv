@@ -126,9 +126,9 @@ en:
           other: "%{count} errors prohibited this %{model} from being saved"
     models:
       composer: Composer
+      evensong: Evensong
       genre: Genre
-      evensong: 
-      note: 
+      note: Note
   button:
     add: Add
     back: Back
@@ -334,7 +334,7 @@ en:
     submit:
       composer:
         create: Create Composer
-        update: 
+        update: Update
       create: Create %{model}
       genre:
         create: Create Genre
@@ -351,9 +351,9 @@ en:
       authorize: Authorize
       refresh: Refresh
     edit: Edit
+    filter: filter
     new: New
     search: Search
-    filter: "filter"
   menu:
     account:
       title: Account
@@ -478,6 +478,9 @@ en:
       title: User
     users:
       title: Users
+  placeholder:
+    note:
+      item: Leave blank to use the next ID available
   search:
     prefix: 'Current search:'
   support:
@@ -539,6 +542,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  placeholder:
-    note:
-      item: Leave blank to use the next ID available
