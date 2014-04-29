@@ -14,28 +14,22 @@
       %td= @show[:note].title
     %tr
       %td= t('table.title.composer')
-      -# %td= search_link @show[:note].composer_name
-      %td= @show[:note].composer_name
+      %td= search_link 'composer', @show[:note].composer_name
     %tr
       %td= t('table.title.genre')
-      -# %td= search_link @show[:note].genre_name
-      %td= @show[:note].genre_name
+      %td= search_link 'genre', @show[:note].genre_name
     %tr
       %td= t('table.title.period')
-      -# %td= search_link @show[:note].period_name
-      %td= @show[:note].period_name
+      %td= search_link 'period', @show[:note].period_name
     %tr
       %td= t('table.title.language')
-      -# %td= search_link @show[:note].language_name
-      %td= @show[:note].language_name
+      %td= search_link 'langauge', @show[:note].language_name
     %tr
       %td= t('table.title.soloists')
-      -# %td= search_link @show[:note].soloists
-      %td= @show[:note].soloists
+      %td= search_link 'search', @show[:note].soloists
     %tr
       %td= t('table.title.instrument')
-      -# %td= search_link @show[:note].instrument
-      %td= @show[:note].instrument
+      %td= search_link 'search', @show[:note].instrument
     %tr
       %td= t('table.title.originals')
       %td= @show[:note].originals
@@ -47,8 +41,7 @@
       %td= @show[:note].instrumental
     %tr
       %td= t('table.title.voices')
-      -# %td= search_link @show[:note].voice
-      %td= @show[:note].voice
+      %td= search_link 'search', @show[:note].voice
     %tr
       %td= t('table.title.comment')
       %td= @show[:note].comment

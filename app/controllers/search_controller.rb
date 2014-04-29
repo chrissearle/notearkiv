@@ -16,12 +16,29 @@ class SearchController < ApplicationController
           match_all: {}
       }
     else
-      # We might want to move this to prefix search - see the commented search_all methods in note and evensong
       query_part = {
-          multi_match: {
-              # and we might want to try to add composer.name, genre.name, period.name and language.name as queryable too if we do add prefix. But it doesn't work just by adding them here.
-              fields: %w(title^10 comment soloists voice psalm item instrument),
-              query: params[:search]
+          bool: {
+              should: [
+                  {
+                      multi_match: {
+                          fields: %w(title^10 comment soloists voice psalm item instrument),
+                          query: params[:search],
+                          type: 'phrase_prefix'
+                      }
+                  },
+                  {
+                      nested: build_nested_match('composer')
+                  },
+                  {
+                      nested: build_nested_match('genre')
+                  },
+                  {
+                      nested: build_nested_match('language')
+                  },
+                  {
+                      nested: build_nested_match('period')
+                  }
+              ]
           }
       }
     end
@@ -128,7 +145,7 @@ class SearchController < ApplicationController
         }
     }
 
-    if (nested)
+    if nested
       aggregation = {
           nested: {
               path: name
@@ -138,6 +155,22 @@ class SearchController < ApplicationController
     end
 
     aggregation
+  end
+
+  def build_nested_match(field)
+    key = "#{field}.name"
+
+    {
+        path: field,
+        query: {
+            match: {
+                key => {
+                    query: params[:search],
+                    type: 'phrase_prefix'
+                }
+            }
+        }
+    }
   end
 
   def build_term(term)

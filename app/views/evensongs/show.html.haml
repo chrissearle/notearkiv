@@ -11,22 +11,19 @@
       %td= @show[:evensong].title
     %tr
       %td= t('table.title.psalm')
-      %td= search_link @show[:evensong].psalm
+      %td= search_link 'search', @show[:evensong].psalm
     %tr
       %td= t('table.title.composer')
-      -# %td= search_link @show[:evensong].composer_name
-      %td= search_link @show[:evensong].composer_name
+      %td= search_link 'composer', @show[:evensong].composer_name
     %tr
       %td= t('table.title.genre')
-      -# %td= search_link @show[:evensong].genre_name
-      %td= search_link @show[:evensong].genre_name
+      %td= search_link 'genre', @show[:evensong].genre_name
     %tr
       %td= t('table.title.soloists')
-      -# %td= search_link @show[:evensong].soloists
-      %td= search_link @show[:evensong].soloists
+      %td= search_link 'search', @show[:evensong].soloists
     %tr
       %td= t('table.title.comment')
-      %td= search_link @show[:evensong].comment
+      %td= search_link 'search', @show[:evensong].comment
     %tr
       %td= t('table.title.links')
       %td

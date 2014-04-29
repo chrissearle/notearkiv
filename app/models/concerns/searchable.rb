@@ -49,14 +49,9 @@ module Searchable
         end
       end
     end
-=begin
-    mapping do
-      # ...
-    end
 
-    def self.search(query)
-      # ...
+    def self.full_reindex
+      self.preloaded.import force: true
     end
-=end
   end
 end

@@ -18,9 +18,9 @@
             = link_to item.title, note_path(item)
           - else
             = item.title
-        %td= typed_search_link 'composer', item.composer_name
-        %td= typed_search_link 'genre', item.genre_name
-        %td= typed_search_link 'period', item.period_name
-        %td= typed_search_link 'language', item.language_name
-        %td= typed_search_link 'search', item.instrument
+        %td= search_link 'composer', item.composer_name
+        %td= search_link 'genre', item.genre_name
+        %td= search_link 'period', item.period_name
+        %td= search_link 'language', item.language_name
+        %td= search_link 'search', item.instrument
         %td

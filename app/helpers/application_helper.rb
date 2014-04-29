@@ -17,22 +17,14 @@ module ApplicationHelper
     params.include?(:search) || params.include?(:composer) ||  params.include?(:genre) ||  params.include?(:period) ||  params.include?(:language)
   end
 
-  def typed_search_link(key, value, type='all')
+  def search_link(key, value, type='all')
     if value.blank?
       return ''
     end
 
-    link_to link_with_icon('search', value), typedsearch_path(:type => type, :"#{key}" => value)
+#    link_to link_with_icon('search', value), typedsearch_path(:type => type, :"#{key}" => value)
+    link_to value, typedsearch_path(:type => type, :"#{key}" => value)
   end
-
-  def search_link(value)
-    if value.blank?
-      return ''
-    end
-
-    link_to link_with_icon('search', value), search_path(:search => value.to_s.gsub(/[^\p{Word}\s]/, '').split.first.strip)
-  end
-
 
   def title(page_title, show_title = true)
     title = strip_tags(page_title.to_s)
