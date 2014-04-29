@@ -60,7 +60,7 @@ class SearchController < ApplicationController
               should: [
                   {
                       multi_match: {
-                          fields: %w(title^10 comment soloists voice psalm item instrument),
+                          fields: %w(title^10 comment soloists psalm item instrument voice),
                           query: params[:search],
                           type: 'phrase_prefix'
                       }
@@ -93,11 +93,17 @@ class SearchController < ApplicationController
       }
     end
 
-    {
+    query = {
         query: query_part,
         size: 1000,
         aggregations: build_aggregations
     }
+
+    if params[:sort]
+      query['sort'] = build_sort
+    end
+
+    query
   end
 
   def build_aggregations
@@ -106,6 +112,7 @@ class SearchController < ApplicationController
         genre: build_aggregation('genre'),
         period: build_aggregation('period'),
         language: build_aggregation('language')
+        #voice: build_aggregation('voice', false)
         #        instrument: build_aggregation('instrument', false)
     }
   end
@@ -189,6 +196,27 @@ class SearchController < ApplicationController
           }
       }
     end
+  end
+
+  def build_sort
+    direction = 'asc'
+
+    unless params[:direction].blank?
+      if params[:direction].downcase == 'desc'
+        direction = 'desc'
+      end
+    end
+
+    key = "#{params[:sort]}.sort"
+    sort = {}
+    sort[key] = {}
+    sort[key]['order'] = direction
+
+    if params[:sort].include? '.'
+      sort[key]['nested_path'] = params[:sort].gsub(/\..*/, '')
+    end
+
+    [] << sort
   end
 
 end

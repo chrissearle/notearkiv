@@ -83,4 +83,9 @@ module ApplicationHelper
         type.to_s
     end
   end
+
+  def sorted_scoped(scoped, ids)
+    index = scoped.where(id: ids).to_a.group_by(&:id)
+    ids.map{ |i| index[i.to_i].first }
+  end
 end
