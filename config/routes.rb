@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       end
     end
 
+
+    match 'search/:type' => 'search#index', :as => :typedsearch, via: [:get, :post]
+
     match 'search' => 'search#search', :as => :search, via: [:get, :post]
 
     match 'typeahead' => 'search#typeahead', :as => :searchahead, via: [:get]

@@ -353,6 +353,7 @@ en:
     edit: Edit
     new: New
     search: Search
+    filter: "filter"
   menu:
     account:
       title: Account

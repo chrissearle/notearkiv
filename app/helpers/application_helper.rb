@@ -3,6 +3,14 @@ module ApplicationHelper
     "<span class='glyphicon glyphicon-#{icon} #{'white' if white}'></span> #{text}".html_safe
   end
 
+  def typed_search_link(key, value, type='all')
+    if value.blank?
+      return ''
+    end
+
+    link_to link_with_icon('search', value), typedsearch_path(:type => type, :"#{key}" => value)
+  end
+
   def search_link(value)
     if value.blank?
       return ''

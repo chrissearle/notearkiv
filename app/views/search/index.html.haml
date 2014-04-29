@@ -1,0 +1,27 @@
+- title t('page.search.title')
+
+- unless @search[:notes].blank?
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-9
+          .page-header
+            %h2
+              = t('page.notes.title')
+              %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'note'))
+          = render 'notes/table', :notes => @search[:notes].records
+        .col-md-3
+          = render 'shared/facet', :aggregations => @search[:notes].response['aggregations']
+
+- unless @search[:evensongs].blank?
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-9
+          .page-header
+            %h2
+              = t('page.evensongs.title')
+              %small= link_to t('link.filter'), typedsearch_path(request.GET.merge(:type => 'evensong'))
+          = render 'evensongs/table', :evensongs => @search[:evensongs].records
+        .col-md-3
+          = render 'shared/facet', :aggregations => @search[:evensongs].response['aggregations']

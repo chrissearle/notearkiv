@@ -14,7 +14,7 @@ authorization do
     has_permission_on [:links], :to => [:new, :create, :edit, :update, :destroy, :show]
     has_permission_on [:uploads], :to => [:new, :create, :destroy, :show, :link, :refresh, :edit, :update]
     has_permission_on [:archive], :to => [:download]
-    has_permission_on [:search], :to => [:search, :typeahead]
+    has_permission_on [:search], :to => [:search, :typeahead, :index]
   end
 
   role :account do
@@ -26,6 +26,6 @@ authorization do
     has_permission_on [:links], :to => [:show]
     has_permission_on [:uploads], :to => [:show]
     has_permission_on [:archive], :to => [:download]
-    has_permission_on [:search], :to => [:search, :typeahead]
+    has_permission_on [:search], :to => [:search, :typeahead, :index]
   end
 end

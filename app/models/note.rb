@@ -41,7 +41,7 @@ class Note < ActiveRecord::Base
             genre: {only: :name},
             language: {only: :name},
             period: {only: :name},
-            composer: {only: :name},
+            composer: {only: :name}
         }
     )
   end
@@ -113,6 +113,10 @@ class Note < ActiveRecord::Base
     }
 
     self.search(query)
+  end
+
+  def self.clear_index
+    Note.__elasticsearch__.client.indices.delete index: 'notearkiv'
   end
 
   private

@@ -5,36 +5,45 @@ module Searchable
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 
-    index_name 'notearkiv'
-
-    settings index: {} do
-      mapping do
+    settings index: {number_of_shards: 1, number_of_replicas: 0} do
+      mapping dynamic: 'false' do
         indexes :title, analyzer: 'standard'
         indexes :soloists, analyzer: 'standard'
         indexes :comment, analyzer: 'standard'
-        indexes :psalm, analyzer: 'keyword'
+        indexes :psalm, analyzer: 'keyword', type: 'string'
         indexes :id, analyzer: 'keyword'
-        indexes :item, analyzer: 'keyword'
+        indexes :item, analyzer: 'keyword', type: 'string'
         indexes :voice, analyzer: 'keyword'
 
         indexes :genre, type: 'nested' do
-          indexes :name, analyzer: 'standard'
+          indexes :name, type: 'multi_field' do
+            indexes :name
+            indexes :raw, index: :not_analyzed
+          end
         end
 
         indexes :composer, type: 'nested' do
-          indexes :name, analyzer: 'standard'
+          indexes :name, type: 'multi_field' do
+            indexes :name
+            indexes :raw, index: :not_analyzed
+          end
         end
 
         indexes :period, type: 'nested' do
-          indexes :name, analyzer: 'standard'
+          indexes :name, type: 'multi_field' do
+            indexes :name
+            indexes :raw, index: :not_analyzed
+          end
         end
 
         indexes :language, type: 'nested' do
-          indexes :name, analyzer: 'standard'
+          indexes :name, type: 'multi_field' do
+            indexes :name
+            indexes :raw, index: :not_analyzed
+          end
         end
       end
     end
-
 =begin
     mapping do
       # ...

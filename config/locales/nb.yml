@@ -329,6 +329,7 @@ nb:
     edit: Rediger
     new: Ny
     search: Søk
+    filter: "filtrer"
   menu:
     account:
       title: Konto

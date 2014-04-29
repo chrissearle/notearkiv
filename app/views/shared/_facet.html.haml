@@ -1,0 +1,8 @@
+- aggregations.each do |name, aggregation|
+  - if aggregation['doc_count'] > 1 && aggregation['counts']['buckets'].size > 1
+    %h3= t("page.title.#{name}s")
+    .list-group
+      - aggregation['counts']['buckets'].each do |bucket|
+        %a.list-group-item{:href => url_for(request.GET.merge(name => bucket['key']))}
+          %span.badge= bucket['doc_count']
+          = bucket['key']
