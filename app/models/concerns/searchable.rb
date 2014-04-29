@@ -5,11 +5,19 @@ module Searchable
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 
-    settings index: {number_of_shards: 1, number_of_replicas: 0} do
+    settings analysis: {
+        analyzer: {
+            lowerKeyword: {
+                type: :custom,
+                tokenizer: :keyword,
+                filter: [:lowercase]
+            }
+        }
+    } do
       mapping dynamic: 'false' do
         indexes :title, type: 'multi_field' do
           indexes :title, analyzer: 'standard'
-          indexes :sort, index: :not_analyzed
+          indexes :sort, analyzer: 'lowerKeyword'
         end
 
         indexes :soloists, analyzer: 'standard'
@@ -26,21 +34,20 @@ module Searchable
         indexes :voice, type: 'multi_field' do
           indexes :voice, analyzer: 'simple'
           indexes :raw, index: :not_analyzed
-          indexes :sort, index: :not_analyzed
-
+          indexes :sort, analyzer: 'lowerKeyword'
         end
 
         indexes :instrument, type: 'multi_field' do
           indexes :instrument, analyzer: 'standard'
           indexes :raw, index: :not_analyzed
-          indexes :sort, index: :not_analyzed
+          indexes :sort, analyzer: 'lowerKeyword'
         end
 
         indexes :genre, type: 'nested' do
           indexes :name, type: 'multi_field' do
             indexes :name
             indexes :raw, index: :not_analyzed
-            indexes :sort, index: :not_analyzed
+            indexes :sort, analyzer: 'lowerKeyword'
           end
         end
 
@@ -48,7 +55,7 @@ module Searchable
           indexes :name, type: 'multi_field' do
             indexes :name
             indexes :raw, index: :not_analyzed
-            indexes :sort, index: :not_analyzed
+            indexes :sort, analyzer: 'lowerKeyword'
           end
         end
 
@@ -56,7 +63,7 @@ module Searchable
           indexes :name, type: 'multi_field' do
             indexes :name
             indexes :raw, index: :not_analyzed
-            indexes :sort, index: :not_analyzed
+            indexes :sort, analyzer: 'lowerKeyword'
           end
         end
 
@@ -64,7 +71,7 @@ module Searchable
           indexes :name, type: 'multi_field' do
             indexes :name
             indexes :raw, index: :not_analyzed
-            indexes :sort, index: :not_analyzed
+            indexes :sort, analyzer: 'lowerKeyword'
           end
         end
       end
