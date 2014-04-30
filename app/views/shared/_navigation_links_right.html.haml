@@ -19,10 +19,10 @@
         = link_with_icon( 'user', t('menu.dropdown.account'), true)
         %b.caret
       %ul.dropdown-menu
-        - if permitted_to? :index, :account
-          %li= link_to t('menu.account.title'), url_for(:controller => 'account', :action => 'index')
         - if permitted_to? :index, :messages
           %li= link_to t('menu.message.title'), messages_path
+        - if permitted_to? :index, :account
+          %li= link_to t('menu.account.title'), url_for(:controller => 'account', :action => 'index')
         - if permitted_to? :index, :admin_users
           %li= link_to t('menu.users.title'), admin_users_path
         - if permitted_to? :index, :dropbox

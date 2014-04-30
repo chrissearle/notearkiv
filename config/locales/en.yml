@@ -84,6 +84,10 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      period:
+        name: 
+      language:
+        name: 
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -129,6 +133,8 @@ en:
       evensong: Evensong
       genre: Genre
       note: Note
+      language: 
+      user: 
   button:
     add: Add
     back: Back
@@ -371,6 +377,10 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
+      period:
+        name: 
+      language:
+        name: 
     select:
       prompt: Please select
     submit:
@@ -383,6 +393,8 @@ en:
         update: Update Genre
       submit: Save %{model}
       update: Update %{model}
+      language:
+        create: 
   link:
     back: Back
     delete: Delete

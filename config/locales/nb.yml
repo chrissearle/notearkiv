@@ -76,6 +76,10 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      period:
+        name: Name
+      language:
+        name: Name
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -113,6 +117,9 @@ nb:
       evensong: Evensong
       genre: Genre
       note: Note
+      period: Period
+      language: Language
+      user: User
   button:
     add: Ny
     back: Tilbake
@@ -306,7 +313,7 @@ nb:
   helpers:
     label:
       composer:
-        name: Komponist
+        name: Navn
       evensong:
         comment: Kommentar
         composer: Komponist
@@ -347,6 +354,10 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
+      period:
+        name: 
+      language:
+        name: 
     select:
       prompt: Vennligst velg
     submit:
@@ -359,6 +370,10 @@ nb:
         update: Lagre
       submit: Lagre %{model}
       update: Oppdater %{model}
+      period:
+        create: Create Period
+      language:
+        create: Create Language
   link:
     back: Tilbake
     delete: Slett

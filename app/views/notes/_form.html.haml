@@ -4,56 +4,58 @@
       %h2= title
 
       = form_for item do |f|
+        = render 'shared/validation_messages', :errors => item.errors
+
         .form-group
-          = f.label :item
+          = f.label :item, :class => 'control-label'
           = f.text_field :item, :class => 'form-control', :placeholder => t('placeholder.note.item')
 
         .form-group
-          = f.label :title
+          = f.label :title, :class => 'control-label'
           = f.text_field :title, :class => 'form-control'
 
         .form-group
-          = f.label :soloists
+          = f.label :soloists, :class => 'control-label'
           = f.text_field :soloists, :class => 'form-control'
 
         .form-group
-          = f.label :voice
+          = f.label :voice, :class => 'control-label'
           = f.text_field :voice, :data => { :'typeahead-link' => voices_notes_url( :format => :json ) }, :class => 'form-control'
 
         .form-group
-          = f.label :instrument
+          = f.label :instrument, :class => 'control-label'
           = f.text_field :instrument, :class => 'form-control'
 
         .form-group
-          = f.label :originals
+          = f.label :originals, :class => 'control-label'
           = f.text_field :originals, :class => 'form-control'
 
         .form-group
-          = f.label :copies
+          = f.label :copies, :class => 'control-label'
           = f.text_field :copies, :class => 'form-control'
 
         .form-group
-          = f.label :instrumental
+          = f.label :instrumental, :class => 'control-label'
           = f.text_field :instrumental, :class => 'form-control'
 
         .form-group
-          = f.label :comment
+          = f.label :comment, :class => 'control-label'
           = f.text_area :comment, :class => 'form-control'
 
         .form-group
-          = f.label :composer
+          = f.label :composer, :class => 'control-label'
           = f.collection_select :composer_id, Composer.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
         .form-group
-          = f.label :genre
+          = f.label :genre, :class => 'control-label'
           = f.collection_select :genre_id, Genre.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
         .form-group
-          = f.label :period
+          = f.label :period, :class => 'control-label'
           = f.collection_select :period_id, Period.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
         .form-group
-          = f.label :language
+          = f.label :language, :class => 'control-label'
           = f.collection_select :language_id, Language.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
         .well

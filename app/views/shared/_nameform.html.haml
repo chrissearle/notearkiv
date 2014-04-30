@@ -1,18 +1,19 @@
 %h1= title
 
-= form_for(item) do |f|
-  - if item.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(item.errors.count, 'error')} prohibited this from being saved:"
+.container
+  .row
+    .col-md-3
 
-      %ul
-        - item.errors.full_messages.each do |message|
-          %li= message
+    .col-md-6
+      = form_for(item) do |f|
+        = render 'shared/validation_messages', :errors => item.errors
 
-  .form-group
-    = f.label :name
-    = f.text_field :name, :class => 'form-control'
+        .form-group
+          = f.label :name, :class => 'control-label'
+          = f.text_field :name, :class => 'form-control'
 
-  .well
-    = f.submit :class => 'btn btn-primary'
-    = link_to t('link.back'), polymorphic_url(item.class), :class => 'btn btn-default'
+        .well
+          = f.submit :class => 'btn btn-primary'
+          = link_to t('link.back'), polymorphic_url(item.class), :class => 'btn btn-default'
+
+    .col-md-3

@@ -4,28 +4,30 @@
       %h2= t('page.message.title')
 
       = form_for item do |f|
+        = render 'shared/validation_messages', :errors => item.errors
+
         .form-group
-          = f.label :title
+          = f.label :title, :class => 'control-label'
           = f.text_field :title, :class => 'form-control'
 
         .form-group
-          = f.label :content
+          = f.label :content, :class => 'control-label'
           = f.text_area :content, :class => 'form-control'
 
         .form-group
-          = f.label :startdt_text
+          = f.label :startdt_text, :class => 'control-label'
           = f.text_field :startdt_text, :class => 'form-control'
 
         .form-group
-          = f.label :enddt_text
+          = f.label :enddt_text, :class => 'control-label'
           = f.password_field :enddt_text, :class => 'form-control'
 
         .form-group
-          = f.label :active_flag
+          = f.label :active_flag, :class => 'control-label'
           = f.check_box :active_flag, :class => 'form-control'
 
         .form-group
-          = f.label :msgtype
+          = f.label :msgtype, :class => 'control-label'
           = f.radio_button :msgtype, 'info'
           = t('msgtype.info')
           = f.radio_button :msgtype, 'warning'
