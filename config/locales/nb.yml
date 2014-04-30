@@ -45,8 +45,10 @@ nb:
         title: Tittel
       genre:
         name: Navn
+      language:
+        name: Navn
       link:
-        title: Title
+        title: Tittel
         url: Url
       message:
         active_flag: I bruk?
@@ -69,6 +71,8 @@ nb:
         soloists: Soloister
         title: Tittel
         voice: Stemmer
+      period:
+        name: Navn
       user:
         email: Epost
         name: Navn
@@ -76,10 +80,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      period:
-        name: Name
-      language:
-        name: Name
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -116,10 +116,11 @@ nb:
       composer: Komponist
       evensong: Evensong
       genre: Genre
+      language: Språk
+      message: Melding
       note: Note
-      period: Period
-      language: Language
-      user: User
+      period: Epoke
+      user: Bruker
   button:
     add: Ny
     back: Tilbake
@@ -323,13 +324,15 @@ nb:
         title: Tittel
       genre:
         name: Navn
+      language:
+        name: Navn
       link:
         title: Tittel
         url: URL
       message:
         active_flag: I bruk?
         content: Innhold
-        enddt_text: Slutt dato/k
+        enddt_text: Slutt dato/kl
         msgtype: Meldingstype
         startdt_text: Start dato/kl
         title: Tittel
@@ -347,6 +350,8 @@ nb:
         soloists: Soloister
         title: Tittel
         voice: Stemmer
+      period:
+        name: Navn
       user:
         email: Epost
         name: Navn
@@ -354,26 +359,22 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      period:
-        name: 
-      language:
-        name: 
     select:
       prompt: Vennligst velg
     submit:
       composer:
         create: Ny komponist
-        update: Update Komponist
+        update: Oppdater Komponist
       create: Lag %{model}
       genre:
         create: Ny genre
         update: Lagre
+      language:
+        create: Ny språk
+      period:
+        create: Ny epoke
       submit: Lagre %{model}
       update: Oppdater %{model}
-      period:
-        create: Create Period
-      language:
-        create: Create Language
   link:
     back: Tilbake
     delete: Slett

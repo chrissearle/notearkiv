@@ -53,6 +53,8 @@ en:
         title: Title
       genre:
         name: Name
+      language:
+        name: Name
       link:
         title: Title
         url: URL
@@ -77,6 +79,8 @@ en:
         soloists: Soloists
         title: Title
         voice: Voices
+      period:
+        name: Name
       user:
         email: Email
         name: Name
@@ -84,10 +88,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      period:
-        name: 
-      language:
-        name: 
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -132,9 +132,11 @@ en:
       composer: Composer
       evensong: Evensong
       genre: Genre
+      language: Language
+      message: Message
       note: Note
-      language: 
-      user: 
+      period: Epoch
+      user: User
   button:
     add: Add
     back: Back
@@ -346,6 +348,8 @@ en:
         title: Title
       genre:
         name: Name
+      language:
+        name: Name
       link:
         title: Title
         url: URL
@@ -370,6 +374,8 @@ en:
         soloists: Soloists
         title: Title
         voice: Voices
+      period:
+        name: Name
       user:
         email: Email
         name: Name
@@ -377,10 +383,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      period:
-        name: 
-      language:
-        name: 
     select:
       prompt: Please select
     submit:
@@ -391,10 +393,12 @@ en:
       genre:
         create: Create Genre
         update: Update Genre
+      language:
+        create: Name
+      period:
+        create: New epoch
       submit: Save %{model}
       update: Update %{model}
-      language:
-        create: 
   link:
     back: Back
     delete: Delete
