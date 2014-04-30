@@ -1,4 +1,4 @@
-%table.table.table-bordered.table-condensed.table-striped.sortable
+%table#notes.table.table-bordered.table-condensed.table-striped.sortable
   %thead
     %tr
       %th= t('table.title.item')
@@ -8,7 +8,7 @@
       %th= t('table.title.period')
       %th= t('table.title.language')
       %th= t('table.title.instrument')
-      %th= t('table.title.upload')
+      %th{ :class => '{sorter: false}' }= t('table.title.upload')
   %tbody
     - rows.each do |item|
       %tr

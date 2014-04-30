@@ -1,11 +1,11 @@
-%table.table.table-bordered.table-condensed.table-striped.sortable
+%table#evensongs.table.table-bordered.table-condensed.table-striped.sortable
   %thead
     %tr
       %th= t('table.title.title')
       %th= t('table.title.psalm')
       %th= t('table.title.composer')
       %th= t('table.title.genre')
-      %th= t('table.title.upload')
+      %th{ :class => '{sorter: false}' }= t('table.title.upload')
   %tbody
     - rows.each do |item|
       %tr
