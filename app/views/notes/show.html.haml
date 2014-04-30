@@ -29,7 +29,7 @@
       %td= search_link 'search', @show[:note].soloists
     %tr
       %td= t('table.title.instrument')
-      %td= search_link 'search', @show[:note].instrument
+      %td= search_link 'instrument', @show[:note].instrument
     %tr
       %td= t('table.title.originals')
       %td= @show[:note].originals
@@ -41,7 +41,7 @@
       %td= @show[:note].instrumental
     %tr
       %td= t('table.title.voices')
-      %td= search_link 'search', @show[:note].voice
+      %td= search_link 'voice', @show[:note].voice
     %tr
       %td= t('table.title.comment')
       %td= @show[:note].comment

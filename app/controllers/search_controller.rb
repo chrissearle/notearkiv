@@ -111,9 +111,9 @@ class SearchController < ApplicationController
         composer: build_aggregation('composer'),
         genre: build_aggregation('genre'),
         period: build_aggregation('period'),
-        language: build_aggregation('language')
-        #voice: build_aggregation('voice', false)
-        #        instrument: build_aggregation('instrument', false)
+        language: build_aggregation('language'),
+        voice: build_aggregation('voice', false),
+        instrument: build_aggregation('instrument', false)
     }
   end
 
@@ -124,6 +124,8 @@ class SearchController < ApplicationController
     terms << build_term(:genre)
     terms << build_term(:period)
     terms << build_term(:language)
+    terms << build_term(:voice, false)
+    terms << build_term(:instrument, false)
 
     terms.select! { |term| !term.nil? }
 
@@ -146,10 +148,8 @@ class SearchController < ApplicationController
     end
 
     aggregation = {
-        counts: {
-            terms: {
-                field: field
-            }
+        terms: {
+            field: field
         }
     }
 
@@ -158,7 +158,9 @@ class SearchController < ApplicationController
           nested: {
               path: name
           },
-          aggregations: aggregation
+          aggregations: {
+              counts: aggregation
+          }
       }
     end
 
@@ -181,20 +183,30 @@ class SearchController < ApplicationController
     }
   end
 
-  def build_term(term)
-    params[term]
-
+  def build_term(term, nested=true)
     unless params[term].blank?
-      {
-          nested: {
-              path: term.to_s,
-              filter: {
-                  term: {
-                      "#{term.to_s}.name.raw" => params[term]
-                  }
-              }
+      field = "#{term.to_s}.raw"
+
+      if nested
+        field = "#{term.to_s}.name.raw"
+      end
+
+      filter = {
+          term: {
+              field => params[term]
           }
       }
+
+      if nested
+        filter = {
+            nested: {
+                path: term.to_s,
+                filter: filter
+            }
+        }
+      end
+
+      filter
     end
   end
 

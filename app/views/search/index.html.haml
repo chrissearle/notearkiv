@@ -7,7 +7,7 @@
 - if has_search?
   .well
     .btn-group
-      - [:search, :composer, :genre, :period, :language].each do |search_param|
+      - [:search, :composer, :genre, :period, :language, :instrument, :voice].each do |search_param|
         = clear_search_button search_param
 
 = render 'search', :result => @search[:notes], :filtered => !@search[:evensongs].blank?, :title => t('page.notes.title'), :type => 'note', :scoped => Note.preloaded, :table => 'notes/table'

@@ -1,8 +1,10 @@
-- aggregations.each do |name, aggregation|
-  - if aggregation['doc_count'] > 1 && aggregation['counts']['buckets'].size > 1
+- aggregations.sort.each do |name, aggregation|
+  - buckets = (aggregation.has_key?('counts') ? aggregation['counts']['buckets'] : aggregation['buckets'])
+  - if buckets.size > 1
     %h3= t("page.title.#{name}s")
     .list-group
-      - aggregation['counts']['buckets'].each do |bucket|
-        %a.list-group-item{:href => url_for(request.GET.merge(name => bucket['key']))}
-          %span.badge= bucket['doc_count']
-          = bucket['key']
+      - buckets.each do |bucket|
+        - unless bucket['key'].blank?
+          %a.list-group-item{:href => url_for(request.GET.merge(name => bucket['key']))}
+            %span.badge= bucket['doc_count']
+            = bucket['key']

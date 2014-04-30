@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def has_search?
-    params.include?(:search) || params.include?(:composer) ||  params.include?(:genre) ||  params.include?(:period) ||  params.include?(:language)
+    params.include?(:search) || params.include?(:composer) ||  params.include?(:genre) ||  params.include?(:period) ||  params.include?(:language) ||  params.include?(:instrument) ||  params.include?(:voice)
   end
 
   def search_link(key, value, type='all')
