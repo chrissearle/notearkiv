@@ -1,4 +1,4 @@
-jQuery ->
+readyCallback = ->
   $('main').on('click', '.alert button.close', ->
     id = $(this).parents('.alert-dismissable').data('id')
 
@@ -14,3 +14,6 @@ jQuery ->
     if($.cookie('alert-' + id))
       $(this).hide()
   )
+
+$(document).ready(readyCallback)
+$(document).on('page:load', readyCallback)

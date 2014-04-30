@@ -1,4 +1,4 @@
-jQuery ->
+readyCallback = ->
   $('#mainsearch').typeahead(
     minLength: 3,
     source: (query, typeahead) ->
@@ -8,3 +8,6 @@ jQuery ->
           typeahead(data)
       )
   )
+
+$(document).ready(readyCallback)
+$(document).on('page:load', readyCallback)
