@@ -81,6 +81,10 @@ en:
         voice: Voices
       period:
         name: Name
+      upload:
+        path: Path
+        title: Title
+        uploadfile: File
       user:
         email: Email
         name: Name
@@ -88,10 +92,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      upload:
-        path: 
-        title: 
-        uploadfile: 
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -140,10 +140,11 @@ en:
       message: Message
       note: Note
       period: Epoch
+      upload: Upload
       user: User
-      upload: 
   button:
     add: Add
+    attach: Connect attachment
     back: Back
     cancel: Cancel
     edit: Edit
@@ -152,7 +153,6 @@ en:
     password: Send password reset instructions
     update: Save
     upload: Upload new attachment
-    attach: Connect attachment
   create:
     composer:
       ok: Composer created
@@ -287,16 +287,27 @@ en:
       ok: Note deleted
     period:
       ok: Epoch deleted
+    refresh:
+      warning: "<p>Deletes this file from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
     upload:
       ok: File deleted
     user:
       ok: User deleted
-    refresh:
-      warning: "<p>Deletes this file from DropBox.</p><br/><p>This will refresh the list of available files which can take a while.</p>"
   devise:
     link:
       forgotten: Forgot your password?
       signin: Sign in
+  dropbox:
+    file:
+      link: Link
+      media: Direct streaming link (valid without auth for 4 hours)
+      modified: Modified
+      name: Filename
+      size: Size
+    files:
+      title: Files
+      updated:
+        at: 'Updated at:'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -385,6 +396,10 @@ en:
         voice: Voices
       period:
         name: Name
+      upload:
+        path: Path
+        title: Title
+        uploadfile: File
       user:
         email: Email
         name: Name
@@ -392,10 +407,6 @@ en:
         password_confirmation: Confirm Password
         roles: Roles
         username: Username
-      upload:
-        path: 
-        title: 
-        uploadfile: 
     select:
       prompt: Please select
     submit:
@@ -413,8 +424,8 @@ en:
       submit: Save %{model}
       update: Update %{model}
       upload:
-        update: 
-        create: 
+        create: Upload
+        update: Upload
   link:
     back: Back
     delete: Delete
@@ -426,13 +437,16 @@ en:
       refresh: Refresh files list from DropBox
       relink: Fix link
     edit: Edit
+    file:
+      title: Attach a file
     filter: filter
     new: New
     search: Search
     upload:
       ok: File linked
+  media:
     file:
-      title: Attach a file
+      missing: file missing
   menu:
     account:
       title: Account
@@ -553,17 +567,19 @@ en:
       title: Search
     signin:
       title: Sign In
+    upload:
+      title:
+        evensong: 'Attachment for evensong: <em>%{title}</em>'
+        note: 'Attachment for note: <em>%{title}</em>'
     user:
       title: User
     users:
       title: Users
-    upload:
-      title:
-        note: 'Attachment for note: <em>%{title}</em>'
-        evensong: 'Attachment for evensong: <em>%{title}</em>'
   placeholder:
     note:
       item: Leave blank to use the next ID available
+  refresh:
+    warning: This will refresh the list of available files which can take a while.
   search:
     prefix: 'Current search:'
   support:
@@ -642,36 +658,20 @@ en:
       ok: Note updated
     period:
       ok: Epoch updated
-    user:
-      ok: User updated
     upload:
       ok: Upload updated
-  dropbox:
-    files:
-      title: Files
-      updated:
-        at: 'Updated at:'
-    file:
-      name: Filename
-      size: Size
-      modified: Modified
-      media: Direct streaming link (valid without auth for 4 hours)
-      link: Link
+    user:
+      ok: User updated
+  upload:
+    available: Available files
+    link:
+      object: Link
+    not:
+      available: Direct link not yet available. Click to open view page which will fetch the link for you.
+    path: Path
+    title: Title
   uploads:
     with:
       broken:
         dropbox:
           link: Uploads not found on DropBox
-  upload:
-    title: Title
-    path: Path
-    link:
-      object: Link
-    available: Available files
-    not:
-      available: Direct link not yet available. Click to open view page which will fetch the link for you.
-  refresh:
-    warning: This will refresh the list of available files which can take a while.
-  media:
-    file:
-      missing: file missing

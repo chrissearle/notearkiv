@@ -73,6 +73,10 @@ nb:
         voice: Stemmer
       period:
         name: Navn
+      upload:
+        path: Sti
+        title: Tittel
+        uploadfile: Fil
       user:
         email: Epost
         name: Navn
@@ -80,10 +84,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      upload:
-        path: Path
-        title: Title
-        uploadfile: Uploadfile
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -124,10 +124,11 @@ nb:
       message: Melding
       note: Note
       period: Epoke
-      user: Bruker
       upload: Upload
+      user: Bruker
   button:
     add: Ny
+    attach: Koble opp vedlegg
     back: Tilbake
     cancel: Avbryt
     edit: Rediger
@@ -136,7 +137,6 @@ nb:
     password: Send informasjon om hvordan man bytter passord
     update: Lagre
     upload: Last opp nytt vedlegg
-    attach: Koble opp vedlegg
   create:
     composer:
       ok: Komponist lagret
@@ -271,16 +271,27 @@ nb:
       ok: Note slettet
     period:
       ok: Epoke slettet
+    refresh:
+      warning: "<p>Sletter denne filen fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
     upload:
       ok: Fil slettet
     user:
       ok: Bruker slettet
-    refresh:
-      warning: "<p>Sletter denne filen fra DropBox.</p><br/><p>Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.</p>"
   devise:
     link:
       forgotten: Glemt passord?
       signin: Logg på
+  dropbox:
+    file:
+      link: Lenke
+      media: Direkte visningslenke (gyldig uten auth i 4t)
+      modified: Modifisert
+      name: Filnavn
+      size: Størrelse
+    files:
+      title: Filer
+      updated:
+        at: 'Sist oppdatert:'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -361,6 +372,10 @@ nb:
         voice: Stemmer
       period:
         name: Navn
+      upload:
+        path: Sti
+        title: Tittel
+        uploadfile: Fil
       user:
         email: Epost
         name: Navn
@@ -368,10 +383,6 @@ nb:
         password_confirmation: Bekreft passord
         roles: Roller
         username: Brukernavn
-      upload:
-        path: 
-        title: 
-        uploadfile: 
     select:
       prompt: Vennligst velg
     submit:
@@ -389,8 +400,8 @@ nb:
       submit: Lagre %{model}
       update: Oppdater %{model}
       upload:
-        update: Update Upload
-        create: Create Upload
+        create: Lagre fil
+        update: Oppdater fil
   link:
     back: Tilbake
     delete: Slett
@@ -402,13 +413,16 @@ nb:
       refresh: Oppfrisk listen over filer fra DropBox
       relink: Oppdater lenken
     edit: Rediger
+    file:
+      title: Vedlegg
     filter: filtrer
     new: Ny
     search: Søk
     upload:
       ok: Fil lenket
+  media:
     file:
-      title: Vedlegg
+      missing: fant ikke filen
   menu:
     account:
       title: Konto
@@ -537,17 +551,19 @@ nb:
       title: Søk
     signin:
       title: Innlogging
+    upload:
+      title:
+        evensong: 'Vedlegg for evensong: <em>%{title}</em>'
+        note: 'Vedlegg for note: <em>%{title}</em>'
     user:
       title: Bruker
     users:
       title: Brukere
-    upload:
-      title:
-        note: 'Vedlegg for note: <em>%{title}</em>'
-        evensong: 'Vedlegg for evensong: <em>%{title}</em>'
   placeholder:
     note:
       item: La stå tom for å bruke neste tilgjengelige ID
+  refresh:
+    warning: Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.
   search:
     prefix: 'Nåværende søk:'
   support:
@@ -626,36 +642,20 @@ nb:
       ok: Note oppdatert
     period:
       ok: Epoke oppdatert
-    user:
-      ok: Bruker oppdatert
     upload:
       ok: Fil oppdatert
-  dropbox:
-    files:
-      title: Filer
-      updated:
-        at: 'Sist oppdatert:'
-    file:
-      name: Filnavn
-      size: Størrelse
-      modified: Modifisert
-      media: Direkte visningslenke (gyldig uten auth i 4t)
-      link: Lenke
+    user:
+      ok: Bruker oppdatert
+  upload:
+    available: Tilgjengelige filer
+    link:
+      object: Lenke
+    not:
+      available: Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg.
+    path: Sti
+    title: Tittel
   uploads:
     with:
       broken:
         dropbox:
           link: Vedlegg som ikke finnes på DropBox
-  upload:
-    title: Tittel
-    path: Sti
-    link:
-      object: Lenke
-    available: Tilgjengelige filer
-    not:
-      available: Direktlenken er ikke tilgjengelig enda. Klikk for å åpne visningsiden som vil hente lenken til deg.
-  refresh:
-    warning: Dette vil oppfriske listen av tilgjengelige filer, som kan ta litt tid.
-  media:
-    file:
-      missing: fant ikke filen
