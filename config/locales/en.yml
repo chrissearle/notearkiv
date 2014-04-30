@@ -138,6 +138,27 @@ en:
     login: Log in
     password: Send password reset instructions
     update: Save
+  create:
+    composer:
+      ok: Composer created
+    evensong:
+      ok: Evensong created
+    genre:
+      ok: Genre created
+    language:
+      ok: Language created
+    link:
+      ok: Link created
+    message:
+      ok: Message created
+    note:
+      ok: Note created
+    period:
+      ok: Epoch created
+    upload:
+      ok: File uploaded
+    user:
+      ok: User created
   date:
     abbr_day_names:
     - Sun
@@ -234,6 +255,27 @@ en:
       month: Month
       second: Seconds
       year: Year
+  delete:
+    composer:
+      ok: Composer deleted
+    evensong:
+      ok: Evensong deleted
+    genre:
+      ok: Genre deleted
+    language:
+      ok: Language deleted
+    link:
+      ok: Link deleted
+    message:
+      ok: Message deleted
+    note:
+      ok: Note deleted
+    period:
+      ok: Epoch deleted
+    upload:
+      ok: File deleted
+    user:
+      ok: User deleted
   devise:
     link:
       forgotten: Forgot your password?
@@ -542,3 +584,22 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  update:
+    composer:
+      ok: Composer updated
+    evensong:
+      ok: Evensong updated
+    genre:
+      ok: Genre updated
+    language:
+      ok: Language updated
+    link:
+      ok: Link updated
+    message:
+      ok: Message updated
+    note:
+      ok: Note updated
+    period:
+      ok: Epoch updated
+    user:
+      ok: User updated

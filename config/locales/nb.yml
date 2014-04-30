@@ -122,6 +122,27 @@ nb:
     login: Logg på
     password: Send informasjon om hvordan man bytter passord
     update: Lagre
+  create:
+    composer:
+      ok: Komponist lagret
+    evensong:
+      ok: Evensongnote lagret
+    genre:
+      ok: Genre lagret
+    language:
+      ok: Språk lagret
+    link:
+      ok: Lenke lagret
+    message:
+      ok: Melding lagret
+    note:
+      ok: Note lagret
+    period:
+      ok: Epoke lagret
+    upload:
+      ok: Fil lastet opp
+    user:
+      ok: Bruker lagret
   date:
     abbr_day_names:
     - søn
@@ -218,6 +239,27 @@ nb:
       month: Måned
       second: Sekund
       year: "År"
+  delete:
+    composer:
+      ok: Komponist slettet
+    evensong:
+      ok: Evensongnote slettet
+    genre:
+      ok: Genre slettet
+    language:
+      ok: Språk slettet
+    link:
+      ok: Lenke slettet
+    message:
+      ok: Melding slettet
+    note:
+      ok: Note slettet
+    period:
+      ok: Epoke slettet
+    upload:
+      ok: Fil slettet
+    user:
+      ok: Bruker slettet
   devise:
     link:
       forgotten: Glemt passord?
@@ -526,3 +568,22 @@ nb:
       long: "%A, %e. %B %Y, %H:%M"
       short: "%e. %B, %H:%M"
     pm: 
+  update:
+    composer:
+      ok: Komponist oppdatert
+    evensong:
+      ok: Evensongnote oppdatert
+    genre:
+      ok: Genre oppdatert
+    language:
+      ok: Språk oppdatert
+    link:
+      ok: Lenke oppdatert
+    message:
+      ok: Melding oppdatert
+    note:
+      ok: Note oppdatert
+    period:
+      ok: Epoke oppdatert
+    user:
+      ok: Bruker oppdatert

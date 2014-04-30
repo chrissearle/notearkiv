@@ -22,7 +22,7 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.save
-        format.html { redirect_to :action => 'index' }
+        format.html { redirect_to :action => 'index', notice: t('create.language.ok') }
         format.json { render :show, status: :created, location: @language }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class LanguagesController < ApplicationController
   def update
     respond_to do |format|
       if @language.update(language_params)
-        format.html { redirect_to :action => 'index' }
+        format.html { redirect_to :action => 'index', notice: t('update.language.ok') }
         format.json { render :show, status: :ok, location: @language }
       else
         format.html { render :edit }
@@ -46,7 +46,7 @@ class LanguagesController < ApplicationController
   def destroy
     @language.destroy
     respond_to do |format|
-      format.html { redirect_to languages_url }
+      format.html { redirect_to languages_url, notice: t('delete.language.ok') }
       format.json { head :no_content }
     end
   end

@@ -20,9 +20,9 @@ class LinksController < ApplicationController
       if @link.save
         format.html do
           if @link.note
-            redirect_to note_path(@link.note)
+            redirect_to note_path(@link.note), notice: t('create.link.ok')
           else
-            redirect_to evensong_path(@link.evensong)
+            redirect_to evensong_path(@link.evensong), notice: t('create.link.ok')
           end
         end
         format.json { render :show, status: :created, location: @link }
@@ -41,9 +41,9 @@ class LinksController < ApplicationController
       if @link.update(link_params)
         format.html do
           if @link.note
-            redirect_to note_path(@link.note)
+            redirect_to note_path(@link.note), notice: t('update.link.ok')
           else
-            redirect_to evensong_path(@link.evensong)
+            redirect_to evensong_path(@link.evensong), notice: t('update.link.ok')
           end
         end
         format.json { render :show, status: :ok, location: @link }
@@ -63,9 +63,9 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html do
         if note
-          redirect_to note_path(note)
+          redirect_to note_path(note), notice: t('delete.link.ok')
         else
-          redirect_to evensong_path(evensong)
+          redirect_to evensong_path(evensong), notice: t('delete.link.ok')
         end
       end
       format.json { head :no_content }
