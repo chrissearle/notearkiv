@@ -25,6 +25,15 @@ Rails.application.routes.draw do
 #      end
     end
 
+    resources :uploads do
+      collection do
+        get 'link'
+      end
+      member do
+        get 'refresh'
+      end
+    end
+
     resources :dropbox do
       collection do
         get 'authorize'

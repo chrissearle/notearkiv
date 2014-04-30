@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def has_search?
-    params.include?(:search) || params.include?(:composer) ||  params.include?(:genre) ||  params.include?(:period) ||  params.include?(:language) ||  params.include?(:instrument) ||  params.include?(:voice)
+    params.include?(:search) || params.include?(:composer) || params.include?(:genre) || params.include?(:period) || params.include?(:language) || params.include?(:instrument) || params.include?(:voice)
   end
 
   def search_link(key, value, type='all')
@@ -86,6 +86,63 @@ module ApplicationHelper
 
   def sorted_scoped(scoped, ids)
     index = scoped.where(id: ids).to_a.group_by(&:id)
-    ids.map{ |i| index[i.to_i].first }
+    ids.map { |i| index[i.to_i].first }
+  end
+
+  def upload_back_item(path)
+    Upload.search_path(path)
+  end
+
+  def upload_back_link(path)
+    upload = upload_back_item(path)
+
+    if upload
+      if upload.note
+        link_to "#{t('page.note.title')}: #{upload.note.title}", note_path(upload.note)
+      else
+        link_to "#{t('page.evensong.title')}: #{upload.evensong.title}", evensong_path(upload.evensong)
+      end
+    end
+  end
+
+  def get_icon_for_path(path)
+    ext = path.gsub(/.*\./, '').downcase.to_sym
+
+    ext = :default unless DROPBOX_FILE_ICONS.has_key? ext
+
+    DROPBOX_FILE_ICONS[ext]
+  end
+
+  def short_media_link(upload, source)
+    media = upload.media
+
+    if media.nil?
+      link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe, source, :rel => 'popover', :data => {:container => 'body', :toggle => 'popover', :trigger => 'hover', :title => upload.display_name, :content => t('upload.not.available')}
+    else
+      link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe, upload.media, :rel => 'tooltip', :title => upload.display_name
+    end
+  end
+
+  def media_link(upload, refresh_cache=false)
+    if refresh_cache
+      upload.media(true)
+    end
+
+    unless upload.media
+      return "#{upload.display_name} - #{t('media.file.missing')}"
+    end
+
+    link_to "<i class='#{get_icon_for_path(upload.path)}'></i>".html_safe + upload.display_name, upload.media
+  end
+
+  def upload_title(prefix, upload)
+    title = ''
+    unless upload.note.nil?
+      title = t("#{prefix}.note", :title => upload.note.title).html_safe
+    end
+    unless upload.evensong.nil?
+      title = t("#{prefix}.evensong", :title => upload.evensong.title).html_safe
+    end
+    title
   end
 end

@@ -11,7 +11,7 @@ class Note < ActiveRecord::Base
   before_destroy :remove_uploads
 
   has_many :links
-  #has_many :uploads
+  has_many :uploads
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
@@ -23,8 +23,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :item, :title, :originals
 
   scope :ordered, -> { order(:title) }
-  scope :preloaded, -> { includes :composer, :genre, :period, :language }
-  #  scope :preloaded, -> { includes :composer, :genre, :period, :language, :links, :uploads }
+  scope :preloaded, -> { includes :composer, :genre, :period, :language, :uploads }
 
   def get_typeahead
     [title, voice, soloists, instrument, comment, composer_name, genre_name, period_name, language_name].flatten

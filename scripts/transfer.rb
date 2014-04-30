@@ -55,3 +55,13 @@ new.exec('UPDATE genres SET notes_count=(SELECT count(*) FROM notes WHERE genre_
 new.exec('UPDATE composers SET notes_count=(SELECT count(*) FROM notes WHERE composer_id=composers.id)')
 new.exec('UPDATE periods SET notes_count=(SELECT count(*) FROM notes WHERE period_id=periods.id)')
 new.exec('UPDATE languages SET notes_count=(SELECT count(*) FROM notes WHERE language_id=languages.id)')
+
+new.exec('TRUNCATE uploads')
+
+new.prepare('create_uploads', 'INSERT INTO uploads(id, title, path, note_id, evensong_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, now(), now())')
+
+old.exec('SELECT id, title, path, note_id, evensong_id FROM uploads') do |result|
+  result.each do |row|
+    new.exec_prepared('create_uploads', [row['id'], row['title'], row['path'], row['note_id'], row['evensong_id']])
+  end
+end

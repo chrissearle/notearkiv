@@ -6,9 +6,9 @@ module AbstractNote
   end
 
   def remove_uploads
-#    self.uploads.each do |upload|
-#      upload.destroy
-#    end
+    self.uploads.each do |upload|
+      upload.destroy
+    end
   end
 
   def typeahead(prefix)

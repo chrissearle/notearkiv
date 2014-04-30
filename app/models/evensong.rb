@@ -6,7 +6,7 @@ class Evensong < ActiveRecord::Base
   belongs_to :composer, counter_cache: true
 
   has_many :links
-#  has_many :uploads
+  has_many :uploads
 
   before_destroy :remove_links
   before_destroy :remove_uploads
@@ -17,8 +17,7 @@ class Evensong < ActiveRecord::Base
   validates_presence_of :title, :composer, :genre
 
   scope :ordered, -> { order(:title) }
-  scope :preloaded, -> { includes :composer, :genre }
-#  scope :preloaded, -> { includes :composer, :genre, :links, :uploads }
+  scope :preloaded, -> { includes :composer, :genre, :uploads }
 
   def get_typeahead
     [title, soloists, comment, composer_name, genre_name]

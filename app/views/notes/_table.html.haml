@@ -24,3 +24,5 @@
         %td= search_link 'language', item.language_name
         %td= search_link 'instrument', item.instrument
         %td
+          - item.uploads.each do |u|
+            = short_media_link u, note_path(item)

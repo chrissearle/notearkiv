@@ -11,7 +11,6 @@ class DropboxController < ApplicationController
       return redirect_to dropbox_index_path
     end
 
-=begin
     if params[:path]
       @files = DropboxWrapper.get_path(params[:path])
     else
@@ -23,8 +22,7 @@ class DropboxController < ApplicationController
       end
     end
 
-    @uploads = Upload.select{ |upload| @files.find{ |file| file['path'] == upload.path } == nil }
-=end
+    @uploads = Upload.preloaded.select{ |upload| @files.find{ |file| file['path'] == upload.path } == nil }
   end
 
   def show

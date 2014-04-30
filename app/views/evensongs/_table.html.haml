@@ -18,3 +18,5 @@
         %td= search_link 'composer', item.composer_name
         %td= search_link 'genre', item.genre_name
         %td
+          - item.uploads.each do |u|
+            = short_media_link u, evensong_path(item)

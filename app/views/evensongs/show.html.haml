@@ -30,11 +30,11 @@
         - if permitted_to?(:show, :links)
           - if @show[:evensong].links
             = render :partial => 'shared/show_links_list', :locals => { :links => @show[:evensong].links }
-    -# %tr
-    -#   %td= t('model.upload.list.title')
-    -#  %td
-    -#    - if @show[:evensong].uploads
-    -#      = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @show[:evensong].uploads }
+    %tr
+      %td= t('table.title.upload')
+      %td
+        - if @show[:evensong].uploads
+          = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @show[:evensong].uploads }
 
 .well
   = link_to t('link.back'), :back, :class => 'btn btn-default'
@@ -54,9 +54,9 @@
     = link_to t('button.edit'), edit_evensong_path(@show[:evensong]), :class => 'btn btn-default'
   - if permitted_to?(:new, :links)
     = link_to t('button.link'), new_link_path(:evensong => @show[:evensong].id), :class => 'btn btn-default'
-  -# if permitted_to?(:new, :uploads)
-    = link_to t('show.button.upload'), new_upload_path(:evensong => @show[:evensong].id), :class => 'btn btn-default'
-  -# if permitted_to?(:link, :uploads)
-    = link_to t('show.button.attach'), link_uploads_path(:evensong => @show[:evensong].id), :class => 'btn btn-default', :rel => 'popover', :data => { :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover' }
+  - if permitted_to?(:new, :uploads)
+    = link_to t('button.upload'), new_upload_path(:evensong => @show[:evensong].id), :class => 'btn btn-default'
+  - if permitted_to?(:link, :uploads)
+    = link_to t('button.attach'), link_uploads_path(:evensong => @show[:evensong].id), :class => 'btn btn-default', :rel => 'popover', :data => { :container => 'body', :toggle => 'popover', :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover', :placement => 'right' }
   - if permitted_to?(:destroy, @show[:evensong])
     = link_to t('link.delete'), @show[:evensong], method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-danger'
