@@ -96,7 +96,7 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       if @evensong.save
-        format.html { redirect_to :action => 'index', notice: t('create.evensong.ok') }
+        format.html { redirect_to evensongs_url, notice: t('create.evensong.ok') }
         format.json { render :show, status: :created, location: @evensong }
       else
         format.html { render :new }
@@ -108,7 +108,7 @@ class EvensongsController < ApplicationController
   def update
     respond_to do |format|
       if @evensong.update(evensong_params)
-        format.html { redirect_to :action => 'index', notice: t('update.evensong.ok') }
+        format.html { redirect_to evensongs_url, notice: t('update.evensong.ok') }
         format.json { render :show, status: :ok, location: @evensong }
       else
         format.html { render :edit }

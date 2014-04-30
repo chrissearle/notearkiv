@@ -101,7 +101,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to :action => 'index', notice: t('create.note.ok') }
+        format.html { redirect_to notes_url, notice: t('create.note.ok') }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -113,7 +113,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to :action => 'index', notice: t('update.note.ok') }
+        format.html { redirect_to notes_url, notice: t('update.note.ok') }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }

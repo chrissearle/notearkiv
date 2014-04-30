@@ -22,7 +22,7 @@ class AdminUsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to :action => 'index', notice: t('create.user.ok') }
+        format.html { redirect_to admin_users_url, notice: t('create.user.ok') }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class AdminUsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to :action => 'index', notice: t('update.user.ok') }
+        format.html { redirect_to admin_users_url, notice: t('update.user.ok') }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

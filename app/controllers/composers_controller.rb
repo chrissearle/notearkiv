@@ -22,7 +22,7 @@ class ComposersController < ApplicationController
 
     respond_to do |format|
       if @composer.save
-        format.html { redirect_to :action => 'index', notice: t('create.composer.ok') }
+        format.html { redirect_to composers_url, flash: { notice: t('create.composer.ok') } }
         format.json { render :show, status: :created, location: @composer }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ComposersController < ApplicationController
   def update
     respond_to do |format|
       if @composer.update(composer_params)
-        format.html { redirect_to :action => 'index', notice: t('update.composer.ok') }
+        format.html { redirect_to composers_url, notice: t('update.composer.ok') }
         format.json { render :show, status: :ok, location: @composer }
       else
         format.html { render :edit }

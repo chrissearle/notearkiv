@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to :action => 'index', notice: t('create.message.ok') }
+        format.html { redirect_to messages_url, notice: t('create.message.ok') }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to :action => 'index', notice: t('update.message.ok') }
+        format.html { redirect_to messages_url, notice: t('update.message.ok') }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }

@@ -22,7 +22,7 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        format.html { redirect_to :action => 'index', notice: t('create.period.ok') }
+        format.html { redirect_to periods_url, notice: t('create.period.ok') }
         format.json { render :show, status: :created, location: @period }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class PeriodsController < ApplicationController
   def update
     respond_to do |format|
       if @period.update(period_params)
-        format.html { redirect_to :action => 'index', notice: t('update.period.ok') }
+        format.html { redirect_to periods_url, notice: t('update.period.ok') }
         format.json { render :show, status: :ok, location: @period }
       else
         format.html { render :edit }
