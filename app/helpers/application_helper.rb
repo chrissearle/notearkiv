@@ -85,8 +85,7 @@ module ApplicationHelper
   end
 
   def sorted_scoped(scoped, ids)
-    index = scoped.where(id: ids).to_a.group_by(&:id)
-    ids.map { |i| index[i.to_i].first }
+    scoped.where(id: ids).order("find_in_array(id, #{ids.to_postgres_array})")
   end
 
   def upload_back_item(path)
