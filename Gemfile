@@ -61,6 +61,7 @@ gem 'foreman', :require => false
 gem 'localeapp'
 
 group :development do
+  gem 'rack-mini-profiler'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
