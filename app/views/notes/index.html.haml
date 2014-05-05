@@ -2,6 +2,6 @@
 
 = render 'actions'
 
-= render 'table', :rows => @notes
+= render 'table', :ids => @notes.map(&:id), :rows => @notes
 
 = render 'actions'

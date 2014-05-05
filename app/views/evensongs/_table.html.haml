@@ -7,7 +7,9 @@
       %th= t('table.title.genre')
       %th{ :class => '{sorter: false}' }= t('table.title.upload')
   %tbody
-    - rows.each do |item|
+    - items = rows.group_by(&:id)
+    - ids.each do |id|
+      - item = items[id].first
       %tr
         %td
           - if permitted_to? :show, item

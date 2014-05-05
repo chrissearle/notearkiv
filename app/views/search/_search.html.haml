@@ -10,6 +10,6 @@
         = render "#{type}s/actions"
       .row
         .col-md-9
-          = render table, :rows => sorted_scoped(scoped, result.records.ids)
+          = render table, :ids => result.records.ids.map{ |id| id.to_i }, :rows => scoped.where(id: result.records.ids)
         .col-md-3
           = render 'shared/facet', :aggregations => result.response['aggregations']
