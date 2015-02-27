@@ -150,7 +150,8 @@ en:
     edit: Edit
     link: Add Link
     login: Log in
-    password: Send password reset instructions
+    password:
+  change: "Endre passord"
     update: Save
     upload: Upload new attachment
   create:
@@ -559,6 +560,8 @@ en:
     password:
       new:
         title: Forgotten your password?
+      edit:
+        title: "Change your password"
     period:
       title: Epoch
     periods:
@@ -675,3 +678,7 @@ en:
       broken:
         dropbox:
           link: Uploads not found on DropBox
+  new:
+    password:
+      password: "New password"
+      confirm: "Confirm new password"

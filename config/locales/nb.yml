@@ -543,6 +543,8 @@ nb:
     password:
       new:
         title: Glemt passord?
+      edit:
+        title: "Endre passordet"
     period:
       title: Epoke
     periods:
@@ -659,3 +661,7 @@ nb:
       broken:
         dropbox:
           link: Vedlegg som ikke finnes på DropBox
+  new:
+    password:
+      password: "Nytt passord"
+      confirm: "Bekreft passord"
