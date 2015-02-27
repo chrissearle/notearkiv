@@ -131,6 +131,8 @@ nb:
     attach: Koble opp vedlegg
     back: Tilbake
     cancel: Avbryt
+    change:
+      password: Endre passord
     edit: Rediger
     link: Ny lenke
     login: Logg på
@@ -456,6 +458,10 @@ nb:
     error: feil
     info: info
     warning: varsel
+  new:
+    password:
+      confirm: Bekreft passord
+      password: Nytt passord
   number:
     currency:
       format:
@@ -541,10 +547,10 @@ nb:
     notes:
       title: Noter
     password:
+      edit:
+        title: Endre passord
       new:
         title: Glemt passord?
-      edit:
-        title: "Endre passordet"
     period:
       title: Epoke
     periods:
@@ -661,7 +667,3 @@ nb:
       broken:
         dropbox:
           link: Vedlegg som ikke finnes på DropBox
-  new:
-    password:
-      password: "Nytt passord"
-      confirm: "Bekreft passord"

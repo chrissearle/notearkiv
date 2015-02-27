@@ -147,11 +147,12 @@ en:
     attach: Connect attachment
     back: Back
     cancel: Cancel
+    change:
+      password: Change password
     edit: Edit
     link: Add Link
     login: Log in
-    password:
-  change: "Endre passord"
+    password: Send password reset instructions
     update: Save
     upload: Upload new attachment
   create:
@@ -481,6 +482,10 @@ en:
     error: error
     info: info
     warning: warning
+  new:
+    password:
+      confirm: Confirm new password
+      password: New password
   number:
     currency:
       format:
@@ -558,10 +563,10 @@ en:
     notes:
       title: Notes
     password:
+      edit:
+        title: Edit password
       new:
         title: Forgotten your password?
-      edit:
-        title: "Change your password"
     period:
       title: Epoch
     periods:
@@ -678,7 +683,3 @@ en:
       broken:
         dropbox:
           link: Uploads not found on DropBox
-  new:
-    password:
-      password: "New password"
-      confirm: "Confirm new password"
