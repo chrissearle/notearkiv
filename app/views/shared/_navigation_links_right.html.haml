@@ -2,7 +2,7 @@
   - if current_user
     %li.dropdown
       %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
-        = link_with_icon('tags', t('menu.dropdown.categories'), true)
+        = link_with_icon('tags', t('menu.dropdown.categories'))
         %b.caret
       %ul.dropdown-menu
         - if permitted_to? :index, :composers
@@ -16,7 +16,7 @@
     %li.divider-vertical
     %li.dropdown
       %a.dropdown-toggle{ :href => "#", :'data-toggle' => "dropdown" }
-        = link_with_icon( 'user', t('menu.dropdown.account'), true)
+        = link_with_icon( 'user', t('menu.dropdown.account'))
         %b.caret
       %ul.dropdown-menu
         - if permitted_to? :index, :messages
@@ -30,7 +30,7 @@
     %li.divider-vertical
     %li.dropdown
       %a.dropdown-toggle{ :href => '#', :'data-toggle' => 'dropdown' }
-        = link_with_icon( 'user', t('menu.dropdown.language'), true)
+        = link_with_icon( 'user', t('menu.dropdown.language'))
         %b.caret
       %ul.dropdown-menu
         %li= link_to t('menu.language.norwegian'), url_for(request.GET.merge(:locale => 'nb'))

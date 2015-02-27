@@ -45,13 +45,10 @@ body {
   color: #fff;
 }
 
-
 table.sortable .header,
 table.sortable .tablesorter-header {
-	background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
-	background-repeat: no-repeat;
-	background-position: center right;
-	padding: 4px 18px 4px 4px;
+  background: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==) no-repeat center right;
+  padding: 4px 18px 4px 4px;
 	white-space: normal;
 	cursor: pointer;
 }

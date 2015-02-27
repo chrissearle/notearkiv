@@ -19,8 +19,8 @@
           %td= file['path']
           %td= number_to_human_size file['bytes'].to_f
           %td= file['modified']
-          %td= link_to t('button.attach'), url_for(params.merge(:path => file['path'])), :class => 'btn btn-mini'
+          %td= link_to t('button.attach'), url_for(params.merge(:path => file['path'])), :class => 'btn btn-default btn-xs'
 
 
 .well
-  = link_to t('link.back'), :back, :class => 'btn'
+  = link_to t('link.back'), :back, :class => 'btn btn-default  btn-xs'

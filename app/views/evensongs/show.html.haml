@@ -37,26 +37,26 @@
           = render :partial => 'shared/show_uploads_list', :locals => { :uploads => @show[:evensong].uploads }
 
 .well
-  = link_to t('link.back'), :back, :class => 'btn btn-default'
+  = link_to t('link.back'), :back, :class => 'btn btn-default btn-xs'
   -# if @show[:first]
-    = link_to t('show.button.first'), evensong_path(@show[:first]), :class => 'btn btn-default'
+    = link_to t('show.button.first'), evensong_path(@show[:first]), :class => 'btn btn-default btn-xs'
   -# if @show[:previous]
-    = link_to t('show.button.previous'), evensong_path(@show[:previous]), :class => 'btn btn-default'
+    = link_to t('show.button.previous'), evensong_path(@show[:previous]), :class => 'btn btn-default btn-xs'
   -# if @show[:next]
-    = link_to t('show.button.next'), evensong_path(@show[:next]), :class => 'btn btn-default'
+    = link_to t('show.button.next'), evensong_path(@show[:next]), :class => 'btn btn-default btn-xs'
   -# if @show[:last]
-    = link_to t('show.button.last'), evensong_path(@show[:last]), :class => 'btn btn-default'
+    = link_to t('show.button.last'), evensong_path(@show[:last]), :class => 'btn btn-default btn-xs'
   -# if session.has_key? :lastsearch
-    = link_to t('model.evensong.list.title'), search_path(:search => session[:lastsearch]), :class => 'btn btn-default'
+    = link_to t('model.evensong.list.title'), search_path(:search => session[:lastsearch]), :class => 'btn btn-default btn-xs'
   -# else
-    = link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn btn-default'
+    = link_to t('model.evensong.list.title'), evensongs_path, :class => 'btn btn-default btn-xs'
   - if permitted_to?(:edit, @show[:evensong])
-    = link_to t('button.edit'), edit_evensong_path(@show[:evensong]), :class => 'btn btn-default'
+    = link_to t('button.edit'), edit_evensong_path(@show[:evensong]), :class => 'btn btn-default btn-xs'
   - if permitted_to?(:new, :links)
-    = link_to t('button.link'), new_link_path(:evensong => @show[:evensong].id), :class => 'btn btn-default'
+    = link_to t('button.link'), new_link_path(:evensong => @show[:evensong].id), :class => 'btn btn-default btn-xs'
   - if permitted_to?(:new, :uploads)
-    = link_to t('button.upload'), new_upload_path(:evensong => @show[:evensong].id), :class => 'btn btn-default'
+    = link_to t('button.upload'), new_upload_path(:evensong => @show[:evensong].id), :class => 'btn btn-default btn-xs'
   - if permitted_to?(:link, :uploads)
-    = link_to t('button.attach'), link_uploads_path(:evensong => @show[:evensong].id), :class => 'btn btn-default', :rel => 'popover', :data => { :container => 'body', :toggle => 'popover', :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover', :placement => 'right' }
+    = link_to t('button.attach'), link_uploads_path(:evensong => @show[:evensong].id), :class => 'btn btn-default btn-xs', :rel => 'popover', :data => { :container => 'body', :toggle => 'popover', :title => t('link.file.title'), :content => t('refresh.warning'), :trigger => 'hover', :placement => 'right' }
   - if permitted_to?(:destroy, @show[:evensong])
-    = link_to t('link.delete'), @show[:evensong], method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-danger'
+    = link_to t('link.delete'), @show[:evensong], method: :delete, data: { confirm: t('link.destroy.confirm') }, :class => 'btn btn-danger btn-xs'

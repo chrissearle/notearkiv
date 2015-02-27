@@ -31,5 +31,5 @@
           = f.collection_select :genre_id, Genre.ordered, :id, :name, :prompt => true, :class => 'form-control'
 
         .well
-          = f.submit t('button.update'), :class => 'btn btn-primary'
-          = link_to t('button.cancel'), evensongs_path, :class => 'btn btn-default'
+          = f.submit t('button.update'), :class => 'btn btn-primary btn-xs'
+          = link_to t('button.cancel'), evensongs_path, :class => 'btn btn-default btn-xs'

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def clear_button(title, link)
-    "<a href='#{link}' class='btn btn-default'>#{title} <span class='glyphicon glyphicon-remove-circle'></span></a>".html_safe
+    "<a href='#{link}' class='btn btn-default btn-xs'>#{title} <span class='glyphicon glyphicon-remove-circle'></span></a>".html_safe
   end
 
   def clear_search_button(field)
