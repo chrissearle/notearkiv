@@ -52,9 +52,6 @@ Rails.application.routes.draw do
   end
 
   get '/:locale' => 'notes#index'
-
-  get '/users/password/edit', to: redirect { |path_params, req| "/nb/users/password/edit?reset_password_token=#{path_params[:reset_password_token]}" }
-
   root :to => 'notes#index'
 
 end

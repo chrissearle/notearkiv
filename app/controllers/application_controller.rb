@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def self.default_url_options
+    {locale: I18n.locale}
+  end
+
   def permission_denied
 
     logger.info 'permission_denied used'
@@ -39,6 +43,6 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
 
-    { :locale => I18n.locale }
+    {:locale => I18n.locale}
   end
 end
